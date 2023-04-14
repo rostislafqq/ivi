@@ -1,0 +1,54 @@
+@import "@/config/_variables.scss";
+@import "@/config/_fonts.scss";
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: inherit;
+}
+
+body {
+	font-family: $font;
+	font-size: $font-base;
+	font-weight: 400;
+	font-style: normal;
+	line-height: 1;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0 1.25rem;
+	width: 100%;
+
+	@media (min-width: 576px) {
+		max-width: 36rem; // 540px
+	}
+
+	@media (min-width: 768px) {
+		max-width: 48rem; // 720px
+	}
+
+	@media (min-width: 992px) {
+		max-width: 64rem; // 960px
+	}
+
+	@media (min-width: 1200px) {
+		max-width: 76rem; // 1140px
+	}
+
+	@media (min-width: 1400px) {
+		max-width: 88rem; // 1320px
+	}
+}
