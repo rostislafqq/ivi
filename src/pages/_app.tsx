@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { Layout } from '@/components/templates';
+
 import type { AppProps } from 'next/app';
 
 import '@/config/globals.scss';

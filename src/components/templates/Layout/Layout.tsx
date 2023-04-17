@@ -1,6 +1,6 @@
-import React from 'react';
-import cn from 'classnames';
 import localFont from '@next/font/local';
+import cn from 'classnames';
+import React from 'react';
 
 import styles from './layout.module.scss';
 
