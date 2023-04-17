@@ -1,19 +1,22 @@
-import React from "react";
-import cn from "classnames";
-import styles from "./button.module.scss";
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable no-console */
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable react/require-default-props */
+import React from 'react';
+import cn from 'classnames';
+import styles from './button.module.scss';
 
 interface ButtonProps {
 	/**
 	 * просмотр фильма
 	 */
 	primary?: boolean;
-
 	/**
 	 * кастомный бекграунд(родной прозрачный)
 	 */
 	backgroundColor?: string;
 
-	size?: "small" | "medium" | "large";
+	size?: 'small' | 'medium' | 'large';
 	/**
 	 * содержимое кнопки
 	 */
@@ -35,9 +38,9 @@ interface ButtonProps {
 
 export const Button = ({
 	primary = false,
-	size = "medium",
-	backgroundColor = "",
-	border,
+	size = 'medium',
+	backgroundColor = '',
+	border = '',
 	label,
 	isPay = false,
 	backgroundSvg = false,
@@ -46,8 +49,8 @@ export const Button = ({
 	console.log([styles[`button__background__${backgroundColor}`]]);
 	const btnClass = cn({
 		[styles.button]: true,
-		[styles.button__primary]: primary,
 		[styles[`button__${size}`]]: true,
+		[styles.button__primary]: primary,
 		[styles.button__pay]: isPay,
 		[styles[`button__background__${backgroundColor}`]]: !!backgroundColor,
 		[styles[`button__background__${border}`]]: !!border,
