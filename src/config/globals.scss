@@ -1,6 +1,14 @@
 @import "@/config/_variables.scss";
 @import "@/config/_fonts.scss";
 
+//:root {
+//	--font-family;
+//}
+
+html {
+	font-size: 10px;
+}
+
 *,
 *::after,
 *::before {
@@ -9,6 +17,7 @@
 	box-sizing: border-box;
 	font-family: inherit;
 }
+
 
 body {
 	font-family: $font;

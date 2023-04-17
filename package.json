@@ -19,6 +19,7 @@
     "swiper": "^9.2.0"
   },
   "devDependencies": {
+    "@next/font": "^13.3.0",
     "@storybook/addon-essentials": "^7.0.4",
     "@storybook/addon-interactions": "^7.0.4",
     "@storybook/addon-links": "^7.0.4",
@@ -31,8 +32,8 @@
     "@types/react": "18.0.35",
     "@types/react-dom": "18.0.11",
     "@types/react-redux": "^7.1.25",
-    "typescript": "5.0.4",
+    "sass": "^1.62.0",
     "storybook": "^7.0.4",
-    "sass": "^1.62.0"
+    "typescript": "5.0.4"
   }
 }

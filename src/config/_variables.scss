@@ -9,7 +9,8 @@ $bg: #100e19;
 $accent-color: $red;
 
 // Typography
-$font: Helvetica, Helvetica Neue, FreeSans, Arial, sans-serif;
+//$font: Helvetica, Helvetica Neue, FreeSans, Arial, sans-serif;
+$font: var(--ivi-font);
 
-$font-base: 0.9375rem; // 15px
-$font-sm: 0.8125rem; // 13px
+$font-base: 1.5rem; // 15px
+$font-sm: 1.3rem; // 13px
