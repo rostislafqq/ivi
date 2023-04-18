@@ -1,33 +1,9 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable no-console */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable react/require-default-props */
 import cn from 'classnames';
 import React from 'react';
 
 import styles from './button.module.scss';
 
-interface ButtonProps {
-	size?: 'small' | 'medium' | 'large';
-	/**
-	 * содержимое кнопки
-	 */
-	label?: string;
-	/**
-	 * параметры границы
-	 */
-	border?: 'white' | 'static';
-	/**
-	 * свг фон у кнопки
-	 */
-	backgroundSvg?: boolean;
-	/**
-	 * lightBlack-темный , primary-красный , pay-разноцветный , static-без фона
-	 */
-	variant: 'lightBlack' | 'primary' | 'pay' | 'static';
-	onClick?: () => void;
-}
+import type { ButtonProps } from './Button.types';
 
 export const Button = ({
 	variant = 'static',
@@ -46,7 +22,7 @@ export const Button = ({
 	});
 
 	return (
-		<button type="button" className={btnClass}>
+		<button type="button" className={btnClass} {...props}>
 			{label}
 		</button>
 	);

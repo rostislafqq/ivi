@@ -1,15 +1,15 @@
-import { Label } from './Label';
+import { Badge } from './Badge';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof Label> = {
-	title: 'Atoms/Label',
-	component: Label,
+const meta: Meta<typeof Badge> = {
+	title: 'Atoms/Badge',
+	component: Badge,
 	tags: ['autodocs'],
 };
 
 export default meta;
-type Story = StoryObj<typeof Label>;
+type Story = StoryObj<typeof Badge>;
 
 export const Red: Story = {
 	args: {
