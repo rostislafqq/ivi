@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Header>;
 export const Main: Story = {
 	args: {
 		label: 'Черепашки-ниндзя (2012) (Мультфильм 2012)',
-		main: true,
+		headingLevel: 'h1',
 		black: true,
 		center: true,
 		size: 'huge',

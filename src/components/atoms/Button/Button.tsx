@@ -1,24 +1,23 @@
 import cn from 'classnames';
 import React from 'react';
 
-import styles from './button.module.scss';
+import styles from './Button.module.scss';
 
 import type { ButtonProps } from './Button.types';
 
-export const Button = ({
+export const Button: React.FC<ButtonProps> = ({
 	variant = 'static',
 	size = 'medium',
 	border = 'static',
 	label,
 	backgroundSvg = false,
 	...props
-}: ButtonProps) => {
-	const btnClass = cn({
-		[styles.button]: true,
-		[styles[`button__${size}`]]: true,
-		[styles[`button__${variant}`]]: true,
-		[styles[`button__border__${border}`]]: !!border,
-		[styles.button__backgroundImage__svg]: backgroundSvg,
+}) => {
+	const btnClass = cn(styles.button, {
+		[styles[`button--${size}`]]: true,
+		[styles[`button--${variant}`]]: true,
+		[styles[`button--border--${border}`]]: !!border,
+		[styles['button--backgroundImage--svg']]: backgroundSvg,
 	});
 
 	return (

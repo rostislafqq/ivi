@@ -7,23 +7,27 @@ import type { HeadingProps } from './Heading.types';
 
 export const Header: React.FC<HeadingProps> = ({
 	label,
-	main = false,
+	headingLevel = 'h2',
 	black = false,
 	center = false,
 	size = 'medium',
 }) => {
-	const labelClass = cn({
-		[styles.header]: true,
-		[styles[`header__${size}`]]: true,
-		[styles.header__black]: black,
-		[styles.header__center]: center,
+	const labelClass = cn(styles.header, styles[`header--${size}`], {
+		[styles['header--black']]: black,
+		[styles['header--center']]: center,
 	});
 
-	switch (main) {
-		case true:
+	switch (headingLevel) {
+		case 'h1':
 			return <h1 className={labelClass}>{label}</h1>;
-		case false:
+		case 'h2':
 			return <h2 className={labelClass}>{label}</h2>;
+		case 'h3':
+			return <h3 className={labelClass}>{label}</h3>;
+		case 'h4':
+			return <h4 className={labelClass}>{label}</h4>;
+		case 'h5':
+			return <h5 className={labelClass}>{label}</h5>;
 		default:
 			return null;
 	}
