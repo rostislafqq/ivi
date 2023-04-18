@@ -1,7 +1,7 @@
-import classNames from "classnames";
 import * as React from "react";
 import styles from "./layout.module.scss";
 import localFont from "@next/font/local";
+import classNames from "classnames";
 
 const iviFont = localFont({
 	src: [

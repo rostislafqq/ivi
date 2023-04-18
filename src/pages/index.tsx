@@ -1,3 +1,4 @@
+import { Icon } from "@/components/atoms";
 import React from "react";
 import Head from "next/head";
 

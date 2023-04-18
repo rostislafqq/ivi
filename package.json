@@ -35,6 +35,7 @@
     "@types/react-redux": "^7.1.25",
     "sass": "^1.62.0",
     "storybook": "^7.0.4",
+    "svg-sprite-loader": "^6.0.11",
     "typescript": "5.0.4"
   }
 }

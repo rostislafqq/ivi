@@ -37,6 +37,11 @@ a {
 	text-decoration: none;
 }
 
+svg {
+	flex: 0 0 auto;
+	fill: currentColor;
+}
+
 .container {
 	margin: 0 auto;
 	padding: 0 2rem;
