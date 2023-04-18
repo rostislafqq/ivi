@@ -1,25 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
 
-// More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
+import type { Meta, StoryObj } from '@storybook/react';
+
 const meta: Meta<typeof Button> = {
 	title: 'Atoms/Button',
 	component: Button,
 	tags: ['autodocs'],
-	argTypes: {
-		backgroundColor: {
-			control: 'color',
-		},
-	},
 };
 
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary: Story = {
 	args: {
-		primary: true,
+		variant: 'primary',
 		label: 'Смотреть по подписке',
 		size: 'medium',
 	},
@@ -29,7 +23,7 @@ export const PayBtn: Story = {
 	args: {
 		size: 'small',
 		label: 'Оплатить подписку',
-		isPay: true,
+		variant: 'pay',
 	},
 };
 
@@ -37,7 +31,7 @@ export const Medium: Story = {
 	args: {
 		size: 'medium',
 		label: 'Написать в чате',
-		backgroundColor: 'lightBlack',
+		variant: 'lightBlack',
 	},
 };
 
@@ -46,6 +40,7 @@ export const Large: Story = {
 		size: 'large',
 		label: 'Показать еще',
 		border: 'white',
+		variant: 'lightBlack',
 	},
 };
 
@@ -53,7 +48,7 @@ export const LargeHome: Story = {
 	args: {
 		size: 'large',
 		label: '30 дней подписки за 1 ₽',
-		backgroundColor: 'lightBlack',
+		variant: 'lightBlack',
 		backgroundSvg: true,
 	},
 };
