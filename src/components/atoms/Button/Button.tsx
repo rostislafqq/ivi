@@ -16,7 +16,7 @@ interface ButtonProps {
 	/**
 	 * кастомный бекграунд(родной прозрачный)
 	 */
-	backgroundColor?: string;
+	backgroundColor?: 'lightBlack' | 'static';
 
 	size?: 'small' | 'medium' | 'large';
 	/**
@@ -30,7 +30,7 @@ interface ButtonProps {
 	/**
 	 * параметры границы
 	 */
-	border?: string;
+	border?: 'white' | 'static';
 	/**
 	 * свг фон у кнопки
 	 */
@@ -41,14 +41,13 @@ interface ButtonProps {
 export const Button = ({
 	primary = false,
 	size = 'medium',
-	backgroundColor = '',
-	border = '',
+	backgroundColor = 'static',
+	border = 'static',
 	label,
 	isPay = false,
 	backgroundSvg = false,
 	...props
 }: ButtonProps) => {
-	console.log([styles[`button__background__${backgroundColor}`]]);
 	const btnClass = cn({
 		[styles.button]: true,
 		[styles[`button__${size}`]]: true,
