@@ -9,24 +9,11 @@ import React from 'react';
 import styles from './button.module.scss';
 
 interface ButtonProps {
-	/**
-	 * просмотр фильма
-	 */
-	primary?: boolean;
-	/**
-	 * кастомный бекграунд(родной прозрачный)
-	 */
-	backgroundColor?: 'lightBlack' | 'static';
-
 	size?: 'small' | 'medium' | 'large';
 	/**
 	 * содержимое кнопки
 	 */
 	label?: string;
-	/**
-	 * отвечает за оплату
-	 */
-	isPay?: boolean;
 	/**
 	 * параметры границы
 	 */
@@ -35,26 +22,26 @@ interface ButtonProps {
 	 * свг фон у кнопки
 	 */
 	backgroundSvg?: boolean;
+	/**
+	 * lightBlack-темный , primary-красный , pay-разноцветный , static-без фона
+	 */
+	variant: 'lightBlack' | 'primary' | 'pay' | 'static';
 	onClick?: () => void;
 }
 
 export const Button = ({
-	primary = false,
+	variant = 'static',
 	size = 'medium',
-	backgroundColor = 'static',
 	border = 'static',
 	label,
-	isPay = false,
 	backgroundSvg = false,
 	...props
 }: ButtonProps) => {
 	const btnClass = cn({
 		[styles.button]: true,
 		[styles[`button__${size}`]]: true,
-		[styles.button__primary]: primary,
-		[styles.button__pay]: isPay,
-		[styles[`button__background__${backgroundColor}`]]: !!backgroundColor,
-		[styles[`button__background__${border}`]]: !!border,
+		[styles[`button__${variant}`]]: true,
+		[styles[`button__border__${border}`]]: !!border,
 		[styles.button__backgroundImage__svg]: backgroundSvg,
 	});
 
