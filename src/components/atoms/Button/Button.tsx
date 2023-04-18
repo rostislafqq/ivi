@@ -1,9 +1,11 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable no-console */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable react/require-default-props */
-import React from 'react';
 import cn from 'classnames';
+import React from 'react';
+
 import styles from './button.module.scss';
 
 interface ButtonProps {
