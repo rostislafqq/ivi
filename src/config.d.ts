@@ -1,29 +1,24 @@
 declare module '*.module.scss' {
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const value: any;
+	const value: Record<string, string>;
 	export default value;
 }
 
 declare module '*.jpg' {
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const value: any;
+	const value: string;
 	export default value;
 }
 
 declare module '*.svg' {
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const value: any;
+	const value: string;
 	export default value;
 }
 
 declare module '*.png' {
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const value: any;
+	const value: string;
 	export default value;
 }
 
 declare module '*.gif' {
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const value: any;
+	const value: string;
 	export default value;
 }
