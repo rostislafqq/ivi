@@ -1,24 +1,24 @@
-declare module "*.module.scss" {
-	const value: any;
+declare module '*.module.scss' {
+	const value: Record<string, string>;
 	export default value;
 }
 
-declare module "*.jpg" {
-	const value: any;
+declare module '*.jpg' {
+	const value: string;
 	export default value;
 }
 
-declare module "*.svg" {
-	const value: any;
+declare module '*.svg' {
+	const value: string;
 	export default value;
 }
 
-declare module "*.png" {
-	const value: any;
+declare module '*.png' {
+	const value: string;
 	export default value;
 }
 
-declare module "*.gif" {
-	const value: any;
+declare module '*.gif' {
+	const value: string;
 	export default value;
 }
