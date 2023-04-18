@@ -51,8 +51,7 @@
 	],
 	"exclude": [
 		"node_modules"
-	]
-=======
+	],
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -82,5 +81,4 @@
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "./next.config.js", "./eslintrc.json"],
   "exclude": ["node_modules"]
->>>>>>> 78d1eb1cc078c2449b7b16220ce7a77cd9f3e1c1
 }
