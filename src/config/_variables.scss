@@ -4,17 +4,18 @@ $red: rgb(234, 0, 61);
 $orange: #ff542e;
 $green: #73a32f;
 $gray: #a5a1b2;
+$blue: #00a5ff;
 
 $bg: #100e19;
 $accent-color: $red;
 
 // Typography
-$font-primary: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+$font-primary: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, 'Open Sans',
+	'Helvetica Neue', sans-serif;
 $font-ivi: var(--ivi-font), sans-serif;
 
 $font-base: 1.5rem; // 15px
 $font-sm: 1.3rem; // 13px
-
 
 // breakpoints
 $desktop-xl: 1400;
