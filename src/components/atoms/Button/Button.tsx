@@ -1,8 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable no-console */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable react/require-default-props */
 import cn from 'classnames';
 import React from 'react';
 
