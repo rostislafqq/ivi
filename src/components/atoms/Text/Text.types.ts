@@ -1,10 +1,9 @@
-import { ReactNode } from 'react';
+import React from 'react';
 
 export interface TextProps {
-	children?: ReactNode;
-	color?: 'white' | 'red' | 'blue' | 'gray';
-	size?: 'small' | 'medium';
-	type?: 'p' | 'span' | 'div';
-	square?: boolean;
-	center: boolean;
+	children: React.ReactNode;
+	tag: 'p' | 'span' | 'div';
+	size: 'small' | 'base';
+	color: 'red' | 'blue' | 'gray';
+	className?: string;
 }

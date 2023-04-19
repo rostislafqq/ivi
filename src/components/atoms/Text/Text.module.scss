@@ -3,39 +3,29 @@
 .text {
 	font-weight: 400;
 	width: fit-content;
-	&--small {
-		font-size: $font-sm;
-		line-height: 1.6rem;
-	}
-	&--medium {
+
+	// Sizes
+	&--base {
 		font-size: $font-base;
 		line-height: 2.2rem;
 		font-weight: 500;
 	}
 
+	&--small {
+		font-size: $font-sm;
+		line-height: 1.6rem;
+	}
+
+	// Colors
 	&--red {
 		color: $red;
 	}
+
 	&--blue {
 		color: $blue;
 	}
+
 	&--gray {
 		color: $gray;
-	}
-	&--square {
-		width: 2px;
-		height: 2px;
-	}
-	&--square--red {
-		background-color: $red;
-	}
-	&--square--blue {
-		background-color: $blue;
-	}
-	&--square--gray {
-		background-color: $gray;
-	}
-	&--center {
-		text-align: center;
 	}
 }

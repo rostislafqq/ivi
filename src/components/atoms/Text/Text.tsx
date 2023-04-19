@@ -5,27 +5,25 @@ import styles from './Text.module.scss';
 
 import { TextProps } from './Text.types';
 
-export const Text: React.FC<TextProps> = ({
-	children,
-	size = 'small',
-	color = 'white',
-	square = false,
-	type = 'p',
-	center = false,
-}) => {
-	const textClass = cn(styles.text, styles[`text--${color}`], styles[`text--${size}`], {
-		[styles[`text--square`]]: square,
-		[styles[`text--square--${color}`]]: square,
-		[styles[`text--center`]]: center,
+export const Text: React.FC<TextProps> = ({ className, tag = 'p', size = 'base', color = 'gray', children }) => {
+	const textClasses = cn(styles.text, className, {
+		// Sizes
+		[styles['text--base']]: size === 'base',
+		[styles['text-small']]: size === 'small',
+
+		// Colors
+		[styles['text--red']]: color === 'red',
+		[styles['text--blue']]: color === 'blue',
+		[styles['text--gray']]: color === 'gray',
 	});
 
-	switch (type) {
+	switch (tag) {
 		case 'p':
-			return <p className={textClass}>{children}</p>;
+			return <p className={textClasses}>{children}</p>;
 		case 'span':
-			return <span className={textClass}>{children}</span>;
+			return <span className={textClasses}>{children}</span>;
 		case 'div':
-			return <div className={textClass}>{children}</div>;
+			return <div className={textClasses}>{children}</div>;
 		default:
 			return null;
 	}
