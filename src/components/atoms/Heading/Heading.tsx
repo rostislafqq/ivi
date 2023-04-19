@@ -11,7 +11,6 @@ export const Heading: React.FC<HeadingProps> = ({ className, tag = 'h2', childre
 		[styles['heading--h2']]: tag === 'h2',
 		[styles['heading--h3']]: tag === 'h3',
 		[styles['heading--h4']]: tag === 'h4',
-		[styles['heading--h5']]: tag === 'h5',
 	});
 
 	switch (tag) {
@@ -23,8 +22,6 @@ export const Heading: React.FC<HeadingProps> = ({ className, tag = 'h2', childre
 			return <h3 className={headingClasses}>{children}</h3>;
 		case 'h4':
 			return <h4 className={headingClasses}>{children}</h4>;
-		case 'h5':
-			return <h5 className={headingClasses}>{children}</h5>;
 		default:
 			return null;
 	}

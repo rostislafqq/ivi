@@ -51,14 +51,4 @@ describe('components/atoms/Heading', () => {
 		expect(getByText('Test Heading')).toBeInTheDocument();
 		expect(container.firstChild).toMatchInlineSnapshot(heading('h4', 'Test Heading'));
 	});
-
-	it('should renders an h5 element when tag prop is "h5"', () => {
-		const { getByText, container } = render(
-			<Heading tag="h5" className="test-class">
-				Test Heading
-			</Heading>,
-		);
-		expect(getByText('Test Heading')).toBeInTheDocument();
-		expect(container.firstChild).toMatchInlineSnapshot(heading('h5', 'Test Heading'));
-	});
 });
