@@ -6,10 +6,10 @@ import styles from './Button.module.scss';
 import type { ButtonProps } from './Button.types';
 
 export const Button: React.FC<ButtonProps> = ({
+	children,
 	variant = 'static',
 	size = 'medium',
 	border = 'static',
-	label,
 	backgroundSvg = false,
 	...props
 }) => {
@@ -22,7 +22,7 @@ export const Button: React.FC<ButtonProps> = ({
 
 	return (
 		<button type="button" className={btnClass} {...props}>
-			{label}
+			{children}
 		</button>
 	);
 };

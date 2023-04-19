@@ -1,3 +1,5 @@
+@import '@/config/_variables.scss';
+
 .button {
 	border-radius: 8px;
 	border-width: 1px;
@@ -8,8 +10,8 @@
 	transition-duration: 100ms;
 	border: none;
 	&--primary {
-		background-color: #ea003d;
-		border: 1px solid #ea003d;
+		background-color: $red;
+		border: 1px solid $red;
 	}
 	&--primary:hover {
 		background-color: #ff0f4d;

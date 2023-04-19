@@ -11,8 +11,8 @@ const meta: Meta<typeof HeadingComponent> = {
 		tag: {
 			type: 'string',
 			name: 'Tag',
-			description: 'Тег компонента h1, h2, ... h5',
-			options: ['h1', 'h2', 'h3', 'h4', 'h5'],
+			description: 'Тег компонента h1, h2, ... h4',
+			options: ['h1', 'h2', 'h3', 'h4'],
 			control: {
 				type: 'select',
 			},
