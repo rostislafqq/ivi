@@ -1,0 +1,30 @@
+@import '@/config/_variables.scss';
+
+.header {
+	font-style: normal;
+	font-weight: 700;
+	color: #fff;
+	&--tiny {
+		font-size: $font-base;
+	}
+	&--small {
+		font-size: 2rem;
+	}
+	&--medium {
+		font-size: 2.4rem;
+	}
+	&--large {
+		font-size: 4rem;
+	}
+	&--huge {
+		font-size: 5.6rem;
+	}
+
+	&--black {
+		color: #070808;
+	}
+
+	&--center {
+		text-align: center;
+	}
+}
