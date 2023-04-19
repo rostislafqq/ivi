@@ -1,7 +1,6 @@
 @import '@/config/_variables.scss';
 @import '@/config/_breakpoints.scss';
 
-
 html {
 	font-family: $font-primary;
 	font-size: 0.625em;
@@ -15,7 +14,6 @@ html {
 	box-sizing: border-box;
 	font-family: inherit;
 }
-
 
 body {
 	min-width: 320px;
@@ -41,7 +39,6 @@ a {
 	margin: 0 auto;
 	padding: 0 2rem;
 	width: 100%;
-
 
 	@include mobile-hr {
 		max-width: 540px;
