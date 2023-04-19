@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
 	args: {
 		variant: 'primary',
-		label: 'Смотреть по подписке',
+		children: 'Смотреть по подписке',
 		size: 'medium',
 	},
 };
@@ -22,7 +22,7 @@ export const Primary: Story = {
 export const PayBtn: Story = {
 	args: {
 		size: 'small',
-		label: 'Оплатить подписку',
+		children: 'Оплатить подписку',
 		variant: 'pay',
 	},
 };
@@ -30,7 +30,7 @@ export const PayBtn: Story = {
 export const Medium: Story = {
 	args: {
 		size: 'medium',
-		label: 'Написать в чате',
+		children: 'Написать в чате',
 		variant: 'lightBlack',
 	},
 };
@@ -38,7 +38,7 @@ export const Medium: Story = {
 export const Large: Story = {
 	args: {
 		size: 'large',
-		label: 'Показать еще',
+		children: 'Показать еще',
 		border: 'white',
 		variant: 'lightBlack',
 	},
@@ -47,7 +47,7 @@ export const Large: Story = {
 export const LargeHome: Story = {
 	args: {
 		size: 'large',
-		label: '30 дней подписки за 1 ₽',
+		children: '30 дней подписки за 1 ₽',
 		variant: 'lightBlack',
 		backgroundSvg: true,
 	},

@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export interface BadgeProps {
 	backgroundColor?: 'red' | 'orange' | 'gray';
 
@@ -5,5 +7,5 @@ export interface BadgeProps {
 	/**
 	 * содержимое
 	 */
-	label?: string;
+	children: ReactNode;
 }

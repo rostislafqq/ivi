@@ -1,9 +1,11 @@
+import { ReactNode } from 'react';
+
 export interface ButtonProps {
 	size?: 'small' | 'medium' | 'large';
 	/**
 	 * содержимое кнопки
 	 */
-	label?: string;
+	children: ReactNode;
 	/**
 	 * параметры границы
 	 */
