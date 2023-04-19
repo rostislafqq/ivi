@@ -6,6 +6,14 @@ const meta: Meta<typeof Button> = {
 	title: 'Atoms/Button',
 	component: Button,
 	tags: ['autodocs'],
+	argTypes: {
+		variant: {
+			description: 'lightBlack-темный , primary-красный , pay-разноцветный , static-без фона',
+		},
+		backgroundSvg: {
+			description: 'свг фон у кнопки',
+		},
+	},
 };
 
 export default meta;

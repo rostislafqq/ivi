@@ -6,6 +6,17 @@ const meta: Meta<typeof Text> = {
 	title: 'Atoms/Text',
 	component: Text,
 	tags: ['autodocs'],
+	argTypes: {
+		size: {
+			description: '1.3rem / 1.5rem',
+		},
+		square: {
+			description: 'это квадрат? задавать вместе с цветом (будет бэкграундом)',
+		},
+		center: {
+			description: 'выравнивание по центру',
+		},
+	},
 };
 
 export default meta;

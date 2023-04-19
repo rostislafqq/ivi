@@ -3,8 +3,8 @@
 .badge {
 	width: fit-content;
 	color: #fff;
-	font-size: 13px;
-	line-height: 16px;
+	font-size: $font-sm;
+	line-height: 1.6rem;
 	font-style: normal;
 	&--small {
 		padding: 2px 8px;
