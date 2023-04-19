@@ -1,52 +1,27 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable no-console */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable react/require-default-props */
 import cn from 'classnames';
 import React from 'react';
 
-import styles from './button.module.scss';
+import styles from './Button.module.scss';
 
-interface ButtonProps {
-	size?: 'small' | 'medium' | 'large';
-	/**
-	 * содержимое кнопки
-	 */
-	label?: string;
-	/**
-	 * параметры границы
-	 */
-	border?: 'white' | 'static';
-	/**
-	 * свг фон у кнопки
-	 */
-	backgroundSvg?: boolean;
-	/**
-	 * lightBlack-темный , primary-красный , pay-разноцветный , static-без фона
-	 */
-	variant: 'lightBlack' | 'primary' | 'pay' | 'static';
-	onClick?: () => void;
-}
+import type { ButtonProps } from './Button.types';
 
-export const Button = ({
+export const Button: React.FC<ButtonProps> = ({
 	variant = 'static',
 	size = 'medium',
 	border = 'static',
 	label,
 	backgroundSvg = false,
 	...props
-}: ButtonProps) => {
-	const btnClass = cn({
-		[styles.button]: true,
-		[styles[`button__${size}`]]: true,
-		[styles[`button__${variant}`]]: true,
-		[styles[`button__border__${border}`]]: !!border,
-		[styles.button__backgroundImage__svg]: backgroundSvg,
+}) => {
+	const btnClass = cn(styles.button, {
+		[styles[`button--${size}`]]: true,
+		[styles[`button--${variant}`]]: true,
+		[styles[`button--border--${border}`]]: !!border,
+		[styles['button--backgroundImage--svg']]: backgroundSvg,
 	});
 
 	return (
-		<button type="button" className={btnClass}>
+		<button type="button" className={btnClass} {...props}>
 			{label}
 		</button>
 	);
