@@ -5,29 +5,26 @@ import styles from './Heading.module.scss';
 
 import type { HeadingProps } from './Heading.types';
 
-export const Header: React.FC<HeadingProps> = ({
-	label,
-	headingLevel = 'h2',
-	black = false,
-	center = false,
-	size = 'medium',
-}) => {
-	const labelClass = cn(styles.header, styles[`header--${size}`], {
-		[styles['header--black']]: black,
-		[styles['header--center']]: center,
+export const Heading: React.FC<HeadingProps> = ({ className, tag = 'h2', children }) => {
+	const headingClasses = cn(styles.heading, className, {
+		[styles['heading--h1']]: tag === 'h1',
+		[styles['heading--h2']]: tag === 'h2',
+		[styles['heading--h3']]: tag === 'h3',
+		[styles['heading--h4']]: tag === 'h4',
+		[styles['heading--h5']]: tag === 'h5',
 	});
 
-	switch (headingLevel) {
+	switch (tag) {
 		case 'h1':
-			return <h1 className={labelClass}>{label}</h1>;
+			return <h1 className={headingClasses}>{children}</h1>;
 		case 'h2':
-			return <h2 className={labelClass}>{label}</h2>;
+			return <h2 className={headingClasses}>{children}</h2>;
 		case 'h3':
-			return <h3 className={labelClass}>{label}</h3>;
+			return <h3 className={headingClasses}>{children}</h3>;
 		case 'h4':
-			return <h4 className={labelClass}>{label}</h4>;
+			return <h4 className={headingClasses}>{children}</h4>;
 		case 'h5':
-			return <h5 className={labelClass}>{label}</h5>;
+			return <h5 className={headingClasses}>{children}</h5>;
 		default:
 			return null;
 	}
