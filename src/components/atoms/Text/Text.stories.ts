@@ -1,66 +1,53 @@
-import { Text } from './Text';
+import { Text as TextComponent } from './Text';
+
+import '@/config/globals.scss';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof Text> = {
-	title: 'Atoms/Text',
-	component: Text,
-	tags: ['autodocs'],
+const meta: Meta<typeof TextComponent> = {
+	title: 'Atoms/Typography',
+	component: TextComponent,
 	argTypes: {
-		size: {
-			description: '1.3rem / 1.5rem',
+		tag: {
+			type: 'string',
+			name: 'Tag',
+			description: 'Тег компонента',
+			options: ['p', 'span', 'div'],
+			control: {
+				type: 'select',
+			},
 		},
-		square: {
-			description: 'это квадрат? задавать вместе с цветом (будет бэкграундом)',
+		color: {
+			type: 'string',
+			name: 'Color',
+			description: 'Цвет',
+			options: ['red', 'blue', 'gray'],
+			control: {
+				type: 'select',
+			},
 		},
-		center: {
-			description: 'выравнивание по центру',
+		className: {
+			type: 'string',
+			name: 'className',
+			description: 'Добавить класс для StoryBook',
+			defaultValue: '',
+		},
+		children: {
+			type: 'string',
+			name: 'Label',
+			description: 'Содержимое',
 		},
 	},
 };
 
 export default meta;
-type Story = StoryObj<typeof Text>;
+type Story = StoryObj<typeof TextComponent>;
 
-export const Red: Story = {
+export const Text: Story = {
 	args: {
 		children: 'Подписка',
-		size: 'small',
-		color: 'red',
-	},
-};
-
-export const Blue: Story = {
-	args: {
-		children: 'Покупка',
-		size: 'small',
-		color: 'blue',
-	},
-};
-
-export const Gray: Story = {
-	args: {
-		children: 'Бесплатно',
-		size: 'small',
+		tag: 'p',
 		color: 'gray',
-		type: 'span',
-	},
-};
-
-export const CommonText: Story = {
-	args: {
-		children:
-			'Молодой и быстро преуспевший американский писатель Маркус Голдман, не находя вдохновения для новой книги, приезжает в маленький городок к своему старшему коллеге, учителю и другу Гарри Квеберту. Неожиданно Гарри оказывается в центре шокирующего скандала: его обвиняют в убийстве бывшей возлюбленной, несовершеннолетней девушки Нолы, которую признали пропавшей без вести 33 года назад',
-		size: 'medium',
-		color: 'gray',
-		type: 'p',
-	},
-};
-
-export const Square: Story = {
-	args: {
-		square: true,
-		color: 'gray',
-		type: 'div',
+		className: '',
 	},
 };
