@@ -6,7 +6,7 @@ import { Text } from './Text';
 describe('components/atoms/Text', () => {
 	const text = (tag: string, content: string) => `
       <${tag}
-        class="text test-class"
+        class="text test-class text--gray"
       >
         ${content}
       </${tag}>
@@ -40,5 +40,35 @@ describe('components/atoms/Text', () => {
 		);
 		expect(getByText('Test Text')).toBeInTheDocument();
 		expect(container.firstChild).toMatchInlineSnapshot(text('div', 'Test Text'));
+	});
+
+	it('renders a text with red color when color prop is "red"', () => {
+		const { getByText, container } = render(
+			<Text tag="p" color="red" className="test-class">
+				Test Text
+			</Text>,
+		);
+		expect(getByText('Test Text')).toBeInTheDocument();
+		expect(container.firstChild).toHaveClass('text--red');
+	});
+
+	it('renders a text with blue color when color prop is "blue"', () => {
+		const { getByText, container } = render(
+			<Text tag="p" color="blue" className="test-class">
+				Test Text
+			</Text>,
+		);
+		expect(getByText('Test Text')).toBeInTheDocument();
+		expect(container.firstChild).toHaveClass('text--blue');
+	});
+
+	it('renders a text with gray color by default', () => {
+		const { getByText, container } = render(
+			<Text tag="p" className="test-class">
+				Test Text
+			</Text>,
+		);
+		expect(getByText('Test Text')).toBeInTheDocument();
+		expect(container.firstChild).toHaveClass('text--gray');
 	});
 });
