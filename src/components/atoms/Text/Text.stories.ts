@@ -17,26 +17,6 @@ const meta: Meta<typeof TextComponent> = {
 				type: 'select',
 			},
 		},
-		size: {
-			type: 'string',
-			name: 'Size',
-			description: 'Размер',
-			defaultValue: 'base',
-			options: ['small', 'base'],
-			control: {
-				type: 'select',
-			},
-		},
-		color: {
-			type: 'string',
-			name: 'Color',
-			description: 'Цвет',
-			defaultValue: 'gray',
-			options: ['red', 'blue', 'gray'],
-			control: {
-				type: 'select',
-			},
-		},
 		className: {
 			type: 'string',
 			name: 'className',
@@ -58,8 +38,6 @@ export const Text: Story = {
 	args: {
 		children: 'Подписка',
 		tag: 'p',
-		size: 'base',
-		color: 'gray',
 		className: '',
 	},
 };

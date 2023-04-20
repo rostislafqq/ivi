@@ -1,31 +1,10 @@
 @import '@/config/_variables.scss';
 
 .text {
-	font-weight: 400;
+	font-weight: 500;
+	font-size: $font-base;
+	color: $gray;
+	line-height: 2.2rem;
+
 	width: fit-content;
-
-	// Sizes
-	&--base {
-		font-size: $font-base;
-		line-height: 2.2rem;
-		font-weight: 500;
-	}
-
-	&--small {
-		font-size: $font-sm;
-		line-height: 1.6rem;
-	}
-
-	// Colors
-	&--red {
-		color: $red;
-	}
-
-	&--blue {
-		color: $blue;
-	}
-
-	&--gray {
-		color: $gray;
-	}
 }
