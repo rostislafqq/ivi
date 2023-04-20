@@ -28,7 +28,6 @@ const meta: Meta<typeof HeadingComponent> = {
 			description: 'Содержимое',
 		},
 	},
-	tags: ['autodocs'],
 };
 export default meta;
 
