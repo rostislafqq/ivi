@@ -1,4 +1,3 @@
-import { MenuLink } from '@components/atoms/MenuLink/MenuLink';
-import { MenuTitle } from '@components/atoms/MenuTitle/MenuTitle';
+import { TextLink } from '@components/atoms/TextLink/TextLink';
 
-export { MenuLink, MenuTitle };
+export { TextLink };
