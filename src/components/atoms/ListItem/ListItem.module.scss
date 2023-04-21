@@ -3,4 +3,27 @@
 .list {
 	color: $gray;
 	font-size: $font-base;
+	position: relative;
+	&--circle::before {
+		content: '';
+		background-color: $gray;
+		height: 0.6rem;
+		width: 0.6rem;
+		border-radius: 50%;
+		position: absolute;
+		left: 0;
+		top: 0.5rem;
+		background-color: $gray;
+	}
+	&--square::before {
+		display: inline-block;
+		content: '';
+		width: 0.2rem;
+		height: 0.2rem;
+		text-align: center;
+		background-color: $lightGray;
+		margin-left: 0.6rem;
+		margin-right: 0.6rem;
+		margin-bottom: 0.3rem;
+	}
 }
