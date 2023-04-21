@@ -1,0 +1,33 @@
+@import '@/config/_variables.scss';
+
+.badge {
+	width: fit-content;
+	color: #fff;
+	font-size: $font-sm;
+	line-height: 1.6rem;
+	font-style: normal;
+	&--small {
+		padding: 2px 8px;
+		border-radius: 10px;
+		font-weight: 700;
+		backdrop-filter: blur(0);
+		cursor: pointer;
+	}
+	&--medium {
+		padding: 6px 10px;
+		border-radius: 6px;
+		font-weight: 500;
+	}
+
+	&--backgroundColor--red {
+		box-shadow: 0 4px 12px rgba(234, 0, 61, 0.4);
+		background-color: $red;
+	}
+	&--backgroundColor--orange {
+		box-shadow: 0 4px 12px rgba(255, 84, 46, 0.4);
+		background-color: $orange;
+	}
+	&--backgroundColor--gray {
+		background-color: #7e798f;
+	}
+}

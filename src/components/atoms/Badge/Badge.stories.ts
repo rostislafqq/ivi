@@ -1,19 +1,19 @@
-import { Label } from './Label';
+import { Badge } from './Badge';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof Label> = {
-	title: 'Atoms/Label',
-	component: Label,
+const meta: Meta<typeof Badge> = {
+	title: 'Atoms/Badge',
+	component: Badge,
 	tags: ['autodocs'],
 };
 
 export default meta;
-type Story = StoryObj<typeof Label>;
+type Story = StoryObj<typeof Badge>;
 
 export const Red: Story = {
 	args: {
-		label: 'выбор Иви',
+		children: 'выбор Иви',
 		size: 'small',
 		backgroundColor: 'red',
 	},
@@ -21,7 +21,7 @@ export const Red: Story = {
 
 export const Orange: Story = {
 	args: {
-		label: 'эксклюзив',
+		children: 'эксклюзив',
 		size: 'small',
 		backgroundColor: 'orange',
 	},
@@ -29,7 +29,7 @@ export const Orange: Story = {
 
 export const Gray: Story = {
 	args: {
-		label: 'бесплатно',
+		children: 'бесплатно',
 		size: 'medium',
 		backgroundColor: 'gray',
 	},
