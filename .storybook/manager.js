@@ -1,6 +1,6 @@
 import { addons } from '@storybook/manager-api';
-import iviTheme from './iviTheme';
+import { themes } from '@storybook/theming';
 
 addons.setConfig({
-	theme: iviTheme,
+	theme: themes.dark,
 });
