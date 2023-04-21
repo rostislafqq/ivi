@@ -1,36 +1,41 @@
-import { Header } from './Heading';
+import { Heading as HeadingComponent } from './Heading';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof Header> = {
-	title: 'Atoms/Heading',
-	component: Header,
-	tags: ['autodocs'],
+import '@/config/globals.scss';
+
+const meta: Meta<typeof HeadingComponent> = {
+	title: 'Atoms/Typography',
+	component: HeadingComponent,
 	argTypes: {
-		size: {
-			description: 'tiny-1.5 , small-2 , medium-2.4 , large-4 , huge-5.6(rem)',
+		tag: {
+			type: 'string',
+			name: 'Tag',
+			description: 'Тег компонента h1, h2, ... h4',
+			options: ['h1', 'h2', 'h3', 'h4'],
+			control: {
+				type: 'select',
+			},
 		},
-		headingLevel: {
-			description: 'уровень заголовка h1,h2...h5',
+		className: {
+			type: 'string',
+			name: 'className',
+			description: 'Добавить класс для StoryBook',
 		},
-		center: {
-			description: 'необходимость выравнивания по центру',
-		},
-		black: {
-			description: 'черный для проверки',
+		children: {
+			type: 'string',
+			name: 'Label',
+			description: 'Содержимое',
 		},
 	},
 };
-
 export default meta;
-type Story = StoryObj<typeof Header>;
 
-export const Main: Story = {
+type Story = StoryObj<typeof HeadingComponent>;
+export const Heading: Story = {
 	args: {
 		children: 'Черепашки-ниндзя (2012) (Мультфильм 2012)',
-		headingLevel: 'h1',
-		black: true,
-		center: true,
-		size: 'huge',
+		tag: 'h1',
+		className: '',
 	},
 };

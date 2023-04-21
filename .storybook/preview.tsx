@@ -1,8 +1,18 @@
 import type { Preview } from '@storybook/react';
-import { themes } from '@storybook/theming';
 import '@/config/globals.scss';
+import { themes } from '@storybook/theming';
+import { StorybookWrapper } from './StorybookWrapper';
 
 const preview: Preview = {
+	decorators: [
+		(Story) => {
+			return (
+				<StorybookWrapper>
+					<Story />
+				</StorybookWrapper>
+			);
+		},
+	],
 	parameters: {
 		docs: {
 			theme: themes.dark,
