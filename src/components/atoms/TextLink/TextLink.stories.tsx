@@ -24,11 +24,3 @@ export const Default: Story = {
 		href: '#',
 	},
 };
-
-export const Bold: Story = {
-	args: {
-		children: 'text link',
-		href: '#',
-		bold: true,
-	},
-};

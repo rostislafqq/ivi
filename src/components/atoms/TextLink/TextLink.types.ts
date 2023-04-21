@@ -7,5 +7,4 @@ export interface TextLinkProps {
 	isDisabled?: boolean;
 	target?: TargetType;
 	handlerClick?: () => void;
-	bold?: boolean;
 }
