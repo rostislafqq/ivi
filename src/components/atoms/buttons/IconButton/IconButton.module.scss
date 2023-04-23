@@ -1,0 +1,37 @@
+.icon-btn {
+	padding: 0;
+
+	&__row {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+
+	// Size
+	&--normal {
+		width: 2.67em;
+		height: 2.67em;
+
+		span {
+			// temp
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			background: #fff;
+		}
+	}
+
+	&--big {
+		width: 3.2em;
+		height: 3.2em;
+
+		span {
+			// temp
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			background: #fff;
+		}
+	}
+}

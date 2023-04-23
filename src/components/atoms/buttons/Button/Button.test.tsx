@@ -4,19 +4,14 @@ import React from 'react';
 import { Button } from './Button';
 
 describe('components/atoms/Button', () => {
-	it('should render with base props: size, type', () => {
-		const { getByRole } = render(
-			<Button size="normal" type="button">
-				Button text
-			</Button>,
-		);
+	it('should render with base props: type', () => {
+		const { getByRole } = render(<Button type="button">Button text</Button>);
 
 		const btn = getByRole('button');
 
 		expect(btn).toBeInTheDocument();
 		expect(btn.textContent).toEqual('Button text');
 		expect(btn).toHaveClass('btn');
-		expect(btn).toHaveClass('btn--normal');
 		expect(btn).toHaveAttribute('type', 'button');
 	});
 

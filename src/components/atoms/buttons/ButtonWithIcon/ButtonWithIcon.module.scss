@@ -1,0 +1,15 @@
+.btn-icon {
+  &__row {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+  }
+
+  span {
+	// temp
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: #fff;
+  }
+}
