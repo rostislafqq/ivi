@@ -1,10 +1,9 @@
-import { ReactNode } from 'react';
+import { ButtonHTMLAttributes } from 'react';
 
-export interface ButtonProps {
-	size?: 'small' | 'medium' | 'large';
-	children: ReactNode;
-	border?: 'white' | 'static';
-	backgroundSvg?: boolean;
-	variant: 'lightBlack' | 'primary' | 'pay' | 'static';
-	onClick?: () => void;
+type ButtonElementType = ButtonHTMLAttributes<HTMLButtonElement>;
+export interface ButtonProps extends ButtonElementType {
+	size: 'small' | 'normal' | 'full';
+	type: 'button' | 'submit' | 'reset';
+	variant?: 'primary' | 'primary-gradient' | 'secondary';
+	className?: string;
 }

@@ -5,8 +5,17 @@ $orange: #ff542e;
 $green: #73a32f;
 $gray: #a5a1b2;
 $blue: #00a5ff;
+$purple-300: #c447ff;
+$purple-400: #2e2844;
+$purple-500: #1f1b2e;
+$purple-800: #100e19;
+$purple-900: #0e0c14;
 
-$bg: #100e19;
+$primary-gradient: linear-gradient(270deg, $red, $purple-300);
+$primary-gradient--dark: linear-gradient(270deg, darken($red, 10%), darken($purple-300, 10%));
+$primary-gradient--light: linear-gradient(270deg, lighten($red, 5%), lighten($purple-300, 5%));
+
+$bg: $purple-800;
 $accent-color: $red;
 
 // Typography
