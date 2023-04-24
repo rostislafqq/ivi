@@ -1,6 +1,5 @@
-@import "@/config/_variables.scss";
-@import "@/config/_breakpoints.scss";
-
+@import '@/config/_variables.scss';
+@import '@/config/_breakpoints.scss';
 
 html {
 	font-family: $font-primary;
@@ -16,7 +15,6 @@ html {
 	font-family: inherit;
 }
 
-
 body {
 	min-width: 320px;
 	min-height: 100vh;
@@ -26,6 +24,8 @@ body {
 	font-style: normal;
 	line-height: 1;
 	overflow-x: hidden;
+	background: $bg;
+	color: $white;
 }
 
 li {
@@ -46,7 +46,6 @@ svg {
 	margin: 0 auto;
 	padding: 0 2rem;
 	width: 100%;
-
 
 	@include mobile-hr {
 		max-width: 52rem;

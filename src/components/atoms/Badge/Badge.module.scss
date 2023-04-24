@@ -1,0 +1,46 @@
+@import '@/config/_variables.scss';
+@import '@/config/_mixins.scss';
+
+.badge {
+	user-select: none;
+	display: flex;
+	align-items: center;
+
+	max-width: max-content;
+	color: $white;
+	font-size: $font-sm;
+	font-style: normal;
+
+	span {
+		margin-bottom: 0.3em;
+	}
+
+	// Size
+	&--small {
+		height: 1.53em;
+		border-radius: 0.77em;
+		padding: 0.21em 0.615em;
+		font-weight: 700;
+	}
+
+	&--normal {
+		padding: 0.46em 0.77em;
+		border-radius: 0.46em;
+		font-weight: 500;
+	}
+
+	// Bg
+	&--red {
+		background-color: $red;
+		@include box-shadow($red);
+	}
+
+	&--orange {
+		background-color: $orange;
+		@include box-shadow($orange);
+	}
+
+	&--gray {
+		background-color: $gray;
+	}
+}

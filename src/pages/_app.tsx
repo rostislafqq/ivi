@@ -1,12 +1,15 @@
-import { Layout } from "@/components/templates";
-import type { AppProps } from "next/app";
+import React from 'react';
 
-import "@/config/globals.scss";
+import { FontProvider } from '@/app/providers';
+
+import type { AppProps } from 'next/app';
+
+import '@/config/globals.scss';
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
-		<Layout>
+		<FontProvider>
 			<Component {...pageProps} />
-		</Layout>
+		</FontProvider>
 	);
 }
