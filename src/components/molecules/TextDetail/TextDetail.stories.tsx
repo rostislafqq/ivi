@@ -5,10 +5,11 @@ import { TextDetail } from './TextDetail';
 import styles from './TextDetail.module.scss';
 
 import { List } from '../List/List';
-import { defaultContentItems } from '../List/List.stories';
 
 import { Button, Heading, ListItem } from '@/components/atoms';
 import { Text } from '@/components/atoms/Text/Text';
+
+import { defaultContentItems } from '@/app/data/defaultContentItems';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
