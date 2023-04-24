@@ -24,6 +24,7 @@
     "swiper": "^9.2.0"
   },
   "devDependencies": {
+    "@next/font": "^13.3.0",
     "@storybook/addon-essentials": "^7.0.4",
     "@storybook/addon-interactions": "^7.0.4",
     "@storybook/addon-links": "^7.0.4",
@@ -60,5 +61,6 @@
     "storybook": "^7.0.4",
     "typescript": "5.0.4",
     "typescript-plugin-css-modules": "^5.0.1"
+    "svg-sprite-loader": "^6.0.11",
   }
 }
