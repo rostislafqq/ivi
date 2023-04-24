@@ -6,4 +6,5 @@ export interface TextDetailProps {
 	staticContent: ReactNode[];
 	length: number;
 	buttonValues: string[];
+	buttonClass?: string;
 }

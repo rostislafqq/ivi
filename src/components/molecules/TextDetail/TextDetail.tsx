@@ -14,15 +14,16 @@ export const TextDetail: React.FC<TextDetailProps> = ({
 	buttonValues,
 	className,
 }) => {
-	const TextDetailClasses = cn(styles.lineClamp);
-	const ContainerClass = cn(className);
+	const textDetailClasses = cn(styles.lineClamp);
+	const containerClass = cn(className);
+
 	const [open, setOpen] = useState(true);
 	const lineClampStyle = { '--line-clamp': `${length}` } as React.CSSProperties;
 	return (
-		<section className={ContainerClass}>
-			{staticContent.map((v) => v)}
-			<div className={open ? '' : TextDetailClasses} style={lineClampStyle}>
-				{showContent.map((v) => v)}
+		<section className={containerClass}>
+			{staticContent}
+			<div className={open ? '' : textDetailClasses} style={lineClampStyle}>
+				{showContent}
 			</div>
 
 			<Button

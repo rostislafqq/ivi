@@ -31,6 +31,9 @@ const meta: Meta<typeof TextDetail> = {
 		buttonValues: {
 			description: 'формат ввода значений: [при закрытии,при открытии]',
 		},
+		className: {
+			description: 'класс для всей секции . например : width:75%',
+		},
 	},
 };
 export default meta;
