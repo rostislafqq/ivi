@@ -1,16 +1,52 @@
+@import "@/config/globals.scss";
+
+
 .list {
 	display: inline-flex;
 	flex-direction: row;
 	align-items: stretch;
+	flex-wrap: wrap;
 	padding-top: 1rem;
+
+	&--column {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
 }
 
-.column {
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: flex-start;
+.item {
+	font-weight: 500;
+	color: $white;
+	opacity: 0.48;
+	transition: opacity 0.4s;
 
+	&:not([disabled]):hover,
+	&:not([disabled]):focus,
+	&:not([disabled]):active {
+		opacity: 1;
+	}
 
+	&:not(:first-child) {
+		padding-left: 1.6rem;
+	}
+
+	&--column {
+		padding-bottom: 0.8rem;
+
+		&:not(:first-child) {
+			padding-left: 0rem;
+		}
+	}
 }
 
+.title {
+	flex: 1 1 100%;
+	padding-bottom: 0.8rem;
+	padding-left: 1.6rem;
+
+	&--column {
+		padding-left: 0;
+	}
+}
 
