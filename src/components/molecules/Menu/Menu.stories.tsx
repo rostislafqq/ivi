@@ -1,6 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 
 import { Menu as MenuComponent } from './Menu';
+
+import type { Meta, StoryObj } from '@storybook/react';
 
 const LIST = [
 	{ text: 'item 1', href: 'test' },
@@ -38,9 +40,7 @@ export default meta;
 type Story = StoryObj<typeof MenuComponent>;
 
 export const Default: Story = {
-	render: (args) => {
-		return <MenuComponent {...args} />;
-	},
+	render: (args) => <MenuComponent {...args} />,
 };
 
 export const Vertical: Story = {
@@ -51,9 +51,7 @@ export const Vertical: Story = {
 };
 
 export const MenuWithTitle: Story = {
-	render: (arg) => {
-		return <MenuComponent {...arg} />;
-	},
+	render: (arg) => <MenuComponent {...arg} />,
 	args: {
 		title: 'Title',
 		isHorizontal: false,
