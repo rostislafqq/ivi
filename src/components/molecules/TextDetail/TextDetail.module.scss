@@ -1,0 +1,20 @@
+@import '@/config/_variables.scss';
+
+.lineClamp {
+	display: -webkit-box;
+	-webkit-line-clamp: var(--line-clamp);
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+
+	& > *:not(:first-child) {
+		display: none;
+	}
+}
+.paragrapg--position {
+	margin-top: 1.2rem;
+}
+.list--position {
+	margin-left: 1.2rem;
+	padding-left: 1.6rem;
+	margin-top: 0.8rem;
+}
