@@ -1,24 +1,13 @@
 import * as React from "react";
 import styles from "./icon.module.scss";
+import { IconProps } from "./Icon.types";
 
-export interface BrowserSpriteSymbol {
-	id: string;
-	viewBox: string;
-	content: string;
-	node: SVGSymbolElement;
-}
 
-export interface IIconProps {
-	icon: BrowserSpriteSymbol;
-	width: number | string;
-	height?: number | string;
-}
-
-export const Icon: React.FC<IIconProps> = ({
-	icon,
-	width,
-	height = "100%",
-}) => {
+export const Icon: React.FC<IconProps> = ({
+											  icon,
+											  width,
+											  height = "100%"
+										  }) => {
 	return (
 		<svg
 			viewBox={icon.viewBox}
