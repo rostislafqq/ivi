@@ -1,0 +1,30 @@
+@import '@/config/_variables.scss';
+
+.lineClamp {
+	display: -webkit-box;
+	-webkit-line-clamp: var(--line-clamp);
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.paragrapg--position {
+	margin-top: 1.2rem;
+}
+.list--position {
+	margin-left: 1.2rem;
+	padding-left: 1.6rem;
+	margin-top: 0.8rem;
+}
+.openAcc {
+	animation-duration: 2s;
+	animation-name: open;
+	overflow: hidden;
+}
+
+@keyframes open {
+	0% {
+		max-height: 100px;
+	}
+	100% {
+		max-height: 2000px;
+	}
+}
