@@ -4,19 +4,7 @@
 	font-weight: 500;
 	font-size: $font-base;
 	line-height: 2.2rem;
+	color: $gray;
 
 	width: fit-content;
-
-	// Colors
-	&--red {
-		color: $red;
-	}
-
-	&--blue {
-		color: $blue;
-	}
-
-	&--gray {
-		color: $gray;
-	}
 }

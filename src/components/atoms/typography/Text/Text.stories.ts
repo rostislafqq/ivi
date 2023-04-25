@@ -17,15 +17,6 @@ const meta: Meta<typeof TextComponent> = {
 				type: 'select',
 			},
 		},
-		color: {
-			type: 'string',
-			name: 'Color',
-			description: 'Цвет',
-			options: ['red', 'blue', 'gray'],
-			control: {
-				type: 'select',
-			},
-		},
 		className: {
 			type: 'string',
 			name: 'className',
@@ -47,7 +38,6 @@ export const Text: Story = {
 	args: {
 		children: 'Подписка',
 		tag: 'p',
-		color: 'gray',
 		className: '',
 	},
 };
