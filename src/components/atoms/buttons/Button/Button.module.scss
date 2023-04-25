@@ -12,6 +12,13 @@
 	line-height: 1.33em;
 	transition: all 200ms ease;
 
+	&__row {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+	}
+
 	// Sizes
 	&--small {
 		font-size: $font-sm;

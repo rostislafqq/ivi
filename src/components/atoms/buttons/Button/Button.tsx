@@ -10,6 +10,7 @@ export const Button: React.FC<ButtonProps> = ({
 	size,
 	type = 'button',
 	variant,
+	icon,
 	onClick,
 	children,
 	...props
@@ -29,7 +30,10 @@ export const Button: React.FC<ButtonProps> = ({
 	return (
 		// eslint-disable-next-line react/button-has-type
 		<button className={btnClasses} type={type} onClick={onClick} {...props}>
-			{children}
+			<div className={styles.btn__row}>
+				{icon}
+				{children}
+			</div>
 		</button>
 	);
 };

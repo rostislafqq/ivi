@@ -1,10 +1,15 @@
-import { ButtonWithIcon } from './ButtonWithIcon';
+import React from 'react';
+
+import { Button } from './Button';
+
+// temp
+import { PlayIcon } from './play-icon';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof ButtonWithIcon> = {
-	title: 'Atoms/ButtonWithIcon',
-	component: ButtonWithIcon,
+const meta: Meta<typeof Button> = {
+	title: 'Atoms/Button',
+	component: Button,
 	tags: ['autodocs'],
 	argTypes: {
 		size: {
@@ -20,16 +25,11 @@ const meta: Meta<typeof ButtonWithIcon> = {
 			type: 'string',
 			name: 'Type',
 			description: 'Тип кнопки',
-			options: ['button', 'submit', 'reset'],
 			defaultValue: 'button',
+			options: ['button', 'submit', 'reset'],
 			control: {
 				type: 'select',
 			},
-		},
-		icon: {
-			type: 'string',
-			name: 'Icon',
-			description: 'Svg иконка',
 		},
 		variant: {
 			type: 'string',
@@ -39,6 +39,11 @@ const meta: Meta<typeof ButtonWithIcon> = {
 			control: {
 				type: 'select',
 			},
+		},
+		icon: {
+			type: 'function',
+			name: 'Icon',
+			description: 'иконка',
 		},
 		className: {
 			type: 'string',
@@ -53,16 +58,15 @@ const meta: Meta<typeof ButtonWithIcon> = {
 		},
 	},
 };
-export default meta;
 
-type Story = StoryObj<typeof ButtonWithIcon>;
+export default meta;
+type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
 	args: {
 		children: 'Смотреть по подписке',
 		size: 'small',
 		type: 'button',
-		icon: '',
 		variant: 'primary',
 		className: '',
 	},
@@ -73,7 +77,6 @@ export const PrimaryGradient: Story = {
 		children: 'Оплатить подписку',
 		size: 'small',
 		type: 'button',
-		icon: '',
 		variant: 'primary-gradient',
 		className: '',
 	},
@@ -84,8 +87,18 @@ export const Secondary: Story = {
 		children: 'Показать ещё',
 		size: 'small',
 		type: 'button',
-		icon: '',
 		variant: 'secondary',
+		className: '',
+	},
+};
+
+export const WithIcon: Story = {
+	args: {
+		children: 'Трейлер',
+		size: 'small',
+		type: 'button',
+		variant: 'secondary',
+		icon: <PlayIcon width={16} height={16} />,
 		className: '',
 	},
 };

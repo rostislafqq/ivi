@@ -2,6 +2,8 @@ import { render, fireEvent } from '@testing-library/react';
 import React from 'react';
 
 import { Button } from './Button';
+// temp
+import { PlayIcon } from './play-icon';
 
 describe('components/atoms/Button', () => {
 	it('should render with base props: type', () => {
@@ -13,6 +15,19 @@ describe('components/atoms/Button', () => {
 		expect(btn.textContent).toEqual('Button text');
 		expect(btn).toHaveClass('btn');
 		expect(btn).toHaveAttribute('type', 'button');
+	});
+
+	// temp test
+	it('should render icon inside', () => {
+		const { getByTestId } = render(
+			<Button type="button" icon={<PlayIcon width={16} height={16} data-testid="icon" />}>
+				Button text
+			</Button>,
+		);
+
+		const icon = getByTestId('icon');
+
+		expect(icon).toBeInTheDocument();
 	});
 
 	it('should accept an additional class', () => {
