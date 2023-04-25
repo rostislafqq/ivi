@@ -1,0 +1,8 @@
+.heading-link {
+	transition: color 300ms ease;
+
+	&__link {
+		display: inline-block;
+		color: inherit;
+	}
+}
