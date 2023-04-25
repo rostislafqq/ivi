@@ -6,8 +6,6 @@ interface FontProviderProps {
 	children: React.ReactNode;
 }
 
-const FontProvider: React.FC<FontProviderProps> = ({ children }) => {
-	return <div className={iviFont.className}>{children}</div>;
-};
+const FontProvider: React.FC<FontProviderProps> = ({ children }) => <div className={iviFont.className}>{children}</div>;
 
 export default FontProvider;

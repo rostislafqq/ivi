@@ -1,8 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-	experimental: {
-		appDir: false,
+/** @type {import("next").NextConfig} */
+
+export default {
+	webpack: (config) => {
+		config.module.rules.push({
+			test: /\.svg$/,
+			loader: 'svg-sprite-loader',
+		});
+
+		return config;
 	},
 };
-
-export default nextConfig;
