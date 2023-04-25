@@ -13,7 +13,7 @@ export const Menu: React.FC<MenuProps> = ({ linksList, title = '', isHorizontal 
 	const titleClasses = cn(styles.title, { [styles['title--column']]: !isHorizontal });
 
 	const listItems = linksList.map((item) => (
-		<Link href={item.href} className={itemsClasses}>
+		<Link href={item.href} className={itemsClasses} key={item.href}>
 			{item.text}
 		</Link>
 	));
