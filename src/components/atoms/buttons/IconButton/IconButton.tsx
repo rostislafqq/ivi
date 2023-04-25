@@ -10,10 +10,10 @@ export const IconButton: React.FC<IconButtonProps> = ({
 	className,
 	size,
 	type = 'button',
+	href,
 	variant,
 	onClick,
 	children,
-	...props
 }) => {
 	const btnClasses = cn(styles['icon-btn'], className, {
 		// Size
@@ -22,10 +22,8 @@ export const IconButton: React.FC<IconButtonProps> = ({
 	});
 
 	return (
-		<Button className={btnClasses} type={type} variant={variant} onClick={onClick} {...props}>
-			<div className={styles['icon-btn__row']}>
-				<span>{children}</span>
-			</div>
+		<Button className={btnClasses} type={type} href={href} variant={variant} onClick={onClick}>
+			<span>{children}</span>
 		</Button>
 	);
 };

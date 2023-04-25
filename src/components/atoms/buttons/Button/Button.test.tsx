@@ -17,6 +17,17 @@ describe('components/atoms/Button', () => {
 		expect(btn).toHaveAttribute('type', 'button');
 	});
 
+	it('should render button-link with href prop', () => {
+		const { getByRole } = render(<Button href="https://google.com">ButtonLink text</Button>);
+
+		const link = getByRole('link');
+
+		expect(link).toBeInTheDocument();
+		expect(link.textContent).toEqual('ButtonLink text');
+		expect(link).toHaveClass('btn');
+		expect(link).toHaveAttribute('href', 'https://google.com');
+	});
+
 	// temp test
 	it('should render icon inside', () => {
 		const { getByTestId } = render(
@@ -57,15 +68,6 @@ describe('components/atoms/Button', () => {
 		fireEvent.click(getByRole('button'));
 
 		expect(onClickMock).toHaveBeenCalled();
-	});
-
-	it('should be disabled when the disabled prop is true', () => {
-		const { getByRole } = render(
-			<Button size="normal" type="button" disabled>
-				Click me
-			</Button>,
-		);
-		expect(getByRole('button')).toBeDisabled();
 	});
 
 	it('should render small button when size prop is "small"', () => {

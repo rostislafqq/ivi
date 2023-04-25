@@ -1,11 +1,12 @@
 .icon-btn {
 	padding: 0;
 
-	&__row {
+	:global(.row) {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		height: 100%;
+		gap: 0;
 	}
 
 	// Size

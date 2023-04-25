@@ -31,6 +31,12 @@ const meta: Meta<typeof Button> = {
 				type: 'select',
 			},
 		},
+		href: {
+			type: 'string',
+			name: 'Link',
+			description: 'URL ссылка',
+			defaultValue: '',
+		},
 		variant: {
 			type: 'string',
 			name: 'Variant',
@@ -99,6 +105,17 @@ export const WithIcon: Story = {
 		type: 'button',
 		variant: 'secondary',
 		icon: <PlayIcon width={16} height={16} />,
+		className: '',
+	},
+};
+
+export const ButtonLink: Story = {
+	args: {
+		children: 'Смотреть по подписке',
+		size: 'small',
+		type: 'button',
+		variant: 'primary',
+		href: 'https://www.ivi.ru/watch/504121',
 		className: '',
 	},
 };

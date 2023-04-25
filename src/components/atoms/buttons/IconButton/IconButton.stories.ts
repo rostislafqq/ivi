@@ -82,3 +82,14 @@ export const Secondary: Story = {
 		className: '',
 	},
 };
+
+export const ButtonLink: Story = {
+	args: {
+		children: '',
+		size: 'normal',
+		type: 'button',
+		variant: 'primary',
+		href: 'https://www.ivi.ru/watch/504121',
+		className: '',
+	},
+};

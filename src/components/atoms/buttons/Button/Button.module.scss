@@ -12,7 +12,7 @@
 	line-height: 1.33em;
 	transition: all 200ms ease;
 
-	&__row {
+	:global(.row) {
 		height: 100%;
 		display: flex;
 		align-items: center;

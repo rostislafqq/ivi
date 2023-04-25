@@ -1,8 +1,13 @@
-import { ButtonElementType, ButtonTypeType, ButtonVariantType } from '../buttons.types';
+import React from 'react';
 
-export interface IconButtonProps extends ButtonElementType {
-	type: ButtonTypeType;
+import { ButtonTypeType, ButtonVariantType } from '../buttons.types';
+
+export interface IconButtonProps {
+	children: React.ReactNode;
+	type?: ButtonTypeType;
+	href?: string;
 	size?: 'normal' | 'big';
 	variant?: ButtonVariantType;
 	className?: string;
+	onClick?: (event: React.MouseEvent) => void;
 }
