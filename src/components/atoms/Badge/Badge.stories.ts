@@ -13,7 +13,7 @@ const meta: Meta<typeof Badge> = {
 			type: 'string',
 			name: 'Background',
 			description: 'Задний фон',
-			options: ['red', 'orange', 'gray'],
+			options: ['red', 'orange', 'gray', 'green'],
 			control: {
 				type: 'select',
 			},
@@ -65,5 +65,13 @@ export const Gray: Story = {
 		children: 'бесплатно',
 		size: 'normal',
 		bg: 'gray',
+	},
+};
+
+export const Green: Story = {
+	args: {
+		children: 'все серии сразу',
+		size: 'normal',
+		bg: 'green',
 	},
 };

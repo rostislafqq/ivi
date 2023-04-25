@@ -15,6 +15,7 @@ export const Badge: React.FC<BadgeProps> = ({ className, size, bg, children }) =
 		[styles['badge--red']]: bg === 'red',
 		[styles['badge--orange']]: bg === 'orange',
 		[styles['badge--gray']]: bg === 'gray',
+		[styles['badge--green']]: bg === 'green',
 	});
 
 	return (

@@ -77,4 +77,16 @@ describe('components/atoms/Badge', () => {
 		expect(container.firstChild).toHaveClass('test-class');
 		expect(container.firstChild).toHaveClass('badge--gray');
 	});
+
+	it('should render green badge when bg prop is "green"', () => {
+		const { container } = render(
+			<Badge className="test-class" bg="green">
+				Badge
+			</Badge>,
+		);
+
+		expect(container.firstChild).toHaveClass('badge');
+		expect(container.firstChild).toHaveClass('test-class');
+		expect(container.firstChild).toHaveClass('badge--green');
+	});
 });

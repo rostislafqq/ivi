@@ -12,7 +12,7 @@
 	font-style: normal;
 
 	span {
-		margin-bottom: 0.3em;
+		margin-bottom: 0.25em;
 	}
 
 	// Size
@@ -42,5 +42,10 @@
 
 	&--gray {
 		background-color: $gray;
+	}
+
+	&--green {
+		background-color: $green;
+		@include box-shadow($green)
 	}
 }
