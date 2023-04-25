@@ -1,30 +1,26 @@
 import React from 'react';
 
-import { TextDetail } from './TextDetail';
+import { Accordion } from './Accordion';
 
-import styles from './TextDetail.module.scss';
+import styles from './Accordion.module.scss';
 
 import { List } from '../List/List';
 
-import { Button, Heading, ListItem } from '@/components/atoms';
-import { Text } from '@/components/atoms/Text/Text';
-
 import { defaultContentItems } from '@/app/data/defaultContentItems';
+import { ListItem } from '@/components/atoms';
+import { Text } from '@/components/atoms/Text/Text';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
 import '@/config/globals.scss';
 
-const meta: Meta<typeof TextDetail> = {
-	title: 'Molecules/TextDetail',
-	component: TextDetail,
+const meta: Meta<typeof Accordion> = {
+	title: 'Molecules/Accordion',
+	component: Accordion,
 	tags: ['autodocs'],
 	argTypes: {
-		showContent: {
+		content: {
 			description: 'контент , который будет открываться/закрываться',
-		},
-		staticContent: {
-			description: 'неактивный заголовок',
 		},
 		length: {
 			description: 'кол-во строк которые будут видны при скрытом состоянии',
@@ -32,23 +28,15 @@ const meta: Meta<typeof TextDetail> = {
 		buttonValues: {
 			description: 'формат ввода значений: [при закрытии,при открытии]',
 		},
-		className: {
-			description: 'класс для всей секции . например : width:75%',
-		},
 	},
 };
 export default meta;
 
-type Story = StoryObj<typeof TextDetail>;
+type Story = StoryObj<typeof Accordion>;
 
 export const HomeExample: Story = {
 	args: {
-		staticContent: [
-			<Heading tag="h3">
-				Онлайн-кинотеатр Иви: фильмы в хорошем качестве всегда приносят настоящее удовольствие
-			</Heading>,
-		],
-		showContent: [
+		content: [
 			<>
 				<Text className={styles['paragrapg--position']} tag="p">
 					Случалось ли вам отказаться от просмотра интересного фильма из-за того, что его показывали в
