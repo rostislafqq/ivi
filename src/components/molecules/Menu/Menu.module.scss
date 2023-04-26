@@ -15,21 +15,6 @@
 }
 
 .item {
-	font-weight: 500;
-	color: $white;
-	opacity: 0.48;
-	transition: opacity 0.4s;
-
-	&:not([disabled]):hover,
-	&:not([disabled]):focus,
-	&:not([disabled]):active {
-		opacity: 1;
-	}
-
-	&:not(:first-child) {
-		padding-left: 1.6rem;
-	}
-
 	&--column {
 		padding-bottom: 0.8rem;
 
