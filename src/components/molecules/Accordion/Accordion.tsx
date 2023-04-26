@@ -11,22 +11,22 @@ export const Accordion: React.FC<AccordionProps> = ({ content = [], length, butt
 	const accordionClasses = cn(styles.lineClamp);
 	const openState = cn(styles.openAcc);
 
-	const [open, setOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
 	const lineClampStyle = { '--line-clamp': `${length}` } as React.CSSProperties;
 
 	return (
 		<>
-			<div className={open ? openState : accordionClasses} style={lineClampStyle}>
+			<div className={isOpen ? openState : accordionClasses} style={lineClampStyle}>
 				{content}
 			</div>
 
 			<Button
 				onClick={() => {
-					setOpen(!open);
+					setIsOpen(!isOpen);
 				}}
 				variant="static"
 			>
-				{open ? buttonValues[1] : buttonValues[0]}
+				{isOpen ? buttonValues[1] : buttonValues[0]}
 			</Button>
 		</>
 	);
