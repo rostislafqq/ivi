@@ -3,7 +3,7 @@
 .text-link {
 	transition: color 200ms ease;
 
-	&__link {
+	:global(.link) {
 		display: inline-block;
 		color: inherit;
 

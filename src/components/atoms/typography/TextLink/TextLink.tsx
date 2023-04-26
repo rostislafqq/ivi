@@ -12,7 +12,7 @@ export const TextLink: React.FC<TextLinkProps> = ({ className, tag, href, childr
 
 	return (
 		<Text className={textClasses} tag={tag}>
-			<Link className={styles['text-link__link']} href={href}>
+			<Link className="link" href={href}>
 				{children}
 			</Link>
 		</Text>

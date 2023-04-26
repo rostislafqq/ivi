@@ -13,7 +13,7 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({ className, tag, href, 
 
 	return (
 		<Heading className={headingLinkClasses} tag={tag}>
-			<Link className={styles['heading-link__link']} href={href}>
+			<Link className="link" href={href}>
 				{children}
 			</Link>
 		</Heading>
