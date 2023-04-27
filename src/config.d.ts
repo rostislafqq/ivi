@@ -9,7 +9,14 @@ declare module '*.jpg' {
 }
 
 declare module '*.svg' {
-	const value: string;
+	interface BrowserSpriteSymbol {
+		id: string;
+		viewBox: string;
+		content: string;
+		node: SVGSymbolElement;
+	}
+
+	const value: BrowserSpriteSymbol;
 	export default value;
 }
 
