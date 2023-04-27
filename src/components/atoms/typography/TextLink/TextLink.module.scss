@@ -1,0 +1,14 @@
+@import "@/config/_variables.scss";
+
+.text-link {
+	transition: color 200ms ease;
+
+	&__link {
+		display: inline-block;
+		color: inherit;
+
+		&:hover {
+			color: $white;
+		}
+	}
+}

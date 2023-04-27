@@ -1,8 +1,9 @@
 import React from 'react';
 
+import { TextTagType } from '../typography.types';
+
 export interface TextProps {
 	children: React.ReactNode;
-	tag: 'p' | 'span' | 'div';
-	color?: 'red' | 'blue' | 'gray';
+	tag: TextTagType;
 	className?: string;
 }
