@@ -24,7 +24,6 @@ export const Accordion: React.FC<AccordionProps> = ({ content = [], length, butt
 				onClick={() => {
 					setIsOpen(!isOpen);
 				}}
-				variant="static"
 			>
 				{isOpen ? buttonValues[1] : buttonValues[0]}
 			</Button>
