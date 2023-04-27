@@ -9,7 +9,7 @@
 	font-weight: 500;
 	color: $gray;
 	position: absolute;
-	top: 10px;
+	top: 1rem;
 	pointer-events: none;
 	animation-duration: 0.5s;
 	animation-name: inactivate;
@@ -23,7 +23,7 @@
 
 @keyframes activate {
 	0% {
-		top: 10px;
+		top: 1rem;
 		font-size: $font-base;
 	}
 	100% {
@@ -36,6 +36,6 @@
 		font-size: $font-sm;
 	}
 	100% {
-		top: 10px;
+		top: 1rem;
 	}
 }
