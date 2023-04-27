@@ -1,4 +1,4 @@
-import { MenuItem } from "@components/atoms";
+import { MenuItem } from '@components/atoms';
 import cn from 'classnames';
 import Link from 'next/link';
 import * as React from 'react';
@@ -13,8 +13,9 @@ export const Menu: React.FC<MenuProps> = ({ linksList, title = '', isHorizontal 
 	const itemsClasses = cn({ [styles['item--column']]: !isHorizontal });
 	const titleClasses = cn(styles.title, { [styles['title--column']]: !isHorizontal });
 
-
-	const listItems = linksList.map(item => <MenuItem text={item.text} href={item.href} className={itemsClasses} />)
+	const listItems = linksList.map((item) => (
+		<MenuItem text={item.text} href={item.href} className={itemsClasses} key={item.href} />
+	));
 
 	return (
 		<div className={wrapperClasses}>
