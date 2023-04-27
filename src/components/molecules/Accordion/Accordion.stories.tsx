@@ -7,8 +7,7 @@ import styles from './Accordion.module.scss';
 import { List } from '../List/List';
 
 import { defaultContentItems } from '@/app/data/defaultContentItems';
-import { ListItem } from '@/components/atoms';
-import { Text } from '@/components/atoms/Text/Text';
+import { Text, ListItem } from '@/components/atoms';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
