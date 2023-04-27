@@ -36,7 +36,7 @@ type Story = StoryObj<typeof Accordion>;
 
 export const HomeExample: Story = {
 	args: {
-		content: [
+		content: (
 			<>
 				<Text className={styles['paragrapg--position']} tag="p">
 					Случалось ли вам отказаться от просмотра интересного фильма из-за того, что его показывали в
@@ -58,8 +58,8 @@ export const HomeExample: Story = {
 						</ListItem>
 					))}
 				</List>
-			</>,
-		],
+			</>
+		),
 		length: 2,
 		buttonValues: ['развернуть', 'свернуть'],
 	},
