@@ -1,0 +1,15 @@
+@import '@/config/_variables.scss';
+
+.input {
+	outline: 0;
+	width: 100%;
+	display: block;
+	font-size: $font-base;
+	line-height: 2rem;
+	font-weight: 500;
+	color: $black;
+	background-color: $lightGray;
+	height: 40px;
+	border-radius: 8px;
+	border-width: 0;
+}

@@ -1,0 +1,41 @@
+@import '@/config/_variables.scss';
+
+.label {
+	outline: 0;
+	width: 100%;
+	display: block;
+	font-size: $font-base;
+	line-height: 2rem;
+	font-weight: 500;
+	color: $gray;
+	position: absolute;
+	top: 10px;
+	pointer-events: none;
+	animation-duration: 0.5s;
+	animation-name: inactivate;
+	&--active {
+		font-size: $font-sm;
+		animation-duration: 0.5s;
+		animation-name: activate;
+		top: 0;
+	}
+}
+
+@keyframes activate {
+	0% {
+		top: 10px;
+		font-size: $font-base;
+	}
+	100% {
+		top: 0;
+	}
+}
+@keyframes inactivate {
+	0% {
+		top: 0px;
+		font-size: $font-sm;
+	}
+	100% {
+		top: 10px;
+	}
+}
