@@ -14,7 +14,7 @@ export const NavBar: React.FC<NavBarProps> = ({ menu, actionGroup }) => {
 	return (
 		<div className={wrapperClasses}>
 			<Link href={'/'} className={styles.logo} title={'Онлайн-кинотеатр Иви'}>
-				<Icon icon={logo} width={48} />
+				<Icon icon={logo} width={66} />
 			</Link>
 			<div className={styles.menu}>{menu}</div>
 			<div className={styles.actionGroup}>{actionGroup}</div>
