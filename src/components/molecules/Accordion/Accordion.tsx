@@ -7,7 +7,7 @@ import { Button } from '@/components/atoms';
 
 import type { AccordionProps } from './Accordion.types';
 
-export const Accordion: React.FC<AccordionProps> = ({ content = [], length, buttonValues }) => {
+export const Accordion: React.FC<AccordionProps> = ({ content = [], length, buttonValues, buttonClass }) => {
 	const accordionClasses = cn(styles.lineClamp);
 	const openState = cn(styles.openAcc);
 
@@ -21,6 +21,7 @@ export const Accordion: React.FC<AccordionProps> = ({ content = [], length, butt
 			</div>
 
 			<Button
+				className={buttonClass}
 				onClick={() => {
 					setIsOpen(!isOpen);
 				}}
