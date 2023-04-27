@@ -1,4 +1,3 @@
-import { MenuItem } from '@components/atoms';
 import cn from 'classnames';
 import Link from 'next/link';
 import * as React from 'react';
@@ -6,7 +5,7 @@ import * as React from 'react';
 import styles from './Menu.module.scss';
 import { MenuProps } from './Menu.types';
 
-import { Heading } from '@components/atoms/Heading/Heading';
+import { Heading, MenuItem } from '@components/atoms';
 
 export const Menu: React.FC<MenuProps> = ({ linksList, title = '', isHorizontal = true }) => {
 	const wrapperClasses = cn(styles.list, { [styles['list--column']]: !isHorizontal });
