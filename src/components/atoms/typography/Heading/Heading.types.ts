@@ -1,7 +1,9 @@
 import React from 'react';
 
+import { HeadingTagType } from '../typography.types';
+
 export interface HeadingProps {
-	tag: 'h1' | 'h2' | 'h3' | 'h4';
+	tag: HeadingTagType;
 	children: React.ReactNode;
 	className?: string;
 }
