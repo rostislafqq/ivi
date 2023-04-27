@@ -5,9 +5,8 @@ import { List } from './List';
 
 describe('components/atoms/ListItem', () => {
 	const children = <li>some text</li>;
-	it('should render ul with child li that contain `some text` and ul must have class `list` ', () => {
-		const tag = 'ul';
-		const { getByRole, getByText } = render(<List tag={tag}>{children}</List>);
+	it('should render ul with child li with some parameters ', () => {
+		const { getByRole, getByText } = render(<List tag="ul">{children}</List>);
 		const ulItem = getByRole('list');
 		expect(ulItem.tagName).toBe('UL');
 		expect(ulItem).toHaveClass('list');
@@ -17,11 +16,11 @@ describe('components/atoms/ListItem', () => {
 		expect(liItem.tagName).toBe('LI');
 		expect(liItem).toHaveTextContent('some text');
 	});
-	it('should render ol that contain classes `list , someClass` ', () => {
-		const tag = 'ol';
+
+	it('should render ol with classes `list , someClass` ', () => {
 		const className = 'someClass';
 		const { getByRole } = render(
-			<List className={className} tag={tag}>
+			<List className={className} tag="ol">
 				{children}
 			</List>,
 		);

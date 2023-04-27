@@ -12,7 +12,7 @@ describe('components/atoms/Accordion', () => {
 			<p>some text2</p>
 		</>,
 	];
-	it('should render button that on click swich own text from `открыть` to `закрыть` ', () => {
+	it('should render button that swich own text ', () => {
 		const { getByRole } = render(<Accordion content={content} length={length} buttonValues={buttonValues} />);
 		const button = getByRole('button');
 
@@ -20,7 +20,8 @@ describe('components/atoms/Accordion', () => {
 		fireEvent.click(button);
 		expect(button).toHaveTextContent('закрыть');
 	});
-	it('should render button that on click switch div className from openAcc to lineClamp ', () => {
+
+	it('should render button that switch div className', () => {
 		const { getByRole, getByText } = render(
 			<Accordion content={content} length={length} buttonValues={buttonValues} />,
 		);
@@ -30,6 +31,7 @@ describe('components/atoms/Accordion', () => {
 		fireEvent.click(button);
 		expect(div).toHaveClass('openAcc');
 	});
+
 	it('should render div that contain variable `content` ', () => {
 		const { getByText } = render(<Accordion content={content} length={length} buttonValues={buttonValues} />);
 		const accordionContent1 = getByText('some text1');
