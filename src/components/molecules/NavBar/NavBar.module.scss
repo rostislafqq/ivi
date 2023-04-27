@@ -1,0 +1,29 @@
+.wrapper {
+	width: 100%;
+	height: 7.2rem;
+	display: flex;
+	align-items: stretch;
+	justify-content: flex-start;
+	border: 1px solid red;
+}
+
+.logo {
+	height: 100%;
+	width: auto;
+	align-self: center;
+}
+
+.menu {
+	width: 500px;
+	text-align: center;
+	border: 1px solid green;
+	margin-left: 3.2rem;
+	align-self: center;
+}
+
+.actionGroup {
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
