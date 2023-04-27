@@ -5,11 +5,22 @@ import styles from './Badge.module.scss';
 
 import { BadgeProps } from './Badge.types';
 
-export const Badge: React.FC<BadgeProps> = ({ children, size = 'medium', backgroundColor = 'red' }) => {
-	const labelClass = cn(styles.badge, {
-		[styles[`badge--${size}`]]: true,
-		[styles[`badge--backgroundColor--${backgroundColor}`]]: true,
+export const Badge: React.FC<BadgeProps> = ({ className, size, bg, children }) => {
+	const badgeClasses = cn(styles.badge, className, {
+		// Sizes
+		[styles['badge--small']]: size === 'small',
+		[styles['badge--normal']]: size === 'normal',
+
+		// Bg
+		[styles['badge--red']]: bg === 'red',
+		[styles['badge--orange']]: bg === 'orange',
+		[styles['badge--gray']]: bg === 'gray',
+		[styles['badge--green']]: bg === 'green',
 	});
 
-	return <p className={labelClass}>{children}</p>;
+	return (
+		<div className={badgeClasses}>
+			<span>{children}</span>
+		</div>
+	);
 };

@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
 
 export interface BadgeProps {
-	backgroundColor?: 'red' | 'orange' | 'gray';
-	size?: 'small' | 'medium';
 	children: ReactNode;
+	className?: string;
+	bg?: 'red' | 'orange' | 'gray' | 'green';
+	size?: 'small' | 'normal';
 }

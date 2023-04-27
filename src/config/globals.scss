@@ -37,24 +37,29 @@ a {
 	text-decoration: none;
 }
 
+svg {
+	flex: 0 0 auto;
+	fill: currentColor;
+}
+
 .container {
 	margin: 0 auto;
 	padding: 0 2rem;
 	width: 100%;
 
 	@include mobile-hr {
-		max-width: 540px;
+		max-width: 52rem;
 	}
 
 	@include tablet {
-		max-width: 960px;
+		max-width: 94rem;
 	}
 
 	@include desktop {
-		max-width: 1140px;
+		max-width: 112rem;
 	}
 
 	@include desktop-xl {
-		max-width: 1320px;
+		max-width: 130rem;
 	}
 }

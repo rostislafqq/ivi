@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-export interface ListItemProps {
+export interface ListProps {
 	children: ReactNode;
 	className?: string;
-	type?: 'square' | 'circle';
+	tag: 'ul' | 'ol';
 }
