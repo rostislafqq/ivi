@@ -5,8 +5,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import '@/config/globals.scss';
 
 const meta: Meta<typeof HeadingLinkComponent> = {
-	title: 'Atoms/Typography',
+	title: 'Atoms/Typography/HeadingLink',
 	component: HeadingLinkComponent,
+	tags: ['autodocs'],
 	argTypes: {
 		tag: {
 			type: 'string',

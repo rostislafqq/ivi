@@ -5,8 +5,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import '@/config/globals.scss';
 
 const meta: Meta<typeof HeadingComponent> = {
-	title: 'Atoms/Typography',
+	title: 'Atoms/Typography/Heading',
 	component: HeadingComponent,
+	tags: ['autodocs'],
 	argTypes: {
 		tag: {
 			type: 'string',

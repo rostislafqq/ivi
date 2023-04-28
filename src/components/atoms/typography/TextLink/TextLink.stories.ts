@@ -3,8 +3,9 @@ import { TextLink as TextLinkComponent } from './TextLink';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof TextLinkComponent> = {
-	title: 'Atoms/Typography',
+	title: 'Atoms/Typography/TextLink',
 	component: TextLinkComponent,
+	tags: ['autodocs'],
 	argTypes: {
 		tag: {
 			type: 'string',
