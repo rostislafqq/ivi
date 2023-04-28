@@ -5,7 +5,7 @@ import styles from './icon.module.scss';
 import { IconProps } from './Icon.types';
 
 export const Icon: React.FC<IconProps> = ({ icon, width, height = '100%', className }) => {
-	const iconClasses = classNames(classNames, styles.icon);
+	const iconClasses = classNames(className, styles.icon);
 
 	return (
 		<svg viewBox={icon.viewBox} width={width} height={height} className={iconClasses}>
