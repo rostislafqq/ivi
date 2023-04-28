@@ -8,8 +8,8 @@ import { Icon } from '@components/atoms';
 
 import logo from '@assets/icons/Logo.svg';
 
-export const NavBar: React.FC<NavBarProps> = ({ menu, actionGroup }) => {
-	const wrapperClasses = classNames('container', styles.wrapper);
+export const NavBar: React.FC<NavBarProps> = ({ menu, actionGroup, isSeporator = false }) => {
+	const wrapperClasses = classNames('container', styles.wrapper, { [styles['wrapper--borderBottom']]: isSeporator });
 
 	return (
 		<div className={wrapperClasses}>

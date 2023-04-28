@@ -2,11 +2,25 @@
 @import '@/config/_breakpoints.scss';
 
 .wrapper {
+	position: relative;
 	width: 100%;
 	min-height: 7.2rem;
 	display: flex;
 	align-items: stretch;
 	justify-content: flex-start;
+
+	&--borderBottom {
+		&::after {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			background: rgba($white, 0.16);
+		}
+	}
 }
 
 
