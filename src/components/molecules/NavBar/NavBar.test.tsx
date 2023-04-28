@@ -1,5 +1,8 @@
 import { render } from '@testing-library/react';
+import React from 'react';
+
 import { NavBar } from './NavBar';
+
 import { Button } from '@components/atoms';
 import { Menu } from '@components/molecules/Menu/Menu';
 
@@ -15,7 +18,7 @@ describe('components/molecules/NavBar', () => {
 
 	const actionGroup = (
 		<div>
-			<Button variant={'primary-gradient'} size={'small'}>
+			<Button variant="primary-gradient" size="small">
 				Оплатить подписку
 			</Button>
 		</div>
@@ -48,10 +51,9 @@ describe('components/molecules/NavBar', () => {
 	});
 
 	it('should render with menu, actions group and seporator', () => {
-		const { container } = render(<NavBar menu={menu} actionGroup={actionGroup} isSeporator={true} />);
+		const { container } = render(<NavBar menu={menu} actionGroup={actionGroup} isSeporator />);
 
 		expect(container.firstChild).toBeInTheDocument();
 		expect(container.firstChild).toHaveClass('wrapper--borderBottom');
-
 	});
 });

@@ -1,7 +1,12 @@
-import { Button } from '@components/atoms';
-import type { Meta, StoryObj } from '@storybook/react';
-import { Menu } from '@components/molecules/Menu/Menu';
+import React from 'react';
+
 import { NavBar as NavBarComponent } from './NavBar';
+
+import { Button } from '@components/atoms';
+
+import { Menu } from '@components/molecules/Menu/Menu';
+
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof NavBarComponent> = {
 	title: 'Molecules/NavBar',
@@ -36,7 +41,7 @@ const meta: Meta<typeof NavBarComponent> = {
 		),
 		actionGroup: (
 			<div>
-				<Button variant={'primary-gradient'} size={'small'}>
+				<Button variant="primary-gradient" size="small">
 					Оплатить подписку
 				</Button>
 			</div>
@@ -52,7 +57,7 @@ export const Default: Story = {
 	args: {
 		actionGroup: (
 			<div>
-				<Button variant={'primary-gradient'} size={'small'}>
+				<Button variant="primary-gradient" size="small">
 					Оплатить подписку
 				</Button>
 			</div>

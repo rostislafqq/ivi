@@ -1,6 +1,8 @@
+import React from 'react';
+
 export interface InputProps {
 	className?: string;
 	type: string;
-	onChange: React.Dispatch<React.SetStateAction<any>>;
+	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	value: string | number;
 }
