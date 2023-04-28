@@ -1,0 +1,55 @@
+@import '@/config/_variables.scss';
+@import '@/config/_breakpoints.scss';
+
+.wrapper {
+	position: relative;
+	width: 100%;
+	min-height: 7.2rem;
+	display: flex;
+	align-items: stretch;
+	justify-content: flex-start;
+
+	&--borderBottom {
+		&::after {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 100%;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			background: rgba($white, 0.16);
+		}
+	}
+}
+
+
+.logo {
+	height: 100%;
+	width: auto;
+	align-self: center;
+
+	svg {
+		@include mobile {
+			width: 5.5rem;
+		}
+	}
+}
+
+.menu {
+	text-align: center;
+	margin-left: 3.2rem;
+	align-self: center;
+	display: none;
+
+	@include laptop {
+		display: block;
+	}
+}
+
+.actionGroup {
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
