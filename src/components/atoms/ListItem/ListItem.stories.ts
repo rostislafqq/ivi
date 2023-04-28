@@ -17,10 +17,17 @@ const meta: Meta<typeof ListItem> = {
 export default meta;
 
 type Story = StoryObj<typeof ListItem>;
-export const DefaultChild: Story = {
+export const DefaultItem: Story = {
 	args: {
 		children:
 			'уникальная рекомендательная система, учитывающая ваши предпочтения и предлагающая посмотреть именно то, что точно придется вам по душе;',
-		className: '',
+	},
+};
+
+export const SquareItem: Story = {
+	args: {
+		children:
+			'уникальная рекомендательная система, учитывающая ваши предпочтения и предлагающая посмотреть именно то, что точно придется вам по душе;',
+		type: 'square',
 	},
 };
