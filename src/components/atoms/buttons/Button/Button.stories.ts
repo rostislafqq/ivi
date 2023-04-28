@@ -30,7 +30,7 @@ const meta: Meta<typeof Button> = {
 		},
 		href: {
 			type: 'string',
-			name: 'Link',
+			name: 'href',
 			description: 'URL ссылка',
 			defaultValue: '',
 		},
