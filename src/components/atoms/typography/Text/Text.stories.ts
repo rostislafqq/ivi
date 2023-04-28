@@ -5,8 +5,9 @@ import '@/config/globals.scss';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof TextComponent> = {
-	title: 'Atoms/Typography',
+	title: 'Atoms/Typography/Text',
 	component: TextComponent,
+	tags: ['autodocs'],
 	argTypes: {
 		tag: {
 			type: 'string',
