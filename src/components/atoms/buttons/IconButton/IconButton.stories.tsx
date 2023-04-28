@@ -2,9 +2,9 @@ import React from 'react';
 
 import { IconButton } from './IconButton';
 
-import BookmarkIcon from '@assets/icons/bookmark.svg';
-import DownloadIcon from '@assets/icons/download.svg';
+import { mapping, options } from '@app/data/iconsStorybookOptions';
 
+import BookmarkIcon from '@assets/icons/bookmark.svg';
 import { Icon } from '@components/atoms';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -53,11 +53,8 @@ const meta: Meta<typeof IconButton> = {
 			type: 'string',
 			name: 'Icon',
 			description: 'Иконка',
-			options: ['download', 'bookmark'],
-			mapping: {
-				download: <Icon icon={DownloadIcon} width={16} />,
-				bookmark: <Icon icon={BookmarkIcon} width={16} />,
-			},
+			options,
+			mapping,
 			control: 'select',
 		},
 	},

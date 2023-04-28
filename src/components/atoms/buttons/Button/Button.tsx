@@ -13,6 +13,7 @@ export const Button: React.FC<ButtonProps> = ({
 	href,
 	variant,
 	icon,
+	endIcon,
 	onClick,
 	children,
 }) => {
@@ -31,20 +32,18 @@ export const Button: React.FC<ButtonProps> = ({
 	if (href) {
 		return (
 			<Link className={btnClasses} href={href} onClick={onClick}>
-				<div className="row">
-					{icon}
-					{children}
-				</div>
+				{icon}
+				{children}
+				{endIcon}
 			</Link>
 		);
 	}
 	return (
 		// eslint-disable-next-line react/button-has-type
 		<button className={btnClasses} type={type} onClick={onClick}>
-			<div className="row">
-				{icon}
-				{children}
-			</div>
+			{icon}
+			{children}
+			{endIcon}
 		</button>
 	);
 };

@@ -2,8 +2,9 @@ import { render, fireEvent } from '@testing-library/react';
 import React from 'react';
 
 import { Button } from './Button';
-// temp
-import { PlayIcon } from './play-icon';
+
+import PlayIcon from '@assets/icons/play.svg';
+import { Icon } from '@components/atoms';
 
 describe('components/atoms/Button', () => {
 	it('should render with base props: type', () => {
@@ -28,10 +29,21 @@ describe('components/atoms/Button', () => {
 		expect(link).toHaveAttribute('href', 'https://google.com');
 	});
 
-	// temp test
 	it('should render icon inside', () => {
 		const { getByTestId } = render(
-			<Button type="button" icon={<PlayIcon width={16} height={16} data-testid="icon" />}>
+			<Button type="button" icon={<Icon icon={PlayIcon} width={16} data-testid="icon" />}>
+				Button text
+			</Button>,
+		);
+
+		const icon = getByTestId('icon');
+
+		expect(icon).toBeInTheDocument();
+	});
+
+	it('should render endIcon inside', () => {
+		const { getByTestId } = render(
+			<Button type="button" endIcon={<Icon icon={PlayIcon} width={16} data-testid="icon" />}>
 				Button text
 			</Button>,
 		);
