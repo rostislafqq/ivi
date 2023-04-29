@@ -1,0 +1,18 @@
+@import '@/config/_variables.scss';
+
+.film-status {
+	font-size: $font-sm;
+
+	// Variants
+	&--free {
+		color: $gray;
+	}
+
+	&--subscribe {
+		color: $red;
+	}
+
+	&--buy {
+		color: $blue;
+	}
+}

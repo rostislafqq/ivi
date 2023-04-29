@@ -7,4 +7,6 @@ export interface TextLinkProps {
 	tag: TextTagType;
 	href: string;
 	className?: string;
+	onMouseOver?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+	onMouseOut?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 }
