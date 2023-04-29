@@ -1,5 +1,6 @@
 import { Badge } from './Badge/Badge';
 import { Button, IconButton } from './buttons';
+import { FilmStatus } from './FilmStatus/FilmStatus';
 import { Icon } from './Icon/Icon';
 import { Input } from './Inputs/Input/Input';
 import { InputGroup } from './Inputs/InputGroup/InputGroup';
@@ -22,4 +23,5 @@ export {
 	Input,
 	InputGroup,
 	Label,
+	FilmStatus,
 };
