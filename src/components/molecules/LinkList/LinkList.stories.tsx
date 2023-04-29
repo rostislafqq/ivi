@@ -1,19 +1,19 @@
 import React from 'react';
 
-import { Menu as MenuComponent } from './Menu';
+import { LinkList } from './LinkList';
 
-import { MenuItem } from '@components/atoms';
+import { TextLink } from '@components/atoms';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof MenuComponent> = {
-	title: 'Molecules/Menu',
-	component: MenuComponent,
+const meta: Meta<typeof LinkList> = {
+	title: 'Molecules/LinkList',
+	component: LinkList,
 	tags: ['autodocs'],
 	argTypes: {
 		children: {
 			type: 'function',
-			name: 'menu items',
+			name: 'link',
 			description: 'содержимое меню',
 		},
 		title: {
@@ -32,10 +32,15 @@ const meta: Meta<typeof MenuComponent> = {
 	args: {
 		children: (
 			<>
-				<MenuItem text="item1" href="#item1" className="" />
-				<MenuItem text="item2" href="#item2" />
-				<MenuItem text="item3" href="#item3" />
-				<MenuItem text="item4" href="#item4" />
+				<TextLink tag="span" href="test">
+					item1
+				</TextLink>
+				<TextLink tag="span" href="test">
+					item2
+				</TextLink>
+				<TextLink tag="span" href="test">
+					item3
+				</TextLink>
 			</>
 		),
 	},
@@ -43,21 +48,21 @@ const meta: Meta<typeof MenuComponent> = {
 
 export default meta;
 
-type Story = StoryObj<typeof MenuComponent>;
+type Story = StoryObj<typeof LinkList>;
 
 export const Default: Story = {
-	render: (args) => <MenuComponent {...args} />,
+	render: (args) => <LinkList {...args} />,
 };
 
 export const Vertical: Story = {
-	render: (arg) => <MenuComponent {...arg} />,
+	render: (arg) => <LinkList {...arg} />,
 	args: {
 		isHorizontal: false,
 	},
 };
 
-export const MenuWithTitle: Story = {
-	render: (arg) => <MenuComponent {...arg} />,
+export const WithTitle: Story = {
+	render: (arg) => <LinkList {...arg} />,
 	args: {
 		title: 'Title',
 		isHorizontal: false,

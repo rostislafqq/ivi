@@ -1,10 +1,10 @@
+import { Menu } from '@components/molecules/Menu/Menu';
 import React from 'react';
 
 import { NavBar as NavBarComponent } from './NavBar';
 
 import { Button } from '@components/atoms';
-
-import { Menu } from '@components/molecules/Menu/Menu';
+import { LinkList } from '@components/molecules/LinkList/LinkList';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -32,7 +32,7 @@ const meta: Meta<typeof NavBarComponent> = {
 	},
 	args: {
 		menu: (
-			<Menu
+			<LinkList
 				linksList={[
 					{ text: 'item 1', href: 'test' },
 					{ text: 'item 2', href: 'test2' },

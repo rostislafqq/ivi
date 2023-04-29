@@ -1,12 +1,12 @@
 import cn from 'classnames';
 import * as React from 'react';
 
-import styles from './Menu.module.scss';
-import { MenuProps } from './Menu.types';
+import styles from './LinkList.module.scss';
+import { LinkListProps } from './LinkList.types';
 
 import { Heading } from '@components/atoms';
 
-export const Menu: React.FC<MenuProps> = ({ children, title = '', isHorizontal = true }) => {
+export const LinkList: React.FC<LinkListProps> = ({ children, title = '', isHorizontal = true }) => {
 	const wrapperClasses = cn(styles.list, { [styles['list--column']]: !isHorizontal });
 	const titleClasses = cn(styles.title, { [styles['title--column']]: !isHorizontal });
 

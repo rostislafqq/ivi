@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface MenuProps {
+export interface LinkListProps {
 	children: React.ReactNode;
 	title?: string;
 	isHorizontal?: boolean;

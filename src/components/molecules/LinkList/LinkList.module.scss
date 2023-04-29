@@ -1,0 +1,43 @@
+@import "@/config/variables.scss";
+
+.list {
+	display: inline-flex;
+	flex-direction: row;
+	align-items: stretch;
+	flex-wrap: wrap;
+	//padding-top: 1rem;
+
+	:global .link {
+		font-weight: 500;
+		color: $white;
+		opacity: 0.48;
+		transition: opacity 0.4s;
+		padding: 1rem 1.6rem 1rem 0;
+
+		&:not([disabled]):hover,
+		&:not([disabled]):focus,
+		&:not([disabled]):active {
+			opacity: 1;
+		}
+
+
+	}
+
+	&--column {
+		flex-direction: column;
+		justify-content: stretch;
+		align-items: flex-start;
+
+		:global .link {
+			padding: 0 0 0.8rem 0;
+
+		}
+	}
+
+
+}
+
+.title {
+	flex: 1 1 100%;
+	padding-bottom: 0.8rem;
+}
