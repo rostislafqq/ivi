@@ -1,12 +1,10 @@
-@import "@/config/variables.scss";
+@import '@/config/variables.scss';
 
 .list {
 	display: inline-flex;
 	flex-direction: row;
 	align-items: stretch;
 	flex-wrap: wrap;
-	padding-top: 1rem;
-
 	&--column {
 		flex-direction: column;
 		justify-content: flex-start;
@@ -33,4 +31,3 @@
 		padding-left: 0;
 	}
 }
-

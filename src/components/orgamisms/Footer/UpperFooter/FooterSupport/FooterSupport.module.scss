@@ -1,0 +1,44 @@
+@import '@/config/variables.scss';
+
+.wrapper {
+	display: inline-flex;
+	flex-direction: column;
+	max-width: 30rem;
+	&__heading {
+		margin-bottom: 0.8rem;
+	}
+	&__intro {
+		line-height: 2rem;
+		font-weight: 400;
+		color: $white;
+		opacity: 0.48;
+	}
+	&__writeBtn {
+		margin-top: 2rem;
+		width: fit-content;
+	}
+	&__btnContainer {
+		margin-top: 1.2rem;
+		position: relative;
+		a:first-child {
+			margin-right: 1.2rem;
+		}
+		.wrapper__toggleBtn {
+			position: absolute;
+			left: 0;
+			top: 6.3rem;
+			opacity: 0;
+			visibility: hidden;
+			transition: 0.5s;
+			&--active {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+	}
+	&__answer {
+		margin-top: 2.1rem;
+		display: flex;
+		flex-direction: column;
+	}
+}

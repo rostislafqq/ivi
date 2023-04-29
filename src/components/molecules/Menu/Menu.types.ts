@@ -1,6 +1,7 @@
 export interface MenuLink {
 	text: string;
 	href: string;
+	className?: string;
 }
 
 export interface MenuProps {
