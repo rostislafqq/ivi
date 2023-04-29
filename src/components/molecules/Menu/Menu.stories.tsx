@@ -1,23 +1,19 @@
 import React from 'react';
 
 import { Menu as MenuComponent } from './Menu';
+import { MenuItem } from '@components/atoms';
 
 import type { Meta, StoryObj } from '@storybook/react';
-
-const LIST = [
-	{ text: 'item 1', href: 'test' },
-	{ text: 'item 2', href: 'test1' },
-	{ text: 'item 3', href: 'test2' },
-	{ text: 'item 4', href: 'test3' },
-];
 
 const meta: Meta<typeof MenuComponent> = {
 	title: 'Molecules/Menu',
 	component: MenuComponent,
 	tags: ['autodocs'],
 	argTypes: {
-		linksList: {
-			name: 'links list',
+		children: {
+			type: 'function',
+			name: 'menu items',
+			description: 'содержимое меню',
 		},
 		title: {
 			type: 'string',
@@ -32,7 +28,16 @@ const meta: Meta<typeof MenuComponent> = {
 			control: 'boolean',
 		},
 	},
-	args: { linksList: LIST },
+	args: {
+		children: (
+			<>
+				<MenuItem text={'item1'} href={'#item1'} className={''} />
+				<MenuItem text={'item2'} href={'#item2'} />
+				<MenuItem text={'item3'} href={'#item3'} />
+				<MenuItem text={'item4'} href={'#item4'} />
+			</>
+		),
+	},
 };
 
 export default meta;
@@ -40,7 +45,10 @@ export default meta;
 type Story = StoryObj<typeof MenuComponent>;
 
 export const Default: Story = {
-	render: (args) => <MenuComponent {...args} />,
+	render: (args) => {
+		console.log(args);
+		return <MenuComponent {...args} />;
+	},
 };
 
 export const Vertical: Story = {

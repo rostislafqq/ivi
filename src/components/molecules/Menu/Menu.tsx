@@ -7,14 +7,9 @@ import { MenuProps } from './Menu.types';
 
 import { Heading, MenuItem } from '@components/atoms';
 
-export const Menu: React.FC<MenuProps> = ({ linksList, title = '', isHorizontal = true }) => {
+export const Menu: React.FC<MenuProps> = ({ children, title = '', isHorizontal = true }) => {
 	const wrapperClasses = cn(styles.list, { [styles['list--column']]: !isHorizontal });
-	const itemsClasses = cn({ [styles['item--column']]: !isHorizontal });
 	const titleClasses = cn(styles.title, { [styles['title--column']]: !isHorizontal });
-
-	const listItems = linksList.map((item) => (
-		<MenuItem text={item.text} href={item.href} className={itemsClasses} key={item.href} />
-	));
 
 	return (
 		<div className={wrapperClasses}>
@@ -23,7 +18,7 @@ export const Menu: React.FC<MenuProps> = ({ linksList, title = '', isHorizontal 
 					{title}
 				</Heading>
 			)}
-			{listItems}
+			{children}
 		</div>
 	);
 };

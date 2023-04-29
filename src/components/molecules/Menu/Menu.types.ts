@@ -1,10 +1,7 @@
-export interface MenuLink {
-	text: string;
-	href: string;
-}
+import React from 'react';
 
 export interface MenuProps {
-	linksList: MenuLink[];
+	children: React.ReactNode;
 	title?: string;
 	isHorizontal?: boolean;
 }
