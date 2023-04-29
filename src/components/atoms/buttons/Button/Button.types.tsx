@@ -9,6 +9,7 @@ export interface ButtonProps {
 	size?: ButtonSizeType;
 	variant?: ButtonVariantType;
 	icon?: React.ReactNode;
+	endIcon?: React.ReactNode;
 	className?: string;
 	onClick?: (event: React.MouseEvent) => void;
 }

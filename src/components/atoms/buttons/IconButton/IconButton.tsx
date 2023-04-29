@@ -23,7 +23,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
 
 	return (
 		<Button className={btnClasses} type={type} href={href} variant={variant} onClick={onClick}>
-			<span>{children}</span>
+			{children}
 		</Button>
 	);
 };

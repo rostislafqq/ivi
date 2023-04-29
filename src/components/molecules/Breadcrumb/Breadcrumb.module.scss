@@ -1,0 +1,60 @@
+@import '@/config/_variables.scss';
+
+.breadcrumb {
+	:global(.breadcrumb-menu) {
+		display: flex;
+	}
+
+	// Variants
+	&--classic {
+		font-size: $font-sm;
+
+		:global(.breadcrumb-item) {
+			&:not(&:global(.active)):after {
+				content: '/';
+				color: inherit;
+				margin-left: 4px;
+				margin-right: 4px;
+			}
+		}
+
+		:global(.breadcrumb-text) {
+			font-size: inherit;
+			color: rgba($white, 0.56);
+
+			&:not(&:global(.active)) {
+				color: $white;
+				box-shadow: 0 2px 0 $gray, inset 0 0 0 $gray;
+				transition: box-shadow 300ms ease;
+
+				&:hover {
+					box-shadow: 0 0 0 $gray, inset 0 -1.5em 0 $gray;
+				}
+			}
+		}
+	}
+
+	&--modern {
+		:global(.breadcrumb-item) {
+			&:not(&:global(.active)):after {
+				content: '';
+				display: inline-block;
+				width: 2px;
+				height: 2px;
+				background-color: rgba($white, 0.56);
+				margin-left: 7px;
+				margin-right: 7px;
+				margin-bottom: 3px;
+			}
+		}
+
+		:global(.breadcrumb-text) {
+			font-size: $font-base;
+			color: rgba($white, 0.7);
+
+			&:hover {
+				color: $white;
+			}
+		}
+	}
+}

@@ -1,14 +1,11 @@
-import React from 'react';
-
 import { Button } from './Button';
 
-// temp
-import { PlayIcon } from './play-icon';
+import { mapping, options } from '@app/data/iconsStorybookOptions';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Button> = {
-	title: 'Atoms/Button',
+	title: 'Atoms/Buttons/Button',
 	component: Button,
 	tags: ['autodocs'],
 	argTypes: {
@@ -33,7 +30,7 @@ const meta: Meta<typeof Button> = {
 		},
 		href: {
 			type: 'string',
-			name: 'Link',
+			name: 'href',
 			description: 'URL ссылка',
 			defaultValue: '',
 		},
@@ -46,21 +43,35 @@ const meta: Meta<typeof Button> = {
 				type: 'select',
 			},
 		},
-		icon: {
-			type: 'function',
-			name: 'Icon',
-			description: 'иконка',
-		},
 		className: {
 			type: 'string',
 			name: 'className',
 			description: 'Добавить класс для StoryBook',
 			defaultValue: '',
 		},
+		icon: {
+			name: 'Icon',
+			description: 'Иконка в начале',
+			mapping,
+			options,
+		},
+		endIcon: {
+			name: 'End Icon',
+			description: 'Иконка в конце',
+			mapping,
+			options,
+		},
 		children: {
 			type: 'string',
 			name: 'Label',
 			description: 'Содержимое',
+			control: {
+				type: 'text',
+			},
+		},
+		onClick: {
+			type: 'function',
+			action: 'click',
 		},
 	},
 };
@@ -94,17 +105,6 @@ export const Secondary: Story = {
 		size: 'small',
 		type: 'button',
 		variant: 'secondary',
-		className: '',
-	},
-};
-
-export const WithIcon: Story = {
-	args: {
-		children: 'Трейлер',
-		size: 'small',
-		type: 'button',
-		variant: 'secondary',
-		icon: <PlayIcon width={16} height={16} />,
 		className: '',
 	},
 };

@@ -1,9 +1,17 @@
+import React from 'react';
+
 import { IconButton } from './IconButton';
 
+import { mapping, options } from '@app/data/iconsStorybookOptions';
+
+import BookmarkIcon from '@assets/icons/bookmark.svg';
+import { Icon } from '@components/atoms';
+
 import type { Meta, StoryObj } from '@storybook/react';
+import '@/config/globals.scss';
 
 const meta: Meta<typeof IconButton> = {
-	title: 'Atoms/IconButton',
+	title: 'Atoms/Buttons/IconButton',
 	component: IconButton,
 	tags: ['autodocs'],
 	argTypes: {
@@ -26,6 +34,12 @@ const meta: Meta<typeof IconButton> = {
 				type: 'select',
 			},
 		},
+		href: {
+			type: 'string',
+			name: 'href',
+			description: 'URL ссылка',
+			defaultValue: '',
+		},
 		variant: {
 			type: 'string',
 			name: 'Variant',
@@ -44,7 +58,10 @@ const meta: Meta<typeof IconButton> = {
 		children: {
 			type: 'string',
 			name: 'Icon',
-			description: 'Содержимое',
+			description: 'Иконка',
+			options,
+			mapping,
+			control: 'select',
 		},
 	},
 };
@@ -55,7 +72,7 @@ type Story = StoryObj<typeof IconButton>;
 
 export const Primary: Story = {
 	args: {
-		children: '',
+		children: <Icon icon={BookmarkIcon} width={16} />,
 		size: 'normal',
 		type: 'button',
 		variant: 'primary',
@@ -65,7 +82,7 @@ export const Primary: Story = {
 
 export const PrimaryGradient: Story = {
 	args: {
-		children: '',
+		children: <Icon icon={BookmarkIcon} width={16} />,
 		size: 'normal',
 		type: 'button',
 		variant: 'primary-gradient',
@@ -75,7 +92,7 @@ export const PrimaryGradient: Story = {
 
 export const Secondary: Story = {
 	args: {
-		children: '',
+		children: <Icon icon={BookmarkIcon} width={16} />,
 		size: 'normal',
 		type: 'button',
 		variant: 'secondary',
@@ -85,7 +102,7 @@ export const Secondary: Story = {
 
 export const ButtonLink: Story = {
 	args: {
-		children: '',
+		children: <Icon icon={BookmarkIcon} width={16} />,
 		size: 'normal',
 		type: 'button',
 		variant: 'primary',

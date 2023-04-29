@@ -7,6 +7,7 @@ interface BrowserSpriteSymbol {
 
 export interface IconProps {
 	icon: BrowserSpriteSymbol;
+	className?: string;
 	width: number | string;
 	height?: number | string;
 }

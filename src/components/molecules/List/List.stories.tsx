@@ -30,7 +30,7 @@ type Story = StoryObj<typeof List>;
 export const DefaultList: Story = {
 	render: (args) => (
 		<List tag={args.tag}>
-			{defaultContentItems.map((v, i) => (
+			{defaultContentItems.map((v) => (
 				<ListItem type="circle" className={styles['example--position']}>
 					{v}
 				</ListItem>
