@@ -13,8 +13,8 @@
 			&:not(&:global(.active)):after {
 				content: '/';
 				color: inherit;
-				margin-left: 4px;
-				margin-right: 4px;
+				margin-left: 0.31em;
+				margin-right: 0.31em;
 			}
 		}
 
@@ -24,27 +24,29 @@
 
 			&:not(&:global(.active)) {
 				color: $white;
-				box-shadow: 0 2px 0 $gray, inset 0 0 0 $gray;
+				box-shadow: 0 0.154em 0 $gray, inset 0 0 0 $gray;
 				transition: box-shadow 300ms ease;
 
 				&:hover {
-					box-shadow: 0 0 0 $gray, inset 0 -1.5em 0 $gray;
+					box-shadow: 0 0 0 $gray, inset 0 -1.55em 0 $gray;
 				}
 			}
 		}
 	}
 
 	&--modern {
+		font-size: $font-base;
+
 		:global(.breadcrumb-item) {
 			&:not(&:global(.active)):after {
 				content: '';
 				display: inline-block;
-				width: 2px;
-				height: 2px;
+				width: 0.14em;
+				height: 0.14em;
 				background-color: rgba($white, 0.56);
-				margin-left: 7px;
-				margin-right: 7px;
-				margin-bottom: 3px;
+				margin-left: 0.47em;
+				margin-right: 0.47em;
+				margin-bottom: 0.2em;
 			}
 		}
 
