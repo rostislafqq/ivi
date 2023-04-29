@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Menu as MenuComponent } from './Menu';
+
 import { MenuItem } from '@components/atoms';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -31,10 +32,10 @@ const meta: Meta<typeof MenuComponent> = {
 	args: {
 		children: (
 			<>
-				<MenuItem text={'item1'} href={'#item1'} className={''} />
-				<MenuItem text={'item2'} href={'#item2'} />
-				<MenuItem text={'item3'} href={'#item3'} />
-				<MenuItem text={'item4'} href={'#item4'} />
+				<MenuItem text="item1" href="#item1" className="" />
+				<MenuItem text="item2" href="#item2" />
+				<MenuItem text="item3" href="#item3" />
+				<MenuItem text="item4" href="#item4" />
 			</>
 		),
 	},
@@ -45,9 +46,7 @@ export default meta;
 type Story = StoryObj<typeof MenuComponent>;
 
 export const Default: Story = {
-	render: (args) => {
-		return <MenuComponent {...args} />;
-	},
+	render: (args) => <MenuComponent {...args} />,
 };
 
 export const Vertical: Story = {

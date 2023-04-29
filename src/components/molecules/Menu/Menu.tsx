@@ -1,11 +1,10 @@
 import cn from 'classnames';
-import Link from 'next/link';
 import * as React from 'react';
 
 import styles from './Menu.module.scss';
 import { MenuProps } from './Menu.types';
 
-import { Heading, MenuItem } from '@components/atoms';
+import { Heading } from '@components/atoms';
 
 export const Menu: React.FC<MenuProps> = ({ children, title = '', isHorizontal = true }) => {
 	const wrapperClasses = cn(styles.list, { [styles['list--column']]: !isHorizontal });
