@@ -46,7 +46,6 @@ type Story = StoryObj<typeof MenuComponent>;
 
 export const Default: Story = {
 	render: (args) => {
-		console.log(args);
 		return <MenuComponent {...args} />;
 	},
 };
