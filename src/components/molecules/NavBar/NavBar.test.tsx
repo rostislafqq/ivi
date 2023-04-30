@@ -1,19 +1,17 @@
-import { Menu } from '@components/molecules/Menu/Menu';
 import { render } from '@testing-library/react';
 import React from 'react';
 
 import { NavBar } from './NavBar';
-
-import { Button } from '@components/atoms';
+import { Button, TextLink } from '@components/atoms';
+import { LinkList } from '@components/molecules/LinkList/LinkList';
 
 describe('components/molecules/NavBar', () => {
 	const menu = (
-		<Menu
-			linksList={[
-				{ text: 'item 1', href: 'test' },
-				{ text: 'item 2', href: 'test2' },
-			]}
-		/>
+		<LinkList>
+			<TextLink tag="span" href="test">
+				item1
+			</TextLink>
+		</LinkList>
 	);
 
 	const actionGroup = (
