@@ -5,7 +5,7 @@ import styles from './Badge.module.scss';
 
 import { BadgeProps } from './Badge.types';
 
-export const Badge: React.FC<BadgeProps> = ({ className, size, bg, children }) => {
+export const Badge: React.FC<BadgeProps> = ({ className, size, bg, children, ...props }) => {
 	const badgeClasses = cn(styles.badge, className, {
 		// Sizes
 		[styles['badge--small']]: size === 'small',
@@ -19,7 +19,7 @@ export const Badge: React.FC<BadgeProps> = ({ className, size, bg, children }) =
 	});
 
 	return (
-		<div className={badgeClasses}>
+		<div className={badgeClasses} {...props}>
 			<span>{children}</span>
 		</div>
 	);
