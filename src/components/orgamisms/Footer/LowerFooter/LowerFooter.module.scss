@@ -24,13 +24,10 @@
 			line-height: 2rem;
 		}
 	}
-	&__listItem:not(:last-child) {
-		margin-right: 1.2rem !important;
-	}
 	&__right {
 		display: flex;
 		column-gap: 1.2rem;
-		&smallBtn {
+		&SmallBtn {
 			border-radius: 50%;
 		}
 	}

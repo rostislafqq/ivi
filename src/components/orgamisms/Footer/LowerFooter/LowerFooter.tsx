@@ -102,7 +102,7 @@ export const LowerFooter = () => (
 		<List className={styles.wrapper__right} tag="ul">
 			<ListItem>
 				<IconButton
-					className={styles.wrapper__rightsmallBtn}
+					className={styles.wrapper__rightSmallBtn}
 					href="https://vk.com/iviru?crc=fa4448c13e06e69ba9e814e8743c7e2e"
 					variant="secondary"
 					size="normal"
@@ -112,7 +112,7 @@ export const LowerFooter = () => (
 			</ListItem>
 			<ListItem>
 				<IconButton
-					className={styles.wrapper__rightsmallBtn}
+					className={styles.wrapper__rightSmallBtn}
 					href="https://vk.com/iviru?crc=fa4448c13e06e69ba9e814e8743c7e2e"
 					variant="secondary"
 					size="normal"
@@ -122,7 +122,7 @@ export const LowerFooter = () => (
 			</ListItem>
 			<ListItem>
 				<IconButton
-					className={styles.wrapper__rightsmallBtn}
+					className={styles.wrapper__rightSmallBtn}
 					href="https://vk.com/iviru?crc=fa4448c13e06e69ba9e814e8743c7e2e"
 					variant="secondary"
 					size="normal"
@@ -132,7 +132,7 @@ export const LowerFooter = () => (
 			</ListItem>
 			<ListItem>
 				<IconButton
-					className={styles.wrapper__rightsmallBtn}
+					className={styles.wrapper__rightSmallBtn}
 					href="https://vk.com/iviru?crc=fa4448c13e06e69ba9e814e8743c7e2e"
 					variant="secondary"
 					size="normal"
@@ -142,7 +142,7 @@ export const LowerFooter = () => (
 			</ListItem>
 			<ListItem>
 				<IconButton
-					className={styles.wrapper__rightsmallBtn}
+					className={styles.wrapper__rightSmallBtn}
 					href="https://vk.com/iviru?crc=fa4448c13e06e69ba9e814e8743c7e2e"
 					variant="secondary"
 					size="normal"
@@ -152,7 +152,7 @@ export const LowerFooter = () => (
 			</ListItem>
 			<ListItem>
 				<IconButton
-					className={styles.wrapper__rightsmallBtn}
+					className={styles.wrapper__rightSmallBtn}
 					href="https://vk.com/iviru?crc=fa4448c13e06e69ba9e814e8743c7e2e"
 					variant="secondary"
 					size="normal"
