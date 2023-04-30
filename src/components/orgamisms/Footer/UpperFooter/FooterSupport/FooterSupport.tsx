@@ -54,12 +54,15 @@ export const FooterSupport: React.FC = () => {
 			</div>
 			<div className={styles.wrapper__answer}>
 				<TextLink
+					className={styles.wrapper__email}
 					href="https://ask.ivi.ru/?_gl=1*msmcdw*_ga*MTc0ODk0NDM1Mi4xNjgxODk0NjM2*_ga_GETQ4387MJ*MTY4MjY2MTc2Mi4xNi4xLjE2ODI2ODE2NTYuNDAuMC4w"
 					tag="span"
 				>
 					ask.ivi.ru
 				</TextLink>
-				<Text tag="span">Ответы на вопросы</Text>
+				<Text className={styles.wrapper__answerContent} tag="span">
+					Ответы на вопросы
+				</Text>
 			</div>
 		</div>
 	);

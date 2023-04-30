@@ -40,5 +40,11 @@
 		margin-top: 2.1rem;
 		display: flex;
 		flex-direction: column;
+		.wrapper__email {
+			color: $white;
+		}
+		&Content {
+			font-weight: 400;
+		}
 	}
 }

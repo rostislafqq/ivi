@@ -5,74 +5,69 @@ import { FooterSupport } from './FooterSupport/FooterSupport';
 
 import styles from './UpperFooter.module.scss';
 
-import { Menu } from '@/components/molecules';
+import { LinkList } from '@/components/molecules/LinkList/LinkList';
+import { TextLink } from '@/components/atoms';
 
 export const UpperFooter = () => (
 	<div className={styles.footerContent}>
-		<Menu
-			isHorizontal={false}
-			linksList={[
-				{
-					href: 'test',
-					text: 'О компании',
-					className: styles.menuItem,
-				},
-				{
-					href: 'test1',
-					text: 'Вакансии',
-					className: styles.menuItem,
-				},
-				{
-					className: styles.menuItem,
-					href: 'test2',
-					text: 'Программа бета-тестирования',
-				},
-				{
-					className: styles.menuItem,
-					href: 'test3',
-					text: 'Информация для партнёров',
-				},
-				{
-					className: styles.menuItem,
-					href: 'test',
-					text: 'Размещение рекламы',
-				},
-				{
-					className: styles.menuItem,
-					href: 'test1',
-					text: 'Пользовательское соглашение',
-				},
-				{
-					className: styles.menuItem,
-					href: 'test2',
-					text: 'Политика конфиденциальности',
-				},
-				{
-					className: styles.menuItem,
-					href: 'Комплаенс',
-					text: 'Информация для партнёров',
-				},
-			]}
-			title="О нас"
-		/>
-		<Menu
-			isHorizontal={false}
-			linksList={[
-				{ className: styles.menuItem, href: 'test', text: 'Мой Иви' },
-				{ className: styles.menuItem, href: 'test1', text: 'Что нового' },
-				{ className: styles.menuItem, href: 'test2', text: 'Фильмы' },
-				{ className: styles.menuItem, href: 'test3', text: 'Сериалы' },
-				{ className: styles.menuItem, href: 'test', text: 'Мультфильмы' },
-				{ className: styles.menuItem, href: 'test1', text: 'TV+' },
-				{ className: styles.menuItem, href: 'test2', text: 'Что посмотреть' },
-				{
-					className: `${styles[`menuItem--primary`]} ${styles.menuItem}`,
-					href: 'smth',
-					text: 'Активация сертификата',
-				},
-			]}
-			title="Разделы"
-		/>
+		<LinkList isHorizontal={false} title="О нас">
+			<React.Fragment key=".0">
+				<TextLink className={styles.menuItem} href="test" tag="p">
+					О компании
+				</TextLink>
+				<TextLink className={styles.menuItem} href="test" tag="p">
+					Вакансии
+				</TextLink>
+				<TextLink className={styles.menuItem} href="test" tag="p">
+					Программа бета-тестирования
+				</TextLink>
+				<TextLink className={styles.menuItem} href="test" tag="p">
+					Информация для партнёров
+				</TextLink>
+				<TextLink className={styles.menuItem} href="test" tag="p">
+					Размещение рекламы
+				</TextLink>
+				<TextLink className={styles.menuItem} href="test" tag="p">
+					Пользовательское соглашение
+				</TextLink>
+				<TextLink className={styles.menuItem} href="test" tag="p">
+					Политика конфиденциальности
+				</TextLink>
+				<TextLink className={styles.menuItem} href="test" tag="p">
+					Комплаенс
+				</TextLink>
+			</React.Fragment>
+		</LinkList>
+		<LinkList isHorizontal={false} title="О нас">
+			<React.Fragment key=".02123">
+				<TextLink className={styles.menuItem} href="test" tag="p">
+					Мой Иви
+				</TextLink>
+				<TextLink className={styles.menuItem} href="test" tag="p">
+					Что нового
+				</TextLink>
+				<TextLink className={styles.menuItem} href="test" tag="p">
+					Фильмы
+				</TextLink>
+				<TextLink className={styles.menuItem} href="test" tag="p">
+					Сериалы
+				</TextLink>
+				<TextLink className={styles.menuItem} href="test" tag="p">
+					Мультфильмы
+				</TextLink>
+				<TextLink className={styles.menuItem} href="test" tag="p">
+					TV+
+				</TextLink>
+				<TextLink className={styles.menuItem} href="test" tag="p">
+					Что посмотреть
+				</TextLink>
+				<div className={` ${styles.menuItem} ${styles[`menuItem--primary`]}`}>
+					<TextLink className={` ${styles.menuItem} ${styles[`menuItem--primary`]}`} href="test" tag="p">
+						Активация сертификата
+					</TextLink>
+				</div>
+			</React.Fragment>
+		</LinkList>
 		<FooterSupport />
 		<FooterAds />
 	</div>

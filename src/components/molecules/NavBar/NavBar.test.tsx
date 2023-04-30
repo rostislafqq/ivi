@@ -1,10 +1,10 @@
+import { Menu } from '@components/molecules/Menu/Menu';
 import { render } from '@testing-library/react';
 import React from 'react';
 
 import { NavBar } from './NavBar';
 
 import { Button } from '@components/atoms';
-import { Menu } from '@components/molecules/Menu/Menu';
 
 describe('components/molecules/NavBar', () => {
 	const menu = (

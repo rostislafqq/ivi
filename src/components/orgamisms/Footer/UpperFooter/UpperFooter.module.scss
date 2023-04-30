@@ -13,13 +13,18 @@
 	padding-left: 1.6rem;
 	margin-top: 0.8rem;
 }
+
 .menuItem {
 	line-height: 2rem;
+	padding: 0 !important;
+	display: block;
+	margin-bottom: 8px;
 	font-weight: 400 !important;
 	&--primary {
 		-webkit-text-fill-color: transparent;
 		-webkit-background-clip: text;
 		background-clip: text;
 		background-image: linear-gradient(-45deg, $purple-300, $red);
+		opacity: 1 !important;
 	}
 }

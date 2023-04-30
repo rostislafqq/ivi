@@ -1,0 +1,62 @@
+@import '@/config/_variables.scss';
+
+.breadcrumb {
+	:global(.breadcrumb-menu) {
+		display: flex;
+	}
+
+	// Variants
+	&--classic {
+		font-size: $font-sm;
+
+		:global(.breadcrumb-item) {
+			&:not(&:global(.active)):after {
+				content: '/';
+				color: inherit;
+				margin-left: 0.31em;
+				margin-right: 0.31em;
+			}
+		}
+
+		:global(.breadcrumb-text) {
+			font-size: inherit;
+			color: rgba($white, 0.56);
+
+			&:not(&:global(.active)) {
+				color: $white;
+				box-shadow: 0 0.154em 0 $gray, inset 0 0 0 $gray;
+				transition: box-shadow 300ms ease;
+
+				&:hover {
+					box-shadow: 0 0 0 $gray, inset 0 -1.55em 0 $gray;
+				}
+			}
+		}
+	}
+
+	&--modern {
+		font-size: $font-base;
+
+		:global(.breadcrumb-item) {
+			&:not(&:global(.active)):after {
+				content: '';
+				display: inline-block;
+				width: 0.14em;
+				height: 0.14em;
+				background-color: rgba($white, 0.56);
+				margin-left: 0.47em;
+				margin-right: 0.47em;
+				margin-bottom: 0.2em;
+			}
+		}
+
+		:global(.breadcrumb-text) {
+			font-size: $font-base;
+			color: rgba($white, 0.7);
+
+			&:hover {
+				color: $white;
+			}
+		}
+	}
+}
