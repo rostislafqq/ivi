@@ -1,4 +1,3 @@
-import { Menu } from '@components/molecules/Menu/Menu';
 import React from 'react';
 
 import { NavBar as NavBarComponent } from './NavBar';
