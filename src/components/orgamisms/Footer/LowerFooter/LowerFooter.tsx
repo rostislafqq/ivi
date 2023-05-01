@@ -7,7 +7,7 @@ import { Text } from '@/components/atoms';
 import { Download, Social } from '@/components/molecules';
 
 export const LowerFooter = () => (
-	<div className={styles.wrapper}>
+	<div className={styles.footerContent}>
 		<div>
 			<Download />
 			<Text tag="p">
