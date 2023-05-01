@@ -14,7 +14,7 @@ export const Notification: React.FC<NotificationProps> = ({ href, count = 0, onM
 		{count > 0 ? (
 			<Link href={href} className={styles.link} onMouseOut={onMouseOut} onMouseOver={onMouseOver}>
 				<Icon icon={notificationFull} width={16} className={styles.icon} />
-				<span className={styles.counter}>{count}</span>
+				<span className={styles.counter}>{count > 99 ? `99+` : count}</span>
 			</Link>
 		) : (
 			<Link href={href} className={styles.link}>

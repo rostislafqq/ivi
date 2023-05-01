@@ -40,3 +40,10 @@ export const withValue: Story = {
 		count: 9,
 	},
 };
+
+export const withBigValue: Story = {
+	render: (args) => <Notification {...args} />,
+	args: {
+		count: 1000,
+	},
+};
