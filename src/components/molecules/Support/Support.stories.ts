@@ -1,12 +1,12 @@
-import { Footer } from './Footer';
+import { Support } from './Support';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
 import '@/config/globals.scss';
 
-const meta: Meta<typeof Footer> = {
-	title: 'organisms/Footer',
-	component: Footer,
+const meta: Meta<typeof Support> = {
+	title: 'molecules/Support',
+	component: Support,
 	tags: ['autodocs'],
 	argTypes: {
 		description: {
@@ -16,6 +16,6 @@ const meta: Meta<typeof Footer> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof Footer>;
+type Story = StoryObj<typeof Support>;
 
-export const CommonFooter: Story = {};
+export const DefaultSupport: Story = {};

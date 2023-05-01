@@ -5,30 +5,4 @@
 	justify-content: space-between;
 	padding: 4.8rem 0;
 	border-top: 1px solid hsla(0, 0%, 100%, 0.16);
-	&__list {
-		display: flex;
-		column-gap: 1.2rem;
-		margin-bottom: 3.2rem;
-		&Button {
-			height: 4rem;
-		}
-		&CommonText {
-			color: hsla(0, 0%, 100%, 0.72);
-			font-size: 1rem;
-			line-height: 1.2rem;
-		}
-		&BoldText {
-			color: $white;
-			font-size: $font-base;
-			font-weight: 500;
-			line-height: 2rem;
-		}
-	}
-	&__right {
-		display: flex;
-		column-gap: 1.2rem;
-		&SmallBtn {
-			border-radius: 50%;
-		}
-	}
 }

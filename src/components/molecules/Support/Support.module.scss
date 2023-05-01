@@ -1,6 +1,6 @@
 @import '@/config/variables.scss';
 
-.wrapper {
+.support {
 	display: inline-flex;
 	flex-direction: column;
 	max-width: 30rem;
@@ -23,7 +23,7 @@
 		a:first-child {
 			margin-right: 1.2rem;
 		}
-		.wrapper__toggleBtn {
+		.support__toggleBtn {
 			position: absolute;
 			left: 0;
 			top: 6.3rem;
@@ -40,7 +40,7 @@
 		margin-top: 2.1rem;
 		display: flex;
 		flex-direction: column;
-		.wrapper__email {
+		.support__email {
 			color: $white;
 		}
 		&Content {
