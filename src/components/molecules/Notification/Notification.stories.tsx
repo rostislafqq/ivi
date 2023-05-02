@@ -11,8 +11,8 @@ const meta: Meta<typeof Notification> = {
 	argTypes: {
 		href: {
 			type: 'string',
-			name: 'url',
-			description: 'url личного кабинета',
+			name: 'href',
+			description: 'ссылка на страницу уведомлений',
 		},
 		count: {
 			type: 'number',

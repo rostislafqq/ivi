@@ -13,12 +13,17 @@ export const Notification: React.FC<NotificationProps> = ({ href, count = 0, onM
 	<div className={styles.wrapper}>
 		{count > 0 ? (
 			<Link href={href} className={styles.link} onMouseOut={onMouseOut} onMouseOver={onMouseOver}>
-				<Icon icon={notificationFull} width={16} className={styles.icon} />
+				<Icon icon={notificationFull} width={16} className={styles.icon} data-testid="icon" />
 				<span className={styles.counter}>{count > 99 ? `99+` : count}</span>
 			</Link>
 		) : (
 			<Link href={href} className={styles.link}>
-				<Icon icon={notification} width={16} className={classNames(styles.icon, styles['icon--empty'])} />
+				<Icon
+					icon={notification}
+					width={16}
+					className={classNames(styles.icon, styles['icon--empty'])}
+					data-testid="empty-icon"
+				/>
 			</Link>
 		)}
 	</div>
