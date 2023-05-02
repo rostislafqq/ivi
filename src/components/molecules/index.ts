@@ -1,5 +1,6 @@
 import { Accordion } from './Accordion/Accordion';
+import { Avatar } from './Avatar/Avatar';
 import { List } from './List/List';
 import { NavBar } from './NavBar/NavBar';
 
-export { List, Accordion, NavBar };
+export { Avatar, List, Accordion, NavBar };

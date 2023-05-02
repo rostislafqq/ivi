@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import React from 'react';
 
+import { Avatar } from '@components/molecules';
+
 const Home: React.FC = () => (
 	<>
 		<Head>
@@ -15,6 +17,7 @@ const Home: React.FC = () => (
 				<div className="container">
 					<h1>Главная страница</h1>
 				</div>
+				<Avatar href="test" />
 			</header>
 		</main>
 	</>
