@@ -84,9 +84,9 @@ export const Social: React.FC<SocialProps> = ({ isDefault = true, items = [] }) 
 		</List>
 	) : (
 		<List className={styles.social} tag="ul">
-			<ListItem>
-				{items.map((val) => (
-					<React.Fragment key={val.icon.content}>
+			{items.map((val) => (
+				<React.Fragment key={val.icon.content}>
+					<ListItem>
 						<IconButton
 							className={styles.social__btn}
 							href="https://vk.com/iviru?crc=fa4448c13e06e69ba9e814e8743c7e2e"
@@ -95,8 +95,8 @@ export const Social: React.FC<SocialProps> = ({ isDefault = true, items = [] }) 
 						>
 							<Icon width={val.width} icon={val.icon} />
 						</IconButton>
-					</React.Fragment>
-				))}
-			</ListItem>
+					</ListItem>
+				</React.Fragment>
+			))}
 		</List>
 	);
