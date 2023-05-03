@@ -1,7 +1,7 @@
-import { TextLink } from '@components/atoms';
 import React from 'react';
 import { getByText, render } from '@testing-library/react';
 import { LinkList } from './LinkList';
+import { TextLink } from '@components/atoms';
 
 describe('components/molecules/LinkList', () => {
 	const itemsList = (
