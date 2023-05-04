@@ -5,9 +5,11 @@ import React from 'react';
 import styles from './FilmBanner.module.scss';
 import { FilmBannerProps } from './FilmBanner.types';
 
+import { useMediaQuery } from '@/app/hooks';
 import { Badge, Button } from '@components/atoms';
 
 export const FilmBanner: React.FC<FilmBannerProps> = ({ banner, ...props }) => {
+	const isTableScreen = useMediaQuery('(min-width: 576px)');
 	const btnText = {
 		subscribe: 'Смотреть по подписке',
 		free: 'Смотреть бесплатно',
@@ -19,15 +21,25 @@ export const FilmBanner: React.FC<FilmBannerProps> = ({ banner, ...props }) => {
 			{!!banner.age && <Badge className={styles.banner__age}>{banner.age}</Badge>}
 
 			<Link href={banner.href} className={styles.banner__link} title={banner.name}>
-				<Image className={styles.banner__img} src={banner.banner} alt={banner.name} width={1216} height={370} />
+				<Image
+					className={styles.banner__img}
+					src={banner.banner}
+					alt={banner.name}
+					width={1216}
+					height={370}
+					priority
+				/>
 			</Link>
 
-			<Button className={styles['banner__btn-desktop']} variant="primary" size="normal">
-				{btnText[banner.type]}
-			</Button>
-			<Button className={styles['banner__btn-mobile']} variant="primary" size="small">
-				{btnText[banner.type]}
-			</Button>
+			{isTableScreen ? (
+				<Button className={styles.banner__btn} variant="primary" size="normal">
+					{btnText[banner.type]}
+				</Button>
+			) : (
+				<Button className={styles.banner__btn} variant="primary" size="small">
+					{btnText[banner.type]}
+				</Button>
+			)}
 		</div>
 	);
 };

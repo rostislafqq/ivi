@@ -60,23 +60,10 @@
 		}
 	}
 
-	&__btn-desktop,
-	&__btn-mobile {
+	&__btn {
 		position: absolute;
 		z-index: 2;
 		bottom: 2rem;
 		left: 2.5rem;
-	}
-
-	&__btn-desktop {
-		@media (max-width: 576px) {
-			display: none !important;
-		}
-	}
-
-	&__btn-mobile {
-		@media (min-width: 576px) {
-			display: none !important;
-		}
 	}
 }
