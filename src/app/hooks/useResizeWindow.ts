@@ -1,9 +1,9 @@
 import React from 'react';
 
-export function useResizeWindow() {
+export function useResizeWindow(): number[] {
 	const [windowSize, setWindowSize] = React.useState({
-		width: 0,
-		height: 0,
+		width: window.screen.width,
+		height: window.screen.height,
 	});
 
 	const handleResize = () => {

@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import React from 'react';
+import { useSwipeable } from 'react-swipeable';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -15,22 +16,33 @@ import { Icon } from '@components/atoms';
 import type { BannersSliderProps } from './BannersSlider.types';
 
 export const BannersSlider: React.FC<BannersSliderProps> = ({ className, children, ...props }) => {
-	const [items, setItems] = React.useState<Array<Element>>([]);
+	const itemsCount = React.Children.count(children);
+
 	const [activeSlide, setActiveSlide] = React.useState(0);
-	const sliderWrapperRef = React.useRef<null | HTMLDivElement>(null);
 	const [windowWidth] = useResizeWindow();
+
+	const sliderWrapperRef = React.useRef<null | HTMLDivElement>(null);
 
 	const bannersSliderClasses = cn(styles['banners-slider'], className);
 
-	const handlePrevElement = () => {
-		setActiveSlide((prevSlide) => (prevSlide > 0 ? prevSlide - 1 : items.length - 1));
-	};
+	const handlePrevElement = React.useCallback(() => {
+		setActiveSlide((prevSlide) => (prevSlide > 0 ? prevSlide - 1 : itemsCount - 1));
+	}, [itemsCount]);
 
-	const handleNextElement = () => {
-		setActiveSlide((prevSlide) => (prevSlide < items.length - 1 ? prevSlide + 1 : 0));
-	};
+	const handleNextElement = React.useCallback(() => {
+		setActiveSlide((prevSlide) => (prevSlide < itemsCount - 1 ? prevSlide + 1 : 0));
+	}, [itemsCount]);
 
-	const handleChangeSlideOffset = (currentSlide: number) => {
+	const handlersSwipe = useSwipeable({
+		onSwipedRight: () => {
+			handlePrevElement();
+		},
+		onSwipedLeft: () => {
+			handleNextElement();
+		},
+	});
+
+	const handleChangeSlideOffset = React.useCallback((currentSlide: number) => {
 		if (sliderWrapperRef.current) {
 			const sliderItem = sliderWrapperRef.current.querySelector('[data-type="slider-item"]');
 			if (sliderItem) {
@@ -39,25 +51,14 @@ export const BannersSlider: React.FC<BannersSliderProps> = ({ className, childre
 				sliderWrapperRef.current.style.transform = `translateX(-${sliderOffset}px)`;
 			}
 		}
-	};
-
-	const selectSliderItems = () => {
-		if (sliderWrapperRef.current) {
-			const sliderItems = sliderWrapperRef.current.querySelectorAll('[data-type="slider-item"]');
-			setItems(Array.from(sliderItems));
-		}
-	};
+	}, []);
 
 	React.useEffect(() => {
 		handleChangeSlideOffset(activeSlide);
-	}, [activeSlide, windowWidth]);
-
-	React.useEffect(() => {
-		selectSliderItems();
-	}, []);
+	}, [activeSlide, windowWidth, handleChangeSlideOffset]);
 
 	return (
-		<div className={bannersSliderClasses} {...props}>
+		<div className={bannersSliderClasses} {...props} {...handlersSwipe}>
 			{windowWidth >= 576 && (
 				<button className={styles['banners-slider__arrow-left']} type="button" onClick={handlePrevElement}>
 					<Icon icon={ArrowLeft} width={30} />
