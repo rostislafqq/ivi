@@ -11,7 +11,7 @@ export const TextLink: React.FC<TextLinkProps> = ({ className, tag, href, childr
 	const textClasses = cn(styles['text-link'], className);
 
 	return (
-		<Text className={textClasses} tag={tag}>
+		<Text tag={tag} className={textClasses}>
 			<Link className="link" href={href} onMouseOut={onMouseOut} onMouseOver={onMouseOver}>
 				{children}
 			</Link>
