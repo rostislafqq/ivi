@@ -5,7 +5,7 @@ export function useMediaQuery(query: string) {
 
 	React.useEffect(() => {
 		if (typeof window.matchMedia === 'undefined') return () => {};
-
+    
 		const handleUpdateMediaMatches = () => {
 			const media = window.matchMedia(query);
 			setMatches(media.matches);
