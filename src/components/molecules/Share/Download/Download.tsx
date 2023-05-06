@@ -90,26 +90,24 @@ export const Download: React.FC<DownloadProps> = ({ isDefault = true, contentDat
 	) : (
 		<List className={styles.download} tag="ul">
 			{contentData.map((val) => (
-				<React.Fragment key={val.icon.content}>
-					<ListItem>
-						<Button
-							className={styles.download__btn}
-							size="small"
-							variant="secondary"
-							href={val.href}
-							icon={<Icon width={val.width} icon={val.icon} />}
-						>
-							<div>
-								<Text className={styles.download__text} tag="p">
-									{val.smallText}
-								</Text>
-								<Text className={styles[`download__text-bold`]} tag="p">
-									{val.boldText}
-								</Text>
-							</div>
-						</Button>
-					</ListItem>
-				</React.Fragment>
+				<ListItem key={val.icon.content}>
+					<Button
+						className={styles.download__btn}
+						size="small"
+						variant="secondary"
+						href={val.href}
+						icon={<Icon width={val.width} icon={val.icon} />}
+					>
+						<div>
+							<Text className={styles.download__text} tag="p">
+								{val.smallText}
+							</Text>
+							<Text className={styles[`download__text-bold`]} tag="p">
+								{val.boldText}
+							</Text>
+						</div>
+					</Button>
+				</ListItem>
 			))}
 		</List>
 	);

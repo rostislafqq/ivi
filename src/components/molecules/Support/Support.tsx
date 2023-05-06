@@ -37,7 +37,7 @@ export const Support: React.FC = () => {
 					size="normal"
 					variant="secondary"
 				>
-					<Icon width={16} icon={tel} />
+					<Icon data-testid="telBtn" width={16} icon={tel} />
 				</IconButton>
 				<Button
 					className={
