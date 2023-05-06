@@ -18,7 +18,7 @@ const meta: Meta<typeof Accordion> = {
 	component: Accordion,
 	tags: ['autodocs'],
 	argTypes: {
-		content: {
+		children: {
 			description: 'контент , который будет открываться/закрываться',
 		},
 		length: {
@@ -35,7 +35,7 @@ type Story = StoryObj<typeof Accordion>;
 
 export const HomeExample: Story = {
 	args: {
-		content: (
+		children: (
 			<>
 				<Text className={styles['paragrapg--position']} tag="p">
 					Случалось ли вам отказаться от просмотра интересного фильма из-за того, что его показывали в
