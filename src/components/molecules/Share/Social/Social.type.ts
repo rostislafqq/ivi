@@ -6,6 +6,7 @@ export interface SocialProps {
 		{
 			icon: BrowserSpriteSymbol;
 			width: number;
+			key: string | number;
 		},
 	];
 }

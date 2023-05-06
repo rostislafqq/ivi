@@ -26,6 +26,6 @@ export const DefaultSocial: Story = {};
 export const JustOneSocial: Story = {
 	args: {
 		isDefault: false,
-		items: [{ icon: tg, width: 16 }],
+		items: [{ icon: tg, width: 16, key: '11dd2' }],
 	},
 };

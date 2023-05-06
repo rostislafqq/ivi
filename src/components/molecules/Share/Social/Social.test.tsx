@@ -26,7 +26,9 @@ describe('/components/molecules/Share/Social', () => {
 	});
 
 	it('correct render with props', () => {
-		const { getByRole } = render(<Social key={1} isDefault={false} items={[{ icon: tg, width: 16 }]} />);
+		const { getByRole } = render(
+			<Social key={1} isDefault={false} items={[{ icon: tg, width: 16, key: '123sd21d' }]} />,
+		);
 		const list = getByRole('list');
 		expect(list.childElementCount).toBe(1);
 		const link = getByRole('link');

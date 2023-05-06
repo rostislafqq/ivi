@@ -85,7 +85,7 @@ export const Social: React.FC<SocialProps> = ({ isDefault = true, items = [] }) 
 	) : (
 		<List className={styles.social} tag="ul">
 			{items.map((val) => (
-				<ListItem key={val.icon.content}>
+				<ListItem key={val.key}>
 					<IconButton
 						className={styles.social__btn}
 						href="https://vk.com/iviru?crc=fa4448c13e06e69ba9e814e8743c7e2e"

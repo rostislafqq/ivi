@@ -89,8 +89,8 @@ export const Download: React.FC<DownloadProps> = ({ isDefault = true, contentDat
 		</List>
 	) : (
 		<List className={styles.download} tag="ul">
-			{contentData.map((val) => (
-				<ListItem key={val.icon.content}>
+			{contentData.map((val, index) => (
+				<ListItem key={contentData[index]?.boldText}>
 					<Button
 						className={styles.download__btn}
 						size="small"
