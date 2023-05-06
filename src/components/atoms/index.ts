@@ -1,5 +1,6 @@
 import { Badge } from './Badge/Badge';
 import { Button, IconButton } from './buttons';
+import { ChatMessage } from './ChatMessage/ChatMessage';
 import { FilmStatus } from './FilmStatus/FilmStatus';
 import { Icon } from './Icon/Icon';
 import { Input } from './Inputs/Input/Input';
@@ -22,6 +23,7 @@ export {
 	Input,
 	InputGroup,
 	Label,
+	ChatMessage,
 	FilmStatus,
 	Section,
 	SectionHeader,
