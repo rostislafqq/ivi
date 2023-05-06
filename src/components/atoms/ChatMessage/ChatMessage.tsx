@@ -13,7 +13,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({ className, type = 'lef
 		[styles.message__left]: type === 'left',
 	});
 	return (
-		<div className={messageClasses}>
+		<div data-testid="chat-message" className={messageClasses}>
 			{title ? <Heading tag="h4">{title}</Heading> : null}
 			{extra ? (
 				<Text className={styles.message__extra} tag="span">
