@@ -6,14 +6,13 @@ import { Accordion } from './Accordion';
 describe('components/atoms/Accordion', () => {
 	const length = 2;
 	const buttonValues = ['открыть', 'закрыть'];
-	const content = [
-		<>
-			<p>some text1</p>
-			<p>some text2</p>
-		</>,
-	];
 	it('should render button that swich own text ', () => {
-		const { getByRole } = render(<Accordion content={content} length={length} buttonValues={buttonValues} />);
+		const { getByRole } = render(
+			<Accordion length={length} buttonValues={buttonValues}>
+				<p>some text1</p>
+				<p>some text2</p>
+			</Accordion>,
+		);
 		const button = getByRole('button');
 
 		expect(button).toHaveTextContent('открыть');
@@ -23,7 +22,10 @@ describe('components/atoms/Accordion', () => {
 
 	it('should render button that switch div className', () => {
 		const { getByRole, getByText } = render(
-			<Accordion content={content} length={length} buttonValues={buttonValues} />,
+			<Accordion length={length} buttonValues={buttonValues}>
+				<p>some text1</p>
+				<p>some text2</p>
+			</Accordion>,
 		);
 		const button = getByRole('button');
 		const div = getByText('some text1').parentElement;
@@ -33,7 +35,12 @@ describe('components/atoms/Accordion', () => {
 	});
 
 	it('should render div that contain variable `content` ', () => {
-		const { getByText } = render(<Accordion content={content} length={length} buttonValues={buttonValues} />);
+		const { getByText } = render(
+			<Accordion length={length} buttonValues={buttonValues}>
+				<p>some text1</p>
+				<p>some text2</p>
+			</Accordion>,
+		);
 		const accordionContent1 = getByText('some text1');
 		const accordionContent2 = getByText('some text2');
 		expect(accordionContent1).toBeInTheDocument();
