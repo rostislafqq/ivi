@@ -16,6 +16,7 @@ export const Button: React.FC<ButtonProps> = ({
 	endIcon,
 	onClick,
 	children,
+	...props
 }) => {
 	const btnClasses = cn(styles.btn, className, {
 		// Sizes
@@ -31,7 +32,7 @@ export const Button: React.FC<ButtonProps> = ({
 
 	if (href) {
 		return (
-			<Link className={btnClasses} href={href} onClick={onClick}>
+			<Link className={btnClasses} href={href} onClick={onClick} {...props}>
 				{icon}
 				{children}
 				{endIcon}
@@ -40,7 +41,7 @@ export const Button: React.FC<ButtonProps> = ({
 	}
 	return (
 		// eslint-disable-next-line react/button-has-type
-		<button className={btnClasses} type={type} onClick={onClick}>
+		<button className={btnClasses} type={type} onClick={onClick} {...props}>
 			{icon}
 			{children}
 			{endIcon}
