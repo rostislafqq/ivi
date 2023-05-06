@@ -1,6 +1,10 @@
 import { Accordion } from './Accordion/Accordion';
 import { List } from './List/List';
-import { Menu } from './Menu/Menu';
 import { NavBar } from './NavBar/NavBar';
+import { NoAds } from './NoAds/NoAds';
+import { Support } from './Support/Support';
 
-export { List, Accordion, Menu, NavBar };
+import { Download } from '@/components/molecules/Share/Download/Download';
+import { Social } from '@/components/molecules/Share/Social/Social';
+
+export { List, Accordion, NavBar, Support, Social, Download, NoAds };

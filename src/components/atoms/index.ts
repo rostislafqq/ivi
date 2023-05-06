@@ -1,12 +1,13 @@
 import { Badge } from './Badge/Badge';
 import { Button, IconButton } from './buttons';
 import { ChatMessage } from './ChatMessage/ChatMessage';
+import { FilmStatus } from './FilmStatus/FilmStatus';
 import { Icon } from './Icon/Icon';
 import { Input } from './Inputs/Input/Input';
 import { InputGroup } from './Inputs/InputGroup/InputGroup';
 import { Label } from './Inputs/Label/Label';
 import { ListItem } from './ListItem/ListItem';
-import { MenuItem } from './MenuItem/MenuItem';
+import { Section, SectionHeader, SectionHeading } from './sections';
 import { Heading, HeadingLink, Text, TextLink } from './typography';
 
 export {
@@ -19,9 +20,12 @@ export {
 	Text,
 	TextLink,
 	Badge,
-	MenuItem,
 	Input,
 	InputGroup,
 	Label,
 	ChatMessage,
+	FilmStatus,
+	Section,
+	SectionHeader,
+	SectionHeading,
 };

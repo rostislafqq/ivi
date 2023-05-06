@@ -34,6 +34,12 @@ const meta: Meta<typeof IconButton> = {
 				type: 'select',
 			},
 		},
+		href: {
+			type: 'string',
+			name: 'href',
+			description: 'URL ссылка',
+			defaultValue: '',
+		},
 		variant: {
 			type: 'string',
 			name: 'Variant',
