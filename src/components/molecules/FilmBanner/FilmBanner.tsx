@@ -18,9 +18,13 @@ export const FilmBanner: React.FC<FilmBannerProps> = ({ banner, ...props }) => {
 
 	return (
 		<div className={styles.banner} {...props}>
-			{!!banner.age && <Badge className={styles.banner__age}>{banner.age}</Badge>}
+			{!!banner.age && (
+				<Badge className={styles.banner__age} data-testid="badge">
+					{banner.age}
+				</Badge>
+			)}
 
-			<Link href={banner.href} className={styles.banner__link} title={banner.name}>
+			<Link href={banner.href} className={styles.banner__link} title={banner.name} data-testid="link">
 				<Image
 					className={styles.banner__img}
 					src={banner.banner}
@@ -28,15 +32,16 @@ export const FilmBanner: React.FC<FilmBannerProps> = ({ banner, ...props }) => {
 					width={1216}
 					height={370}
 					priority
+					data-testid="image"
 				/>
 			</Link>
 
 			{isTableScreen ? (
-				<Button className={styles.banner__btn} variant="primary" size="normal">
+				<Button className={styles.banner__btn} variant="primary" size="normal" data-testid="button">
 					{btnText[banner.type]}
 				</Button>
 			) : (
-				<Button className={styles.banner__btn} variant="primary" size="small">
+				<Button className={styles.banner__btn} variant="primary" size="small" data-testid="button">
 					{btnText[banner.type]}
 				</Button>
 			)}
