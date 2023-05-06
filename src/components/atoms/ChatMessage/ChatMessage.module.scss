@@ -3,8 +3,8 @@
 .message {
 	box-sizing: content-box;
 	width: fit-content;
-	border-radius: 16px;
-	padding: 16px;
+	border-radius: 1.6rem;
+	padding: 1.6rem;
 	&__right {
 		background-color: $black;
 		border-bottom-right-radius: 0;
