@@ -13,3 +13,5 @@ export const SliderItem: React.FC<SliderItemProps> = ({ className, active, child
 		</div>
 	);
 };
+
+export const WithMemoSliderItem = React.memo(SliderItem);

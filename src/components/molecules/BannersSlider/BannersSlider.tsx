@@ -13,6 +13,7 @@ export const BannersSlider: React.FC<BannersSliderProps> = ({ className, childre
 	return (
 		<Slider
 			className={bannersSliderClasses}
+			autoplay={{ delay: 10000, disableOnMouseEnter: true }}
 			_arrowLeftClassName={styles['banners-slider__arrow-left']}
 			_arrowRightClassName={styles['banners-slider__arrow-right']}
 			{...props}

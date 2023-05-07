@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import React from 'react';
 
 import { BannersSlider } from './BannersSlider';
@@ -44,7 +45,7 @@ export const Default: Story = {
 		return (
 			<BannersSlider style={{ margin: '0 -1rem' }}>
 				{banners.map((banner) => (
-					<FilmBanner key={banner.href} banner={banner} />
+					<FilmBanner key={nanoid()} banner={banner} />
 				))}
 			</BannersSlider>
 		);

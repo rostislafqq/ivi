@@ -42,3 +42,5 @@ export const SliderArrow: React.FC<SliderArrowProps> = ({
 
 	return null;
 };
+
+export const WithMemoSliderArrow = React.memo(SliderArrow);
