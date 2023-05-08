@@ -13,8 +13,6 @@ import { SliderProvider } from '@/app/providers';
 export const Slider: React.FC<SliderProps> = ({
 	className,
 	children,
-	slidesPerView = 2,
-	spaceBetween,
 	autoplay = { delay: 0, disableOnMouseEnter: false },
 	_arrowLeftClassName,
 	_arrowRightClassName,

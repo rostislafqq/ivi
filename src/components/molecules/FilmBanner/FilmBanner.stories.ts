@@ -15,7 +15,7 @@ export const Default: Story = {
 	args: {
 		banner: {
 			name: 'Богомол',
-			banner: '/assets/images/promo-slider/img1.jpg',
+			banner: '/assets/images/banners/img1.jpg',
 			href: '/watch/1',
 			type: 'subscribe',
 			age: '16+',
