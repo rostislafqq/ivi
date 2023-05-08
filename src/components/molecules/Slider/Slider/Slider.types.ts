@@ -1,9 +1,6 @@
 import { ReactNode, HTMLAttributes } from 'react';
 
-type AutoplayType = {
-	delay: number;
-	disableOnMouseEnter?: boolean;
-};
+import { AutoplayType } from '@/app/providers/SliderProvider/SliderProvider.types';
 
 export interface SliderProps extends HTMLAttributes<HTMLDivElement> {
 	children: ReactNode;
@@ -15,5 +12,4 @@ export interface SliderProps extends HTMLAttributes<HTMLDivElement> {
 	_arrowRightClassName?: string;
 	_viewportClassName?: string;
 	_wrapperClassName?: string;
-	_itemClassName?: string;
 }

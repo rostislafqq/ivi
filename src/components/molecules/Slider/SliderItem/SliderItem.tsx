@@ -4,11 +4,22 @@ import React from 'react';
 import styles from './SliderItem.module.scss';
 import { SliderItemProps } from './SliderItem.types';
 
-export const SliderItem: React.FC<SliderItemProps> = ({ className, active, children, ...props }) => {
+import { SliderContext } from '@/app/providers';
+
+export const SliderItem: React.FC<SliderItemProps> = ({ className, index, children, ...props }) => {
+	const { state, actions } = React.useContext(SliderContext);
+
 	const itemClasses = cn(styles.slider__item, className);
 
 	return (
-		<div className={itemClasses} data-active={active} data-type="slider-item" {...props}>
+		<div
+			className={itemClasses}
+			data-type="slider-item"
+			data-active={state.activeSlide === index}
+			onMouseEnter={() => actions.handleAutoSliding(false)}
+			onMouseLeave={() => actions.handleAutoSliding(true)}
+			{...props}
+		>
 			{children}
 		</div>
 	);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { iviFont } from '@app/providers/fonts';
+import { iviFont } from './fonts';
 
 interface FontProviderProps {
 	children: React.ReactNode;

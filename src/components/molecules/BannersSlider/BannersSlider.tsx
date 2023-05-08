@@ -3,7 +3,7 @@ import React from 'react';
 
 import styles from './BannersSlider.module.scss';
 
-import { Slider } from '../Slider/Slider';
+import { Slider, SliderItem } from '../Slider';
 
 import type { BannersSliderProps } from './BannersSlider.types';
 
@@ -18,7 +18,9 @@ export const BannersSlider: React.FC<BannersSliderProps> = ({ className, childre
 			_arrowRightClassName={styles['banners-slider__arrow-right']}
 			{...props}
 		>
-			{children}
+			{React.Children.map(children, (child, index) => (
+				<SliderItem index={index}>{child}</SliderItem>
+			))}
 		</Slider>
 	);
 };

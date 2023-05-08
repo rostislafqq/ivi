@@ -6,10 +6,12 @@ import styles from './SliderWrapper.module.scss';
 import { SliderWrapperProps } from './SliderWrapper.types';
 
 import { useResizeWindow } from '@/app/hooks';
+import { SliderContext } from '@/app/providers';
 
-export const SliderWrapper: React.FC<SliderWrapperProps> = ({ className, activeSlide, children }) => {
+export const SliderWrapper: React.FC<SliderWrapperProps> = ({ className, children }) => {
 	const wrapperClasses = cn(styles.slider__wrapper, className);
 
+	const { state } = React.useContext(SliderContext);
 	const [windowWidth] = useResizeWindow();
 	const sliderWrapperRef = React.useRef<null | HTMLDivElement>(null);
 
@@ -25,8 +27,8 @@ export const SliderWrapper: React.FC<SliderWrapperProps> = ({ className, activeS
 	}, []);
 
 	React.useEffect(() => {
-		handleChangeSlideOffset(activeSlide);
-	}, [activeSlide, windowWidth, handleChangeSlideOffset]);
+		handleChangeSlideOffset(state.activeSlide);
+	}, [state.activeSlide, windowWidth, handleChangeSlideOffset]);
 
 	return (
 		<div className={wrapperClasses} ref={sliderWrapperRef}>
