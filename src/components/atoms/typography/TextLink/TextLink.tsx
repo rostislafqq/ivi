@@ -2,10 +2,10 @@ import cn from 'classnames';
 import Link from 'next/link';
 import React from 'react';
 
+import { Text } from '../Text/Text';
+
 import styles from './TextLink.module.scss';
 import { TextLinkProps } from './TextLink.types';
-
-import { Text } from '../Text/Text';
 
 export const TextLink: React.FC<TextLinkProps> = ({ className, tag, href, children, onMouseOut, onMouseOver }) => {
 	const textClasses = cn(styles['text-link'], className);

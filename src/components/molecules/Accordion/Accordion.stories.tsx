@@ -1,10 +1,10 @@
 import React from 'react';
 
+import { List } from '../List/List';
+
 import { Accordion } from './Accordion';
 
 import styles from './Accordion.module.scss';
-
-import { List } from '../List/List';
 
 import { defaultContentItems } from '@/app/data/defaultContentItems';
 import { Text, ListItem } from '@/components/atoms';

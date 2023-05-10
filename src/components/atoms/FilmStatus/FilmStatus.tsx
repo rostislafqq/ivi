@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { Text } from '../typography';
+
 import styles from './FilmStatus.module.scss';
 import { FilmStatusProps } from './FilmStatus.types';
-
-import { Text } from '../typography';
 
 export const FilmStatus: React.FC<FilmStatusProps> = ({ className, variant, children }) => {
 	const filmStatusClasses = cn(styles['film-status'], className, {

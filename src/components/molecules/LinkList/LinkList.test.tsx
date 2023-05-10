@@ -1,15 +1,15 @@
+import { render } from '@testing-library/react';
 import React from 'react';
-import { getByText, render } from '@testing-library/react';
+
 import { LinkList } from './LinkList';
+
 import { TextLink } from '@components/atoms';
 
 describe('components/molecules/LinkList', () => {
 	const itemsList = (
-		<>
-			<TextLink tag="span" href="test">
-				item1
-			</TextLink>
-		</>
+		<TextLink tag="span" href="test">
+			item1
+		</TextLink>
 	);
 
 	it('should render with children prop', () => {
@@ -18,14 +18,14 @@ describe('components/molecules/LinkList', () => {
 	});
 
 	it('should render with title and children props', () => {
-		const { getByText } = render(<LinkList children={itemsList} title={'test'} />);
+		const { getByText } = render(<LinkList children={itemsList} title="test" />);
 		const title = getByText('test');
 
 		expect(title).toBeInTheDocument();
 	});
 
 	it('should render with isHorizontal prop is false with title', () => {
-		const { container, getByText } = render(<LinkList children={itemsList} isHorizontal={false} title={'test'} />);
+		const { container, getByText } = render(<LinkList children={itemsList} isHorizontal={false} title="test" />);
 		const title = getByText('test');
 
 		expect(container.firstChild).toBeInTheDocument();

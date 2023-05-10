@@ -2,11 +2,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from 'react';
 
+import { List } from '../../List/List';
+
 import styles from './Download.module.scss';
 
 import { DownloadProps } from './Download.types';
-
-import { List } from '../../List/List';
 
 import apple from '@/assets/icons/apple.svg';
 import { Button, Icon, ListItem, Text } from '@/components/atoms';

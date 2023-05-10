@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { InputGroup } from './InputGroup';
-
-import styles from './InputGroup.module.scss';
-
 import { Input } from '../Input/Input';
 
 import { Label } from '../Label/Label';
+
+import { InputGroup } from './InputGroup';
+
+import styles from './InputGroup.module.scss';
 
 import type { Meta, StoryObj } from '@storybook/react';
 

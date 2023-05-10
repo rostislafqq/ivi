@@ -2,9 +2,9 @@ import cn from 'classnames';
 import Link from 'next/link';
 import React from 'react';
 
-import styles from './HeadingLink.module.scss';
-
 import { Heading } from '../Heading/Heading';
+
+import styles from './HeadingLink.module.scss';
 
 import type { HeadingLinkProps } from './HeadingLink.types';
 

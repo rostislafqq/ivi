@@ -1,14 +1,13 @@
 import cn from 'classnames';
 import React from 'react';
 
-import styles from './SectionHeading.module.scss';
-
-import { SectionHeadingProps } from './SectionHeading.types';
-
 import { Badge } from '../../Badge/Badge';
 import { Icon } from '../../Icon/Icon';
 
 import { Heading, HeadingLink } from '../../typography';
+
+import styles from './SectionHeading.module.scss';
+import { SectionHeadingProps } from './SectionHeading.types';
 
 import ArrowIcon from '@assets/icons/arrow-right.svg';
 

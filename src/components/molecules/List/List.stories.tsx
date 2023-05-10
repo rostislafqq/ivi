@@ -1,10 +1,10 @@
 import React from 'react';
 
+import { ListItem } from '../../atoms/ListItem/ListItem';
+
 import { List } from './List';
 
 import styles from './List.module.scss';
-
-import { ListItem } from '../../atoms/ListItem/ListItem';
 
 import { defaultContentItems } from '@/app/data/defaultContentItems';
 

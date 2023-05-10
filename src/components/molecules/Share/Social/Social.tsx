@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from 'react';
 
+import { List } from '../../List/List';
+
 import styles from './Social.module.scss';
 
 import { SocialProps } from './Social.type';
-
-import { List } from '../../List/List';
 
 import { Icon, IconButton, ListItem } from '@/components/atoms';
 
