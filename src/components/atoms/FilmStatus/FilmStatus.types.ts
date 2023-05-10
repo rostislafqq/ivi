@@ -1,7 +1,6 @@
-import React from 'react';
+export type FilmStatusType = 'free' | 'subscribe' | 'buy';
 
 export interface FilmStatusProps {
-	children: React.ReactNode;
-	variant: 'free' | 'subscribe' | 'buy';
+	status: FilmStatusType;
 	className?: string;
 }
