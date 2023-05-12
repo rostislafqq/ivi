@@ -7,6 +7,5 @@ export interface FilmCardProps extends HTMLAttributes<HTMLDivElement> {
 	preview: string;
 	status: FilmStatusType;
 	href: string;
-	loading: boolean;
 	className?: string;
 }

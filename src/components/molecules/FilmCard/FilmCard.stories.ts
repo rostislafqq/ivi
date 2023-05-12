@@ -33,7 +33,7 @@ const meta: Meta<typeof FilmCard> = {
 export default meta;
 
 type Story = StoryObj<typeof FilmCard>;
-export const UploadedCard: Story = {
+export const FilmCardLoaded: Story = {
 	args: {
 		name: 'Позывной «Журавли»',
 		preview: '/assets/images/film-cards/img1.jpg',
@@ -42,7 +42,7 @@ export const UploadedCard: Story = {
 	},
 };
 
-export const DownloadedCard: Story = {
+export const FilmCardLoading: Story = {
 	args: {
 		name: 'Позывной «Журавли»',
 		preview: '/assets/images/film-cards/img1.jpg',
