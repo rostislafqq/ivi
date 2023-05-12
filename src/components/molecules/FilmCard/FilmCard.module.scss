@@ -1,0 +1,52 @@
+@import '@/config/_variables.scss';
+
+.film-card {
+	--width: 171px;
+
+	display: inline-block;
+	width: var(--width);
+
+	&__link {
+		display: inline-block;
+	}
+
+	&__previewBox {
+		position: relative;
+		background-color: $purple-500;
+		width: var(--width);
+		height: calc(var(--width) * 1.54);
+
+		border-radius: 0.8rem;
+		overflow: hidden;
+	}
+
+	&__preview, &__previewLoading {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: auto;
+	}
+
+	&__descriptionBox {
+		margin-top: 0.8rem;
+		max-width: 100%;
+
+		*:not(:first-child) {
+			margin-top: 0.4rem;
+		}
+	}
+
+	&__name {
+		line-height: 1.34em;
+		max-width: 90%;
+		white-space: nowrap;
+		overflow-x: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&__status {
+		line-height: 1.24em;
+	}
+}
