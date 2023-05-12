@@ -5,6 +5,23 @@ import { LoadingBox } from './LoadingBox';
 const meta: Meta<typeof LoadingBox> = {
 	title: 'Atoms/LoadingBox',
 	component: LoadingBox,
+	tags: ['autodocs'],
+	args: {
+		className: '',
+	},
+	argTypes: {
+		rounded: {
+			description: 'Уровень скругления',
+			control: 'select',
+			options: ['small', 'normal'],
+		},
+		style: {
+			description: 'Объект для дополнительной стилизации',
+		},
+		className: {
+			description: 'Добавить класс для Storybook',
+		},
+	},
 };
 
 export default meta;
@@ -12,16 +29,20 @@ export default meta;
 type Story = StoryObj<typeof LoadingBox>;
 export const LoadingText: Story = {
 	args: {
-		width: '120px',
-		height: '18px',
 		rounded: 'small',
+		style: {
+			width: 120,
+			height: 18,
+		},
 	},
 };
 
 export const LoadingImage: Story = {
 	args: {
-		width: '171px',
-		height: '279px',
 		rounded: 'normal',
+		style: {
+			width: 171,
+			height: 279,
+		},
 	},
 };
