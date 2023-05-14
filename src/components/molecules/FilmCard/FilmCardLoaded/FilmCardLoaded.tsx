@@ -27,7 +27,7 @@ export const FilmCardLoaded: React.FC<FilmCardProps> = ({ className, name, previ
 			<Link className={styles['card-loaded__link']} href={href}>
 				<div
 					className={cn(filmCardStyles['film-card__previewBox'], styles['card-loaded__previewBox'])}
-					data-testid="previewBox"
+					data-testid="film-card__previewBox"
 					data-hover={isHovered}
 				>
 					<Image
@@ -36,14 +36,18 @@ export const FilmCardLoaded: React.FC<FilmCardProps> = ({ className, name, previ
 						alt={name}
 						width={234}
 						height={360}
-						data-testid="preview"
+						data-testid="film-card__preview"
 					/>
 				</div>
 				<div className={filmCardStyles['film-card__descriptionBox']}>
-					<Heading className={styles['card-loaded__name']} tag="h4" data-testid="name">
+					<Heading className={styles['card-loaded__name']} tag="h4" data-testid="film-card__name">
 						{name}
 					</Heading>
-					<FilmStatus className={styles['card-loaded__status']} status={status} data-testid="status" />
+					<FilmStatus
+						className={styles['card-loaded__status']}
+						status={status}
+						data-testid="film-card__status"
+					/>
 				</div>
 			</Link>
 		</div>

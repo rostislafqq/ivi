@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import React from 'react';
 
-import filmCardStyles from '../FilmCard.module.scss';
-
 import { LoadingBox } from '@/components/atoms';
+
+import filmCardStyles from '../FilmCard.module.scss';
 
 import type { FilmCardLoadingProps } from './FilmCardLoading.types';
 

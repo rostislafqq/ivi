@@ -15,6 +15,38 @@ describe('components/molecules/FilmCard/FilmCardLoaded', () => {
 		);
 
 		expect(container.firstChild).toBeInTheDocument();
+		expect(container.firstChild).toHaveClass('film-card');
+		expect(container.firstChild).toHaveClass('card-loaded');
+	});
+
+	it('should accept an additional class', () => {
+		const { container } = render(
+			<FilmCardLoaded
+				className="test-class"
+				name="Фильм"
+				preview="/assets/images/test-preview.jpg"
+				status="subscribe"
+				href="/watch/1"
+			/>,
+		);
+
+		expect(container.firstChild).toHaveClass('film-card');
+		expect(container.firstChild).toHaveClass('card-loaded');
+		expect(container.firstChild).toHaveClass('test-class');
+	});
+
+	it('should render the link inside the component', () => {
+		const { getByRole } = render(
+			<FilmCardLoaded
+				name="Фильм"
+				preview="/assets/images/test-preview.jpg"
+				status="subscribe"
+				href="/watch/1"
+			/>,
+		);
+
+		expect(getByRole('link')).toBeInTheDocument();
+		expect(getByRole('link')).toHaveAttribute('href', '/watch/1');
 	});
 
 	it('should display the film name', () => {
@@ -27,7 +59,7 @@ describe('components/molecules/FilmCard/FilmCardLoaded', () => {
 			/>,
 		);
 
-		expect(getByTestId('name')).toBeInTheDocument();
+		expect(getByTestId('film-card__name')).toBeInTheDocument();
 	});
 
 	it('should display the film status', () => {
@@ -40,7 +72,7 @@ describe('components/molecules/FilmCard/FilmCardLoaded', () => {
 			/>,
 		);
 
-		expect(getByTestId('status')).toBeInTheDocument();
+		expect(getByTestId('film-card__status')).toBeInTheDocument();
 	});
 
 	it('should display the film preview', () => {
@@ -53,7 +85,7 @@ describe('components/molecules/FilmCard/FilmCardLoaded', () => {
 			/>,
 		);
 
-		expect(getByTestId('preview')).toBeInTheDocument();
+		expect(getByTestId('film-card__preview')).toBeInTheDocument();
 	});
 
 	it('changes the state when hovered', () => {
@@ -67,8 +99,8 @@ describe('components/molecules/FilmCard/FilmCardLoaded', () => {
 		);
 
 		fireEvent.mouseEnter(getByTestId('film-card'));
-		expect(getByTestId('previewBox')).toHaveAttribute('data-hover', 'true');
+		expect(getByTestId('film-card__previewBox')).toHaveAttribute('data-hover', 'true');
 		fireEvent.mouseLeave(getByTestId('film-card'));
-		expect(getByTestId('previewBox')).toHaveAttribute('data-hover', 'false');
+		expect(getByTestId('film-card__previewBox')).toHaveAttribute('data-hover', 'false');
 	});
 });
