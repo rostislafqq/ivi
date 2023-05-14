@@ -6,7 +6,7 @@ import { Text } from '../typography';
 import styles from './FilmStatus.module.scss';
 import { FilmStatusProps } from './FilmStatus.types';
 
-export const FilmStatus: React.FC<FilmStatusProps> = ({ className, status }) => {
+export const FilmStatus: React.FC<FilmStatusProps> = ({ className, status, ...props }) => {
 	const filmStatusClasses = cn(styles['film-status'], className, {
 		[styles['film-status--free']]: status === 'free',
 		[styles['film-status--subscribe']]: status === 'subscribe',
@@ -20,7 +20,7 @@ export const FilmStatus: React.FC<FilmStatusProps> = ({ className, status }) => 
 	};
 
 	return (
-		<Text className={filmStatusClasses} tag="div">
+		<Text className={filmStatusClasses} tag="div" {...props}>
 			{filmStatusText[status]}
 		</Text>
 	);
