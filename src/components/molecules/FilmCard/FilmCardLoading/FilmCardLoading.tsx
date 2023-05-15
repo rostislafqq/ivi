@@ -13,13 +13,21 @@ export const FilmCardLoading: React.FC<FilmCardLoadingProps> = ({ className, ...
 	const cardClasses = cn(filmCardStyles['film-card'], styles['card-loading'], className);
 
 	return (
-		<div className={cardClasses} {...props}>
+		<div className={cardClasses} data-testid="film-card" {...props}>
 			<div className={filmCardStyles['film-card__previewBox']}>
-				<LoadingBox className={styles['card-loading__preview']} rounded="normal" />
+				<LoadingBox
+					className={styles['card-loading__preview']}
+					rounded="normal"
+					data-testid="film-card__preview"
+				/>
 			</div>
 			<div className={filmCardStyles['film-card__descriptionBox']}>
-				<LoadingBox className={styles['card-loading__name']} rounded="small" />
-				<LoadingBox className={styles['card-loading__status']} rounded="small" />
+				<LoadingBox className={styles['card-loading__name']} rounded="small" data-testid="film-card__name" />
+				<LoadingBox
+					className={styles['card-loading__status']}
+					rounded="small"
+					data-testid="film-card__status"
+				/>
 			</div>
 		</div>
 	);
