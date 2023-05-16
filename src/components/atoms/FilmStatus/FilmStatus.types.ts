@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'react';
 
-export type FilmStatusType = 'free' | 'subscribe' | 'buy';
+import { FilmStatusType } from '@/app/types';
 
 export interface FilmStatusProps extends HTMLAttributes<HTMLDivElement> {
 	status: FilmStatusType;
