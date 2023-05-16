@@ -3,7 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-import { Heading, FilmStatus } from '@/components/atoms';
+import { Heading, FilmStatus, Icon } from '@/components/atoms';
+import BanIcon from '@assets/icons/ban.svg';
+import BookmarkIcon from '@assets/icons/bookmark.svg';
+import FilmIcon from '@assets/icons/film.svg';
+import StarIcon from '@assets/icons/star.svg';
 
 import filmCardStyles from '../FilmCard.module.scss';
 
@@ -38,6 +42,24 @@ export const FilmCardLoaded: React.FC<FilmCardProps> = ({ className, film, ...pr
 						height={360}
 						data-testid="film-card__preview"
 					/>
+
+					<div className={styles['card-loaded__actionBtns']} data-hover={isHovered}>
+						<Link href="/add-favorite/">
+							<Icon icon={BookmarkIcon} width={24} height={24} />
+						</Link>
+
+						<Link href="/">
+							<Icon icon={FilmIcon} width={24} height={24} />
+						</Link>
+
+						<Link href="/rating/">
+							<Icon icon={StarIcon} width={24} height={24} />
+						</Link>
+
+						<Link href="/">
+							<Icon icon={BanIcon} width={24} height={24} />
+						</Link>
+					</div>
 				</div>
 				<div className={filmCardStyles['film-card__descriptionBox']}>
 					<Heading className={styles['card-loaded__name']} tag="h4" data-testid="film-card__name">
