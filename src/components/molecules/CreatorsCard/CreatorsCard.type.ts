@@ -6,5 +6,5 @@ export interface CreatorsCardProps {
 	size: 'small' | 'normal' | 'big';
 	type: 'circle' | 'square';
 	image?: string;
-	extra?: string;
+	extra?: string | number;
 }

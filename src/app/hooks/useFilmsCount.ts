@@ -1,4 +1,7 @@
-export const useFilmCount = (count: number) => {
+export const useFilmCount = (count: number | string) => {
+	if (typeof count !== 'number') {
+		return count;
+	}
 	if (count === 1) {
 		return '1 фильм';
 	}

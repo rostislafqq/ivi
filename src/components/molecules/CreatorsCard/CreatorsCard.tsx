@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import cn from 'classnames';
 
 import Image from 'next/image';
@@ -10,6 +9,8 @@ import styles from './CreatorsCard.module.scss';
 
 import { CreatorsCardProps } from './CreatorsCard.type';
 
+import { useFilmCount } from '@/app/hooks';
+
 import { Text } from '@/components/atoms';
 
 export const CreatorsCard: React.FC<CreatorsCardProps> = ({
@@ -19,16 +20,19 @@ export const CreatorsCard: React.FC<CreatorsCardProps> = ({
 	name,
 	surname,
 	size,
-	extra,
+	extra = '',
 	type,
 }) => {
-	const CreatorsCardClass = cn(className, styles.card, [styles[`card-${size}`]]);
-	const ImageClass = cn(styles[`card-${size}__image-${type}`], styles[`card-${size}__image`], {
+	const CreatorsCardClass = cn(className, styles.card, [styles[`card--${size}`]]);
+	const ImageClass = cn(styles[`card--${size}__image--${type}`], styles[`card--${size}__image`], {
 		[styles.card__noPhoto]: image.length === 0,
 	});
+
+	const st = useFilmCount(extra);
+
 	return (
 		<Link className={CreatorsCardClass} href={href}>
-			<div className={type === 'square' ? `${ImageClass} ${styles[`card-square`]}` : ImageClass}>
+			<div className={type === 'square' ? `${ImageClass} ${styles[`card--square`]}` : ImageClass}>
 				{image.length > 0 && (
 					<Image
 						className={ImageClass}
@@ -39,13 +43,13 @@ export const CreatorsCard: React.FC<CreatorsCardProps> = ({
 					/>
 				)}
 			</div>
-			<Text className={`${styles[`card-${size}__text-bold`]} ${styles[`card-${size}__text`]}`} tag="p">
+			<Text className={`${styles[`card--${size}__text--bold`]} ${styles[`card--${size}__text`]}`} tag="p">
 				{name}
 				<br />
 				{surname}
 			</Text>
-			<Text className={`${styles[`card-${size}__text`]} ${styles[`card-${size}__text`]}`} tag="span">
-				{extra}
+			<Text className={`${styles[`card--${size}__text`]}`} tag="span">
+				{st}
 			</Text>
 		</Link>
 	);

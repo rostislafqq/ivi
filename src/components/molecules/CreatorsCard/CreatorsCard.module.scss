@@ -9,16 +9,16 @@
 		background-size: 4.4rem;
 		background-repeat: no-repeat;
 	}
-	&-square {
+	&--square {
 		width: 5.6rem !important;
 		height: 5.6rem !important;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 	}
-	&-small {
+	&--small {
 		&__text {
-			&-bold {
+			&--bold {
 				display: block;
 				margin: 0.8rem auto 0 auto;
 				font-weight: 400;
@@ -33,23 +33,23 @@
 			width: 4.4rem;
 			height: 4.4rem;
 			background-color: $black;
-			&-circle {
+			&--circle {
 				border-radius: 50%;
 			}
-			&-square {
+			&--square {
 				border-radius: 0.8rem;
 				background-color: rgba($white, 0.16);
 			}
 		}
 	}
 
-	&-normal {
+	&--normal {
 		&__text {
 			margin-top: 0.8rem;
 			font-size: $font-sm;
 			line-height: $font-base;
 			font-weight: 400;
-			&-bold {
+			&--bold {
 				font-weight: 500;
 				color: $lightGray;
 			}
@@ -59,22 +59,22 @@
 			width: 8.8rem;
 			height: 8.8rem;
 			background-color: $black;
-			&-circle {
+			&--circle {
 				border-radius: 50%;
 			}
-			&-square {
+			&--square {
 				border-radius: 0.8rem;
 				background-color: rgba($white, 0.16);
 			}
 		}
 	}
-	&-big {
+	&--big {
 		&__text {
 			margin-top: 0.8rem;
 			font-size: $font-sm;
 			line-height: $font-base;
 			font-weight: 400;
-			&-bold {
+			&--bold {
 				font-weight: 500;
 				color: $lightGray;
 				line-height: 2rem;
@@ -86,10 +86,10 @@
 			width: 11.5rem;
 			height: 11.5rem;
 			background-color: $black;
-			&-circle {
+			&--circle {
 				border-radius: 50%;
 			}
-			&-square {
+			&--square {
 				border-radius: 0.8rem;
 				background-color: rgba($white, 0.16);
 			}

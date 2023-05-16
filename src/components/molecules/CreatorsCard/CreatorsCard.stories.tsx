@@ -1,7 +1,4 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { CreatorsCard } from './CreatorsCard';
-
-import { useFilmCount } from '@/app/hooks';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -30,7 +27,7 @@ const meta: Meta<typeof CreatorsCard> = {
 		},
 		extra: {
 			description:
-				'текст снизу . "актер/режиссер ..." . если хотим вид (кол-во) фильмов , то использовать результат useFilmsCount(колво)',
+				'текст снизу . "актер/режиссер ..." . если хотим вид (кол-во) фильмов , то передать только цифру',
 		},
 	},
 };
@@ -77,6 +74,6 @@ export const someoneBig: Story = {
 		size: 'big',
 		type: 'circle',
 		image: 'https://thumbs.dfs.ivi.ru/storage29/contents/6/0/ad438353a47b1f73b0dc6b76aa5f9e.jpg',
-		extra: useFilmCount(2),
+		extra: 2,
 	},
 };
