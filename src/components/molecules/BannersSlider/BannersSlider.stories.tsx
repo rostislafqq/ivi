@@ -3,10 +3,10 @@ import React from 'react';
 
 import { FilmBanner } from '../FilmBanner/FilmBanner';
 
-import { BannersSlider } from './BannersSlider';
-
 import type { FilmBannerType } from '@app/types';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { BannersSlider } from './BannersSlider';
 
 const meta: Meta<typeof BannersSlider> = {
 	title: 'Molecules/Sliders/BannersSlider',

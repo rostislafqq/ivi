@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import { LinkList } from './LinkList';
-
 import { TextLink } from '@components/atoms';
+
+import { LinkList } from './LinkList';
 
 describe('components/molecules/LinkList', () => {
 	const itemsList = (

@@ -1,6 +1,6 @@
-import { NoAds } from './NoAds';
-
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { NoAds } from './NoAds';
 
 import '@/config/globals.scss';
 

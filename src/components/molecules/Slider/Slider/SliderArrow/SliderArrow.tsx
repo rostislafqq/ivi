@@ -1,13 +1,13 @@
 import cn from 'classnames';
 import React from 'react';
 
-import styles from './SliderArrow.module.scss';
-import { SliderArrowProps } from './SliderArrow.types';
-
 import { SliderContext } from '@/app/providers';
 import { Icon } from '@/components/atoms';
 import ArrowLeft from '@assets/icons/arrow-left.svg';
 import ArrowRight from '@assets/icons/arrow-right.svg';
+
+import styles from './SliderArrow.module.scss';
+import { SliderArrowProps } from './SliderArrow.types';
 
 export const SliderArrow: React.FC<SliderArrowProps> = ({ direction, className, ...props }) => {
 	const { actions } = React.useContext(SliderContext);

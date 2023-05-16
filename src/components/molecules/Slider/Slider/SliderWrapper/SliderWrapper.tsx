@@ -1,12 +1,13 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { useResizeWindow } from '@/app/hooks';
+
+import { SliderContext } from '@/app/providers';
+
 import styles from './SliderWrapper.module.scss';
 
 import { SliderWrapperProps } from './SliderWrapper.types';
-
-import { useResizeWindow } from '@/app/hooks';
-import { SliderContext } from '@/app/providers';
 
 export const SliderWrapper: React.FC<SliderWrapperProps> = ({ className, children }) => {
 	const wrapperClasses = cn(styles.slider__wrapper, className);

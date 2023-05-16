@@ -4,11 +4,11 @@ import { Input } from '../Input/Input';
 
 import { Label } from '../Label/Label';
 
+import type { Meta, StoryObj } from '@storybook/react';
+
 import { InputGroup } from './InputGroup';
 
 import styles from './InputGroup.module.scss';
-
-import type { Meta, StoryObj } from '@storybook/react';
 
 import '@/config/globals.scss';
 

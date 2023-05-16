@@ -2,11 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
+import { useMediaQuery } from '@/app/hooks';
+
+import { Badge, Button } from '@components/atoms';
+
 import styles from './FilmBanner.module.scss';
 import { FilmBannerProps } from './FilmBanner.types';
-
-import { useMediaQuery } from '@/app/hooks';
-import { Badge, Button } from '@components/atoms';
 
 export const FilmBanner: React.FC<FilmBannerProps> = ({ banner, ...props }) => {
 	const isTableScreen = useMediaQuery('(min-width: 576px)');

@@ -2,11 +2,12 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import * as React from 'react';
 
+import logo from '@assets/icons/Logo.svg';
+
+import { Icon } from '@components/atoms';
+
 import styles from './NavBar.module.scss';
 import { NavBarProps } from './NavBar.types';
-
-import logo from '@assets/icons/Logo.svg';
-import { Icon } from '@components/atoms';
 
 export const NavBar: React.FC<NavBarProps> = ({ menu, actionGroup, isSeporator = false }) => {
 	const wrapperClasses = classNames('container', styles.wrapper, { [styles['wrapper--borderBottom']]: isSeporator });

@@ -3,9 +3,9 @@ import { render } from '@testing-library/react';
 
 import React from 'react';
 
-import { Download } from './Download';
-
 import tg from '@assets/icons/social/tg.svg';
+
+import { Download } from './Download';
 
 describe('/components/molecules/Share/Download', () => {
 	it('should render ul whitch contain 4 li and 4 links', () => {

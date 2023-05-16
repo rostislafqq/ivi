@@ -1,6 +1,6 @@
-import { Support } from './Support';
-
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { Support } from './Support';
 
 import '@/config/globals.scss';
 

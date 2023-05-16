@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { SliderContext } from '@/app/providers';
+
 import styles from './SliderItem.module.scss';
 import { SliderItemProps } from './SliderItem.types';
-
-import { SliderContext } from '@/app/providers';
 
 export const SliderItem: React.FC<SliderItemProps> = ({ className, index, children, ...props }) => {
 	const { state, actions } = React.useContext(SliderContext);

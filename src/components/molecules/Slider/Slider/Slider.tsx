@@ -1,14 +1,15 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { useMediaQuery } from '@/app/hooks';
+
+import { SliderProvider } from '@/app/providers';
+
 import styles from './Slider.module.scss';
 import { SliderProps } from './Slider.types';
 import { WithMemoSliderArrow } from './SliderArrow/SliderArrow';
 import { SliderViewport } from './SliderViewport/SliderViewport';
 import { SliderWrapper } from './SliderWrapper/SliderWrapper';
-
-import { useMediaQuery } from '@/app/hooks';
-import { SliderProvider } from '@/app/providers';
 
 export const Slider: React.FC<SliderProps> = ({
 	className,

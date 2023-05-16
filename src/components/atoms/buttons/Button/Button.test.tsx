@@ -1,10 +1,10 @@
 import { render, fireEvent } from '@testing-library/react';
 import React from 'react';
 
-import { Button } from './Button';
-
 import PlayIcon from '@assets/icons/play.svg';
 import { Icon } from '@components/atoms';
+
+import { Button } from './Button';
 
 describe('components/atoms/Button', () => {
 	it('should render with base props: type', () => {

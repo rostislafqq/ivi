@@ -1,11 +1,11 @@
 import cn from 'classnames';
 import React from 'react';
 
-import styles from './BannersSlider.module.scss';
-
 import { Slider, SliderItem } from '../Slider';
 
 import type { BannersSliderProps } from './BannersSlider.types';
+
+import styles from './BannersSlider.module.scss';
 
 export const BannersSlider: React.FC<BannersSliderProps> = ({ className, children, ...props }) => {
 	const bannersSliderClasses = cn(styles['banners-slider'], className);

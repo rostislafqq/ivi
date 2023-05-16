@@ -1,6 +1,6 @@
-import { FilmBanner } from './FilmBanner';
-
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { FilmBanner } from './FilmBanner';
 
 const meta: Meta<typeof FilmBanner> = {
 	title: 'Molecules/FilmBanner',

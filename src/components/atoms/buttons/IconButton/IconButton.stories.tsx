@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { IconButton } from './IconButton';
-
 import { mapping, options } from '@app/data/iconsStorybookOptions';
 
 import BookmarkIcon from '@assets/icons/bookmark.svg';
 import { Icon } from '@components/atoms';
 
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { IconButton } from './IconButton';
 import '@/config/globals.scss';
 
 const meta: Meta<typeof IconButton> = {

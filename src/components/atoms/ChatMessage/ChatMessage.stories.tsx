@@ -1,6 +1,6 @@
-import { ChatMessage } from './ChatMessage';
-
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { ChatMessage } from './ChatMessage';
 
 import '@/config/globals.scss';
 

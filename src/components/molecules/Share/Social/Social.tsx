@@ -1,12 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from 'react';
 
-import { List } from '../../List/List';
-
-import styles from './Social.module.scss';
-
-import { SocialProps } from './Social.type';
-
 import { Icon, IconButton, ListItem } from '@/components/atoms';
 
 import linked from '@assets/icons/social/linkedin.svg';
@@ -17,6 +11,11 @@ import twit from '@assets/icons/social/twitter.svg';
 import viber from '@assets/icons/social/viber.svg';
 
 import vk from '@assets/icons/social/vk.svg';
+
+import { List } from '../../List/List';
+
+import styles from './Social.module.scss';
+import { SocialProps } from './Social.type';
 
 export const Social: React.FC<SocialProps> = ({ isDefault = true, items = [] }) =>
 	isDefault ? (

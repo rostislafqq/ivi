@@ -4,9 +4,9 @@ import React from 'react';
 
 import { Heading } from '../Heading/Heading';
 
-import styles from './HeadingLink.module.scss';
-
 import type { HeadingLinkProps } from './HeadingLink.types';
+
+import styles from './HeadingLink.module.scss';
 
 export const HeadingLink: React.FC<HeadingLinkProps> = ({ className, tag, href, children }) => {
 	const headingLinkClasses = cn(styles['heading-link'], className);
