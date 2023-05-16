@@ -1,12 +1,12 @@
-export const useFilmCount = (count: number | string) => {
-	if (typeof count !== 'number') {
-		return count;
+export const useFilmCount = (value: number | string) => {
+	if (typeof value !== 'number') {
+		return value;
 	}
-	if (count === 1) {
+	if (value === 1) {
 		return '1 фильм';
 	}
-	if (count >= 2 && count <= 4) {
-		return `${count} фильма`;
+	if (value >= 2 && value <= 4) {
+		return `${value} фильма`;
 	}
-	return `${count} фильмов`;
+	return `${value} фильмов`;
 };
