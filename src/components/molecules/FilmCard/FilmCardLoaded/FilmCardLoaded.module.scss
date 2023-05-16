@@ -1,0 +1,73 @@
+@import '@/config/_variables.scss';
+
+.card-loaded {
+	&__link {
+		display: inline-block;
+	}
+
+	&__previewBox {
+		position: relative;
+		transition: transform 300ms ease;
+
+		&:before {
+			content: '';
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 2;
+			background: rgba(7, 5, 14, 0.8);
+			opacity: 0;
+			transition: opacity 200ms ease;
+		}
+
+		&[data-hover='true'] {
+			transform: scale(1.025) translateY(-0.4rem);
+
+			&:before {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__actionBtns {
+		position: absolute;
+		top: 1.5rem;
+		right: 1.5rem;
+		z-index: 3;
+		opacity: 0;
+
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		transition: opacity 300ms ease;
+
+		&[data-hover="true"] {
+			opacity: 1;
+		}
+	}
+
+	&__preview {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		width: 100%;
+		height: auto;
+	}
+
+	&__name {
+		line-height: 1.34em;
+		max-width: 90%;
+		white-space: nowrap;
+		overflow-x: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&__status {
+		line-height: 1.24em;
+	}
+}

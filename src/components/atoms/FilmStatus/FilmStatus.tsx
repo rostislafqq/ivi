@@ -6,16 +6,22 @@ import { Text } from '../typography';
 import styles from './FilmStatus.module.scss';
 import { FilmStatusProps } from './FilmStatus.types';
 
-export const FilmStatus: React.FC<FilmStatusProps> = ({ className, variant, children }) => {
+export const FilmStatus: React.FC<FilmStatusProps> = ({ className, status, ...props }) => {
 	const filmStatusClasses = cn(styles['film-status'], className, {
-		[styles['film-status--free']]: variant === 'free',
-		[styles['film-status--subscribe']]: variant === 'subscribe',
-		[styles['film-status--buy']]: variant === 'buy',
+		[styles['film-status--free']]: status === 'free',
+		[styles['film-status--subscribe']]: status === 'subscribe',
+		[styles['film-status--buy']]: status === 'buy',
 	});
 
+	const filmStatusText = {
+		subscribe: 'Подписка',
+		free: 'Бесплатно',
+		buy: 'Покупка',
+	};
+
 	return (
-		<Text className={filmStatusClasses} tag="div">
-			{children}
+		<Text className={filmStatusClasses} tag="div" {...props}>
+			{filmStatusText[status]}
 		</Text>
 	);
 };

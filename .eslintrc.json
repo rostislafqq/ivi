@@ -31,7 +31,7 @@
         "import/order": [
             2,
             {
-                "groups": ["external", "builtin", "index", "parent", "sibling", "internal", "type"],
+                "groups": ["external", "builtin", "index", "internal", "parent", "type", "sibling"],
                 "alphabetize": {
                     "order": "asc",
                     "caseInsensitive": true
