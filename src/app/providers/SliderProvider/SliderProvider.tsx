@@ -16,7 +16,7 @@ export const SliderContext = React.createContext<SliderContextType>({
 export const SliderProvider: React.FC<SliderProviderProps> = ({ data, children }) => {
 	const { slidesCount, autoplay } = data;
 
-	const [autoSliding, setAutoSliding] = React.useState(autoplay.delay > 0);
+	const [autoSliding, setAutoSliding] = React.useState(!!autoplay?.delay);
 	const [activeSlide, setActiveSlide] = React.useState(0);
 
 	const handleAutoSliding = React.useCallback((working: boolean) => {

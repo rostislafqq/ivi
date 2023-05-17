@@ -2,13 +2,13 @@ import React from 'react';
 
 export type AutoplayType = {
 	delay: number;
-	disableOnMouseEnter: boolean;
+	disableOnMouseEnter?: boolean;
 };
 
 export interface SliderProviderProps {
 	data: {
 		slidesCount: number;
-		autoplay: AutoplayType;
+		autoplay?: AutoplayType;
 	};
 	children: React.ReactNode;
 }
