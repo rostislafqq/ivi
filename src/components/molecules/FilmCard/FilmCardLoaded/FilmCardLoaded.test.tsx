@@ -29,11 +29,11 @@ describe('components/molecules/FilmCard/FilmCardLoaded', () => {
 		expect(container.firstChild).toHaveClass('test-class');
 	});
 
-	it('should render the link inside the component', () => {
-		const { getByRole } = render(<FilmCardLoaded film={film} />);
+	it('should render a link to the film page', () => {
+		const { getByTestId } = render(<FilmCardLoaded film={film} />);
 
-		expect(getByRole('link')).toBeInTheDocument();
-		expect(getByRole('link')).toHaveAttribute('href', '/watch/1');
+		expect(getByTestId('film-card__link')).toBeInTheDocument();
+		expect(getByTestId('film-card__link')).toHaveAttribute('href', '/watch/1');
 	});
 
 	it('should display the film name', () => {
