@@ -28,50 +28,48 @@ export const FilmCardLoaded: React.FC<FilmCardProps> = ({ className, film, ...pr
 			onMouseLeave={() => setIsHovered(false)}
 			{...props}
 		>
-			<Link className={styles['card-loaded__link']} href={film.href}>
-				<div
-					className={cn(filmCardStyles['film-card__previewBox'], styles['card-loaded__previewBox'])}
-					data-testid="film-card__previewBox"
-					data-hover={isHovered}
-				>
-					<Image
-						className={styles['card-loaded__preview']}
-						src={film.preview}
-						alt={film.name}
-						width={234}
-						height={360}
-						data-testid="film-card__preview"
-					/>
+			<Link className={styles['card-loaded__link']} href={film.href} data-testid="film-card__link" />
+			<div
+				className={cn(filmCardStyles['film-card__previewBox'], styles['card-loaded__previewBox'])}
+				data-testid="film-card__previewBox"
+				data-hover={isHovered}
+			>
+				<Image
+					className={styles['card-loaded__preview']}
+					src={film.preview}
+					alt={film.name}
+					width={234}
+					height={360}
+					data-testid="film-card__preview"
+				/>
+			</div>
+			<div className={styles['card-loaded__actionBtns']} data-hover={isHovered}>
+				<Link href="/add-favorite/">
+					<Icon icon={BookmarkIcon} width={24} height={24} />
+				</Link>
 
-					<div className={styles['card-loaded__actionBtns']} data-hover={isHovered}>
-						<Link href="/add-favorite/">
-							<Icon icon={BookmarkIcon} width={24} height={24} />
-						</Link>
+				<Link href="/">
+					<Icon icon={FilmIcon} width={24} height={24} />
+				</Link>
 
-						<Link href="/">
-							<Icon icon={FilmIcon} width={24} height={24} />
-						</Link>
+				<Link href="/rating/">
+					<Icon icon={StarIcon} width={24} height={24} />
+				</Link>
 
-						<Link href="/rating/">
-							<Icon icon={StarIcon} width={24} height={24} />
-						</Link>
-
-						<Link href="/">
-							<Icon icon={BanIcon} width={24} height={24} />
-						</Link>
-					</div>
-				</div>
-				<div className={filmCardStyles['film-card__descriptionBox']}>
-					<Heading className={styles['card-loaded__name']} tag="h4" data-testid="film-card__name">
-						{film.name}
-					</Heading>
-					<FilmStatus
-						className={styles['card-loaded__status']}
-						status={film.status}
-						data-testid="film-card__status"
-					/>
-				</div>
-			</Link>
+				<Link href="/">
+					<Icon icon={BanIcon} width={24} height={24} />
+				</Link>
+			</div>
+			<div className={filmCardStyles['film-card__descriptionBox']}>
+				<Heading className={styles['card-loaded__name']} tag="h4" data-testid="film-card__name">
+					{film.name}
+				</Heading>
+				<FilmStatus
+					className={styles['card-loaded__status']}
+					status={film.status}
+					data-testid="film-card__status"
+				/>
+			</div>
 		</div>
 	);
 };
