@@ -19,6 +19,7 @@ export const SliderArrow: React.FC<SliderArrowProps> = ({ direction, className, 
 					className={cn(styles['slider__arrow-left'], className)}
 					type="button"
 					onClick={() => actions.handleSlide('left')}
+					data-testid="slider__arrow-left"
 					{...props}
 				>
 					<Icon icon={ArrowLeft} width={30} />
@@ -30,6 +31,7 @@ export const SliderArrow: React.FC<SliderArrowProps> = ({ direction, className, 
 					className={cn(styles['slider__arrow-right'], className)}
 					type="button"
 					onClick={() => actions.handleSlide('right')}
+					data-testid="slider__arrow-right"
 					{...props}
 				>
 					<Icon icon={ArrowRight} width={30} />
