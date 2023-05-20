@@ -1,7 +1,7 @@
 import { render, renderHook, act } from '@testing-library/react';
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { SliderContext, SliderProvider } from './SliderProvider';
+import { SliderProvider, useSlider } from './SliderProvider';
 
 describe('providers/SliderProvider', () => {
 	it('should renders children', () => {
@@ -15,19 +15,22 @@ describe('providers/SliderProvider', () => {
 	});
 
 	it('should provides state and actions', () => {
-		const { result } = renderHook(() => useContext(SliderContext), {
+		const { result } = renderHook(() => useSlider(), {
 			wrapper: ({ children }) => <SliderProvider data={{ slidesCount: 3 }}>{children}</SliderProvider>,
 		});
 
 		expect(result.current.state.activeSlide).toBe(0);
 		expect(result.current.state.autoSliding).toBe(false);
+		expect(result.current.state.slidesCount).toBe(3);
 
-		expect(result.current.actions.handleSlide).toBeDefined();
-		expect(result.current.actions.handleAutoSliding).toBeDefined();
+		expect(result.current.actions.moveLeftSlide).toBeDefined();
+		expect(result.current.actions.moveRightSlide).toBeDefined();
+		expect(result.current.actions.onAutoSliding).toBeDefined();
+		expect(result.current.actions.offAutoSliding).toBeDefined();
 	});
 
 	it('should sets autoSliding to false if autoplay is not defined', () => {
-		const { result } = renderHook(() => useContext(SliderContext), {
+		const { result } = renderHook(() => useSlider(), {
 			wrapper: ({ children }) => <SliderProvider data={{ slidesCount: 3 }}>{children}</SliderProvider>,
 		});
 
@@ -35,7 +38,7 @@ describe('providers/SliderProvider', () => {
 	});
 
 	it('should sets autoSliding to false if autoplay is not defined', () => {
-		const { result } = renderHook(() => useContext(SliderContext), {
+		const { result } = renderHook(() => useSlider(), {
 			wrapper: ({ children }) => (
 				<SliderProvider data={{ slidesCount: 3, autoplay: { delay: 3000 } }}>{children}</SliderProvider>
 			),
@@ -45,16 +48,16 @@ describe('providers/SliderProvider', () => {
 	});
 
 	it('should switch activeSlide', () => {
-		const { result } = renderHook(() => useContext(SliderContext), {
+		const { result } = renderHook(() => useSlider(), {
 			wrapper: ({ children }) => <SliderProvider data={{ slidesCount: 3 }}>{children}</SliderProvider>,
 		});
 
 		expect(result.current.state.activeSlide).toBe(0);
 
-		act(() => result.current.actions.handleSlide('right'));
+		act(() => result.current.actions.moveRightSlide());
 		expect(result.current.state.activeSlide).toBe(1);
 
-		act(() => result.current.actions.handleSlide('left'));
+		act(() => result.current.actions.moveLeftSlide());
 		expect(result.current.state.activeSlide).toBe(0);
 	});
 });

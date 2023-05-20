@@ -1,7 +1,7 @@
 import { ReactNode, HTMLAttributes } from 'react';
 
 export interface SliderItemProps extends HTMLAttributes<HTMLDivElement> {
-	index: number;
 	children: ReactNode;
+	_index?: number;
 	className?: string;
 }
