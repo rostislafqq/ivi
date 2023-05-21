@@ -15,7 +15,7 @@ describe('components/molecules/FilmBanner', () => {
 	};
 
 	it('should accept an additional class', () => {
-		const { container } = render(<FilmBannerLoaded className="test-class" banner={banner} />);
+		const { container } = render(<FilmBannerLoaded className="test-class" {...banner} />);
 
 		expect(container.firstElementChild).toHaveClass('banner');
 		expect(container.firstElementChild).toHaveClass('banner-loaded');
@@ -23,14 +23,14 @@ describe('components/molecules/FilmBanner', () => {
 	});
 
 	it('should render badge when banner "age" is not empty', () => {
-		const { getByTestId } = render(<FilmBannerLoaded banner={banner} />);
+		const { getByTestId } = render(<FilmBannerLoaded {...banner} />);
 
 		const badge = getByTestId('badge');
 		expect(badge.textContent).toBe(banner.age);
 	});
 
 	it('should render image', () => {
-		const { getByTestId } = render(<FilmBannerLoaded banner={banner} />);
+		const { getByTestId } = render(<FilmBannerLoaded {...banner} />);
 
 		const image = getByTestId('image');
 		expect(image).toBeInTheDocument();
@@ -43,7 +43,7 @@ describe('components/molecules/FilmBanner', () => {
 			type: 'subscribe',
 		};
 
-		const { getByTestId } = render(<FilmBannerLoaded banner={newBanner} />);
+		const { getByTestId } = render(<FilmBannerLoaded {...newBanner} />);
 
 		const button = getByTestId('button');
 		expect(button.textContent).toBe('Смотреть по подписке');
@@ -55,7 +55,7 @@ describe('components/molecules/FilmBanner', () => {
 			type: 'free',
 		};
 
-		const { getByTestId } = render(<FilmBannerLoaded banner={newBanner} />);
+		const { getByTestId } = render(<FilmBannerLoaded {...newBanner} />);
 
 		const button = getByTestId('button');
 		expect(button.textContent).toBe('Смотреть бесплатно');
@@ -67,7 +67,7 @@ describe('components/molecules/FilmBanner', () => {
 			type: 'collections',
 		};
 
-		const { getByTestId } = render(<FilmBannerLoaded banner={newBanner} />);
+		const { getByTestId } = render(<FilmBannerLoaded {...newBanner} />);
 
 		const button = getByTestId('button');
 		expect(button.textContent).toBe('Смотреть подборку');
