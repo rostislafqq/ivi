@@ -8,6 +8,9 @@ const INITIAL_SLIDER_CONTEXT: SliderContextType = {
 		activeSlide: 0,
 		slidesCount: 0,
 		autoSliding: false,
+		autoplay: {
+			delay: 0,
+		},
 	},
 	actions: {
 		moveLeftSlide: () => {},
@@ -40,12 +43,13 @@ function sliderReducer(state: SliderStateType, action: { type: string }) {
 
 // Provider
 export const SliderProvider: React.FC<SliderProviderProps> = ({ data, children }) => {
-	const { activeSlide = 0, slidesCount, autoplay } = data;
+	const { activeSlide = 0, slidesCount, autoplay = { delay: 0 } } = data;
 
 	const initialState: SliderStateType = {
 		activeSlide,
 		autoSliding: !!autoplay?.delay,
 		slidesCount,
+		autoplay,
 	};
 
 	const [state, dispatch] = useReducer(sliderReducer, initialState);
@@ -59,15 +63,11 @@ export const SliderProvider: React.FC<SliderProviderProps> = ({ data, children }
 
 	useEffect(() => {
 		function switchingAutoSliding() {
-			if (!autoplay) return () => {};
+			if (!autoplay || !state.autoSliding) return () => {};
 
 			const interval = setInterval(() => {
 				moveRightSlide();
 			}, autoplay.delay);
-
-			if (!state.autoSliding) {
-				clearInterval(interval);
-			}
 
 			return () => {
 				clearInterval(interval);

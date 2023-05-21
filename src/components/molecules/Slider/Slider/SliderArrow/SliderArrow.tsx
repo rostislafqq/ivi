@@ -19,6 +19,8 @@ export const SliderLeftArrow: React.FC<SliderArrowProps> = ({ className, ...prop
 			className={cn(styles['slider__arrow-left'], className)}
 			type="button"
 			onClick={() => actions.moveLeftSlide()}
+			onMouseEnter={() => actions.offAutoSliding()}
+			onMouseLeave={() => actions.onAutoSliding()}
 			data-testid="slider__arrow-left"
 			{...props}
 		>
@@ -35,6 +37,8 @@ export const SliderRightArrow: React.FC<SliderArrowProps> = ({ className, ...pro
 			className={cn(styles['slider__arrow-right'], className)}
 			type="button"
 			onClick={() => actions.moveRightSlide()}
+			onMouseEnter={() => actions.offAutoSliding()}
+			onMouseLeave={() => actions.onAutoSliding()}
 			data-testid="slider__arrow-right"
 			{...props}
 		>

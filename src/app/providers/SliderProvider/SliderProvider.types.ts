@@ -20,6 +20,7 @@ export interface SliderStateType {
 	activeSlide: number;
 	slidesCount: number;
 	autoSliding: boolean;
+	autoplay: AutoplayType;
 }
 
 export interface SliderActionsType {
