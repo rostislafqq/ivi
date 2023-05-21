@@ -18,8 +18,8 @@ export const BannersSlider: React.FC<BannersSliderProps> = ({ className, childre
 			_arrowRightClassName={styles['banners-slider__arrow-right']}
 			{...props}
 		>
-			{React.Children.map(children, (child, index) => (
-				<SliderItem index={index}>{child}</SliderItem>
+			{React.Children.map(children, (child) => (
+				<SliderItem>{child}</SliderItem>
 			))}
 		</Slider>
 	);

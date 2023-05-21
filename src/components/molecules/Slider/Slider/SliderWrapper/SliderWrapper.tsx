@@ -1,9 +1,9 @@
 import cn from 'classnames';
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import { useResizeWindow } from '@/app/hooks';
 
-import { SliderContext } from '@/app/providers';
+import { useSlider } from '@/app/providers';
 
 import styles from './SliderWrapper.module.scss';
 
@@ -12,28 +12,29 @@ import { SliderWrapperProps } from './SliderWrapper.types';
 export const SliderWrapper: React.FC<SliderWrapperProps> = ({ className, children }) => {
 	const wrapperClasses = cn(styles.slider__wrapper, className);
 
-	const { state } = React.useContext(SliderContext);
+	const { state } = useSlider();
 	const [windowWidth] = useResizeWindow();
-	const sliderWrapperRef = React.useRef<null | HTMLDivElement>(null);
+	const sliderWrapperRef = useRef<null | HTMLDivElement>(null);
 
-	const handleChangeSlideOffset = React.useCallback((currentSlide: number) => {
-		if (sliderWrapperRef.current) {
-			const sliderItem = sliderWrapperRef.current.querySelector('[data-type="slider-item"]');
-			if (sliderItem) {
-				const sliderItemCoords = sliderItem.getBoundingClientRect();
-				const sliderOffset = Math.round(sliderItemCoords.width * currentSlide);
-				sliderWrapperRef.current.style.transform = `translateX(-${sliderOffset}px)`;
-			}
+	useEffect(() => {
+		function handleChangeSlideOffset(currentSlide: number) {
+			if (!sliderWrapperRef.current) return;
+
+			const sliderItem = sliderWrapperRef.current.querySelector('[data-testid="slider__item"]');
+
+			const sliderItemCoords = sliderItem?.getBoundingClientRect();
+			const sliderOffset = Math.round(sliderItemCoords?.width ?? 0) * currentSlide;
+			sliderWrapperRef.current.style.transform = `translateX(-${sliderOffset}px)`;
 		}
-	}, []);
 
-	React.useEffect(() => {
 		handleChangeSlideOffset(state.activeSlide);
-	}, [state.activeSlide, windowWidth, handleChangeSlideOffset]);
+	}, [state.activeSlide, windowWidth]);
 
 	return (
-		<div className={wrapperClasses} ref={sliderWrapperRef}>
-			{children}
+		<div className={wrapperClasses} ref={sliderWrapperRef} data-testid="slider__wrapper">
+			{React.Children.map(children as React.ReactElement[], (child: React.ReactElement, index: number) =>
+				React.cloneElement(child, { _index: index }),
+			)}
 		</div>
 	);
 };
