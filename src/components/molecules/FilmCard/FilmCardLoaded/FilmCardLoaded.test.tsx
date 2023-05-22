@@ -14,7 +14,7 @@ describe('components/molecules/FilmCard/FilmCardLoaded', () => {
 	};
 
 	it('should render components', () => {
-		const { container } = render(<FilmCardLoaded film={film} />);
+		const { container } = render(<FilmCardLoaded {...film} />);
 
 		expect(container.firstChild).toBeInTheDocument();
 		expect(container.firstChild).toHaveClass('film-card');
@@ -22,7 +22,7 @@ describe('components/molecules/FilmCard/FilmCardLoaded', () => {
 	});
 
 	it('should accept an additional class', () => {
-		const { container } = render(<FilmCardLoaded className="test-class" film={film} />);
+		const { container } = render(<FilmCardLoaded className="test-class" {...film} />);
 
 		expect(container.firstChild).toHaveClass('film-card');
 		expect(container.firstChild).toHaveClass('card-loaded');
@@ -30,32 +30,32 @@ describe('components/molecules/FilmCard/FilmCardLoaded', () => {
 	});
 
 	it('should render a link to the film page', () => {
-		const { getByTestId } = render(<FilmCardLoaded film={film} />);
+		const { getByTestId } = render(<FilmCardLoaded {...film} />);
 
 		expect(getByTestId('film-card__link')).toBeInTheDocument();
 		expect(getByTestId('film-card__link')).toHaveAttribute('href', '/watch/1');
 	});
 
 	it('should display the film name', () => {
-		const { getByTestId } = render(<FilmCardLoaded film={film} />);
+		const { getByTestId } = render(<FilmCardLoaded {...film} />);
 
 		expect(getByTestId('film-card__name')).toBeInTheDocument();
 	});
 
 	it('should display the film status', () => {
-		const { getByTestId } = render(<FilmCardLoaded film={film} />);
+		const { getByTestId } = render(<FilmCardLoaded {...film} />);
 
 		expect(getByTestId('film-card__status')).toBeInTheDocument();
 	});
 
 	it('should display the film preview', () => {
-		const { getByTestId } = render(<FilmCardLoaded film={film} />);
+		const { getByTestId } = render(<FilmCardLoaded {...film} />);
 
 		expect(getByTestId('film-card__preview')).toBeInTheDocument();
 	});
 
 	it('changes the state when hovered', () => {
-		const { getByTestId } = render(<FilmCardLoaded film={film} />);
+		const { getByTestId } = render(<FilmCardLoaded {...film} />);
 
 		fireEvent.mouseEnter(getByTestId('film-card'));
 		expect(getByTestId('film-card__previewBox')).toHaveAttribute('data-hover', 'true');

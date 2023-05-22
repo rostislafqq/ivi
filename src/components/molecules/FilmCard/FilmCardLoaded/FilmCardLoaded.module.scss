@@ -42,14 +42,14 @@
 
 	&__actionBtns {
 		position: absolute;
-		top: 1.5rem;
-		right: 1.5rem;
+		top: 1rem;
+		right: 1.2rem;
 		z-index: 3;
 		opacity: 0;
 
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: 0.8rem;
 		transition: opacity 300ms ease;
 
 		&[data-hover="true"] {
