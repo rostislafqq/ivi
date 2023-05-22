@@ -1,13 +1,15 @@
 import cn from 'classnames';
+import { nanoid } from 'nanoid';
 import React from 'react';
 
+import { FilmBannerLoading } from '../FilmBanner';
 import { Slider, SliderItem } from '../Slider';
 
 import type { BannersSliderProps } from './BannersSlider.types';
 
 import styles from './BannersSlider.module.scss';
 
-export const BannersSlider: React.FC<BannersSliderProps> = ({ className, children, ...props }) => {
+export const BannersSlider: React.FC<BannersSliderProps> = ({ className, ...props }) => {
 	const bannersSliderClasses = cn(styles['banners-slider'], className);
 
 	return (
@@ -18,9 +20,13 @@ export const BannersSlider: React.FC<BannersSliderProps> = ({ className, childre
 			_arrowRightClassName={styles['banners-slider__arrow-right']}
 			{...props}
 		>
-			{React.Children.map(children, (child) => (
-				<SliderItem>{child}</SliderItem>
-			))}
+			{Array(10)
+				.fill(null)
+				.map(() => (
+					<SliderItem key={nanoid()}>
+						<FilmBannerLoading />
+					</SliderItem>
+				))}
 		</Slider>
 	);
 };
