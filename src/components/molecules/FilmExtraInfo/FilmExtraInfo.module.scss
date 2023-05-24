@@ -1,0 +1,40 @@
+@import '@/config/_variables.scss';
+
+.FilmExtraInfo {
+	padding-top: 1.6rem;
+	padding-bottom: 3.2rem;
+	box-sizing: border-box;
+	border-top: 1px solid rgba($white, 0.16);
+	border-bottom: 1px solid rgba($white, 0.16);
+	&__valuesContainer {
+		margin-top: 0.4rem;
+		margin-bottom: 1.6rem;
+	}
+	&__title {
+		color: rgba($white, 0.72);
+	}
+	&__values {
+		color: $white;
+	}
+	&__options {
+		&__Extra {
+			&--sm {
+				color: rgba($white, 0.4);
+			}
+		}
+	}
+	&__badgesContainer {
+		margin-top: 0.8rem;
+		display: flex;
+	}
+	&__badge {
+		padding: 0.2rem 0.6rem;
+		box-shadow: 0 0.4rem 1.2rem transparent;
+		height: 2.1rem;
+		background-color: rgba($white, 0.16);
+		border-radius: 0.4rem;
+	}
+	&__badge:not(:first-child) {
+		margin-left: 0.8rem;
+	}
+}
