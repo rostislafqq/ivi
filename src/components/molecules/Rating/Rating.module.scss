@@ -1,0 +1,93 @@
+@import '@/config/_variables.scss';
+
+.rating {
+	&--large {
+		display: flex;
+		align-items: center;
+		padding: 1rem;
+		border-radius: 1.2rem;
+		background-color: rgba($white, 0.08);
+		&__ratCount {
+			width: 6.4rem;
+			height: 6.4rem;
+			font-size: 2.4rem;
+			font-weight: 700;
+			font-style: normal;
+			border-radius: 0.8rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			&--green {
+				background-color: $green;
+			}
+			&--gray {
+				background-color: $gray;
+			}
+		}
+	}
+	&__textBlock {
+		margin-left: 1.6rem;
+		&__title {
+			font-size: $font-base;
+			line-height: 2rem;
+			font-weight: 500;
+			font-style: normal;
+			color: $white;
+		}
+		&__extra {
+			font-size: $font-base;
+			line-height: 2rem;
+			font-weight: 400;
+			font-style: normal;
+			color: rgba($white, 0.72);
+		}
+		&__assCount {
+			font-size: $font-sm;
+			line-height: 1.6rem;
+			margin-top: 0.4rem;
+		}
+	}
+	&__btn {
+		display: block;
+		margin-left: auto;
+		margin-right: 1rem;
+		background-color: transparent;
+		border: 1px solid rgba($white, 0.32);
+		padding: 0.3rem 0.7rem;
+		font-size: $font-sm;
+		font-weight: 500;
+	}
+	&__btn:hover {
+		transition: 0.3s;
+		border-color: $white;
+	}
+	&--small {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.6rem;
+		width: fit-content;
+		background-color: rgba($white, 0.16);
+		border-radius: 1.2rem;
+		font-size: 1.5rem;
+		font-weight: 500;
+		&--green {
+			background-color: $green;
+			border-radius: 1.2rem;
+			width: 44px;
+			height: 44px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		&--gray {
+			background-color: $gray;
+			border-radius: 1.2rem;
+			width: 44px;
+			height: 44px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}
