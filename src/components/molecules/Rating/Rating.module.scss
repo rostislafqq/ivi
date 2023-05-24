@@ -1,5 +1,11 @@
 @import '@/config/_variables.scss';
 
+@mixin flexcommon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .rating {
 	&--large {
 		display: flex;
@@ -14,9 +20,7 @@
 			font-weight: 700;
 			font-style: normal;
 			border-radius: 0.8rem;
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			@include flexcommon;
 			&--green {
 				background-color: $green;
 			}
@@ -62,9 +66,7 @@
 		border-color: $white;
 	}
 	&--small {
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		@include flexcommon;
 		padding: 0.6rem;
 		width: fit-content;
 		background-color: rgba($white, 0.16);
@@ -74,20 +76,16 @@
 		&--green {
 			background-color: $green;
 			border-radius: 1.2rem;
-			width: 44px;
-			height: 44px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
+			width: 4.4rem;
+			height: 4.4rem;
+			@include flexcommon;
 		}
 		&--gray {
 			background-color: $gray;
 			border-radius: 1.2rem;
-			width: 44px;
-			height: 44px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
+			width: 4.4rem;
+			height: 4.4rem;
+			@include flexcommon;
 		}
 	}
 }
