@@ -7,7 +7,6 @@ import { BannersSlider } from './BannersSlider/BannersSlider';
 import { List } from './List/List';
 import { NavBar } from './NavBar/NavBar';
 import { NoAds } from './NoAds/NoAds';
-import { SubscribeButton } from './SubscribeButton/SubscribeButton';
 import { Support } from './Support/Support';
 
-export { List, Accordion, NavBar, Support, Social, Download, NoAds, SubscribeButton, BannersSlider };
+export { List, Accordion, NavBar, Support, Social, Download, NoAds, BannersSlider };

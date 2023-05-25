@@ -1,11 +1,12 @@
 import React from 'react';
 
 import { Section } from '@/components/atoms';
-import { BannersSlider, SubscribeButton } from '@components/molecules';
+import { BannersSlider } from '@components/molecules';
 
 import type { PromoSectionProps } from './PromoSection.types';
 
 import styles from './PromoSection.module.scss';
+import { SubscribeButton } from './SubscribeButton/SubscribeButton';
 
 export const PromoSection: React.FC<PromoSectionProps> = ({ className }) => (
 	<Section id="promo-section" className={className}>
