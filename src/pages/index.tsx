@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import React from 'react';
 
+import { PromoSection } from '@components/organisms';
+
 const Home: React.FC = () => (
 	<>
 		<Head>
@@ -16,6 +18,7 @@ const Home: React.FC = () => (
 					<h1>Главная страница</h1>
 				</div>
 			</header>
+			<PromoSection />
 		</main>
 	</>
 );
