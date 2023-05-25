@@ -1,0 +1,118 @@
+@import '@/config/_variables.scss';
+
+.review {
+	&__dislike {
+		transform: rotate(180deg);
+	}
+	&__like {
+		&--green {
+			color: $green;
+		}
+		&--red {
+			color: $red;
+		}
+	}
+	&--block {
+		background-color: $purple-500;
+		display: block;
+		padding: 2rem;
+		width: 276px;
+		&__userName {
+			color: $gray;
+			margin-bottom: 0.8rem;
+			font-size: $font-sm;
+			line-height: $font-base;
+			font-weight: 700;
+		}
+		&__content {
+			font-size: $font-base;
+			line-height: 2.2rem;
+			font-weight: 400;
+			margin-bottom: 0.8rem;
+		}
+		&__bottomContainer {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			&__date {
+				color: $gray;
+				font-size: $font-sm;
+				line-height: $font-base;
+				font-weight: 400;
+			}
+			&__likeCount {
+				margin: 0 0.8rem;
+				font-size: 1.5rem;
+				line-height: 2rem;
+				font-weight: 700;
+				font-style: normal;
+			}
+			&__likeBTN {
+				width: 1.6rem;
+				height: 1.6rem;
+				background: transparent;
+				border: none;
+			}
+			&__likesContainer {
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
+	&--row {
+		display: flex;
+		align-items: flex-start;
+		&__profileAvatar {
+			color: $white;
+			width: 2rem;
+			height: 2rem;
+			background-color: $green;
+			text-align: center;
+			border-radius: 0.4rem;
+			margin-right: $font-base;
+		}
+		&__middleContainer {
+			&__openBtn {
+				margin-top: 0.8rem;
+				font-size: $font-base;
+				line-height: 2.2rem;
+				font-weight: 500;
+				color: rgba($white, 0.88);
+				background: transparent;
+				border: none;
+				cursor: pointer;
+			}
+			&__first {
+				display: flex;
+			}
+			&__userName {
+				margin-right: 0.8rem;
+				font-size: $font-sm;
+				line-height: $font-base;
+				font-weight: 700;
+				margin-bottom: 0.4rem;
+			}
+			&__date {
+				font-size: $font-sm;
+				line-height: $font-base;
+				font-weight: 400;
+			}
+			&__content {
+				color: $lightGray;
+			}
+		}
+		&__likeContainer {
+			display: flex;
+			margin-left: auto;
+		}
+		&__likeBtn {
+			width: 1.6rem;
+			height: 1.6rem;
+			background: transparent;
+			border: none;
+		}
+		&__likeCount {
+			margin: 0 0.8rem;
+		}
+	}
+}
