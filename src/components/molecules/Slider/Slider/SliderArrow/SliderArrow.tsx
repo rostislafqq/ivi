@@ -12,11 +12,11 @@ import { SliderArrowProps } from './SliderArrow.types';
 export const SliderLeftArrow: React.FC<SliderArrowProps> = ({ className, ...props }) => {
 	const { state, actions } = useSlider();
 
-	if (state.activeSlide === 0) return null;
-
 	return (
 		<button
-			className={cn(styles['slider__arrow-left'], className)}
+			className={cn(styles['slider__arrow-left'], className, {
+				hide: state.activeSlide === 0,
+			})}
 			type="button"
 			onClick={() => actions.moveLeftSlide()}
 			onMouseEnter={() => actions.offAutoSliding()}

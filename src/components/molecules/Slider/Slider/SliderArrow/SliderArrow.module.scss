@@ -26,6 +26,10 @@
 		&:active {
 			transform: scale(0.9);
 		}
+
+		&:global(.hide) {
+		opacity: 0;
+	}
 	}
 
 	&__arrow-left {
