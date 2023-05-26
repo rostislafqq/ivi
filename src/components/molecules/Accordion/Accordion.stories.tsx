@@ -1,15 +1,16 @@
 import React from 'react';
 
-import { Accordion } from './Accordion';
+import { defaultContentItems } from '@/app/data/defaultContentItems';
 
-import styles from './Accordion.module.scss';
+import { Text, ListItem } from '@/components/atoms';
 
 import { List } from '../List/List';
 
-import { defaultContentItems } from '@/app/data/defaultContentItems';
-import { Text, ListItem } from '@/components/atoms';
-
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { Accordion } from './Accordion';
+
+import styles from './Accordion.module.scss';
 
 import '@/config/globals.scss';
 

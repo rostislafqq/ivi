@@ -1,6 +1,6 @@
-import { Section } from './Section';
-
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { Section } from './Section';
 
 const meta: Meta<typeof Section> = {
 	title: 'Atoms/Sections/Section',

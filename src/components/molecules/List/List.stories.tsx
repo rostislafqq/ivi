@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { List } from './List';
-
-import styles from './List.module.scss';
+import { defaultContentItems } from '@/app/data/defaultContentItems';
 
 import { ListItem } from '../../atoms/ListItem/ListItem';
 
-import { defaultContentItems } from '@/app/data/defaultContentItems';
-
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { List } from './List';
+
+import styles from './List.module.scss';
 
 import '@/config/globals.scss';
 

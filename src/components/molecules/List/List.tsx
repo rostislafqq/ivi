@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import React from 'react';
 
-import styles from './List.module.scss';
-
 import type { ListProps } from './List.types';
+
+import styles from './List.module.scss';
 
 export const List: React.FC<ListProps> = ({ className, children, tag }) => {
 	const listClasses = cn(styles.list, className);

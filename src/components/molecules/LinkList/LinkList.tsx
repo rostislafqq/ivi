@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import * as React from 'react';
 
+import { Heading } from '@components/atoms';
+
 import styles from './LinkList.module.scss';
 import { LinkListProps } from './LinkList.types';
-
-import { Heading } from '@components/atoms';
 
 export const LinkList: React.FC<LinkListProps> = ({ children, title = '', isHorizontal = true }) => {
 	const wrapperClasses = cn(styles.list, { [styles['list--column']]: !isHorizontal });

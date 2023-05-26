@@ -1,0 +1,38 @@
+@import "@/config/_variables.scss";
+
+.slider {
+	&__arrow-left,
+	&__arrow-right {
+		cursor: pointer;
+		border: none;
+		background: none;
+
+		position: absolute;
+		top: 0;
+		z-index: 4;
+
+		height: 100%;
+		width: 3rem;
+		display: flex;
+		align-items: center;
+
+		color: rgba($white, 0.48);
+		transition: color 300ms ease, transform 300ms ease;
+
+		&:hover {
+			color: $white;
+		}
+
+		&:active {
+			transform: scale(0.9);
+		}
+	}
+
+	&__arrow-left {
+		left: 0;
+	}
+
+	&__arrow-right {
+		right: 0;
+	}
+}

@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from 'react';
 
-import styles from './LowerFooter.module.scss';
-
 import { Text } from '@/components/atoms';
 import { Download, Social } from '@/components/molecules';
+
+import styles from './LowerFooter.module.scss';
 
 export const LowerFooter = () => (
 	<div className={styles.footerContent}>

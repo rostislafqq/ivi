@@ -1,6 +1,6 @@
-import { FilmBanner } from './FilmBanner';
-
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { FilmBanner } from './FilmBanner';
 
 const meta: Meta<typeof FilmBanner> = {
 	title: 'Molecules/FilmBanner',
@@ -15,7 +15,7 @@ export const Default: Story = {
 	args: {
 		banner: {
 			name: 'Богомол',
-			banner: '/assets/images/promo-slider/img1.jpg',
+			banner: '/assets/images/banners/img1.jpg',
 			href: '/watch/1',
 			type: 'subscribe',
 			age: '16+',

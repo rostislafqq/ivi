@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { TextLink } from '@/components/atoms';
+
 import styles from './Breadcrumb.module.scss';
 import { BreadcrumbProps } from './Breadcrumb.types';
-
-import { TextLink } from '@/components/atoms';
 
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, variant, className }) => {
 	const breadcrumbClasses = cn(styles.breadcrumb, className, {

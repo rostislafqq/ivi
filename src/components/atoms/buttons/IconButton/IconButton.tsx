@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { Button } from '../Button/Button';
+
 import styles from './IconButton.module.scss';
 import { IconButtonProps } from './IconButton.types';
-
-import { Button } from '../Button/Button';
 
 export const IconButton: React.FC<IconButtonProps> = ({
 	className,

@@ -1,3 +1,3 @@
-import type { FilmBannerType } from './FilmBannerType';
+import type { FilmBannerType, FilmStatusType, FilmType } from './film';
 
-export { FilmBannerType };
+export { FilmBannerType, FilmStatusType, FilmType };

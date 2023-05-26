@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { LinkList } from './LinkList';
-
 import { TextLink } from '@components/atoms';
 
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { LinkList } from './LinkList';
 
 const meta: Meta<typeof LinkList> = {
 	title: 'Molecules/LinkList',
