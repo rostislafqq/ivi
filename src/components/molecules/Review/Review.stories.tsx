@@ -27,7 +27,7 @@ export const blockGreenExample: Story = {
 	args: {
 		userName: 'Карина Мирьянова',
 		likes: 42,
-		date: '26 февраля 2017',
+		date: '2017-02-26',
 		comment:
 			'мне 13 лет а я до сих пор не могу оторвать глаз, постоянно их смотрю,прихожу со школы и включаю или карусели или мульт и смотрю вес день.....Хочу...',
 		type: 'card',
@@ -38,7 +38,7 @@ export const blockRedExample: Story = {
 	args: {
 		userName: 'lex93_29',
 		likes: -2,
-		date: '29 июня 2020',
+		date: '2017-02-26',
 		comment: 'коронавирус',
 		type: 'card',
 	},
@@ -48,7 +48,7 @@ export const rawGreenExample: Story = {
 	args: {
 		userName: 'Карина Мирьянова',
 		likes: 42,
-		date: '26 февраля 2017',
+		date: '2017-02-26',
 		comment:
 			'мне 13 лет а я до сих пор не могу оторвать глаз, постоянно их смотрю,прихожу со школы и включаю или карусели или мульт и смотрю вес день.....Хочу...',
 		type: 'row',
@@ -59,7 +59,7 @@ export const rawRedExample: Story = {
 	args: {
 		userName: 'Татьяна Колябина',
 		likes: -2,
-		date: '29 февраля 2020',
+		date: '2017-02-26',
 		comment: 'Я его не поняла',
 		type: 'row',
 	},

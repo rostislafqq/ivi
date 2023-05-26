@@ -3,25 +3,26 @@
 import cn from 'classnames';
 import Link from 'next/link';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import styles from './Review.module.scss';
 
+import { formatDate } from '@/app/utils/formatDate';
+
 import like from '@/assets/icons/like.svg';
 
-import { Button, Icon, Text } from '@/components/atoms';
+import { Icon, Text } from '@/components/atoms';
 
 import type { ReviewProps } from './Review.types';
 
 export const Review: React.FC<ReviewProps> = ({
 	commentid = '',
-	className,
+	className = '',
 	userName,
 	likes,
 	comment,
-	photo,
 	type,
-	date,
+	date = '',
 	onLike,
 	onDisike,
 }) => {
@@ -31,10 +32,11 @@ export const Review: React.FC<ReviewProps> = ({
 		[styles[`review__like--green`]]: likes > 0,
 		[styles[`review__like--red`]]: likes < 0,
 	});
+	const formatedDate = formatDate(date);
 	switch (type) {
 		case 'row':
 			return (
-				<div className={styles[`review--row`]}>
+				<div className={`${styles[`review--row`]} ${className}`}>
 					<div>
 						<Text className={styles[`review--row__profileAvatar`]} tag="p">
 							{userName[0]}
@@ -46,7 +48,7 @@ export const Review: React.FC<ReviewProps> = ({
 								{userName}
 							</Text>
 							<Text className={styles[`review--row__middleContainer__date`]} tag="p">
-								{date}
+								{formatedDate}
 							</Text>
 						</div>
 						<Text className={styles[`review--row__middleContainer__content`]} tag="p">
@@ -95,16 +97,16 @@ export const Review: React.FC<ReviewProps> = ({
 			);
 		case 'card':
 			return (
-				<Link className={styles[`review--block`]} href={`/${commentid}`}>
+				<Link className={`${styles[`review--block`]} ${className}`} href={`/${commentid}`}>
 					<Text className={styles[`review--block__userName`]} tag="p">
 						{userName}
 					</Text>
 					<Text className={styles[`review--block__content`]} tag="p">
-						{comment.length > 84 ? comment.split('').slice(0, 84).join('').concat('...') : comment}
+						{comment}
 					</Text>
 					<div className={styles[`review--block__bottomContainer`]}>
 						<Text className={styles[`review--block__bottomContainer__date`]} tag="span">
-							{date}
+							{formatedDate}
 						</Text>
 						<div className={styles[`review--block__bottomContainer__likesContainer`]}>
 							<button
