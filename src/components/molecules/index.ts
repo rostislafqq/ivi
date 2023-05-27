@@ -12,7 +12,4 @@ import { Review } from './Review/Review';
 
 import { Support } from './Support/Support';
 
-import { Download } from '@/components/molecules/Share/Download/Download';
-import { Social } from '@/components/molecules/Share/Social/Social';
-
-export { List, Accordion, NavBar, Support, Social, Download, NoAds, Review , Rating, FilmExtraInfo };
+export { List, Accordion, NavBar, Support, Social, Download, NoAds, Review, Rating, FilmExtraInfo };
