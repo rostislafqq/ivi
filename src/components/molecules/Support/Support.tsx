@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React, { useState } from 'react';
 
-import styles from './Support.module.scss';
-
 import email from '@/assets/icons/email.svg';
 import tel from '@/assets/icons/telephone.svg';
 import { Button, Heading, Icon, IconButton, Text, TextLink } from '@/components/atoms';
+
+import styles from './Support.module.scss';
 
 export const Support: React.FC = () => {
 	const [isActive, setIsActive] = useState(false);

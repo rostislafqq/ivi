@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { Download } from './Download';
 
 import tg from '@assets/icons/social/tg.svg';
 
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { Download } from './Download';
 
 import '@/config/globals.scss';
 

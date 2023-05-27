@@ -1,10 +1,10 @@
 import React from 'react';
 
-import styles from './UpperFooter.module.scss';
-
 import { TextLink } from '@/components/atoms';
 import { NoAds, Support } from '@/components/molecules';
 import { LinkList } from '@/components/molecules/LinkList/LinkList';
+
+import styles from './UpperFooter.module.scss';
 
 export const UpperFooter = () => (
 	<div className={styles.footerContent}>

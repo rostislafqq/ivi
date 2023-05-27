@@ -1,6 +1,6 @@
-import { Heading as HeadingComponent } from './Heading';
-
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { Heading as HeadingComponent } from './Heading';
 
 import '@/config/globals.scss';
 

@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import { FilmBanner } from './FilmBanner';
-
 import type { FilmBannerType } from '@/app/types';
+
+import { FilmBanner } from './FilmBanner';
 
 describe('components/molecules/FilmBanner', () => {
 	const banner: FilmBannerType = {

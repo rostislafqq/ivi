@@ -3,9 +3,9 @@ import { render } from '@testing-library/react';
 
 import React from 'react';
 
-import { Social } from './Social';
-
 import tg from '@assets/icons/social/tg.svg';
+
+import { Social } from './Social';
 
 describe('/components/molecules/Share/Social', () => {
 	it('should render ul whitch contain 6 li and 6 links', () => {

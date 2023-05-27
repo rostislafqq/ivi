@@ -2,17 +2,16 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from 'react';
 
-import styles from './Download.module.scss';
-
-import { DownloadProps } from './Download.types';
-
-import { List } from '../../List/List';
-
 import apple from '@/assets/icons/apple.svg';
 import { Button, Icon, ListItem, Text } from '@/components/atoms';
 import allDevices from '@assets/icons/allDevices.svg';
 import googlePlay from '@assets/icons/googlePlay.svg';
 import monitor from '@assets/icons/monitor.svg';
+
+import { List } from '../../List/List';
+
+import styles from './Download.module.scss';
+import { DownloadProps } from './Download.types';
 
 export const Download: React.FC<DownloadProps> = ({ isDefault = true, contentData = [] }) =>
 	isDefault ? (

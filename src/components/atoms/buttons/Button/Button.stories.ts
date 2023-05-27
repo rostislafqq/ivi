@@ -1,8 +1,8 @@
-import { Button } from './Button';
-
 import { mapping, options } from '@app/data/iconsStorybookOptions';
 
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { Button } from './Button';
 
 const meta: Meta<typeof Button> = {
 	title: 'Atoms/Buttons/Button',

@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from 'react';
 
-import styles from './NoAds.module.scss';
-
 import ads from '@/assets/icons/noAds.svg';
 import { Icon, IconButton, Text } from '@/components/atoms';
+
+import styles from './NoAds.module.scss';
 
 export const NoAds: React.FC = () => (
 	<div className={styles.noAds}>

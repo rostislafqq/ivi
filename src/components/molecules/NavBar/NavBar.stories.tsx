@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { NavBar as NavBarComponent } from './NavBar';
-
 import { Button, TextLink } from '@components/atoms';
 import { LinkList } from '@components/molecules/LinkList/LinkList';
 
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { NavBar as NavBarComponent } from './NavBar';
 
 const meta: Meta<typeof NavBarComponent> = {
 	title: 'Molecules/NavBar',

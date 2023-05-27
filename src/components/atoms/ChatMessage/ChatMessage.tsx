@@ -1,11 +1,11 @@
 import cn from 'classnames';
 import React from 'react';
 
-import styles from './ChatMessage.module.scss';
-
 import { Heading, Text } from '../typography';
 
 import type { ChatMessageProps } from './ChatMessage.types';
+
+import styles from './ChatMessage.module.scss';
 
 export const ChatMessage: React.FC<ChatMessageProps> = ({ className, type = 'left', title, extra }) => {
 	const messageClasses = cn(styles.message, className, {
