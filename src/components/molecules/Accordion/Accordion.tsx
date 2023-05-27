@@ -14,8 +14,8 @@ export const Accordion: React.FC<AccordionProps> = ({
 	buttonValues,
 	buttonClass,
 }) => {
-	const accordionClasses = cn(styles.lineClamp, className);
-	const openState = cn(styles.openAcc, className);
+	const accordionClasses = cn(styles.lineClamp, { [className]: !!className });
+	const openState = cn(styles.openAcc, { [className]: !!className });
 
 	const [isOpen, setIsOpen] = useState(false);
 	const lineClampStyle = { '--line-clamp': `${length}` } as React.CSSProperties;
