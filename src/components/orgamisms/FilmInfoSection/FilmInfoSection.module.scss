@@ -1,0 +1,78 @@
+@import '@/config/_variables.scss';
+
+.FilmInfoSection {
+	display: inline-block;
+	width: 37.5%;
+	margin-bottom: 3.2rem;
+	&__heading {
+		text-align: center;
+		padding: 0.8rem 1.2rem 2rem;
+	}
+	&__commonContainer {
+		margin-top: 0.4rem;
+		color: rgba($white, 0.8);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&__seasonIntro:not(:first-child) {
+			margin-left: 5px;
+		}
+		&__lang {
+			display: flex;
+			align-items: center;
+			margin-bottom: 0.5rem;
+		}
+	}
+	&__volume {
+		margin-left: 0.5rem;
+		margin-right: 0.2rem;
+	}
+	&__creators {
+		margin-top: 2.4rem;
+		margin-bottom: 2.4rem;
+		display: flex;
+		justify-content: center;
+		gap: 1.5rem;
+	}
+	&__ratingText {
+		color: $lightGray;
+		font-size: $font-sm;
+		line-height: $font-base;
+		font-weight: 400;
+		margin-top: 0.8rem;
+		text-align: center;
+	}
+	&__accordion {
+		font-weight: 400;
+		font-size: $font-base;
+		line-height: 2.2rem;
+		color: rgba($white, 0.72);
+		&__btn {
+			font-size: $font-base;
+			line-height: 2.2rem;
+			font-weight: 400;
+			color: rgba($white, 0.88);
+			margin-top: 0.8rem;
+			margin-bottom: 2.4rem;
+		}
+		&__extra {
+			margin-top: 3.2rem;
+		}
+	}
+	&__RatingColor {
+		color: $white;
+	}
+}
+
+@media (max-width: 1159px) {
+	.FilmInfoSection {
+		width: 100%;
+		display: block;
+		&__heading {
+			display: none;
+		}
+		&__commonContainer {
+			display: none;
+		}
+	}
+}

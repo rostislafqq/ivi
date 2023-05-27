@@ -1,15 +1,22 @@
 import cn from 'classnames';
 import React, { useState } from 'react';
 
+import styles from './Accordion.module.scss';
+
 import { Button } from '@/components/atoms';
 
 import type { AccordionProps } from './Accordion.types';
 
-import styles from './Accordion.module.scss';
+export const Accordion: React.FC<AccordionProps> = ({
+	className = '',
+	children,
+	length,
+	buttonValues,
+	buttonClass,
+}) => {
+	const accordionClasses = cn(styles.lineClamp, { [className]: !!className });
+	const openState = cn(styles.openAcc, { [className]: !!className });
 
-export const Accordion: React.FC<AccordionProps> = ({ children, length, buttonValues, buttonClass }) => {
-	const accordionClasses = cn(styles.lineClamp);
-	const openState = cn(styles.openAcc);
 
 	const [isOpen, setIsOpen] = useState(false);
 	const lineClampStyle = { '--line-clamp': `${length}` } as React.CSSProperties;
