@@ -12,8 +12,10 @@ export const PromoSection: React.FC<PromoSectionProps> = ({ className }) => (
 	<Section id="promo-section" className={className}>
 		<BannersSlider data-testid="banners-slider" />
 
-		<SubscribeButton className={styles['promo-section__subscribe-btn']} href="/">
-			30 дней подписки бесплатно
-		</SubscribeButton>
+		<div className="container">
+			<SubscribeButton className={styles['promo-section__subscribe-btn']} href="/">
+				30 дней подписки бесплатно
+			</SubscribeButton>
+		</div>
 	</Section>
 );

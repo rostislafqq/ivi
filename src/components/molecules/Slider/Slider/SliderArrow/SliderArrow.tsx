@@ -9,8 +9,11 @@ import ArrowRight from '@assets/icons/arrow-right.svg';
 import styles from './SliderArrow.module.scss';
 import { SliderArrowProps } from './SliderArrow.types';
 
-export const SliderLeftArrow: React.FC<SliderArrowProps> = ({ className, ...props }) => {
-	const { state, actions } = useSlider();
+export const SliderLeftArrow: React.FC<SliderArrowProps> = React.memo(({ className, ...props }: SliderArrowProps) => {
+	const {
+		state,
+		actions: { moveLeftSlide, offAutoSliding, onAutoSliding },
+	} = useSlider();
 
 	return (
 		<button
@@ -18,34 +21,36 @@ export const SliderLeftArrow: React.FC<SliderArrowProps> = ({ className, ...prop
 				hide: state.activeSlide === 0,
 			})}
 			type="button"
-			onClick={() => actions.moveLeftSlide()}
-			onMouseEnter={() => actions.offAutoSliding()}
-			onMouseLeave={() => actions.onAutoSliding()}
+			onClick={() => moveLeftSlide()}
+			onMouseEnter={() => offAutoSliding()}
+			onMouseLeave={() => onAutoSliding()}
 			data-testid="slider__arrow-left"
 			{...props}
 		>
-			<Icon icon={ArrowLeft} width={30} />
+			<Icon icon={ArrowLeft} width={state.spaceBetween} height={state.spaceBetween} />
 		</button>
 	);
-};
+});
 
-export const SliderRightArrow: React.FC<SliderArrowProps> = ({ className, ...props }) => {
-	const { actions } = useSlider();
+export const SliderRightArrow: React.FC<SliderArrowProps> = React.memo(({ className, ...props }: SliderArrowProps) => {
+	const {
+		state,
+		actions: { moveRightSlide, offAutoSliding, onAutoSliding },
+	} = useSlider();
 
 	return (
 		<button
-			className={cn(styles['slider__arrow-right'], className)}
+			className={cn(styles['slider__arrow-right'], className, {
+				hide: state.activeSlide === state.slidesCount - 1,
+			})}
 			type="button"
-			onClick={() => actions.moveRightSlide()}
-			onMouseEnter={() => actions.offAutoSliding()}
-			onMouseLeave={() => actions.onAutoSliding()}
+			onClick={() => moveRightSlide()}
+			onMouseEnter={() => offAutoSliding()}
+			onMouseLeave={() => onAutoSliding()}
 			data-testid="slider__arrow-right"
 			{...props}
 		>
-			<Icon icon={ArrowRight} width={30} />
+			<Icon icon={ArrowRight} width={state.spaceBetween} height={state.spaceBetween} />
 		</button>
 	);
-};
-
-export const WithMemoSliderLeftArrow = React.memo(SliderLeftArrow);
-export const WithMemoSliderRightArrow = React.memo(SliderRightArrow);
+});

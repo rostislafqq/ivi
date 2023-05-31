@@ -5,6 +5,8 @@ import { AutoplayType } from '@/app/providers/SliderProvider/SliderProvider.type
 export interface SliderProps extends HTMLAttributes<HTMLDivElement> {
 	children: ReactNode;
 	autoplay?: AutoplayType;
+	slidesPerView?: number;
+	spaceBetween?: number;
 	className?: string;
 	_arrowLeftClassName?: string;
 	_arrowRightClassName?: string;

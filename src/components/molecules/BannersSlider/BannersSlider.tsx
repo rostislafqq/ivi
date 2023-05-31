@@ -15,6 +15,7 @@ export const BannersSlider: React.FC<BannersSliderProps> = ({ banners = [], clas
 	return (
 		<Slider
 			className={bannersSliderClasses}
+			spaceBetween={30}
 			autoplay={{ delay: 10000, disableOnMouseEnter: true }}
 			_arrowLeftClassName={styles['banners-slider__arrow-left']}
 			_arrowRightClassName={styles['banners-slider__arrow-right']}
@@ -22,14 +23,14 @@ export const BannersSlider: React.FC<BannersSliderProps> = ({ banners = [], clas
 		>
 			{banners.length > 0
 				? banners.map((banner) => (
-						<SliderItem key={nanoid()}>
+						<SliderItem className={styles['banners-slider__item']} key={nanoid()}>
 							<FilmBannerLoaded {...banner} data-testid="banners-slider__banner-loaded" />
 						</SliderItem>
 				  ))
 				: Array(10)
 						.fill(null)
 						.map(() => (
-							<SliderItem key={nanoid()}>
+							<SliderItem className={styles['banners-slider__item']} key={nanoid()}>
 								<FilmBannerLoading data-testid="banners-slider__banner-loading" />
 							</SliderItem>
 						))}

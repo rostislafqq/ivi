@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect, useMemo, useContext } from 'react';
+import React, { useReducer, useEffect, useMemo, useContext, useCallback } from 'react';
 
 import { SliderProviderProps, SliderContextType, SliderStateType } from './SliderProvider.types';
 
@@ -11,12 +11,18 @@ const INITIAL_SLIDER_CONTEXT: SliderContextType = {
 		autoplay: {
 			delay: 0,
 		},
+		slidesPerView: 1,
+		spaceBetween: 0,
+		viewportWidth: 0,
+		slideWidth: 0,
 	},
 	actions: {
 		moveLeftSlide: () => {},
 		moveRightSlide: () => {},
 		onAutoSliding: () => {},
 		offAutoSliding: () => {},
+		setViewportWidth: () => {},
+		setSlideWidth: () => {},
 	},
 };
 
@@ -26,7 +32,7 @@ export const SliderContext = React.createContext<SliderContextType>(INITIAL_SLID
 export const useSlider = () => useContext(SliderContext);
 
 // Reducer
-function sliderReducer(state: SliderStateType, action: { type: string }) {
+function sliderReducer(state: SliderStateType, action: { type: string; payload?: { value: unknown } }) {
 	switch (action.type) {
 		case 'MOVE_LEFT_SLIDE':
 			return { ...state, activeSlide: state.activeSlide > 0 ? state.activeSlide - 1 : 0 };
@@ -36,6 +42,12 @@ function sliderReducer(state: SliderStateType, action: { type: string }) {
 			return { ...state, autoSliding: true };
 		case 'OFF_AUTO_SLIDING':
 			return { ...state, autoSliding: false };
+		case 'SET_VIEWPORT_WIDTH':
+			return action.payload?.value ? { ...state, viewportWidth: action.payload.value as number } : state;
+		case 'SET_SLIDE_WIDTH':
+			return action.payload?.value ? { ...state, slideWidth: action.payload.value as number } : state;
+		case 'SET_SLIDES_PER_VIEW':
+			return action.payload?.value ? { ...state, slidesPerView: action.payload.value as number } : state;
 		default:
 			return state;
 	}
@@ -43,26 +55,48 @@ function sliderReducer(state: SliderStateType, action: { type: string }) {
 
 // Provider
 export const SliderProvider: React.FC<SliderProviderProps> = ({ data, children }) => {
-	const { activeSlide = 0, slidesCount, autoplay = { delay: 0 } } = data;
+	const { activeSlide = 0, slidesCount, slidesPerView = 1, spaceBetween = 0, autoplay = { delay: 0 } } = data;
 
-	const initialState: SliderStateType = {
+	const [state, dispatch] = useReducer(sliderReducer, {
 		activeSlide,
 		autoSliding: !!autoplay?.delay,
 		slidesCount,
 		autoplay,
-	};
-
-	const [state, dispatch] = useReducer(sliderReducer, initialState);
+		slidesPerView,
+		spaceBetween,
+		viewportWidth: 0,
+		slideWidth: 0,
+	});
 
 	// Actions
-	const moveLeftSlide = () => dispatch({ type: 'MOVE_LEFT_SLIDE' });
-	const moveRightSlide = () => dispatch({ type: 'MOVE_RIGHT_SLIDE' });
+	const moveLeftSlide = useCallback(() => dispatch({ type: 'MOVE_LEFT_SLIDE' }), []);
+	const moveRightSlide = useCallback(() => dispatch({ type: 'MOVE_RIGHT_SLIDE' }), []);
 
-	const onAutoSliding = () => dispatch({ type: 'ON_AUTO_SLIDING' });
-	const offAutoSliding = () => dispatch({ type: 'OFF_AUTO_SLIDING' });
+	const onAutoSliding = useCallback(() => {
+		if (!autoplay?.delay) return;
+		dispatch({ type: 'ON_AUTO_SLIDING' });
+	}, [autoplay]);
 
+	const offAutoSliding = useCallback(() => {
+		if (autoplay?.delay) return;
+		dispatch({ type: 'OFF_AUTO_SLIDING' });
+	}, [autoplay]);
+
+	const setViewportWidth = useCallback((value: number) => {
+		dispatch({ type: 'SET_VIEWPORT_WIDTH', payload: { value } });
+	}, []);
+
+	const setSlideWidth = useCallback((value: number) => {
+		dispatch({ type: 'SET_SLIDE_WIDTH', payload: { value } });
+	}, []);
+
+	const setSlidesPerView = useCallback((value: number) => {
+		dispatch({ type: 'SET_SLIDES_PER_VIEW', payload: { value } });
+	}, []);
+
+	// Effects
 	useEffect(() => {
-		function switchingAutoSliding() {
+		const switchingAutoSliding = () => {
 			if (!autoplay || !state.autoSliding) return () => {};
 
 			const interval = setInterval(() => {
@@ -72,10 +106,14 @@ export const SliderProvider: React.FC<SliderProviderProps> = ({ data, children }
 			return () => {
 				clearInterval(interval);
 			};
-		}
+		};
 
 		return switchingAutoSliding();
-	}, [autoplay, state.autoSliding]);
+	}, [autoplay, state.autoSliding, moveRightSlide]);
+
+	useEffect(() => {
+		setSlidesPerView(slidesPerView);
+	}, [slidesPerView, setSlidesPerView]);
 
 	const context: SliderContextType = useMemo(
 		() => ({
@@ -85,9 +123,11 @@ export const SliderProvider: React.FC<SliderProviderProps> = ({ data, children }
 				moveRightSlide,
 				onAutoSliding,
 				offAutoSliding,
+				setViewportWidth,
+				setSlideWidth,
 			},
 		}),
-		[state],
+		[state, moveLeftSlide, moveRightSlide, onAutoSliding, offAutoSliding, setViewportWidth, setSlideWidth],
 	);
 
 	return <SliderContext.Provider value={context}>{children}</SliderContext.Provider>;

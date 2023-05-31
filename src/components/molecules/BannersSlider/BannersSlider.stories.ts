@@ -1,3 +1,5 @@
+import { BANNERS } from '@/app/data/banners';
+
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { BannersSlider } from './BannersSlider';
@@ -17,4 +19,8 @@ export default meta;
 
 type Story = StoryObj<typeof BannersSlider>;
 
-export const Default: Story = {};
+export const Default: Story = {
+	args: {
+		banners: BANNERS,
+	},
+};

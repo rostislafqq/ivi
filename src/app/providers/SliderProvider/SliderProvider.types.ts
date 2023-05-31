@@ -8,6 +8,8 @@ export type AutoplayType = {
 export interface SliderInitialDataType {
 	slidesCount: number;
 	activeSlide?: number;
+	slidesPerView?: number;
+	spaceBetween?: number;
 	autoplay?: AutoplayType;
 }
 
@@ -21,6 +23,10 @@ export interface SliderStateType {
 	slidesCount: number;
 	autoSliding: boolean;
 	autoplay: AutoplayType;
+	slidesPerView: number;
+	spaceBetween: number;
+	viewportWidth: number;
+	slideWidth: number;
 }
 
 export interface SliderActionsType {
@@ -28,6 +34,8 @@ export interface SliderActionsType {
 	moveRightSlide: () => void;
 	onAutoSliding: () => void;
 	offAutoSliding: () => void;
+	setViewportWidth: (value: number) => void;
+	setSlideWidth: (value: number) => void;
 }
 
 export interface SliderContextType {
