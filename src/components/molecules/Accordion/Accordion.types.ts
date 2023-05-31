@@ -5,4 +5,5 @@ export interface AccordionProps {
 	length: number;
 	buttonValues: string[];
 	buttonClass?: string;
+	className?: string;
 }

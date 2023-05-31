@@ -1,8 +1,6 @@
 import cn from 'classnames';
 import React, { useRef, useEffect, useCallback } from 'react';
 
-import { useResizeWindow } from '@/app/hooks';
-
 import { useSlider } from '@/app/providers';
 
 import styles from './SliderWrapper.module.scss';

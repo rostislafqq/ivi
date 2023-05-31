@@ -1,6 +1,6 @@
-import { CreatorsCard } from './CreatorsCard';
-
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { CreatorsCard } from './CreatorsCard';
 
 const meta: Meta<typeof CreatorsCard> = {
 	title: 'Molecules/CreatorsCard',
