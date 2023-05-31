@@ -1,15 +1,16 @@
 import React from 'react';
 
-import { Accordion } from './Accordion';
+import { defaultContentItems } from '@/app/data/defaultContentItems';
 
-import styles from './Accordion.module.scss';
+import { Text, ListItem } from '@/components/atoms';
 
 import { List } from '../List/List';
 
-import { defaultContentItems } from '@/app/data/defaultContentItems';
-import { Text, ListItem } from '@/components/atoms';
-
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { Accordion } from './Accordion';
+
+import styles from './Accordion.module.scss';
 
 import '@/config/globals.scss';
 
@@ -18,7 +19,7 @@ const meta: Meta<typeof Accordion> = {
 	component: Accordion,
 	tags: ['autodocs'],
 	argTypes: {
-		content: {
+		children: {
 			description: 'контент , который будет открываться/закрываться',
 		},
 		length: {
@@ -35,7 +36,7 @@ type Story = StoryObj<typeof Accordion>;
 
 export const HomeExample: Story = {
 	args: {
-		content: (
+		children: (
 			<>
 				<Text className={styles['paragrapg--position']} tag="p">
 					Случалось ли вам отказаться от просмотра интересного фильма из-за того, что его показывали в

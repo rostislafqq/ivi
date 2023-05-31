@@ -1,0 +1,27 @@
+@import '@/config/_variables.scss';
+
+.film-card {
+	--width: var(--slide-width, 171px);
+
+	display: inline-block;
+	width: var(--width);
+
+	&__previewBox {
+		position: relative;
+		background-color: $purple-500;
+		width: var(--width);
+		height: calc(var(--width) * 1.54);
+
+		border-radius: 0.8rem;
+		overflow: hidden;
+	}
+
+	&__descriptionBox {
+		margin-top: 0.8rem;
+		max-width: 100%;
+
+		*:not(:first-child) {
+			margin-top: 0.4rem;
+		}
+	}
+}

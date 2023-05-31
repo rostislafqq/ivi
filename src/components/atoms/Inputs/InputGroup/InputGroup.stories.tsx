@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { InputGroup } from './InputGroup';
-
-import styles from './InputGroup.module.scss';
-
 import { Input } from '../Input/Input';
 
 import { Label } from '../Label/Label';
 
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { InputGroup } from './InputGroup';
+
+import styles from './InputGroup.module.scss';
 
 import '@/config/globals.scss';
 

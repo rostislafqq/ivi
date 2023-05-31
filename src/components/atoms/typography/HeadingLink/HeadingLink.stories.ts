@@ -1,6 +1,6 @@
-import { HeadingLink as HeadingLinkComponent } from './HeadingLink';
-
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { HeadingLink as HeadingLinkComponent } from './HeadingLink';
 
 import '@/config/globals.scss';
 

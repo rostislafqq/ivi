@@ -1,0 +1,9 @@
+@import '@/config/variables.scss';
+
+.social {
+	display: flex;
+	column-gap: 1.2rem;
+	&__btn {
+		border-radius: 50%;
+	}
+}

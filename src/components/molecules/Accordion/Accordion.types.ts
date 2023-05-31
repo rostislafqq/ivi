@@ -1,8 +1,9 @@
 import { ReactNode } from 'react';
 
 export interface AccordionProps {
-	content: ReactNode;
+	children: ReactNode;
 	length: number;
 	buttonValues: string[];
 	buttonClass?: string;
+	className?: string;
 }

@@ -1,0 +1,23 @@
+@import '@/config/_variables.scss';
+
+.banner {
+	position: relative;
+
+	border-radius: 1.6rem;
+	overflow: hidden;
+
+	height: 16.4rem;
+
+	@media (min-width: 320px) {
+		height: 18rem;
+	}
+	@media(min-width: 576px) {
+		height: 25rem;
+	}
+	@media (min-width: 768px) {
+		height: 32rem;
+	}
+	@media (min-width: 1200px) {
+		height: 37rem;
+	}
+}

@@ -1,6 +1,6 @@
-import { TextLink as TextLinkComponent } from './TextLink';
-
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { TextLink as TextLinkComponent } from './TextLink';
 
 const meta: Meta<typeof TextLinkComponent> = {
 	title: 'Atoms/Typography/TextLink',
