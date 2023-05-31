@@ -1,56 +1,50 @@
-import { fireEvent, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import React from 'react';
 
-import { Avatar } from '@components/molecules';
+import { UserType } from '@/app/types';
+
+import { Avatar } from './Avatar';
 
 describe('components/molecules/Avatar', () => {
-	const onMouseOverHandler = jest.fn();
-	const onMouseOutHandler = jest.fn();
+	const user: UserType = {
+		id: 999,
+		firstName: 'firstName',
+		lastName: 'lastName',
+	};
 
 	it('should render component', () => {
-		const { container, getByTestId } = render(<Avatar />);
-		const icon = getByTestId('icon');
+		const { container } = render(<Avatar />);
 
-		expect(container.firstChild).toBeInTheDocument();
-		expect(icon).toBeInTheDocument();
+		expect(container.firstElementChild).toBeInTheDocument();
 	});
 
-	it('should render with isAuth is true prop and login prop', () => {
-		const { container, getByText } = render(
-			<Avatar
-				href="https://google.com"
-				isAuth
-				login="test"
-				onMouseOver={onMouseOverHandler}
-				onMouseOut={onMouseOutHandler}
-			/>,
-		);
-		const user = getByText('T');
+	it('the link should lead the user to his personal account if the user is not empty', () => {
+		const { getByRole } = render(<Avatar user={user} />);
 
-		expect(container.firstChild).toBeInTheDocument();
-		expect(container.firstChild).toHaveClass('wrapper--auth');
-		expect(container.firstChild).toHaveAttribute('href', 'https://google.com');
-
-		expect(user).toBeInTheDocument();
+		expect(getByRole('link')).toHaveAttribute('href', `/person/${user.id}`);
 	});
 
-	it('should calls onMouseOver and onMouseOut when mouse over and mouse out', () => {
-		const { getByRole } = render(
-			<Avatar
-				href="https://google.com"
-				isAuth={false}
-				onMouseOver={onMouseOverHandler}
-				onMouseOut={onMouseOutHandler}
-			/>,
-		);
+	it('the link should lead to the authorization page if the user is empty', () => {
+		const { getByRole } = render(<Avatar />);
 
-		const link = getByRole('link');
-		expect(link).toBeInTheDocument();
+		expect(getByRole('link')).toHaveAttribute('href', '/auth');
+	});
 
-		fireEvent.mouseOver(link);
-		expect(onMouseOverHandler).toHaveBeenCalledTimes(1);
+	it('should render user initials when user is not empty', () => {
+		const { getByTestId } = render(<Avatar user={user} />);
 
-		fireEvent.mouseOut(link);
-		expect(onMouseOutHandler).toHaveBeenCalledTimes(1);
+		expect(getByTestId('user-initials')).toBeInTheDocument();
+	});
+
+	it('should correct display user initials', () => {
+		const { getByText } = render(<Avatar user={user} />);
+
+		expect(getByText(`${user.firstName[0]} ${user.lastName[0]}`));
+	});
+
+	it('should render user icon when user is empty', () => {
+		const { getByTestId } = render(<Avatar />);
+
+		expect(getByTestId('user-icon'));
 	});
 });

@@ -9,7 +9,7 @@ import { AvatarProps } from './Avatar.types';
 
 export const Avatar: React.FC<AvatarProps> = ({ user }) => {
 	const getPersonalAccountLink = (userId: number) => `/person/${userId}`;
-	const getInitials = (firstName: string, lastName: string) => `${firstName[0]}${lastName[0]}`;
+	const getInitials = (firstName: string, lastName: string) => `${firstName[0]} ${lastName[0]}`;
 
 	if (user) {
 		return (
@@ -25,7 +25,7 @@ export const Avatar: React.FC<AvatarProps> = ({ user }) => {
 		);
 	}
 	return (
-		<IconButton className={styles.avatar} href="/" size="big">
+		<IconButton className={styles.avatar} href="/auth" size="big">
 			<Icon className={styles.avatar__icon} icon={UserIcon} width={20} height={20} data-testid="user-icon" />
 		</IconButton>
 	);
