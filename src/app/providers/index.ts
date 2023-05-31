@@ -1,3 +1,4 @@
-import FontProvider from './FontProvider';
+import FontProvider from './FontProvider/FontProvider';
+import { SliderProvider, SliderContext, useSlider } from './SliderProvider/SliderProvider';
 
-export { FontProvider };
+export { FontProvider, SliderProvider, SliderContext, useSlider };

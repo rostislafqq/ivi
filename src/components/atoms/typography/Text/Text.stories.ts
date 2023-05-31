@@ -1,8 +1,8 @@
+import type { Meta, StoryObj } from '@storybook/react';
+
 import { Text as TextComponent } from './Text';
 
 import '@/config/globals.scss';
-
-import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof TextComponent> = {
 	title: 'Atoms/Typography/Text',

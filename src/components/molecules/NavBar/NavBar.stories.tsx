@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { NavBar as NavBarComponent } from './NavBar';
-
-import { Button } from '@components/atoms';
+import { Button, TextLink } from '@components/atoms';
 import { LinkList } from '@components/molecules/LinkList/LinkList';
 
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { NavBar as NavBarComponent } from './NavBar';
 
 const meta: Meta<typeof NavBarComponent> = {
 	title: 'Molecules/NavBar',
@@ -31,12 +31,17 @@ const meta: Meta<typeof NavBarComponent> = {
 	},
 	args: {
 		menu: (
-			<LinkList
-				linksList={[
-					{ text: 'item 1', href: 'test' },
-					{ text: 'item 2', href: 'test2' },
-				]}
-			/>
+			<LinkList>
+				<TextLink tag="span" href="test">
+					item1
+				</TextLink>
+				<TextLink tag="span" href="test">
+					item2
+				</TextLink>
+				<TextLink tag="span" href="test">
+					item3
+				</TextLink>
+			</LinkList>
 		),
 		actionGroup: (
 			<div>

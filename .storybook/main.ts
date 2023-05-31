@@ -12,7 +12,7 @@ const config: StorybookConfig = {
 	docs: {
 		autodocs: 'tag',
 	},
-	staticDirs: [{ from: '../src/assets/fonts/', to: '' }],
+	staticDirs: ['../public', { from: '../src/assets/fonts/', to: '' }],
 	webpackFinal: async (config, { configType }) => {
 		config.module.rules = config.module.rules.map((rule) => {
 			const reg = new RegExp('svg');

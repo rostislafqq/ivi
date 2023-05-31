@@ -1,0 +1,29 @@
+@import '@/config/_variables.scss';
+
+.loading {
+	cursor: pointer;
+	display: inline-block;
+	background: $purple-500;
+	animation: flicker 2.3s infinite;
+	transition: background-color 0.2s ease-in-out;
+
+	&--small {
+		border-radius: 0.4rem;
+	}
+
+	&--normal {
+		border-radius: 0.8rem;
+	}
+}
+
+@keyframes flicker {
+	0% {
+		background-color: $purple-500;
+	}
+	50% {
+		background-color: $purple-400;
+	}
+	100% {
+		background-color: $purple-500;
+	}
+}

@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import { InputGroup } from './InputGroup';
-
 import { Input } from '../Input/Input';
 import { Label } from '../Label/Label';
+
+import { InputGroup } from './InputGroup';
 
 describe('components/atoms/Inputs/InputGroup', () => {
 	it('component should be in the document', () => {

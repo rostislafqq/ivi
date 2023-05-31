@@ -1,7 +1,8 @@
-import React from 'react';
+import { HTMLAttributes } from 'react';
 
-export interface FilmStatusProps {
-	children: React.ReactNode;
-	variant: 'free' | 'subscribe' | 'buy';
+import { FilmStatusType } from '@/app/types';
+
+export interface FilmStatusProps extends HTMLAttributes<HTMLDivElement> {
+	status: FilmStatusType;
 	className?: string;
 }

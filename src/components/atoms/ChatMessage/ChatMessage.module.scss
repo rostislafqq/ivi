@@ -1,0 +1,22 @@
+@import '@/config/_variables.scss';
+
+.message {
+	box-sizing: content-box;
+	width: fit-content;
+	border-radius: 1.6rem;
+	padding: 1.6rem;
+	&__right {
+		background-color: $black;
+		border-bottom-right-radius: 0;
+	}
+	&__left {
+		background-color: $lightBlack;
+		border-bottom-left-radius: 0;
+	}
+	&__extra {
+		font-size: $font-sm;
+		line-height: $font-base;
+		font-weight: 400;
+		margin-top: 0.4rem;
+	}
+}
