@@ -1,7 +1,5 @@
 import cn from 'classnames';
-import React, { useRef, useEffect } from 'react';
-
-import { useResizeWindow } from '@/app/hooks';
+import React, { useRef, useEffect, useCallback } from 'react';
 
 import { useSlider } from '@/app/providers';
 
@@ -13,22 +11,33 @@ export const SliderWrapper: React.FC<SliderWrapperProps> = ({ className, childre
 	const wrapperClasses = cn(styles.slider__wrapper, className);
 
 	const { state } = useSlider();
-	const [windowWidth] = useResizeWindow();
 	const sliderWrapperRef = useRef<null | HTMLDivElement>(null);
 
+	const handleChangeSlideOffset = useCallback(() => {
+		if (!sliderWrapperRef.current) return;
+
+		const sliderOffset =
+			state.slidesPerView > 1
+				? (state.viewportWidth - state.slideWidth) * state.activeSlide
+				: (state.viewportWidth + state.spaceBetween) * state.activeSlide;
+		const wrapperWidth = (state.viewportWidth + state.spaceBetween) * state.slidesCount;
+
+		sliderWrapperRef.current.style.cssText = `
+				transform: translateX(-${sliderOffset}px);
+				width: ${wrapperWidth}px;
+			`;
+	}, [
+		state.activeSlide,
+		state.viewportWidth,
+		state.spaceBetween,
+		state.slidesCount,
+		state.slidesPerView,
+		state.slideWidth,
+	]);
+
 	useEffect(() => {
-		function handleChangeSlideOffset(currentSlide: number) {
-			if (!sliderWrapperRef.current) return;
-
-			const sliderItem = sliderWrapperRef.current.querySelector('[data-testid="slider__item"]');
-
-			const sliderItemCoords = sliderItem?.getBoundingClientRect();
-			const sliderOffset = Math.round(sliderItemCoords?.width ?? 0) * currentSlide;
-			sliderWrapperRef.current.style.transform = `translateX(-${sliderOffset}px)`;
-		}
-
-		handleChangeSlideOffset(state.activeSlide);
-	}, [state.activeSlide, windowWidth]);
+		handleChangeSlideOffset();
+	}, [handleChangeSlideOffset]);
 
 	return (
 		<div className={wrapperClasses} ref={sliderWrapperRef} data-testid="slider__wrapper">

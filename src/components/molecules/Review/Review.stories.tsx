@@ -1,15 +1,14 @@
 import React from 'react';
 
-import { Review } from './Review';
-
-import styles from './Review.module.scss';
-
-import { List } from '../List/List';
-
 import { defaultContentItems } from '@/app/data/defaultContentItems';
 import { Text, ListItem } from '@/components/atoms';
 
+import { List } from '../List/List';
+
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { Review } from './Review';
+import styles from './Review.module.scss';
 
 import '@/config/globals.scss';
 

@@ -3,7 +3,7 @@ import React from 'react';
 
 import type { FilmBannerType } from '@/app/types';
 
-import { FilmBanner } from './FilmBanner';
+import { FilmBannerLoaded } from './FilmBannerLoaded';
 
 describe('components/molecules/FilmBanner', () => {
 	const banner: FilmBannerType = {
@@ -14,15 +14,23 @@ describe('components/molecules/FilmBanner', () => {
 		age: '16+',
 	};
 
+	it('should accept an additional class', () => {
+		const { container } = render(<FilmBannerLoaded className="test-class" {...banner} />);
+
+		expect(container.firstElementChild).toHaveClass('banner');
+		expect(container.firstElementChild).toHaveClass('banner-loaded');
+		expect(container.firstElementChild).toHaveClass('test-class');
+	});
+
 	it('should render badge when banner "age" is not empty', () => {
-		const { getByTestId } = render(<FilmBanner banner={banner} />);
+		const { getByTestId } = render(<FilmBannerLoaded {...banner} />);
 
 		const badge = getByTestId('badge');
 		expect(badge.textContent).toBe(banner.age);
 	});
 
 	it('should render image', () => {
-		const { getByTestId } = render(<FilmBanner banner={banner} />);
+		const { getByTestId } = render(<FilmBannerLoaded {...banner} />);
 
 		const image = getByTestId('image');
 		expect(image).toBeInTheDocument();
@@ -35,7 +43,7 @@ describe('components/molecules/FilmBanner', () => {
 			type: 'subscribe',
 		};
 
-		const { getByTestId } = render(<FilmBanner banner={newBanner} />);
+		const { getByTestId } = render(<FilmBannerLoaded {...newBanner} />);
 
 		const button = getByTestId('button');
 		expect(button.textContent).toBe('Смотреть по подписке');
@@ -47,7 +55,7 @@ describe('components/molecules/FilmBanner', () => {
 			type: 'free',
 		};
 
-		const { getByTestId } = render(<FilmBanner banner={newBanner} />);
+		const { getByTestId } = render(<FilmBannerLoaded {...newBanner} />);
 
 		const button = getByTestId('button');
 		expect(button.textContent).toBe('Смотреть бесплатно');
@@ -59,7 +67,7 @@ describe('components/molecules/FilmBanner', () => {
 			type: 'collections',
 		};
 
-		const { getByTestId } = render(<FilmBanner banner={newBanner} />);
+		const { getByTestId } = render(<FilmBannerLoaded {...newBanner} />);
 
 		const button = getByTestId('button');
 		expect(button.textContent).toBe('Смотреть подборку');

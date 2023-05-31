@@ -2,12 +2,12 @@ import cn from 'classnames';
 
 import React from 'react';
 
-import styles from './Rating.module.scss';
-import { RatingProps } from './Rating.types';
-
 import { useAssessmentCount } from '@/app/hooks';
 
 import { Button, Text } from '@/components/atoms';
+
+import styles from './Rating.module.scss';
+import { RatingProps } from './Rating.types';
 
 export const Rating: React.FC<RatingProps> = ({ extra, assessment = 2, className = '', size, rating }) => {
 	const assCount = useAssessmentCount(assessment);

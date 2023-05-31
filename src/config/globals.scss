@@ -43,23 +43,16 @@ svg {
 }
 
 .container {
-	margin: 0 auto;
-	padding: 0 2rem;
-	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	width: calc(100% - 2rem);
 
-	@include mobile-hr {
-		max-width: 52rem;
+	@media (min-width: 576px) {
+		width: calc(100% - 6rem);
 	}
 
-	@include tablet {
-		max-width: 94rem;
-	}
-
-	@include desktop {
-		max-width: 112rem;
-	}
-
-	@include desktop-xl {
-		max-width: 130rem;
+	@media (min-width: 1280px) {
+		width: 100%;
+		max-width: 121.6rem;
 	}
 }
