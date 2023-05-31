@@ -1,9 +1,5 @@
-import React from 'react';
+import { UserType } from '@app/types/UserType';
 
 export interface AvatarProps {
-	href: string;
-	isAuth: boolean;
-	login?: string;
-	onMouseOver: (event: React.MouseEvent<HTMLAnchorElement>) => void;
-	onMouseOut: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+	user?: UserType;
 }

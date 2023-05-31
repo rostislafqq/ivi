@@ -1,37 +1,32 @@
-import classNames from 'classnames';
-import Link from 'next/link';
-import * as React from 'react';
-import { useEffect, useState } from 'react';
+import cn from 'classnames';
+import React from 'react';
+
+import UserIcon from '@assets/icons/user.svg';
+import { IconButton, Icon } from '@components/atoms';
 
 import styles from './Avatar.module.scss';
-
 import { AvatarProps } from './Avatar.types';
 
-import user from '@assets/icons/user.svg';
-import { Icon } from '@components/atoms';
+export const Avatar: React.FC<AvatarProps> = ({ user }) => {
+	const getPersonalAccountLink = (userId: number) => `/person/${userId}`;
+	const getInitials = (firstName: string, lastName: string) => `${firstName[0]}${lastName[0]}`;
 
-export const Avatar: React.FC<AvatarProps> = ({ href, isAuth = false, login = '', onMouseOver, onMouseOut }) => {
-	const [userName, setUserName] = useState<string>('');
-
-	useEffect(() => {
-		if (!login || login?.length === 0) return;
-		if (!isAuth) return;
-		const name = login[0].toUpperCase();
-		setUserName(name);
-	}, [isAuth, login, setUserName]);
-
+	if (user) {
+		return (
+			<IconButton
+				className={cn(styles.avatar, styles['avatar--auth'])}
+				href={getPersonalAccountLink(user.id)}
+				size="big"
+			>
+				<span className={styles.avatar__initials} data-testid="user-initials">
+					{getInitials(user.firstName, user.lastName)}
+				</span>
+			</IconButton>
+		);
+	}
 	return (
-		<Link
-			className={classNames(styles.wrapper, { [styles['wrapper--auth']]: isAuth && userName.length > 0 })}
-			href={href}
-			onMouseOver={onMouseOver}
-			onMouseOut={onMouseOut}
-		>
-			{isAuth && userName.length > 0 ? (
-				<span className={styles.login}>{userName}</span>
-			) : (
-				<Icon icon={user} width={20} height={20} className={styles.icon} data-testid="icon" />
-			)}
-		</Link>
+		<IconButton className={styles.avatar} href="/" size="big">
+			<Icon className={styles.avatar__icon} icon={UserIcon} width={20} height={20} data-testid="user-icon" />
+		</IconButton>
 	);
 };

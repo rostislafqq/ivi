@@ -1,4 +1,5 @@
 import { Accordion } from './Accordion/Accordion';
+import { Avatar } from './Avatar/Avatar';
 import { BannersSlider } from './BannersSlider/BannersSlider';
 import { Breadcrumb } from './Breadcrumb/Breadcrumb';
 import { CreatorsCard } from './CreatorsCard/CreatorsCard';
@@ -18,6 +19,7 @@ import { Support } from './Support/Support';
 
 export {
 	Accordion,
+	Avatar,
 	BannersSlider,
 	Breadcrumb,
 	CreatorsCard,
