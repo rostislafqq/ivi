@@ -1,16 +1,8 @@
 @import '@/config/_variables.scss';
 
-.wrapper {
-	width: 4.8rem;
-	height: 4.8rem;
-	padding: 1.2rem;
-	border-radius: 8px;
+.avatar {
 	border: 2px solid $white;
 	opacity: 0.48;
-	transition: all .3s;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
 
 	&:not([disabled]):hover,
 	&:not([disabled]):focus,
@@ -24,17 +16,16 @@
 		opacity: 1;
 		border: 2px solid $green;
 	}
-}
 
-.login {
-	text-align: center;
-	font-size: 2.4rem;
-	font-weight: 700;
-}
+	&__initials {
+		text-align: center;
+		font-size: 2.4rem;
+		font-weight: 500;
+	}
 
-
-.icon {
-	stroke: currentColor;
-	stroke-width: 2px;
-	fill: none;
+	&__icon {
+		stroke: currentColor;
+		stroke-width: 2px;
+		fill: none;
+	}
 }

@@ -7,15 +7,12 @@ describe('components/molecules/Avatar', () => {
 	const onMouseOverHandler = jest.fn();
 	const onMouseOutHandler = jest.fn();
 
-	it('should render with href prop and default props', () => {
-		const { container, getByTestId } = render(
-			<Avatar href="https://google.com" onMouseOver={onMouseOverHandler} onMouseOut={onMouseOutHandler} />,
-		);
+	it('should render component', () => {
+		const { container, getByTestId } = render(<Avatar />);
 		const icon = getByTestId('icon');
 
 		expect(container.firstChild).toBeInTheDocument();
 		expect(icon).toBeInTheDocument();
-		expect(container.firstChild).toHaveAttribute('href', 'https://google.com');
 	});
 
 	it('should render with isAuth is true prop and login prop', () => {
