@@ -1,0 +1,40 @@
+@import '@/config/_variables.scss';
+
+.wrapper {
+	width: 4.8rem;
+	height: 4.8rem;
+	padding: 1.2rem;
+	border-radius: 8px;
+	border: 2px solid $white;
+	opacity: 0.48;
+	transition: all .3s;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	&:not([disabled]):hover,
+	&:not([disabled]):focus,
+	&:not([disabled]):active {
+		opacity: 1;
+		box-shadow: 0 0.4rem 1.6rem rgba($white, 0.24);
+	}
+
+	&--auth {
+		background: $green;
+		opacity: 1;
+		border: 2px solid $green;
+	}
+}
+
+.login {
+	text-align: center;
+	font-size: 2.4rem;
+	font-weight: 700;
+}
+
+
+.icon {
+	stroke: currentColor;
+	stroke-width: 2px;
+	fill: none;
+}
