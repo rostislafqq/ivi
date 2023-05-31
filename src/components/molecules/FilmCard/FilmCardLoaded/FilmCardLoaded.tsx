@@ -15,7 +15,7 @@ import type { FilmCardProps } from './FilmCardLoaded.types';
 
 import styles from './FilmCardLoaded.module.scss';
 
-export const FilmCardLoaded: React.FC<FilmCardProps> = ({ className, film, ...props }) => {
+export const FilmCardLoaded: React.FC<FilmCardProps> = ({ name, preview, href, status, className, ...props }) => {
 	const [isHovered, setIsHovered] = React.useState(false);
 
 	const cardClasses = cn(filmCardStyles['film-card'], styles['card-loaded'], className);
@@ -28,7 +28,7 @@ export const FilmCardLoaded: React.FC<FilmCardProps> = ({ className, film, ...pr
 			onMouseLeave={() => setIsHovered(false)}
 			{...props}
 		>
-			<Link className={styles['card-loaded__link']} href={film.href} data-testid="film-card__link" />
+			<Link className={styles['card-loaded__link']} href={href} data-testid="film-card__link" />
 			<div
 				className={cn(filmCardStyles['film-card__previewBox'], styles['card-loaded__previewBox'])}
 				data-testid="film-card__previewBox"
@@ -36,8 +36,8 @@ export const FilmCardLoaded: React.FC<FilmCardProps> = ({ className, film, ...pr
 			>
 				<Image
 					className={styles['card-loaded__preview']}
-					src={film.preview}
-					alt={film.name}
+					src={preview}
+					alt={name}
 					width={234}
 					height={360}
 					data-testid="film-card__preview"
@@ -62,13 +62,9 @@ export const FilmCardLoaded: React.FC<FilmCardProps> = ({ className, film, ...pr
 			</div>
 			<div className={filmCardStyles['film-card__descriptionBox']}>
 				<Heading className={styles['card-loaded__name']} tag="h4" data-testid="film-card__name">
-					{film.name}
+					{name}
 				</Heading>
-				<FilmStatus
-					className={styles['card-loaded__status']}
-					status={film.status}
-					data-testid="film-card__status"
-				/>
+				<FilmStatus className={styles['card-loaded__status']} status={status} data-testid="film-card__status" />
 			</div>
 		</div>
 	);

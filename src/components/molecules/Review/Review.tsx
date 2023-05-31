@@ -5,8 +5,6 @@ import Link from 'next/link';
 
 import React, { useState } from 'react';
 
-import styles from './Review.module.scss';
-
 import { formatDate } from '@/app/utils/formatDate';
 
 import like from '@/assets/icons/like.svg';
@@ -14,6 +12,8 @@ import like from '@/assets/icons/like.svg';
 import { Icon, Text } from '@/components/atoms';
 
 import type { ReviewProps } from './Review.types';
+
+import styles from './Review.module.scss';
 
 export const Review: React.FC<ReviewProps> = ({
 	commentid = '',

@@ -1,6 +1,6 @@
-import { FilmExtraInfo } from './FilmExtraInfo';
-
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { FilmExtraInfo } from './FilmExtraInfo';
 
 const meta: Meta<typeof FilmExtraInfo> = {
 	title: 'Molecules/FilmExtraInfo',

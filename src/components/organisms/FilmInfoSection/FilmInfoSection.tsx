@@ -3,14 +3,14 @@ import cn from 'classnames';
 
 import React from 'react';
 
-import styles from './FilmInfoSection.module.scss';
-import { FilmInfoSectionProps } from './FilmInfoSection.types';
-
 import volume from '@/assets/icons/volume.svg';
 
 import { Heading, Icon, ListItem, Text } from '@/components/atoms';
 import { Accordion, FilmExtraInfo, List, Rating } from '@/components/molecules';
 import { CreatorsCard } from '@/components/molecules/CreatorsCard/CreatorsCard';
+
+import styles from './FilmInfoSection.module.scss';
+import { FilmInfoSectionProps } from './FilmInfoSection.types';
 
 export const FilmInfoSection: React.FC<FilmInfoSectionProps> = ({
 	badges,

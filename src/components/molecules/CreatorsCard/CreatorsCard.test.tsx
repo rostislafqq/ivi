@@ -5,7 +5,7 @@ import { CreatorsCard } from './CreatorsCard';
 
 describe('components/molecules/CreatorsCard', () => {
 	test('should render with correct props data', () => {
-		const { getByText, getByRole, getByTestId } = render(
+		const { getByText, getByRole } = render(
 			<CreatorsCard className="testClass" href="/test" name="name" surname="surn" size="small" type="circle" />,
 		);
 

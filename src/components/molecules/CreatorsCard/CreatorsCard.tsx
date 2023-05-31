@@ -5,13 +5,13 @@ import Link from 'next/link';
 
 import React from 'react';
 
-import styles from './CreatorsCard.module.scss';
-
-import { CreatorsCardProps } from './CreatorsCard.type';
-
 import { useFilmCount } from '@/app/hooks';
 
 import { Text } from '@/components/atoms';
+
+import styles from './CreatorsCard.module.scss';
+
+import { CreatorsCardProps } from './CreatorsCard.type';
 
 export const CreatorsCard: React.FC<CreatorsCardProps> = ({
 	image = '',

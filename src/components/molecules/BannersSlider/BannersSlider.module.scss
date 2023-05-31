@@ -1,35 +1,17 @@
 @import '@/config/_variables.scss';
 
 .banners-slider {
-
-	& &__arrow-left,
-	& &__arrow-right {
-		@media(min-width: 1280px) {
-			width: 35%;
-		}
-	}
-
-	& &__arrow-left {
-		@media (min-width: 1280px) {
-			justify-content: flex-end;
-			left: 15%;
-			transform: translateX(-608px);
-
-			&:active {
-				transform: translateX(-608px) scale(0.9);
-			}
-		}
-	}
-
-	& &__arrow-right {
-		@media (min-width: 1280px) {
-			right: initial;
-			left: 50%;
-			transform: translateX(608px);
-
-			&:active {
-				transform: translateX(608px) scale(0.9);
-			}
+	& &__item {
+		&[data-active='false']:after {
+			content: '';
+			position: absolute;
+			z-index: 3;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-color: rgba($purple-900, 0.64);
+			transition: background-color 0.5s ease;
 		}
 	}
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 
+import { Text } from '@/components/atoms';
+
 import styles from './FilmExtraInfo.module.scss';
 import { FilmExtraInfoProps } from './FilmExtraInfo.types';
-
-import { Text } from '@/components/atoms';
 
 export const FilmExtraInfo: React.FC<FilmExtraInfoProps> = ({ className = '', langs, badges = [] }) => (
 	<div className={`${styles.FilmExtraInfo} ${className}`}>

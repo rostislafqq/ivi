@@ -1,7 +1,7 @@
 @import '@/config/_variables.scss';
 
 .film-card {
-	--width: 171px;
+	--width: var(--slide-width, 171px);
 
 	display: inline-block;
 	width: var(--width);
