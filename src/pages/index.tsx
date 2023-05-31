@@ -2,11 +2,12 @@ import Head from 'next/head';
 import React from 'react';
 
 import { FilmsSlider } from '@/components/molecules';
+import { Layout } from '@/components/templates';
 import { Section, SectionHeader, SectionHeading } from '@components/atoms';
 import { PromoSection } from '@components/organisms';
 
 const Home: React.FC = () => (
-	<>
+	<Layout>
 		<Head>
 			<title>Ivi - Главная</title>
 			<meta name="description" content="Ivi" />
@@ -54,7 +55,7 @@ const Home: React.FC = () => (
 				<FilmsSlider films={[]} />
 			</Section>
 		</main>
-	</>
+	</Layout>
 );
 
 export default Home;
