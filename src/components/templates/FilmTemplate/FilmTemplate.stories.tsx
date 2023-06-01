@@ -20,7 +20,9 @@ export const Example: Story = {
 		badgeColor: 'gray',
 		filmType: 'TV_SERIES',
 		filmGenre: 'Мультфильм',
+
 		heading: 'Царевны',
+
 		year: 2021,
 		duration: '1 сезон',
 		yearOld: 6,
