@@ -1,11 +1,10 @@
-<<<<<<< HEAD
 import Link from 'next/link';
 
 import React, { useEffect, useState } from 'react';
 
 import { useResizeWindow } from '@/app/hooks';
 
-import { Heading, HeadingLink } from '@/components/atoms';
+import { Heading, HeadingLink, Section, SectionHeader, SectionHeading } from '@/components/atoms';
 import { CreatorsCard, FilmsSlider } from '@/components/molecules';
 
 import styles from './FilmTemplateUnderside.module.scss';
@@ -25,12 +24,21 @@ export const FilmTemplateUnderside = ({ filmType, films, filmName, creatorsCards
 	}, [widthWindow]);
 	return (
 		<div className={styles.FilmTemplateUnderside}>
+			<Section id="actorsAndCreators">
+				<SectionHeader>
+					<div className="container">
+						<SectionHeading tag="h2">Актёры и создатели</SectionHeading>
+					</div>
+				</SectionHeader>
+				<FilmsSlider films={films} />
+			</Section>
 			<div className={styles.FilmTemplateUnderside__toWatch}>
 				<Heading className={styles.FilmTemplateUnderside__toWatchHeader} tag="h2">
 					С {filmType === 'FILM' ? 'фильмом' : 'сериалом'} «{filmName}» смотрят
 				</Heading>
 				<FilmsSlider films={films} />
 			</div>
+
 			<div className={styles.FilmTemplateUnderside__creators}>
 				<HeadingLink className={styles.FilmTemplateUnderside__creatorsHeader} href="/" tag="h2">
 					Актёры и создатели
@@ -54,8 +62,3 @@ export const FilmTemplateUnderside = ({ filmType, films, filmName, creatorsCards
 		</div>
 	);
 };
-=======
-import React from 'react';
-
-export const FilmTemplateUnderside = () => <div>dfg</div>;
->>>>>>> e6e188af8e82334ee5cc62b34f5a4f5a36e27dc2

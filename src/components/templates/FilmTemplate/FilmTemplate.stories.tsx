@@ -20,11 +20,7 @@ export const Example: Story = {
 		badgeColor: 'gray',
 		filmType: 'TV_SERIES',
 		filmGenre: 'Мультфильм',
-<<<<<<< HEAD
 		heading: 'Царевны',
-=======
-		heading: 'Шоу Патрика Стара (1 сезон)',
->>>>>>> e6e188af8e82334ee5cc62b34f5a4f5a36e27dc2
 		year: 2021,
 		duration: '1 сезон',
 		yearOld: 6,
@@ -64,7 +60,6 @@ export const Example: Story = {
 		languages: ['Русский', 'Английский'],
 		assessment: 1212,
 		extra: 'Интересный сюжет',
-<<<<<<< HEAD
 		creatorsCards: [
 			{
 				name: 'Билли',
@@ -134,7 +129,5 @@ export const Example: Story = {
 			},
 		],
 		filmPersonHref: 'patric-star-show',
-=======
->>>>>>> e6e188af8e82334ee5cc62b34f5a4f5a36e27dc2
 	},
 };
