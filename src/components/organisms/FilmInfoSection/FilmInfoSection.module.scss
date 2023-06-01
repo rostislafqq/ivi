@@ -76,3 +76,23 @@
 		}
 	}
 }
+
+@media (max-width: 500px) {
+	.FilmInfoSection {
+		&__creators {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			height: 9.4rem;
+			overflow: hidden;
+			justify-items: center;
+		}
+	}
+}
+
+@media (max-width: 385px) {
+	.FilmInfoSection {
+		&__creators {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+}

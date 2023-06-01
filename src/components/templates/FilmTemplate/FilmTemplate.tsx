@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FilmInfoSectionProps } from '@/components/orgamisms/FilmInfoSection/FilmInfoSection.types';
+import { FilmInfoSectionProps } from '@/components/organisms/FilmInfoSection/FilmInfoSection.types';
 
 import { FilmTemplateHeader } from './FilmTemplateHeader/FilmTemplateHeader';
 import { FilmTemplateHeaderProps } from './FilmTemplateHeader/FilmTemplateHeader.types';
@@ -26,6 +26,9 @@ export const FilmTemplate: React.FC<FilmTemplateHeaderProps & FilmInfoSectionPro
 	languages,
 	assessment,
 	extra,
+	films = '',
+	creatorsCards,
+	filmPersonHref,
 }) => (
 	<div>
 		<FilmTemplateHeader
@@ -50,6 +53,12 @@ export const FilmTemplate: React.FC<FilmTemplateHeaderProps & FilmInfoSectionPro
 			assessment={assessment}
 			extra={extra}
 		/>
-		<FilmTemplateUnderside />
+		<FilmTemplateUnderside
+			filmPersonHref={filmPersonHref}
+			creatorsCards={creatorsCards}
+			filmName={heading}
+			filmType={'12'}
+			films={films}
+		/>
 	</div>
 );

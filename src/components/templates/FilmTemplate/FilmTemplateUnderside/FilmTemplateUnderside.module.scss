@@ -1,0 +1,35 @@
+@import '@/config/_variables.scss';
+.FilmTemplateUnderside {
+	&__toWatch {
+		&Header {
+			height: 5.2rem;
+			margin-bottom: 0.8rem;
+		}
+	}
+	&__creators {
+		margin-top: 3.5rem;
+		&Header {
+			transition: 0.3s;
+			width: fit-content;
+			border-bottom: 1px solid rgba($white, 0.2);
+			margin-bottom: 1.6rem;
+		}
+		&Header:hover {
+			transition: 0.3s;
+			border-bottom: 1px solid $white;
+		}
+		&Container {
+			display: flex;
+			gap: 2.4rem;
+		}
+		&More {
+			width: 8.8rem;
+			height: 8.8rem;
+			display: flex;
+			justify-content: center;
+			background-color: $black;
+			align-items: center;
+			border-radius: 50%;
+		}
+	}
+}
