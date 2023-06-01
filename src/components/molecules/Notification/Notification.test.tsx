@@ -1,67 +1,64 @@
-import { fireEvent, render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
+import React from 'react';
+
 import { Notification } from './Notification';
 
 describe('components/molecules/Notification', () => {
-	it('should render with empty count', () => {
-		const { getByRole, getByTestId } = render(<Notification count={0} href={'https://google.com'} />);
+	it('should render component', () => {
+		const { container } = render(<Notification count={5} />);
 
-		const link = getByRole('link');
-		const icon = getByTestId('empty-icon');
-
-		expect(link).toBeInTheDocument();
-		expect(link).toHaveAttribute('href', 'https://google.com');
-
-		expect(icon).toBeInTheDocument();
-		expect(icon).toHaveClass('icon--empty');
+		expect(container.firstElementChild).toBeInTheDocument();
+		expect(container.firstElementChild).toHaveClass('notification');
 	});
 
-	it('should render with count prop is 9', () => {
-		const { getByRole, getByText, getByTestId } = render(<Notification count={9} href={'https://google.com'} />);
+	it('should accept an additional class', () => {
+		const { container } = render(<Notification className="test-class" count={5} />);
 
-		const link = getByRole('link');
-		const icon = getByTestId('icon');
-		const counter = getByText('9');
-
-		expect(link).toBeInTheDocument();
-		expect(link).toHaveAttribute('href', 'https://google.com');
-
-		expect(icon).toBeInTheDocument();
-
-		expect(counter).toBeInTheDocument();
+		expect(container.firstElementChild).toHaveClass('notification');
+		expect(container.firstElementChild).toHaveClass('test-class');
 	});
 
-	it('should render with count prop more than 99', () => {
-		const { getByRole, getByText, getByTestId } = render(<Notification count={100} href={'https://google.com'} />);
+	it('should display correct link', () => {
+		const { getByRole } = render(<Notification count={5} />);
 
-		const link = getByRole('link');
-		const icon = getByTestId('icon');
-		const counter = getByText('99+');
-
-		expect(link).toBeInTheDocument();
-		expect(icon).toBeInTheDocument();
-
-		expect(counter).toBeInTheDocument();
+		expect(getByRole('link')).toHaveAttribute('href', '/notification');
 	});
 
-	it('should calls onMouseOver and onMouseOut when mouse over and mouse out', () => {
-		const onMouseOverHandler = jest.fn();
-		const onMouseOutHandler = jest.fn();
+	it('should render counter when counter prop > 0', () => {
+		const { getByTestId } = render(<Notification count={5} />);
 
-		const { getByRole } = render(
-			<Notification
-				count={9}
-				href={'https://google.com'}
-				onMouseOut={onMouseOutHandler}
-				onMouseOver={onMouseOverHandler}
-			/>,
-		);
+		expect(getByTestId('notification-counter')).toBeInTheDocument();
+		expect(getByTestId('notification-counter').textContent).toBe('5');
+	});
 
-		const link = getByRole('link');
+	it('should correct display when counter prop > 9', () => {
+		const { getByTestId } = render(<Notification count={10} />);
 
-		fireEvent.mouseOver(link);
-		expect(onMouseOverHandler).toHaveBeenCalledTimes(1);
+		expect(getByTestId('notification-counter')).toBeInTheDocument();
+		expect(getByTestId('notification-counter').textContent).toBe('9+');
+	});
 
-		fireEvent.mouseOut(link);
-		expect(onMouseOutHandler).toHaveBeenCalledTimes(1);
+	it('should added the hover class for icon on hover', () => {
+		const { getByRole, getByTestId } = render(<Notification count={5} />);
+
+		fireEvent.mouseEnter(getByRole('link'));
+		expect(getByTestId('notification-icon')).toHaveClass('notification__icon');
+		expect(getByTestId('notification-icon')).toHaveClass('notification__icon--hovered');
+
+		fireEvent.mouseLeave(getByRole('link'));
+		expect(getByTestId('notification-icon')).toHaveClass('notification__icon');
+	});
+
+	it('should added the animated class for icon when counter > 0', () => {
+		const { getByTestId } = render(<Notification count={5} />);
+
+		expect(getByTestId('notification-icon')).toHaveClass('notification__icon');
+		expect(getByTestId('notification-icon')).toHaveClass('notification__icon--animated');
+	});
+
+	it('should added the many class for counter when counter prop > 9', () => {
+		const { getByTestId } = render(<Notification count={15} />);
+
+		expect(getByTestId('notification-counter')).toHaveClass('notification__counter--many');
 	});
 });

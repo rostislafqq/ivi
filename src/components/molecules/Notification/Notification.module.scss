@@ -1,55 +1,61 @@
 @import '@/config/_variables.scss';
 
-.wrapper {
+.notification {
 	display: inline-block;
-	padding: 1.6rem 1rem;
 	position: relative;
-}
 
-.link {
-	display: inline-block;
-}
+	&__icon {
+		opacity: 0.48;
+		transform: scale(1);
+		fill: transparent;
+		transition: all 0.2s;
 
-.icon {
-	opacity: 0.48;
-	transform: scale(1);
-	transition: all 0.2s;
-	animation: bell 2s infinite 3s ease-in-out;
+		&--animated {
+			animation: bell 2s infinite 3s ease-in-out;
+		}
 
-	.wrapper:hover & {
-		opacity: 1;
-		scale: 1.1;
+		&--hovered {
+			opacity: 1;
+			scale: 1.1;
+		}
 	}
 
-	&--empty {
-		animation: none;
-	}
-}
+	&__counter {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 0.4rem;
+		max-width: 1.4rem;
+		max-height: 1.4rem;
+		transform: translate(30%, -50%);
+		font-size: 1rem;
+		border-radius: 50%;
+		text-align: center;
 
-.counter {
-	position: absolute;
-	top: 0.8rem;
-	right: 0.4rem;
-	min-width: 1.4rem;
-	padding: 0 0.1rem;
-	height: 1.4rem;
-	font-size: 0.9rem;
-	font-weight: 700;
-	border-radius: 50%;
-	background-color: $red;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+		&--many {
+			max-width: initial;
+			border-radius: 25%;
+			transform: translate(50%, -50%);
+		}
+
+		span {
+			margin-bottom: 0;
+		}
+	}
 }
 
 @keyframes bell {
-	0%, 25%, 100% {
+	0%,
+	25%,
+	100% {
 		transform: rotate(0);
 	}
-	5%, 15% {
+	5%,
+	15% {
 		transform: rotate(15deg);
 	}
-	10%, 20% {
+	10%,
+	20% {
 		transform: rotate(-15deg);
 	}
 }

@@ -1,30 +1,47 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import Link from 'next/link';
-import * as React from 'react';
+import React, { useState } from 'react';
+
+import NotificationIcon from '@assets/icons/bell-svgrepo-com.svg';
+import { Icon, Badge } from '@components/atoms';
 
 import styles from './Notification.module.scss';
 import { NotificationProps } from './Notification.types';
 
-import notification from '@assets/icons/notification.svg';
-import notificationFull from '@assets/icons/notificationFull.svg';
-import { Icon } from '@components/atoms';
+export const Notification: React.FC<NotificationProps> = ({ className, count = 0 }) => {
+	const [hovered, setHovered] = useState(false);
+	const getFormattedCount = (cnt: number) => (cnt > 9 ? '9+' : cnt);
 
-export const Notification: React.FC<NotificationProps> = ({ href, count = 0, onMouseOut, onMouseOver }) => (
-	<div className={styles.wrapper}>
-		{count > 0 ? (
-			<Link href={href} className={styles.link} onMouseOut={onMouseOut} onMouseOver={onMouseOver}>
-				<Icon icon={notificationFull} width={16} className={styles.icon} data-testid="icon" />
-				<span className={styles.counter}>{count > 99 ? `99+` : count}</span>
-			</Link>
-		) : (
-			<Link href={href} className={styles.link}>
-				<Icon
-					icon={notification}
-					width={16}
-					className={classNames(styles.icon, styles['icon--empty'])}
-					data-testid="empty-icon"
-				/>
-			</Link>
-		)}
-	</div>
-);
+	return (
+		<Link
+			href="/notification"
+			className={cn(styles.notification, className)}
+			onMouseEnter={() => setHovered(true)}
+			onMouseLeave={() => setHovered(false)}
+		>
+			<Icon
+				className={cn(styles.notification__icon, {
+					[styles['notification__icon--animated']]: count > 0,
+					[styles['notification__icon--hovered']]: hovered,
+				})}
+				icon={NotificationIcon}
+				width={25}
+				height={25}
+				data-testid="notification-icon"
+			/>
+
+			{count > 0 && (
+				<Badge
+					className={cn(styles.notification__counter, {
+						[styles['notification__counter--many']]: count > 9,
+					})}
+					size="small"
+					bg="red"
+					data-testid="notification-counter"
+				>
+					{getFormattedCount(count)}
+				</Badge>
+			)}
+		</Link>
+	);
+};
