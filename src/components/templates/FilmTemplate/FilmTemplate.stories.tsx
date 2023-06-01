@@ -1,54 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { FilmInfoSection } from './FilmInfoSection';
+import { FilmTemplate } from './FilmTemplate';
 
-const meta: Meta<typeof FilmInfoSection> = {
-	title: 'organisms/FilmInfoSection',
-	component: FilmInfoSection,
+import '@/config/globals.scss';
+
+const meta: Meta<typeof FilmTemplate> = {
+	title: 'Templates/FilmTemplate',
+	component: FilmTemplate,
 	tags: ['autodocs'],
-	argTypes: {
-		heading: {
-			description: 'название фильма',
-		},
-		year: {
-			description: 'год выпуска',
-		},
-		duration: {
-			description: 'как долго фильм длился',
-		},
-		yearOld: {
-			description: 'с какого возраста можно смотреть',
-		},
-		filmParams: {
-			description: 'доп. инфо о фильме (страна , мета-теги)',
-		},
-		badges: {
-			description: 'доп инфо о качестве в аккардионе',
-		},
-		langs: {
-			description: 'lower case , ин.язы на родном языке , распологается в шапке',
-		},
-		rating: {
-			description: 'рейтинг фильма . ниже 7 покрасит в серый',
-		},
-		btnValues: {
-			description: 'содержимое кнопок аккордиона',
-		},
-		assessment: {
-			description: 'кол-во оценок',
-		},
-		extra: {
-			description: 'мета - описение для карточки рейтинга снизу',
-		},
-	},
+	argTypes: {},
 };
-
 export default meta;
 
-type Story = StoryObj<typeof FilmInfoSection>;
+type Story = StoryObj<typeof FilmTemplate>;
 
-export const common: Story = {
+export const Example: Story = {
 	args: {
+		badgeContent: 'Бесплатно',
+		badgeColor: 'gray',
+		filmType: 'TV_SERIES',
+		filmGenre: 'Мультфильм',
 		heading: 'Шоу Патрика Стара (1 сезон)',
 		year: 2021,
 		duration: '1 сезон',
