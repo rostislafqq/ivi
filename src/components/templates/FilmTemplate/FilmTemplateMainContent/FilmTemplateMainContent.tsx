@@ -7,9 +7,15 @@ import { Heading, Icon, ListItem, LoadingBox, Text } from '@/components/atoms';
 
 import { List } from '@/components/molecules';
 
+<<<<<<< HEAD
 import { FilmInfoSection } from '@/components/organisms';
 
 import { FilmInfoSectionProps } from '@/components/organisms/FilmInfoSection/FilmInfoSection.types';
+=======
+import { FilmInfoSection } from '@/components/orgamisms';
+
+import { FilmInfoSectionProps } from '@/components/orgamisms/FilmInfoSection/FilmInfoSection.types';
+>>>>>>> e6e188af8e82334ee5cc62b34f5a4f5a36e27dc2
 
 import styles from './FilmTemplateMainContent.module.scss';
 

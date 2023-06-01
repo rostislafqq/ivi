@@ -1,6 +1,10 @@
 import React from 'react';
 
+<<<<<<< HEAD
 import { FilmInfoSectionProps } from '@/components/organisms/FilmInfoSection/FilmInfoSection.types';
+=======
+import { FilmInfoSectionProps } from '@/components/orgamisms/FilmInfoSection/FilmInfoSection.types';
+>>>>>>> e6e188af8e82334ee5cc62b34f5a4f5a36e27dc2
 
 import { FilmTemplateHeader } from './FilmTemplateHeader/FilmTemplateHeader';
 import { FilmTemplateHeaderProps } from './FilmTemplateHeader/FilmTemplateHeader.types';
@@ -26,9 +30,12 @@ export const FilmTemplate: React.FC<FilmTemplateHeaderProps & FilmInfoSectionPro
 	languages,
 	assessment,
 	extra,
+<<<<<<< HEAD
 	films = '',
 	creatorsCards,
 	filmPersonHref,
+=======
+>>>>>>> e6e188af8e82334ee5cc62b34f5a4f5a36e27dc2
 }) => (
 	<div>
 		<FilmTemplateHeader
@@ -53,6 +60,7 @@ export const FilmTemplate: React.FC<FilmTemplateHeaderProps & FilmInfoSectionPro
 			assessment={assessment}
 			extra={extra}
 		/>
+<<<<<<< HEAD
 		<FilmTemplateUnderside
 			filmPersonHref={filmPersonHref}
 			creatorsCards={creatorsCards}
@@ -60,5 +68,8 @@ export const FilmTemplate: React.FC<FilmTemplateHeaderProps & FilmInfoSectionPro
 			filmType={'12'}
 			films={films}
 		/>
+=======
+		<FilmTemplateUnderside />
+>>>>>>> e6e188af8e82334ee5cc62b34f5a4f5a36e27dc2
 	</div>
 );

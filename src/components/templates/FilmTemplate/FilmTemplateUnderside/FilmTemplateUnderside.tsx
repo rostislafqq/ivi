@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Link from 'next/link';
 
 import React, { useEffect, useState } from 'react';
@@ -53,3 +54,8 @@ export const FilmTemplateUnderside = ({ filmType, films, filmName, creatorsCards
 		</div>
 	);
 };
+=======
+import React from 'react';
+
+export const FilmTemplateUnderside = () => <div>dfg</div>;
+>>>>>>> e6e188af8e82334ee5cc62b34f5a4f5a36e27dc2
