@@ -2,7 +2,7 @@ import cn from 'classnames';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-import NotificationIcon from '@assets/icons/bell-svgrepo-com.svg';
+import NotificationIcon from '@assets/icons/bell.svg';
 import { Icon, Badge } from '@components/atoms';
 
 import styles from './Notification.module.scss';
