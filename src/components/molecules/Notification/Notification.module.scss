@@ -1,0 +1,61 @@
+@import '@/config/_variables.scss';
+
+.notification {
+	display: inline-block;
+	position: relative;
+
+	&__icon {
+		opacity: 0.48;
+		transform: scale(1);
+		fill: transparent;
+		transition: all 0.2s;
+
+		&--animated {
+			animation: bell 2s infinite 3s ease-in-out;
+		}
+
+		&--hovered {
+			opacity: 1;
+			scale: 1.1;
+		}
+	}
+
+	&__counter {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 0.4rem;
+		max-width: 1.4rem;
+		max-height: 1.4rem;
+		transform: translate(30%, -50%);
+		font-size: 1rem;
+		border-radius: 50%;
+		text-align: center;
+
+		&--many {
+			max-width: initial;
+			border-radius: 25%;
+			transform: translate(50%, -50%);
+		}
+
+		span {
+			margin-bottom: 0;
+		}
+	}
+}
+
+@keyframes bell {
+	0%,
+	25%,
+	100% {
+		transform: rotate(0);
+	}
+	5%,
+	15% {
+		transform: rotate(15deg);
+	}
+	10%,
+	20% {
+		transform: rotate(-15deg);
+	}
+}

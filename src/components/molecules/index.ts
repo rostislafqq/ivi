@@ -11,6 +11,7 @@ import { LinkList } from './LinkList/LinkList';
 import { List } from './List/List';
 import { NavBar } from './NavBar/NavBar';
 import { NoAds } from './NoAds/NoAds';
+import { Notification } from './Notification/Notification';
 import { Rating } from './Rating/Rating';
 import { Review } from './Review/Review';
 import { Download } from './Share/Download/Download';
@@ -33,6 +34,7 @@ export {
 	List,
 	NavBar,
 	NoAds,
+	Notification,
 	Rating,
 	Review,
 	Download,
