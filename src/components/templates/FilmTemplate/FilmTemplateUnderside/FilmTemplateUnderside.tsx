@@ -8,8 +8,15 @@ import { Heading, HeadingLink, Section, SectionHeader, SectionHeading } from '@/
 import { CreatorsCard, FilmsSlider } from '@/components/molecules';
 
 import styles from './FilmTemplateUnderside.module.scss';
+import { FilmTemplateUndersideProps } from './FilmTemplateUnderside.type';
 
-export const FilmTemplateUnderside = ({ filmType, films, filmName, creatorsCards, filmPersonHref }) => {
+export const FilmTemplateUnderside: React.FC<FilmTemplateUndersideProps> = ({
+	filmType,
+	films,
+	filmName,
+	creatorsCards,
+	filmPersonHref = '',
+}) => {
 	const [widthWindow] = useResizeWindow();
 	const [creatorsCount, setCreatorsCount] = useState(40);
 	useEffect(() => {
@@ -24,7 +31,7 @@ export const FilmTemplateUnderside = ({ filmType, films, filmName, creatorsCards
 	}, [widthWindow]);
 	return (
 		<div className={styles.FilmTemplateUnderside}>
-			<Section id="actorsAndCreators">
+			<Section id="testme">
 				<SectionHeader>
 					<div className="container">
 						<SectionHeading tag="h2">Актёры и создатели</SectionHeading>

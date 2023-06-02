@@ -6,8 +6,9 @@ import { FilmTemplateHeader } from './FilmTemplateHeader/FilmTemplateHeader';
 import { FilmTemplateHeaderProps } from './FilmTemplateHeader/FilmTemplateHeader.types';
 import { FilmTemplateMainContent } from './FilmTemplateMainContent/FilmTemplateMainContent';
 import { FilmTemplateUnderside } from './FilmTemplateUnderside/FilmTemplateUnderside';
+import { FilmTemplateUndersideProps } from './FilmTemplateUnderside/FilmTemplateUnderside.type';
 
-export const FilmTemplate: React.FC<FilmTemplateHeaderProps & FilmInfoSectionProps> = ({
+export const FilmTemplate: React.FC<FilmTemplateHeaderProps & FilmInfoSectionProps & FilmTemplateUndersideProps> = ({
 	badgeContent,
 	badgeColor,
 	filmType,
@@ -26,11 +27,11 @@ export const FilmTemplate: React.FC<FilmTemplateHeaderProps & FilmInfoSectionPro
 	languages,
 	assessment,
 	extra,
-	films = '',
+	films = [],
 	creatorsCards,
 	filmPersonHref,
 }) => (
-	<div>
+	<div className="container">
 		<FilmTemplateHeader
 			badgeContent={badgeContent}
 			badgeColor={badgeColor}
@@ -57,7 +58,7 @@ export const FilmTemplate: React.FC<FilmTemplateHeaderProps & FilmInfoSectionPro
 			filmPersonHref={filmPersonHref}
 			creatorsCards={creatorsCards}
 			filmName={heading}
-			filmType={'12'}
+			filmType="12"
 			films={films}
 		/>
 	</div>
