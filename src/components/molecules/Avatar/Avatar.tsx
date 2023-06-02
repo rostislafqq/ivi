@@ -7,14 +7,14 @@ import { IconButton, Icon } from '@components/atoms';
 import styles from './Avatar.module.scss';
 import { AvatarProps } from './Avatar.types';
 
-export const Avatar: React.FC<AvatarProps> = ({ user }) => {
+export const Avatar: React.FC<AvatarProps> = ({ className, user }) => {
 	const getPersonalAccountLink = (userId: number) => `/person/${userId}`;
 	const getInitials = (firstName: string, lastName: string) => `${firstName[0]} ${lastName[0]}`;
 
 	if (user) {
 		return (
 			<IconButton
-				className={cn(styles.avatar, styles['avatar--auth'])}
+				className={cn(styles.avatar, className, styles['avatar--auth'])}
 				href={getPersonalAccountLink(user.id)}
 				size="big"
 			>
@@ -25,7 +25,7 @@ export const Avatar: React.FC<AvatarProps> = ({ user }) => {
 		);
 	}
 	return (
-		<IconButton className={styles.avatar} href="/auth" size="big">
+		<IconButton className={cn(styles.avatar, className)} href="/auth" size="big">
 			<Icon className={styles.avatar__icon} icon={UserIcon} width={20} height={20} data-testid="user-icon" />
 		</IconButton>
 	);

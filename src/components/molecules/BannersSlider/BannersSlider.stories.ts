@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BannersSlider } from './BannersSlider';
 
 const meta: Meta<typeof BannersSlider> = {
-	title: 'Molecules/BannersSlider',
+	title: 'Molecules/Sliders/BannersSlider',
 	component: BannersSlider,
 	tags: ['autodocs'],
 	argTypes: {
