@@ -14,6 +14,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
 	variant,
 	onClick,
 	children,
+	...props
 }) => {
 	const btnClasses = cn(styles['icon-btn'], className, {
 		// Size
@@ -22,7 +23,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
 	});
 
 	return (
-		<Button className={btnClasses} type={type} href={href} variant={variant} onClick={onClick}>
+		<Button className={btnClasses} type={type} href={href} variant={variant} onClick={onClick} {...props}>
 			{children}
 		</Button>
 	);

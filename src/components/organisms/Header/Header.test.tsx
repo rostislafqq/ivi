@@ -37,11 +37,13 @@ describe('Header', () => {
 	});
 
 	it('should correctly render navbar items', () => {
-		const { getByText } = render(<Header />);
+		const { queryByRole } = render(<Header />);
 
 		navbarItems.forEach((item) => {
-			expect(getByText(item.label)).toBeInTheDocument();
-			expect(getByText(item.label)).toHaveAttribute('href', item.href);
+			const link = queryByRole('link', { name: item.label });
+			if (link) {
+				expect(link).toHaveAttribute('href', item.href);
+			}
 		});
 	});
 

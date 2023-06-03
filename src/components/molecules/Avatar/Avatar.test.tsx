@@ -25,6 +25,12 @@ describe('components/molecules/Avatar', () => {
 		expect(container.firstElementChild).toHaveClass('test-class');
 	});
 
+	it('should accept an additional props', () => {
+		const { container } = render(<Avatar data-test="test-value" />);
+
+		expect(container.firstElementChild).toHaveAttribute('data-test', 'test-value');
+	});
+
 	it('the link should lead the user to his personal account if the user is not empty', () => {
 		const { getByRole } = render(<Avatar user={user} />);
 
