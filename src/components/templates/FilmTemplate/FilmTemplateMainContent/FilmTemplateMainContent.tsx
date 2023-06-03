@@ -28,7 +28,7 @@ export const FilmTemplateMainContent: React.FC<FilmInfoSectionProps> = ({
 	assessment,
 	extra,
 }) => (
-	<div>
+	<div className="container">
 		<div className={styles.adaptiveContent}>
 			<Heading className={styles.adaptiveContent__heading} tag="h1">
 				{heading}

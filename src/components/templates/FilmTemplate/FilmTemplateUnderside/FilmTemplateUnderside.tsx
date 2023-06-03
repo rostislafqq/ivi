@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 import { useResizeWindow } from '@/app/hooks';
 
-import { Heading, HeadingLink, Section, SectionHeader, SectionHeading } from '@/components/atoms';
+import { Section, SectionHeader, SectionHeading } from '@/components/atoms';
 import { CreatorsCard, FilmsSlider } from '@/components/molecules';
 
 import styles from './FilmTemplateUnderside.module.scss';
@@ -31,25 +31,22 @@ export const FilmTemplateUnderside: React.FC<FilmTemplateUndersideProps> = ({
 	}, [widthWindow]);
 	return (
 		<div className={styles.FilmTemplateUnderside}>
-			<Section id="testme">
+			<Section id="toWatchCont">
 				<SectionHeader>
 					<div className="container">
-						<SectionHeading tag="h2">Актёры и создатели</SectionHeading>
+						<SectionHeading tag="h2">
+							С {filmType === 'FILM' ? 'фильмом' : 'сериалом'} «{filmName}» смотрят
+						</SectionHeading>
 					</div>
 				</SectionHeader>
 				<FilmsSlider films={films} />
 			</Section>
-			<div className={styles.FilmTemplateUnderside__toWatch}>
-				<Heading className={styles.FilmTemplateUnderside__toWatchHeader} tag="h2">
-					С {filmType === 'FILM' ? 'фильмом' : 'сериалом'} «{filmName}» смотрят
-				</Heading>
-				<FilmsSlider films={films} />
-			</div>
-
-			<div className={styles.FilmTemplateUnderside__creators}>
-				<HeadingLink className={styles.FilmTemplateUnderside__creatorsHeader} href="/" tag="h2">
-					Актёры и создатели
-				</HeadingLink>
+			<Section className="container" id="toWatchCont">
+				<SectionHeader>
+					<SectionHeading underline tag="h2">
+						Актёры и создатели
+					</SectionHeading>
+				</SectionHeader>
 				<div className={styles.FilmTemplateUnderside__creatorsContainer}>
 					{creatorsCards.slice(0, creatorsCount).map((val) => (
 						<CreatorsCard
@@ -65,7 +62,7 @@ export const FilmTemplateUnderside: React.FC<FilmTemplateUndersideProps> = ({
 						Еще
 					</Link>
 				</div>
-			</div>
+			</Section>
 		</div>
 	);
 };

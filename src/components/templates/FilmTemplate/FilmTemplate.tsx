@@ -31,7 +31,7 @@ export const FilmTemplate: React.FC<FilmTemplateHeaderProps & FilmInfoSectionPro
 	creatorsCards,
 	filmPersonHref,
 }) => (
-	<div className="container">
+	<div>
 		<FilmTemplateHeader
 			badgeContent={badgeContent}
 			badgeColor={badgeColor}
