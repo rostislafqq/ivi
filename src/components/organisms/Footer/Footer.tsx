@@ -6,7 +6,7 @@ import { LowerFooter } from './LowerFooter/LowerFooter';
 import { UpperFooter } from './UpperFooter/UpperFooter';
 
 export const Footer: React.FC = () => (
-	<footer className={styles.footer}>
+	<footer className={`${styles.footer} container`}>
 		<UpperFooter />
 		<LowerFooter />
 	</footer>
