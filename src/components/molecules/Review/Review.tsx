@@ -24,7 +24,8 @@ export const Review: React.FC<ReviewProps> = ({
 	type,
 	date = '',
 	onLike,
-	onDisike,
+	onDislike,
+	...props
 }) => {
 	const [isActive, setIsActive] = useState(false);
 
@@ -36,7 +37,7 @@ export const Review: React.FC<ReviewProps> = ({
 	switch (type) {
 		case 'row':
 			return (
-				<div className={`${styles[`review--row`]} ${className}`}>
+				<div className={`${styles[`review--row`]} ${className}`} {...props}>
 					<div>
 						<Text className={styles[`review--row__profileAvatar`]} tag="p">
 							{userName[0]}
@@ -97,7 +98,7 @@ export const Review: React.FC<ReviewProps> = ({
 			);
 		case 'card':
 			return (
-				<Link className={`${styles[`review--block`]} ${className}`} href={`/${commentid}`}>
+				<Link className={`${styles[`review--block`]} ${className}`} href={`/${commentid}`} {...props}>
 					<Text className={styles[`review--block__userName`]} tag="p">
 						{userName}
 					</Text>

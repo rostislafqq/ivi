@@ -28,7 +28,7 @@ export const Slider: React.FC<SliderProps> = React.memo(
 		const slidesCount = useMemo(
 			() =>
 				slidesPerView > 1
-					? Math.ceil(React.Children.count(children) / slidesPerView)
+					? Math.ceil(React.Children.count(children) / (slidesPerView - 1))
 					: React.Children.count(children),
 			[children, slidesPerView],
 		);

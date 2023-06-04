@@ -1,12 +1,8 @@
-export interface ReviewProps {
-	className?: string;
-	userName: string;
-	likes: number;
-	comment: string;
-	photo?: string;
+import { ReviewType } from '@/app/types/ReviewType';
+
+export interface ReviewProps extends ReviewType {
 	type: 'card' | 'row';
-	date?: string;
-	commentid?: string;
-	onLike: () => void;
-	onDisike: () => void;
+	className?: string;
+	onLike?: () => void;
+	onDislike?: () => void;
 }
