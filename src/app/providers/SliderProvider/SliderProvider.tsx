@@ -48,6 +48,8 @@ function sliderReducer(state: SliderStateType, action: { type: string; payload?:
 			return action.payload?.value ? { ...state, slideWidth: action.payload.value as number } : state;
 		case 'SET_SLIDES_PER_VIEW':
 			return action.payload?.value ? { ...state, slidesPerView: action.payload.value as number } : state;
+		case 'SET_SLIDES_COUNT':
+			return action.payload?.value ? { ...state, slidesCount: action.payload.value as number } : state;
 		default:
 			return state;
 	}
@@ -94,6 +96,11 @@ export const SliderProvider: React.FC<SliderProviderProps> = ({ data, children }
 		dispatch({ type: 'SET_SLIDES_PER_VIEW', payload: { value } });
 	}, []);
 
+	const setSlidesCount = useCallback(
+		(value: number) => dispatch({ type: 'SET_SLIDES_COUNT', payload: { value } }),
+		[],
+	);
+
 	// Effects
 	useEffect(() => {
 		const switchingAutoSliding = () => {
@@ -113,7 +120,8 @@ export const SliderProvider: React.FC<SliderProviderProps> = ({ data, children }
 
 	useEffect(() => {
 		setSlidesPerView(slidesPerView);
-	}, [slidesPerView, setSlidesPerView]);
+		setSlidesCount(slidesCount);
+	}, [slidesPerView, slidesCount, setSlidesPerView, setSlidesCount]);
 
 	const context: SliderContextType = useMemo(
 		() => ({

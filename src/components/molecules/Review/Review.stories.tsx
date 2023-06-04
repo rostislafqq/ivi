@@ -24,7 +24,7 @@ type Story = StoryObj<typeof Review>;
 
 export const blockGreenExample: Story = {
 	args: {
-		userName: 'Карина Мирьянова',
+		userName: 'Карина Марьянова',
 		likes: 42,
 		date: '2017-02-26',
 		comment:

@@ -13,10 +13,18 @@
 		}
 	}
 	&--block {
+		--width: var(--slide-width, 276px);
+
 		background-color: $purple-500;
-		display: block;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
 		padding: 2rem;
-		width: 276px;
+		width: var(--width);
+		height: 100%;
+		border-radius: 1.5rem;
+
 		&__userName {
 			color: $gray;
 			margin-bottom: 0.8rem;
@@ -38,6 +46,8 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			width: 100%;
+
 			&__date {
 				color: $gray;
 				font-size: $font-sm;
