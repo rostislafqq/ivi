@@ -1,5 +1,6 @@
 import { FilmInfoSection } from './FilmInfoSection/FilmInfoSection';
 import { Footer } from './Footer/Footer';
+import { Header } from './Header/Header';
 import { PromoSection } from './PromoSection/PromoSection';
 
-export { Footer, PromoSection, FilmInfoSection };
+export { FilmInfoSection, Footer, Header, PromoSection };

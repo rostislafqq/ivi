@@ -8,7 +8,7 @@ import { Icon, Badge } from '@components/atoms';
 import styles from './Notification.module.scss';
 import { NotificationProps } from './Notification.types';
 
-export const Notification: React.FC<NotificationProps> = ({ className, count = 0 }) => {
+export const Notification: React.FC<NotificationProps> = ({ className, count = 0, ...props }) => {
 	const [hovered, setHovered] = useState(false);
 	const getFormattedCount = (cnt: number) => (cnt > 9 ? '9+' : cnt);
 
@@ -18,6 +18,7 @@ export const Notification: React.FC<NotificationProps> = ({ className, count = 0
 			className={cn(styles.notification, className)}
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
+			{...props}
 		>
 			<Icon
 				className={cn(styles.notification__icon, {

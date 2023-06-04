@@ -1,11 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { FilmsSlider } from './FilmsSlider';
+import { Header } from './Header';
 
-const meta: Meta<typeof FilmsSlider> = {
-	title: 'Molecules/Sliders/FilmsSlider',
-	component: FilmsSlider,
-	tags: ['autodocs'],
+const meta: Meta<typeof Header> = {
+	title: 'Organisms/Header',
+	component: Header,
 	argTypes: {
 		className: {
 			description: 'Добавить класс для Storybook',
@@ -15,7 +14,7 @@ const meta: Meta<typeof FilmsSlider> = {
 
 export default meta;
 
-type Story = StoryObj<typeof FilmsSlider>;
+type Story = StoryObj<typeof Header>;
 
 export const Default: Story = {
 	args: {},
