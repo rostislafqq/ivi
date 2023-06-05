@@ -7,9 +7,8 @@ import { Heading, Icon, ListItem, LoadingBox, Text } from '@/components/atoms';
 
 import { List } from '@/components/molecules';
 
-import { FilmInfoSection } from '@/components/orgamisms';
-
-import { FilmInfoSectionProps } from '@/components/orgamisms/FilmInfoSection/FilmInfoSection.types';
+import { FilmInfoSection } from '@/components/organisms';
+import { FilmInfoSectionProps } from '@/components/organisms/FilmInfoSection/FilmInfoSection.types';
 
 import styles from './FilmTemplateMainContent.module.scss';
 
@@ -29,7 +28,7 @@ export const FilmTemplateMainContent: React.FC<FilmInfoSectionProps> = ({
 	assessment,
 	extra,
 }) => (
-	<div>
+	<div className="container">
 		<div className={styles.adaptiveContent}>
 			<Heading className={styles.adaptiveContent__heading} tag="h1">
 				{heading}

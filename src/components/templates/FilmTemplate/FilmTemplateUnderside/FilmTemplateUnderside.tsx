@@ -4,14 +4,23 @@ import React, { useEffect, useState } from 'react';
 
 import { useResizeWindow } from '@/app/hooks';
 
-import { Heading, HeadingLink } from '@/components/atoms';
+import { HeadingLink, Section, SectionHeader, SectionHeading } from '@/components/atoms';
 import { CreatorsCard, FilmsSlider } from '@/components/molecules';
 
 import styles from './FilmTemplateUnderside.module.scss';
+import { FilmTemplateUndersideProps } from './FilmTemplateUnderside.type';
+import { ReviewsSlider } from '@/components/molecules/ReviewsSlider/ReviewsSlider';
 
-export const FilmTemplateUnderside = ({ filmType, films, filmName, creatorsCards, filmPersonHref }) => {
+export const FilmTemplateUnderside: React.FC<FilmTemplateUndersideProps> = ({
+	filmType,
+	films,
+	filmName,
+	creatorsCards,
+	filmPersonHref = '',
+	reviews,
+}) => {
 	const [widthWindow] = useResizeWindow();
-	const [creatorsCount, setCreatorsCount] = useState(40);
+	const [creatorsCount, setCreatorsCount] = useState(10);
 	useEffect(() => {
 		if (creatorsCount * (88 + 24) + 88 + 90 > widthWindow && widthWindow > 1) {
 			let count = Math.floor(widthWindow / (88 + 100));
@@ -24,19 +33,25 @@ export const FilmTemplateUnderside = ({ filmType, films, filmName, creatorsCards
 	}, [widthWindow]);
 	return (
 		<div className={styles.FilmTemplateUnderside}>
-			<div className={styles.FilmTemplateUnderside__toWatch}>
-				<Heading className={styles.FilmTemplateUnderside__toWatchHeader} tag="h2">
-					С {filmType === 'FILM' ? 'фильмом' : 'сериалом'} «{filmName}» смотрят
-				</Heading>
+			<Section id="filmsToWatch">
+				<SectionHeader>
+					<div className="container">
+						<SectionHeading tag="h2">
+							С {filmType === 'FILM' ? 'фильмом' : 'сериалом'} «{filmName}» смотрят
+						</SectionHeading>
+					</div>
+				</SectionHeader>
+
 				<FilmsSlider films={films} />
-			</div>
-			<div className={styles.FilmTemplateUnderside__creators}>
+			</Section>
+			<Section id="actorsFilm" className={`${styles.FilmTemplateUnderside__creators} container`}>
 				<HeadingLink className={styles.FilmTemplateUnderside__creatorsHeader} href="/" tag="h2">
 					Актёры и создатели
 				</HeadingLink>
 				<div className={styles.FilmTemplateUnderside__creatorsContainer}>
 					{creatorsCards.slice(0, creatorsCount).map((val) => (
 						<CreatorsCard
+							image={val.image}
 							key={val.href}
 							href={val.href}
 							name={val.name}
@@ -49,7 +64,17 @@ export const FilmTemplateUnderside = ({ filmType, films, filmName, creatorsCards
 						Еще
 					</Link>
 				</div>
-			</div>
+			</Section>
+			<Section id="filmComments">
+				<SectionHeader>
+					<div className="container">
+						<SectionHeading count={reviews.length ? reviews.length : 0} tag="h2">
+							Отзывы
+						</SectionHeading>
+					</div>
+				</SectionHeader>
+				<ReviewsSlider reviews={reviews.slice(0, 10)} />
+			</Section>
 		</div>
 	);
 };

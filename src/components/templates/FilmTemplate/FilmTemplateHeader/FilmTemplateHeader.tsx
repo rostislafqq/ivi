@@ -13,8 +13,9 @@ export const FilmTemplateHeader: React.FC<FilmTemplateHeaderProps> = ({
 	filmType,
 	filmGenre,
 }) => (
-	<div className={styles.FilmTemplateHeader}>
+	<div className={`${styles.FilmTemplateHeader} container`}>
 		<Breadcrumb
+			className={styles.FilmTemplateHeader__bread}
 			items={[
 				{
 					href: '/films',
