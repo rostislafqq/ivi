@@ -1,0 +1,86 @@
+@import '@/config/_variables.scss';
+
+.sort {
+	position: relative;
+
+	&-btn {
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		color: $white;
+		font-size: 1.5rem;
+		font-weight: 500;
+		border: none;
+		background: transparent;
+		overflow: hidden;
+
+		&__barsIcon {
+			margin-right: 0.8rem;
+		}
+
+		&__arrowIcon {
+			margin-left: 0.6rem;
+			transition: transform 200ms;
+
+			&--rotated {
+				transform: rotate(-180deg);
+			}
+		}
+	}
+
+	&-menu {
+		pointer-events: none;
+		position: absolute;
+		top: calc(100% + 1rem);
+		left: 0;
+		z-index: 5;
+		opacity: 0;
+		background: $purple-500;
+		padding: 0.8rem 0 1.2rem;
+		border-radius: 0.8rem;
+		min-width: 25rem;
+		transition: opacity 200ms;
+
+		&--opened {
+			pointer-events: initial;
+			opacity: 1;
+		}
+
+		&__header {
+			margin: 0.4rem 0 1.2rem;
+			padding: 0 1.6rem;
+			font-size: 1.5rem;
+			color: $gray;
+			font-weight: 400;
+		}
+
+		&__item {
+			border-left: 3px solid transparent;
+			color: rgba($white, 0.72);
+
+			&--active {
+				border-left: 3px solid $red;
+				color: $white;
+			}
+
+			&:hover {
+				color: $white;
+				background: $purple-400;
+			}
+
+			&-btn {
+				display: block;
+				width: 100%;
+				height: 100%;
+				padding: 1.2rem 1.6rem;
+				font-size: 1.5rem;
+				font-weight: 500;
+				color: inherit;
+				text-align: left;
+				border: none;
+				background-color: transparent;
+				transition: all 200ms;
+			}
+		}
+	}
+}

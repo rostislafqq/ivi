@@ -31,7 +31,7 @@ const navbarItems = [
 	},
 ];
 
-export const Header: React.FC<HeaderProps> = ({ className }) => (
+export const Header: React.FC<HeaderProps> = ({ className, separator = false }) => (
 	<header className={cn(styles.header, className)}>
 		<div className="container">
 			<NavBar
@@ -62,6 +62,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => (
 						<Avatar className={styles.header__avatar} data-testid="header-avatar" />
 					</>
 				}
+				isSeporator={separator}
 			/>
 		</div>
 	</header>

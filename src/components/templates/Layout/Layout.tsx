@@ -5,7 +5,7 @@ import { Header, Footer } from '@/components/organisms';
 
 import type { LayoutProps } from './Layout.types';
 
-export const Layout: React.FC<LayoutProps> = ({ title, description, children }) => (
+export const Layout: React.FC<LayoutProps> = ({ title, description, children, headerSeparator = false }) => (
 	<>
 		<Head>
 			<title>{title}</title>
@@ -14,7 +14,7 @@ export const Layout: React.FC<LayoutProps> = ({ title, description, children }) 
 			<link rel="icon" href="/favicon.ico" />
 		</Head>
 
-		<Header />
+		<Header separator={headerSeparator} />
 
 		<main>{children}</main>
 

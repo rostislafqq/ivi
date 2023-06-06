@@ -1,0 +1,22 @@
+.collections {
+	&-header {
+		margin-top: 3.2rem;
+
+		&__title {
+			font-size: 4rem;
+			margin-top: 2.4rem;
+		}
+
+		&__description {
+			margin-top: 1.6rem;
+		}
+	}
+
+	&-filters {
+		margin-top: 2.4rem;
+	}
+
+	&-menu {
+		margin-top: 2.4rem;
+	}
+}

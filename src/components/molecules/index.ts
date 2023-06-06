@@ -16,6 +16,7 @@ import { Rating } from './Rating/Rating';
 import { Review } from './Review/Review';
 import { Download } from './Share/Download/Download';
 import { Social } from './Share/Social/Social';
+import { SortBy } from './SortBy/SortBy';
 import { Support } from './Support/Support';
 
 export {
@@ -39,5 +40,6 @@ export {
 	Review,
 	Download,
 	Social,
+	SortBy,
 	Support,
 };
