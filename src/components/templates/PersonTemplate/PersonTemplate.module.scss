@@ -23,7 +23,6 @@
 	&__roles {
 		display: flex;
 		border-bottom: 1px solid rgba($white, 0.16);
-		margin-bottom: 1.6rem;
 		transition: 0.3s;
 	}
 	&__roleContainer--active {
@@ -42,6 +41,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		margin-top: 1.6rem;
 		&__info {
 			display: flex;
 			align-items: center;

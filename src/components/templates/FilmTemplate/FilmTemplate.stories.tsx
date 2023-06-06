@@ -8,7 +8,65 @@ const meta: Meta<typeof FilmTemplate> = {
 	title: 'Templates/FilmTemplate',
 	component: FilmTemplate,
 	tags: ['autodocs'],
-	argTypes: {},
+	argTypes: {
+		badgeContent: {
+			description: 'для бейджа . -=- Бесплатно',
+		},
+		badgeColor: {
+			description: 'цвет бейджа',
+		},
+		filmType: {
+			description: 'сериал / фильм',
+		},
+		filmGenre: {
+			description: 'жанр фильма',
+		},
+		heading: {
+			description: 'название получается',
+		},
+		year: {
+			description: 'год издания',
+		},
+		duration: {
+			description: 'продолжительность фильма',
+		},
+		yearOld: {
+			description: 'разрешенный возраст',
+		},
+		filmParams: {
+			description: 'доп. инфо о фильме (страна , мета-теги)',
+		},
+		badges: {
+			description: 'доп инфо о качестве в аккардионе',
+		},
+		langs: {
+			description: 'lower case , ин.язы на родном языке , распологается в шапке',
+		},
+		rating: {
+			description: 'рейтинг фильма',
+		},
+		actors: {
+			description: 'карточки актеров',
+		},
+		accordionText: {
+			description: 'основное наполнение аккордиона',
+		},
+		btnValues: {
+			description: 'значение кнопок в аккордионе',
+		},
+		assessment: {
+			description: 'кол-во оценок',
+		},
+		filmPersonHref: {
+			description: 'ссылка на искомый фильм (для комментов)',
+		},
+		reviews: {
+			description: 'пачка с отзывами',
+		},
+		creatorsCards: {
+			description: 'карточки создателей',
+		},
+	},
 };
 export default meta;
 
@@ -20,9 +78,7 @@ export const Example: Story = {
 		badgeColor: 'gray',
 		filmType: 'TV_SERIES',
 		filmGenre: 'Мультфильм',
-
 		heading: 'Царевны',
-
 		year: 2021,
 		duration: '1 сезон',
 		yearOld: 6,
