@@ -1,0 +1,92 @@
+@import '@/config/variables.scss';
+
+.person {
+	padding-top: 6rem;
+	width: 50%;
+	&__photo {
+		border-radius: 1.6rem;
+		margin-bottom: 1.6rem;
+	}
+	&__name {
+		margin-top: 1.6rem;
+	}
+	&__mainFilms {
+		margin-left: -3rem;
+	}
+	&__roleContainer:not(:last-child) {
+		margin-right: 3rem;
+	}
+	&__roleContainer {
+		padding-bottom: 1.2rem;
+		cursor: pointer;
+	}
+	&__roles {
+		display: flex;
+		border-bottom: 1px solid rgba($white, 0.16);
+		transition: 0.3s;
+	}
+	&__roleContainer--active {
+		border-bottom: 4px solid $red;
+	}
+	&__roleContainer--active &__role {
+		color: $white;
+	}
+	&__roleContainer:hover &__role {
+		color: $white;
+	}
+	&__role {
+		transition: 0.3s;
+	}
+	&__fullFilms {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 1.6rem;
+		&__info {
+			display: flex;
+			align-items: center;
+			&Text {
+				margin-left: 1.6rem;
+			}
+			&--white {
+				color: $white;
+			}
+			&--normal {
+				font-size: $font-sm;
+				height: $font-base;
+			}
+		}
+	}
+	&__btn {
+		&__adaptive {
+			display: none;
+			width: 100%;
+			margin-top: 1rem;
+		}
+	}
+}
+
+@media (max-width: 1200px) {
+	.person {
+		width: 67%;
+	}
+}
+
+@media (max-width: 900px) {
+	.person {
+		width: 100%;
+	}
+}
+
+@media (max-width: 600px) {
+	.person {
+		width: 100%;
+		&__btn {
+			display: none;
+			&__adaptive {
+				display: flex;
+				justify-content: center;
+			}
+		}
+	}
+}
