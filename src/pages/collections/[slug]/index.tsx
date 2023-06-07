@@ -1,13 +1,35 @@
 import React, { useState } from 'react';
 
+import { CollectionsService } from '@/app/services';
 import { Heading, Text } from '@/components/atoms';
 import { Breadcrumb, FilmCardLoaded, SortBy } from '@/components/molecules';
 
 import { Layout } from '@components/templates';
 
-import styles from './CollectionsDetailPage.module.scss';
+import type { CollectionBySlugProps } from './CollectionBySlugPage.types';
+import type { GetServerSideProps } from 'next';
 
-const CollectionsDetailPage: React.FC = () => {
+import styles from './CollectionBySlugPage.module.scss';
+
+export const getServerSideProps: GetServerSideProps<CollectionBySlugProps> = async (context) => {
+	const { slug } = context.query;
+
+	try {
+		const collection = await new CollectionsService().getBySlug(slug as string);
+
+		return {
+			props: {
+				collection,
+			},
+		};
+	} catch {
+		return {
+			notFound: true,
+		};
+	}
+};
+
+const CollectionBySlug: React.FC<CollectionBySlugProps> = ({ collection }) => {
 	const sortByOptions = [
 		{ label: 'названию', value: 'title' },
 		{ label: 'дате добавления', value: 'new' },
@@ -17,7 +39,7 @@ const CollectionsDetailPage: React.FC = () => {
 	const [selectedOption, setSelectedOption] = useState(sortByOptions[0]);
 
 	return (
-		<Layout title="Рекомендую посмотреть онлайн" description="Рекомендую посмотреть онлайн" headerSeparator>
+		<Layout title={collection.name} description={collection.description} headerSeparator>
 			<div className={styles['collections-header']}>
 				<div className="container">
 					<Breadcrumb
@@ -27,20 +49,19 @@ const CollectionsDetailPage: React.FC = () => {
 							{ label: 'Главная', href: '/' },
 							{ label: 'Подборки', href: '/collections' },
 							{
-								label: 'Рекомендую посмотреть',
-								href: '/collections/rekomenduem-vam-posmotret',
+								label: collection.name,
+								href: `/collections/${collection.slug}`,
 								active: true,
 							},
 						]}
 					/>
 
 					<Heading className={styles['collections-header__title']} tag="h1">
-						Рекомендую посмотреть онлайн
+						{collection.name}
 					</Heading>
 
 					<Text className={styles['collections-header__description']} tag="p">
-						Боевики, Комедии, Мелодрамы, Фантастика, Триллеры, Россия, США, Великобритания, Швейцария,
-						Армения, Испания, Аргентина, 2023
+						{collection.description}
 					</Text>
 				</div>
 			</div>
@@ -74,4 +95,4 @@ const CollectionsDetailPage: React.FC = () => {
 	);
 };
 
-export default CollectionsDetailPage;
+export default CollectionBySlug;
