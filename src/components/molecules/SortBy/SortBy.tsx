@@ -1,5 +1,7 @@
 import cn from 'classnames';
-import React, { useState, useCallback, useRef } from 'react';
+import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/router';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 
 import { useClickOutside } from '@/app/hooks';
 import { capitalize } from '@/app/utils';
@@ -14,6 +16,9 @@ import styles from './SortBy.module.scss';
 export const SortBy: React.FC<SortByProps> = ({ className, options, selectedOption, setSelectedOption, ...props }) => {
 	const [isOpened, setIsOpened] = useState(false);
 	const sortByRef = useRef<HTMLDivElement>(null);
+
+	const router = useRouter();
+	const pathname = usePathname();
 
 	useClickOutside(sortByRef, () => {
 		setIsOpened(false);
@@ -30,6 +35,17 @@ export const SortBy: React.FC<SortByProps> = ({ className, options, selectedOpti
 		},
 		[setSelectedOption],
 	);
+
+	useEffect(() => {
+		const handleChangeRouter = async (url: string) => {
+			await router.push(url);
+		};
+
+		// eslint-disable-next-line @typescript-eslint/no-floating-promises
+		handleChangeRouter(`${pathname}/?sort=${selectedOption.value}`);
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [selectedOption]);
 
 	return (
 		<div className={cn(styles.sort, className)} ref={sortByRef} {...props}>
