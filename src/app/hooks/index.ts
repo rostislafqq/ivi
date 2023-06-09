@@ -5,6 +5,7 @@ import { useClickOutside } from './useClickOutside/useClickOutside';
 import { useFilmCount } from './useFilmsCount';
 import { useMediaQuery } from './useMediaQuery/useMediaQuery';
 import { useResizeWindow } from './useResizeWindow/useResizeWindow';
+import { useSort } from './useSort/useSort';
 
 export {
 	useAppDispatch,
@@ -14,4 +15,5 @@ export {
 	useFilmCount,
 	useMediaQuery,
 	useResizeWindow,
+	useSort,
 };
