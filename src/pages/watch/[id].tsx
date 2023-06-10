@@ -1,7 +1,13 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
+// я хз, он мне предлагает catch добавить (а он есть )00)000 )
+
 import { GetServerSideProps } from 'next';
 
 import React, { useState, useEffect } from 'react';
+
+import { FilmType } from '@/app/types';
 
 import { FilmTemplate, Layout } from '@/components/templates';
 
@@ -50,7 +56,7 @@ const Film: React.FC<FilmProps> = ({ film }) => {
 		date: comment.createdAt,
 		comment: comment.comment,
 	}));
-	const [recommended, setRecommended] = useState([]);
+	const [recommended, setRecommended] = useState<FilmType[]>([]);
 
 	useEffect(() => {
 		const getFilms = async () => {
@@ -61,7 +67,7 @@ const Film: React.FC<FilmProps> = ({ film }) => {
 						'Access-Control-Allow-Origin': 'http://localhost:4000',
 					},
 				});
-				const data = await res.json();
+				const data: FilmData[] = await res.json();
 				setRecommended(
 					data.slice(0, 10).map((films) => ({
 						name: films.nameRu,

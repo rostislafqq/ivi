@@ -2,7 +2,7 @@
 
 .person {
 	padding-top: 6rem;
-	width: 50%;
+	//width: 50%;
 	&__photo {
 		border-radius: 1.6rem;
 		margin-bottom: 1.6rem;
@@ -11,7 +11,7 @@
 		margin-top: 1.6rem;
 	}
 	&__mainFilms {
-		margin-left: -3rem;
+		//	margin-left: -3rem;
 	}
 	&__roleContainer:not(:last-child) {
 		margin-right: 3rem;
@@ -69,12 +69,16 @@
 @media (max-width: 1200px) {
 	.person {
 		width: 67%;
+		&__mainFilms {
+			margin-left: -3rem;
+		}
 	}
 }
 
 @media (max-width: 900px) {
 	.person {
 		width: 100%;
+		padding: 0 3rem;
 	}
 }
 

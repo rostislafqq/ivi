@@ -3,7 +3,9 @@ import { GetServerSideProps } from 'next';
 
 import React, { useState, useEffect } from 'react';
 
-import { FilmTemplate, Layout } from '@/components/templates';
+import { FilmTemplate, Layout, PersonTemplate } from '@/components/templates';
+
+import { PersonFilmData, PersonProps } from './person.types';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 	const { id } = context.query;
@@ -16,7 +18,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 			},
 		});
 
-		const data: PersonData = await res.json();
+		const data: PersonFilmData = await res.json();
 
 		return {
 			props: {
@@ -36,7 +38,18 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const Person: React.FC<PersonProps> = ({ person }) => {
 	console.log(person);
-	return <Layout title="123" description="Стриминговая платформа фильмов - Ivi"></Layout>;
+	return (
+		<Layout title="123" description="Стриминговая платформа фильмов - Ivi">
+			<PersonTemplate
+				photo={person.url !== null ? person.url : ''}
+				nameRus={person.nameRu}
+				nameEng={person.nameOriginal}
+				mainFilms={[]}
+				filmographyFilms={[]}
+				roles={['все', 'актер']}
+			/>
+		</Layout>
+	);
 };
 
 export default Person;
