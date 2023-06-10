@@ -4,7 +4,7 @@ interface FilmographyFilms {
 	filmId: number;
 	filmName: string;
 	year: number;
-	rating: string;
+	rating: string | number;
 	filmImg: string;
 }
 

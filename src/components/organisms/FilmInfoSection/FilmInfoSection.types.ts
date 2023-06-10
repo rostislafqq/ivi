@@ -9,7 +9,7 @@ export interface FilmInfoSectionProps {
 	heading: string;
 	year: number;
 	duration: string;
-	yearOld: number;
+	yearOld: number | null | string;
 	filmParams: string[];
 	badges: string[];
 	langs: string[];
