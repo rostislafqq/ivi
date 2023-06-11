@@ -1,0 +1,24 @@
+.admin {
+	padding: 3rem 0;
+	border-top: 1px solid rgba(white, 0.16);
+
+	&__input {
+		margin-top: 1rem;
+		width: 30%;
+		padding-left: 0.4rem;
+		padding-top: 1rem;
+	}
+	&__label {
+		left: 0.4rem;
+	}
+	&__selectContainer {
+		margin-top: 1rem;
+	}
+	&__addBtn {
+		margin-top: 1rem;
+	}
+	&__checxboxCont {
+		display: flex;
+		align-items: center;
+	}
+}
