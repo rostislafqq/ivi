@@ -15,5 +15,6 @@ export interface PersonTemplateProps {
 	mainFilms: FilmType[];
 	filmographyFilms: FilmographyFilms[];
 	roles: string[];
-	changeRole?: (role: string) => void;
+	changeRole?: (tab: string) => void;
+	filmsCount: number;
 }

@@ -5,6 +5,9 @@ interface FilmPerson {
 		nameOriginal: string;
 		nameRu: string;
 		logoUrl: string | null;
+		rating: string;
+		year: number;
+		status: 'free' | 'subscribe' | 'buy';
 	};
 	role: {
 		id: number;

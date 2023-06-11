@@ -1,6 +1,12 @@
 @import '@/config/variables.scss';
 
 .person {
+	&__showBtn {
+		margin-top: 1rem;
+	}
+	&__showBtn--hide {
+		display: none;
+	}
 	padding-top: 6rem;
 	//width: 50%;
 	&__photo {

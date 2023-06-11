@@ -1,4 +1,5 @@
 export interface FilmData {
+	status: 'free' | 'subscribe' | 'buy';
 	id: number;
 	nameOriginal: string;
 	nameRu: string;
