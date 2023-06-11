@@ -7,9 +7,10 @@ import { useResizeWindow } from '@/app/hooks';
 import { HeadingLink, Section, SectionHeader, SectionHeading } from '@/components/atoms';
 import { CreatorsCard, FilmsSlider } from '@/components/molecules';
 
+import { ReviewsSlider } from '@/components/molecules/ReviewsSlider/ReviewsSlider';
+
 import styles from './FilmTemplateUnderside.module.scss';
 import { FilmTemplateUndersideProps } from './FilmTemplateUnderside.type';
-import { ReviewsSlider } from '@/components/molecules/ReviewsSlider/ReviewsSlider';
 
 export const FilmTemplateUnderside: React.FC<FilmTemplateUndersideProps> = ({
 	filmType,
@@ -48,33 +49,53 @@ export const FilmTemplateUnderside: React.FC<FilmTemplateUndersideProps> = ({
 				<HeadingLink className={styles.FilmTemplateUnderside__creatorsHeader} href="/" tag="h2">
 					Актёры и создатели
 				</HeadingLink>
-				<div className={styles.FilmTemplateUnderside__creatorsContainer}>
-					{creatorsCards.slice(0, creatorsCount).map((val) => (
-						<CreatorsCard
-							image={val.image}
-							key={val.href}
-							href={val.href}
-							name={val.name}
-							surname={val.surname}
-							type="circle"
-							size="normal"
-						/>
-					))}
-					<Link href={`${filmPersonHref}/person`} className={styles.FilmTemplateUnderside__creatorsMore}>
-						Еще
-					</Link>
-				</div>
-			</Section>
-			<Section id="filmComments">
-				<SectionHeader>
-					<div className="container">
-						<SectionHeading count={reviews.length ? reviews.length : 0} tag="h2">
-							Отзывы
-						</SectionHeading>
+				{creatorsCards.length > 0 ? (
+					<div className={styles.FilmTemplateUnderside__creatorsContainer}>
+						{creatorsCards.slice(0, creatorsCount).map((val) => (
+							<CreatorsCard
+								image={val.image}
+								key={val.href}
+								href={val.href}
+								name={val.name}
+								surname={val.surname}
+								type="circle"
+								size="normal"
+							/>
+						))}
+						<Link href={`${filmPersonHref}/person`} className={styles.FilmTemplateUnderside__creatorsMore}>
+							Еще
+						</Link>
 					</div>
-				</SectionHeader>
-				<ReviewsSlider reviews={reviews.slice(0, 10)} />
+				) : (
+					<Section id="zerorews">
+						<SectionHeader>
+							<div className="container">
+								<SectionHeading tag="h2">Нет информации о актерах 🤨</SectionHeading>
+							</div>
+						</SectionHeader>
+					</Section>
+				)}
 			</Section>
+			{reviews.length > 0 ? (
+				<Section id="filmComments">
+					<SectionHeader>
+						<div className="container">
+							<SectionHeading count={reviews.length ? reviews.length : 0} tag="h2">
+								Отзывы
+							</SectionHeading>
+						</div>
+					</SectionHeader>
+					<ReviewsSlider reviews={reviews.slice(0, 10)} />
+				</Section>
+			) : (
+				<Section id="zerorews">
+					<SectionHeader>
+						<div className="container">
+							<SectionHeading tag="h2">Нет отзывов 🤨</SectionHeading>
+						</div>
+					</SectionHeader>
+				</Section>
+			)}
 		</div>
 	);
 };

@@ -4,7 +4,7 @@ interface FilmographyFilms {
 	filmId: number;
 	filmName: string;
 	year: number;
-	rating: string;
+	rating: string | number;
 	filmImg: string;
 }
 
@@ -15,5 +15,6 @@ export interface PersonTemplateProps {
 	mainFilms: FilmType[];
 	filmographyFilms: FilmographyFilms[];
 	roles: string[];
-	changeRole?: (role: string) => void;
+	changeRole?: (tab: string) => void;
+	filmsCount: number;
 }

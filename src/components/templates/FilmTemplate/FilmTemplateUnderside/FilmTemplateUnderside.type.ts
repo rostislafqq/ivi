@@ -13,6 +13,6 @@ export interface FilmTemplateUndersideProps {
 	films?: FilmType[] | undefined;
 	filmName: string;
 	creatorsCards: Creator[];
-	filmPersonHref?: string;
+	filmPersonHref?: string | number;
 	reviews: ReviewType[];
 }

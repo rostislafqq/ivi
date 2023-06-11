@@ -1,6 +1,6 @@
 @import '@/config/variables.scss';
 
-@media (max-width: $desktop) {
+@media (max-width: 1200px) {
 	.footer {
 		display: none;
 	}

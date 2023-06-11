@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from 'react';
 
+import { commonText } from '@/app/data/commonText';
+
 import volume from '@/assets/icons/volume.svg';
 
 import { Heading, Icon, ListItem, LoadingBox, Text } from '@/components/atoms';
@@ -38,7 +40,7 @@ export const FilmTemplateMainContent: React.FC<FilmInfoSectionProps> = ({
 					{year}
 				</Text>
 				<Text className={styles.adaptiveContent__commonContainer__seasonIntro} tag="span">
-					{duration}
+					{duration}мин
 				</Text>
 				<Text className={styles.adaptiveContent__commonContainer__seasonIntro} tag="span">
 					{yearOld}+
@@ -95,7 +97,7 @@ export const FilmTemplateMainContent: React.FC<FilmInfoSectionProps> = ({
 				rating={rating}
 				actors={actors}
 				btnValues={btnValues}
-				accordionText={accordionText}
+				accordionText={accordionText !== null ? accordionText : commonText}
 				languages={languages}
 				assessment={assessment}
 				extra={extra}

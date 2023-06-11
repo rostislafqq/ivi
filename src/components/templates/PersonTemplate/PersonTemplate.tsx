@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import Image from 'next/image';
+import Link from 'next/link';
+
 import React, { useState } from 'react';
 
 import { useFilmCount } from '@/app/hooks';
@@ -21,9 +23,11 @@ export const PersonTemplate: React.FC<PersonTemplateProps> = ({
 	filmographyFilms = [],
 	roles,
 	changeRole = () => {},
+	filmsCount = 0,
 }) => {
-	const filmCount = useFilmCount(filmographyFilms.length);
+	const filmCount = useFilmCount(filmsCount);
 	const [active, setActive] = useState(0);
+	const [showCount, setShowCount] = useState(10);
 	return (
 		<div className={`container ${styles.person} `}>
 			<Image className={styles.person__photo} alt={nameEng} src={photo} width={120} height={120} />
@@ -66,8 +70,8 @@ export const PersonTemplate: React.FC<PersonTemplateProps> = ({
 					))}
 				</div>
 				<div>
-					{filmographyFilms.map((val) => (
-						<div className={styles.person__fullFilms} key={val.filmId}>
+					{filmographyFilms.slice(0, showCount).map((val) => (
+						<Link href={`/watch/${val.filmId}`} className={styles.person__fullFilms} key={val.filmId}>
 							<div className={styles.person__fullFilms__info}>
 								<Image width={80} height={122} alt={val.filmName} src={val.filmImg} />
 								<div>
@@ -99,8 +103,22 @@ export const PersonTemplate: React.FC<PersonTemplateProps> = ({
 									Смотреть
 								</Button>
 							</div>
-						</div>
+						</Link>
 					))}
+					{filmographyFilms.length > 10 ? (
+						<Button
+							onClick={() => {
+								setShowCount(filmographyFilms.length);
+							}}
+							className={`${showCount > 10 ? styles['person__showBtn--hide'] : styles.person__showBtn}`}
+							variant="secondary"
+							size="normal"
+						>
+							Показать все
+						</Button>
+					) : (
+						''
+					)}
 				</div>
 			</Section>
 		</div>
