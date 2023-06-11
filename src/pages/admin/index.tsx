@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-floating-promises */
 import React, { useState, useEffect } from 'react';
 
@@ -24,7 +23,7 @@ const Admin: React.FC = () => {
 	const [choseCountry, setChoseCountry] = useState(2);
 	const [allRoles, setAllRoles] = useState<Roles[]>([]);
 	const [role, setChoseRole] = useState(1);
-	const [personId, setPersonId] = useState('0');
+	const [personId, setPersonId] = useState<string | number>('');
 	const [general, setGeneral] = useState(false);
 	const [type, setType] = useState('FILM');
 	const [badge, setBadge] = useState(1);
@@ -37,7 +36,7 @@ const Admin: React.FC = () => {
 					'Access-Control-Allow-Origin': 'http://localhost:4000',
 				},
 			});
-			const data: Gengre[] = await res.json();
+			const data: Gengre[] = (await res.json()) as Gengre[];
 			setAllGengres(data);
 		};
 		const getCountries = async () => {
@@ -47,7 +46,7 @@ const Admin: React.FC = () => {
 					'Access-Control-Allow-Origin': 'http://localhost:4000',
 				},
 			});
-			const data: Countries[] = await res.json();
+			const data: Countries[] = (await res.json()) as Countries[];
 			setAllCountries(data);
 		};
 		const getRoles = async () => {
@@ -57,7 +56,7 @@ const Admin: React.FC = () => {
 					'Access-Control-Allow-Origin': 'http://localhost:4000',
 				},
 			});
-			const data: Roles[] = await res.json();
+			const data: Roles[] = (await res.json()) as Roles[];
 			setAllRoles(data);
 		};
 		const getBadges = async () => {
@@ -67,7 +66,7 @@ const Admin: React.FC = () => {
 					'Access-Control-Allow-Origin': 'http://localhost:4000',
 				},
 			});
-			const data: BadgeAdmin[] = await res.json();
+			const data: BadgeAdmin[] = (await res.json()) as BadgeAdmin[];
 			setAllBadges(data);
 		};
 		getBadges();
@@ -76,14 +75,16 @@ const Admin: React.FC = () => {
 		getCountries();
 	}, []);
 
-	const addNewFilm = async () => {
+	const addNewFilm = () => {
 		const params = {
+			nameOriginal: 'nameRu',
 			nameRu,
 			coverUrl: logoUrl,
 			logoUrl,
-			filmLength,
-			rating,
-			year,
+			filmLength: parseInt(filmLength, 10),
+			rating: parseInt(rating, 10),
+			year: parseInt(year, 10),
+			ratingCount: 0,
 			description,
 			ratingAgeLimits,
 			type,
@@ -94,6 +95,15 @@ const Admin: React.FC = () => {
 			badge,
 		};
 		console.log(params);
+		fetch('http://localhost:4000/film/create', {
+			method: 'POST',
+			credentials: 'include',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+
+			body: JSON.stringify(params),
+		});
 	};
 
 	return (
@@ -219,7 +229,7 @@ const Admin: React.FC = () => {
 						<Text tag="p">выберите жанр</Text>
 						<select
 							onChange={(e) => {
-								setChoseGengre(e.target.value);
+								setChoseGengre(parseInt(e.target.value, 10));
 							}}
 						>
 							{allGengres &&
@@ -234,7 +244,7 @@ const Admin: React.FC = () => {
 						<Text tag="p">выберите страну</Text>
 						<select
 							onChange={(e) => {
-								setChoseCountry(e.target.value);
+								setChoseCountry(parseInt(e.target.value, 10));
 							}}
 						>
 							{allCountries &&
@@ -249,7 +259,7 @@ const Admin: React.FC = () => {
 						<Text tag="p">выберите бейдж фильма</Text>
 						<select
 							onChange={(e) => {
-								setBadge(e.target.value);
+								setBadge(parseInt(e.target.value, 10));
 							}}
 						>
 							{allBadges &&
@@ -264,7 +274,7 @@ const Admin: React.FC = () => {
 						<Text tag="span">роль участника </Text>
 						<select
 							onChange={(e) => {
-								setChoseRole(e.target.value);
+								setChoseRole(parseInt(e.target.value, 10));
 							}}
 						>
 							{allRoles &&
@@ -278,7 +288,7 @@ const Admin: React.FC = () => {
 							<Input
 								className={styles.admin__input}
 								onChange={(el) => {
-									setPersonId(el.target.value);
+									setPersonId(parseInt(el.target.value, 10));
 								}}
 								type="text"
 								value={personId}
