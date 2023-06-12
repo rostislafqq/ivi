@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 import React, { useState, useEffect } from 'react';
 
-import { Button, Heading, Input, InputGroup, Label, Text } from '@/components/atoms';
-
-import { AdminAddFilm } from '@/components/organisms/AdminAddFilm/AdminAddFilm';
+import { AdminAddFilm, AdminChangeFilm } from '@/components/organisms';
 
 import { Layout } from '@/components/templates';
 
+import { FilmData } from '../watch/watch.types';
+
 import styles from './admin.module.scss';
-import { BadgeAdmin, Countries, Gengre, NewFilmData, Roles } from './admin.types';
+import { BadgeAdmin, Countries, Gengre, NewFilmData, Roles, SearchingFilmsData } from './admin.types';
 
 const Admin: React.FC = () => {
 	const [allGengres, setAllGengres] = useState<Gengre[]>([]);
@@ -65,10 +65,7 @@ const Admin: React.FC = () => {
 		getCountries();
 	}, []);
 
-	// изменение фильма
-
 	const addNewFilm = (params: NewFilmData) => {
-		console.log(params);
 		fetch('http://localhost:4000/film/create', {
 			method: 'POST',
 			credentials: 'include',
@@ -80,6 +77,51 @@ const Admin: React.FC = () => {
 		});
 	};
 
+	// изменение фильма
+	const [serchFilm, setSerchFilm] = useState('');
+	const [foundFilms, setFoundFilms] = useState<SearchingFilmsData>();
+	const [chosenFilm, setChosenFilm] = useState<number>();
+	const [chosenFilmData, setChosenFilmData] = useState<FilmData>([]);
+	useEffect(() => {
+		const searchFilms = async () => {
+			if (serchFilm.length > 3) {
+				const res = await fetch(`http://localhost:4000/film/search?option=${serchFilm}`, {
+					credentials: 'include',
+					headers: {
+						'Access-Control-Allow-Origin': 'http://localhost:4000',
+					},
+				});
+				const data: SearchingFilmsData = (await res.json()) as SearchingFilmsData;
+				setFoundFilms(data);
+			}
+		};
+		searchFilms();
+	}, [serchFilm]);
+
+	useEffect(() => {
+		const getChosenFilmData = async () => {
+			if (chosenFilm) {
+				const res = await fetch(`http://localhost:4000/film/${chosenFilm}`, {
+					credentials: 'include',
+					headers: {
+						'Access-Control-Allow-Origin': 'http://localhost:4000',
+					},
+				});
+				const data: FilmData = (await res.json()) as FilmData;
+				setChosenFilmData(data);
+			}
+		};
+		getChosenFilmData();
+	}, [chosenFilm]);
+	const deleteFilm = (id: number) => {
+		fetch(`http://localhost:4000/film/delete/${id}`, {
+			method: 'DELETE',
+			credentials: 'include',
+			headers: {
+				'Access-Control-Allow-Origin': 'http://localhost:4000',
+			},
+		});
+	};
 	return (
 		<Layout title="ivi админ-панель" description="Стриминговая платформа фильмов - Ivi">
 			<div className={`${styles.admin} container`}>
@@ -89,6 +131,19 @@ const Admin: React.FC = () => {
 					allRoles={allRoles}
 					allBadges={allBadges}
 					addNewFilm={addNewFilm}
+				/>
+				<AdminChangeFilm
+					setChosenFilm={setChosenFilm}
+					setSerchFilm={setSerchFilm}
+					serchFilm={serchFilm}
+					foundFilms={foundFilms}
+					chosenFilmData={chosenFilmData}
+					allGengres={allGengres}
+					allCountries={allCountries}
+					allRoles={allRoles}
+					allBadges={allBadges}
+					addNewFilm={addNewFilm}
+					deleteFilm={deleteFilm}
 				/>
 			</div>
 		</Layout>

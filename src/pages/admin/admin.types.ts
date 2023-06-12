@@ -40,3 +40,14 @@ export interface NewFilmData {
 	}[];
 	badge: number;
 }
+
+export interface SearchingFilmsData {
+	films: [
+		{
+			id: number;
+			nameOriginal: string;
+			nameRu: string;
+			year: number;
+		},
+	];
+}
