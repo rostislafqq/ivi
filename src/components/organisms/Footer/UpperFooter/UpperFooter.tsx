@@ -1,60 +1,63 @@
 import React from 'react';
 
+import { translation } from '@/../public/locales/translation';
+
 import { TextLink } from '@/components/atoms';
 import { NoAds, Support } from '@/components/molecules';
 import { LinkList } from '@/components/molecules/LinkList/LinkList';
 
 import styles from './UpperFooter.module.scss';
+import { UpperFooterProps } from './UpperFooter.types';
 
-export const UpperFooter = () => (
+export const UpperFooter: React.FC<UpperFooterProps> = ({ lang = 'ru' }) => (
 	<div className={styles.footerContent}>
-		<LinkList isHorizontal={false} title="О нас">
+		<LinkList isHorizontal={false} title={translation[lang].footer.about}>
 			<TextLink className={styles.footerContent__menuItem} href="test" tag="p">
-				О компании
+				{translation[lang].footer.about}
 			</TextLink>
 			<TextLink className={styles.footerContent__menuItem} href="test" tag="p">
-				Вакансии
+				{translation[lang].footer.vacancy}
 			</TextLink>
 			<TextLink className={styles.footerContent__menuItem} href="test" tag="p">
-				Программа бета-тестирования
+				{translation[lang].footer.program}
 			</TextLink>
 			<TextLink className={styles.footerContent__menuItem} href="test" tag="p">
-				Информация для партнёров
+				{translation[lang].footer.informPartnets}
 			</TextLink>
 			<TextLink className={styles.footerContent__menuItem} href="test" tag="p">
-				Размещение рекламы
+				{translation[lang].footer.ads}
 			</TextLink>
 			<TextLink className={styles.footerContent__menuItem} href="test" tag="p">
-				Пользовательское соглашение
+				{translation[lang].footer.termsOfUse}
 			</TextLink>
 			<TextLink className={styles.footerContent__menuItem} href="test" tag="p">
-				Политика конфиденциальности
+				{translation[lang].footer.privPolic}
 			</TextLink>
 			<TextLink className={styles.footerContent__menuItem} href="test" tag="p">
-				Комплаенс
+				{translation[lang].footer.compliance}
 			</TextLink>
 		</LinkList>
-		<LinkList isHorizontal={false} title="О нас">
+		<LinkList isHorizontal={false} title={translation[lang].footer.myIvi}>
 			<TextLink className={styles.footerContent__menuItem} href="test" tag="p">
-				Мой Иви
+				{translation[lang].footer.myIvi}
 			</TextLink>
 			<TextLink className={styles.footerContent__menuItem} href="test" tag="p">
-				Что нового
+				{translation[lang].footer.whatNew}
 			</TextLink>
 			<TextLink className={styles.footerContent__menuItem} href="test" tag="p">
-				Фильмы
+				{translation[lang].footer.films}
 			</TextLink>
 			<TextLink className={styles.footerContent__menuItem} href="test" tag="p">
-				Сериалы
+				{translation[lang].footer.serial}
 			</TextLink>
 			<TextLink className={styles.footerContent__menuItem} href="test" tag="p">
-				Мультфильмы
+				{translation[lang].footer.cartoon}
 			</TextLink>
 			<TextLink className={styles.footerContent__menuItem} href="test" tag="p">
 				TV+
 			</TextLink>
 			<TextLink className={styles.footerContent__menuItem} href="test" tag="p">
-				Что посмотреть
+				{translation[lang].footer.toWatch}
 			</TextLink>
 			<div className={` ${styles.footerContent__menuItem} ${styles[`footerContent__menuItem--primary`]}`}>
 				<TextLink
@@ -62,11 +65,11 @@ export const UpperFooter = () => (
 					href="test"
 					tag="p"
 				>
-					Активация сертификата
+					{translation[lang].footer.activation}
 				</TextLink>
 			</div>
 		</LinkList>
-		<Support />
-		<NoAds />
+		<Support lang={lang} />
+		<NoAds lang={lang} />
 	</div>
 );

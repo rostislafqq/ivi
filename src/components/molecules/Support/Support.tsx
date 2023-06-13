@@ -1,22 +1,25 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React, { useState } from 'react';
 
+import { translation } from '@/../public/locales/translation';
+
 import email from '@/assets/icons/email.svg';
 import tel from '@/assets/icons/telephone.svg';
 import { Button, Heading, Icon, IconButton, Text, TextLink } from '@/components/atoms';
 
 import styles from './Support.module.scss';
+import { SupportProps } from './Support.type';
 
-export const Support: React.FC = () => {
+export const Support: React.FC<SupportProps> = ({ lang = 'ru' }) => {
 	const [isActive, setIsActive] = useState(false);
 	return (
 		<div className={styles.support}>
 			<Heading className={styles.support__heading} tag="h4">
-				Служба поддержки
+				{translation[lang].footer.support}
 			</Heading>
 			<Text className={styles.support__intro} tag="p">
-				Мы всегда готовы вам помочь.
-				<br /> Наши операторы онлайн 24/7
+				{translation[lang].footer.rdyHelp}
+				<br /> {translation[lang].footer.operators}
 			</Text>
 			<Button
 				className={styles.support__writeBtn}
@@ -24,7 +27,7 @@ export const Support: React.FC = () => {
 				variant="secondary"
 				href="https://www.ivi.ru/profile"
 			>
-				Написать в чате
+				{translation[lang].footer.writeOnChat}
 			</Button>
 			<div className={styles.support__btnContainer}>
 				<IconButton href="mailto:support@ivi.ru" size="normal" variant="secondary">
@@ -61,7 +64,7 @@ export const Support: React.FC = () => {
 					ask.ivi.ru
 				</TextLink>
 				<Text className={styles.support__answerContent} tag="span">
-					Ответы на вопросы
+					{translation[lang].footer.answers}
 				</Text>
 			</div>
 		</div>
