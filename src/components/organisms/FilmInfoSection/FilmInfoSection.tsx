@@ -3,6 +3,8 @@ import cn from 'classnames';
 
 import React from 'react';
 
+import { translation } from '@/../public/locales/translation';
+
 import volume from '@/assets/icons/volume.svg';
 
 import { Heading, Icon, ListItem, Text } from '@/components/atoms';
@@ -27,6 +29,7 @@ export const FilmInfoSection: React.FC<FilmInfoSectionProps> = ({
 	languages,
 	assessment,
 	extra,
+	lang = 'ru',
 }) => (
 	<div className={styles.FilmInfoSection}>
 		<Heading className={styles.FilmInfoSection__heading} tag="h1">
@@ -85,7 +88,7 @@ export const FilmInfoSection: React.FC<FilmInfoSectionProps> = ({
 				<div>
 					<Rating className={styles.FilmInfoSection__RatingColor} size="small" rating={rating} />
 					<Text className={styles.FilmInfoSection__ratingText} tag="p">
-						Рейтинг <br /> Иви
+						{translation[lang].film.rating} <br /> {translation[lang].film.Ivi}
 					</Text>
 				</div>
 
@@ -111,9 +114,14 @@ export const FilmInfoSection: React.FC<FilmInfoSectionProps> = ({
 				buttonValues={btnValues}
 			>
 				{accordionText}
-				<FilmExtraInfo className={styles.FilmInfoSection__accordion__extra} badges={badges} langs={languages} />
+				<FilmExtraInfo
+					lang={lang}
+					className={styles.FilmInfoSection__accordion__extra}
+					badges={badges}
+					langs={languages}
+				/>
 			</Accordion>
 		</div>
-		<Rating assessment={assessment} extra={extra} rating={rating} size="large" />
+		<Rating lang={lang} assessment={assessment} extra={extra} rating={rating} size="large" />
 	</div>
 );

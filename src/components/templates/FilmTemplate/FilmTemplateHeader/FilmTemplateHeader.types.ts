@@ -3,4 +3,5 @@ export interface FilmTemplateHeaderProps {
 	badgeContent: string;
 	filmType: string;
 	filmGenre: string;
+	lang?: 'ru' | 'en';
 }

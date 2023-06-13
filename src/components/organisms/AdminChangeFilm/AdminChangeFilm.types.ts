@@ -13,4 +13,5 @@ export interface AdminChangeFilmProps {
 	allBadges: BadgeAdmin[];
 	addNewFilm: (params: NewFilmData) => void;
 	deleteFilm: (id: number) => void;
+	language?: 'ru' | 'en';
 }

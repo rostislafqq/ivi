@@ -31,6 +31,7 @@ export const FilmTemplate: React.FC<FilmTemplateHeaderProps & FilmInfoSectionPro
 	creatorsCards,
 	filmPersonHref,
 	reviews,
+	lang = 'ru',
 }) => (
 	<div>
 		<FilmTemplateHeader
@@ -54,6 +55,7 @@ export const FilmTemplate: React.FC<FilmTemplateHeaderProps & FilmInfoSectionPro
 			languages={languages}
 			assessment={assessment}
 			extra={extra}
+			lang={lang}
 		/>
 		<FilmTemplateUnderside
 			reviews={reviews}
@@ -62,6 +64,7 @@ export const FilmTemplate: React.FC<FilmTemplateHeaderProps & FilmInfoSectionPro
 			filmName={heading}
 			filmType={filmType}
 			films={films}
+			lang={lang}
 		/>
 	</div>
 );

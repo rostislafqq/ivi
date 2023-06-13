@@ -15,4 +15,5 @@ export interface FilmTemplateUndersideProps {
 	creatorsCards: Creator[];
 	filmPersonHref?: string | number;
 	reviews: ReviewType[];
+	lang?: 'ru' | 'en';
 }

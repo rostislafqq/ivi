@@ -17,4 +17,5 @@ export interface PersonTemplateProps {
 	roles: string[];
 	changeRole?: (tab: string) => void;
 	filmsCount: number;
+	language?: 'ru' | 'en';
 }

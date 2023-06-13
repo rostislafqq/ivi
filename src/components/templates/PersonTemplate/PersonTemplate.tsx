@@ -1,9 +1,12 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import Image from 'next/image';
 import Link from 'next/link';
 
 import React, { useState } from 'react';
+
+import { translation } from '@/../public/locales/translation';
 
 import { useFilmCount } from '@/app/hooks';
 
@@ -24,6 +27,7 @@ export const PersonTemplate: React.FC<PersonTemplateProps> = ({
 	roles,
 	changeRole = () => {},
 	filmsCount = 0,
+	language = 'ru',
 }) => {
 	const filmCount = useFilmCount(filmsCount);
 	const [active, setActive] = useState(0);
@@ -32,21 +36,28 @@ export const PersonTemplate: React.FC<PersonTemplateProps> = ({
 		<div className={`container ${styles.person} `}>
 			<Image className={styles.person__photo} alt={nameEng} src={photo} width={120} height={120} />
 			<Heading className={`${styles[`person__name--big`]}`} tag="h1">
-				{nameRus}
+				{language === 'ru' ? nameRus : nameEng}
 			</Heading>
 			<Text className={styles.person__name} tag="span">
 				{nameEng}
 			</Text>
 			<Section id="mainfPersonFilms">
 				<SectionHeader>
-					<SectionHeading tag="h2">Главные фильмы</SectionHeading>
+					<SectionHeading tag="h2">{translation[language].person.mainFilms}</SectionHeading>
 				</SectionHeader>
 				<FilmsSlider className={styles.person__mainFilms} films={mainFilms} />
 			</Section>
 			<Section id="filmografFull">
 				<SectionHeader>
 					<SectionHeading tag="h2">
-						Полная фильмография <Text tag="span">{filmCount}</Text>
+						{translation[language].person.filmography}{' '}
+						<Text tag="span">
+							{language === 'ru'
+								? filmCount
+								: filmsCount > 1
+								? `${filmsCount} films`
+								: `${filmsCount} film`}
+						</Text>
 					</SectionHeading>
 				</SectionHeader>
 				<div className={styles.person__roles}>
@@ -83,7 +94,7 @@ export const PersonTemplate: React.FC<PersonTemplateProps> = ({
 											{val.filmName}
 										</Text>
 										<Text className={`${styles['person__fullFilms__info--normal']}`} tag="p">
-											Рейтинг Иви: {val.rating}
+											{translation[language].person.rating} {val.rating}
 										</Text>
 									</div>
 									<div>
@@ -93,14 +104,14 @@ export const PersonTemplate: React.FC<PersonTemplateProps> = ({
 											type="button"
 											variant="secondary"
 										>
-											Смотреть
+											{translation[language].person.watch}
 										</Button>
 									</div>
 								</div>
 							</div>
 							<div className={styles.person__btn}>
 								<Button size="normal" type="button" variant="secondary">
-									Смотреть
+									{translation[language].person.watch}
 								</Button>
 							</div>
 						</Link>
@@ -114,7 +125,7 @@ export const PersonTemplate: React.FC<PersonTemplateProps> = ({
 							variant="secondary"
 							size="normal"
 						>
-							Показать все
+							{translation[language].person.showAll}
 						</Button>
 					) : (
 						''

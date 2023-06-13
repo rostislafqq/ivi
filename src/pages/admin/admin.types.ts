@@ -6,11 +6,13 @@ export interface Gengre {
 export interface Countries {
 	id: number;
 	nameRu: string;
+	name: string;
 }
 
 export interface Roles {
 	id: number;
 	name: string;
+	key: string;
 }
 
 export interface BadgeAdmin {
