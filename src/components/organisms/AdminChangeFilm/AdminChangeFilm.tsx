@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import React, { useState, useEffect } from 'react';
 
+import { translation } from '@/../public/locales/translation';
+
 import { Button, Heading, Input, InputGroup, Label, ListItem, Text } from '@/components/atoms';
 
 import { List } from '@/components/molecules';
@@ -20,6 +22,7 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 	allBadges,
 	addNewFilm,
 	deleteFilm,
+	language = 'ru',
 }) => {
 	const [nameRu, setNameRu] = useState('');
 	const [logoUrl, setLogoUrl] = useState('');
@@ -58,7 +61,7 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 	}, [chosenFilmData]);
 	return (
 		<div className={styles.change}>
-			<Heading tag="h2">Измени существующий фильм</Heading>
+			<Heading tag="h2">{translation[language].admin.headerAdd}</Heading>
 			<div>
 				<InputGroup>
 					<Input
@@ -68,7 +71,7 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 						value={serchFilm}
 					/>
 					<Label className={styles.change__label} isActive={!serchFilm}>
-						введи название фильма
+						{translation[language].admin.writeFilmName}
 					</Label>
 				</InputGroup>
 				<List tag="ul">
@@ -99,7 +102,7 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 								value={nameRu}
 							/>
 							<Label className={styles.change__label} isActive={!nameRu}>
-								название фильма
+								{translation[language].admin.filmName}
 							</Label>
 						</InputGroup>
 						<InputGroup>
@@ -112,7 +115,7 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 								value={logoUrl === null ? '' : logoUrl}
 							/>
 							<Label className={styles.change__label} isActive={!logoUrl}>
-								url картинки
+								{translation[language].admin.urlImage}
 							</Label>
 						</InputGroup>
 						<InputGroup>
@@ -125,7 +128,7 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 								value={filmLength}
 							/>
 							<Label className={styles.change__label} isActive={!filmLength}>
-								продолжительность фильма
+								{translation[language].admin.movieDuration}
 							</Label>
 						</InputGroup>
 						<InputGroup>
@@ -138,7 +141,7 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 								value={rating}
 							/>
 							<Label className={styles.change__label} isActive={!rating}>
-								рейтинг фильма
+								{translation[language].admin.rating}
 							</Label>
 						</InputGroup>
 						<InputGroup>
@@ -151,7 +154,7 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 								value={year}
 							/>
 							<Label className={styles.change__label} isActive={!year}>
-								год создания
+								{translation[language].admin.yearCreation}
 							</Label>
 						</InputGroup>
 						<InputGroup>
@@ -164,7 +167,7 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 								value={description}
 							/>
 							<Label className={styles.change__label} isActive={!description}>
-								описание
+								{translation[language].admin.description}
 							</Label>
 						</InputGroup>
 						<InputGroup>
@@ -177,34 +180,34 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 								value={ratingAgeLimits}
 							/>
 							<Label className={styles.change__label} isActive={!ratingAgeLimits}>
-								возрастное ограничение
+								{translation[language].admin.ageLimit}
 							</Label>
 						</InputGroup>
 						<div className={styles.change__selectContainer}>
-							<Text tag="p">тип</Text>
+							<Text tag="p">{translation[language].admin.type}</Text>
 							<select
 								onChange={(e) => {
 									setType(e.target.value);
 								}}
 							>
-								<option value="FILM">Фильм</option>
-								<option value="TV_SERIES">Сериал</option>
+								<option value="FILM">{translation[language].admin.film}</option>
+								<option value="TV_SERIES">{translation[language].admin.series}</option>
 							</select>
 						</div>
 						<div className={styles.change__selectContainer}>
-							<Text tag="p">статус фильма</Text>
+							<Text tag="p">{translation[language].admin.filmStatus}</Text>
 							<select
 								onChange={(e) => {
 									setStatus(e.target.value);
 								}}
 							>
-								<option value="subscribe">Подписка</option>
-								<option value="buy">Покупка</option>
-								<option value="free">Бесплатно</option>
+								<option value="subscribe">{translation[language].admin.subscribe}</option>
+								<option value="buy">{translation[language].admin.buy}</option>
+								<option value="free">{translation[language].admin.free}</option>
 							</select>
 						</div>
 						<div className={styles.change__selectContainer}>
-							<Text tag="p">выберите жанр</Text>
+							<Text tag="p">{translation[language].admin.selectGenre}</Text>
 							<select
 								onChange={(e) => {
 									setChoseGengre(parseInt(e.target.value, 10));
@@ -219,7 +222,7 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 							</select>
 						</div>
 						<div className={styles.change__selectContainer}>
-							<Text tag="p">выберите страну</Text>
+							<Text tag="p">{translation[language].admin.selectCountry}</Text>
 							<select
 								onChange={(e) => {
 									setChoseCountry(parseInt(e.target.value, 10));
@@ -228,13 +231,13 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 								{allCountries &&
 									allCountries.map((val) => (
 										<option key={val.id} value={val.id}>
-											{val.nameRu}
+											{language === 'ru' ? val.nameRu : val.name}
 										</option>
 									))}
 							</select>
 						</div>
 						<div className={styles.change__selectContainer}>
-							<Text tag="p">выберите бейдж фильма</Text>
+							<Text tag="p">{translation[language].admin.selectBadge}</Text>
 							<select
 								onChange={(e) => {
 									setBadge(parseInt(e.target.value, 10));
@@ -249,7 +252,7 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 							</select>
 						</div>
 						<div className={styles.change__selectContainer}>
-							<Text tag="span">роль участника </Text>
+							<Text tag="span">{translation[language].admin.roleCreator}</Text>
 							<select
 								onChange={(e) => {
 									setChoseRole(parseInt(e.target.value, 10));
@@ -258,7 +261,7 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 								{allRoles &&
 									allRoles.map((val) => (
 										<option key={val.name} value={val.id}>
-											{val.name}
+											{language === 'ru' ? val.name : val.key.toLowerCase()}
 										</option>
 									))}
 							</select>
@@ -272,11 +275,11 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 									value={personId}
 								/>
 								<Label className={styles.change__label} isActive={!personId}>
-									id участника
+									{translation[language].admin.idCreator}
 								</Label>
 							</InputGroup>
 							<div className={styles.change__checxboxCont}>
-								<Text tag="span">главная роль</Text>
+								<Text tag="span">{translation[language].admin.mainRole}</Text>
 								<input
 									checked={general}
 									onChange={(e) => setGeneral(e.target.checked)}
@@ -309,7 +312,7 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 									size="normal"
 									variant="primary"
 								>
-									изменить
+									{translation[language].admin.add}
 								</Button>
 								<Button
 									onClick={() => {
@@ -320,7 +323,7 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 									size="normal"
 									variant="primary-gradient"
 								>
-									Удалить
+									{translation[language].admin.delete}
 								</Button>
 							</div>
 						</div>

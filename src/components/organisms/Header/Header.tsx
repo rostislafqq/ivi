@@ -1,5 +1,11 @@
 import cn from 'classnames';
-import React from 'react';
+import React, { useState } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
+
+import { RootState } from '@/app/store';
+
+import { setlanguage } from '@/app/store/language/languageSlice';
 
 import { TextLink, Button } from '@/components/atoms';
 import { NavBar, LinkList, Notification, Avatar } from '@/components/molecules';
@@ -31,38 +37,69 @@ const navbarItems = [
 	},
 ];
 
-export const Header: React.FC<HeaderProps> = ({ className }) => (
-	<header className={cn(styles.header, className)}>
-		<div className="container">
-			<NavBar
-				menu={
-					<LinkList>
-						{navbarItems.map((item) => (
-							<TextLink key={item.id} tag="div" href={item.href}>
-								{item.label}
-							</TextLink>
-						))}
-					</LinkList>
-				}
-				actionGroup={
-					<>
-						<Button
-							className={styles['header__subscribe-btn']}
-							variant="primary-gradient"
-							size="small"
-							data-testid="header-subscribeBtn"
-						>
-							Оплатить подписку
-						</Button>
-						<Notification
-							className={styles.header__notification}
-							count={10}
-							data-testid="header-notification"
-						/>
-						<Avatar className={styles.header__avatar} data-testid="header-avatar" />
-					</>
-				}
-			/>
-		</div>
-	</header>
-);
+export const Header: React.FC<HeaderProps> = ({ className }) => {
+	const language = useSelector((state: RootState) => state.language.languageActive);
+	const [active, setActive] = useState(language);
+	const dispatch = useDispatch();
+	const setLang = (lang: 'en' | 'ru') => dispatch(setlanguage(lang));
+
+	return (
+		<header className={cn(styles.header, className)}>
+			<div className="container">
+				<NavBar
+					menu={
+						<LinkList>
+							{navbarItems.map((item) => (
+								<TextLink key={item.id} tag="div" href={item.href}>
+									{item.label}
+								</TextLink>
+							))}
+						</LinkList>
+					}
+					actionGroup={
+						<>
+							<div>
+								<Button
+									className={styles['header__subscribe-btn']}
+									size="small"
+									variant={active === 'ru' ? 'primary' : 'secondary'}
+									onClick={() => {
+										setLang('ru');
+										setActive('ru');
+									}}
+								>
+									ru
+								</Button>
+								<Button
+									className={styles['header__subscribe-btn']}
+									size="small"
+									variant={active === 'en' ? 'primary' : 'secondary'}
+									onClick={() => {
+										setLang('en');
+										setActive('en');
+									}}
+								>
+									en
+								</Button>
+							</div>
+							<Button
+								className={styles['header__subscribe-btn']}
+								variant="primary-gradient"
+								size="small"
+								data-testid="header-subscribeBtn"
+							>
+								Оплатить подписку
+							</Button>
+							<Notification
+								className={styles.header__notification}
+								count={10}
+								data-testid="header-notification"
+							/>
+							<Avatar className={styles.header__avatar} data-testid="header-avatar" />
+						</>
+					}
+				/>
+			</div>
+		</header>
+	);
+};

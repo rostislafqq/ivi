@@ -6,4 +6,5 @@ export interface AdminAddFilmProps {
 	allRoles: Roles[];
 	allBadges: BadgeAdmin[];
 	addNewFilm: (params: NewFilmData) => void;
+	language?: 'ru' | 'en';
 }
