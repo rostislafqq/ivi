@@ -5,4 +5,6 @@ export interface FilmType {
 	preview: string;
 	status: FilmStatusType;
 	href: string;
+	nameEn?: string;
+	nameRu?: string;
 }

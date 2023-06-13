@@ -29,6 +29,7 @@ export const FilmTemplateMainContent: React.FC<FilmInfoSectionProps> = ({
 	languages,
 	assessment,
 	extra,
+	lang = 'ru',
 }) => (
 	<div className="container">
 		<div className={styles.adaptiveContent}>
@@ -101,6 +102,7 @@ export const FilmTemplateMainContent: React.FC<FilmInfoSectionProps> = ({
 				languages={languages}
 				assessment={assessment}
 				extra={extra}
+				lang={lang}
 			/>
 		</div>
 	</div>

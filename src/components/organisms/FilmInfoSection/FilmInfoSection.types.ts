@@ -20,4 +20,5 @@ export interface FilmInfoSectionProps {
 	languages: string[];
 	assessment: number;
 	extra: string;
+	lang?: 'ru' | 'en';
 }

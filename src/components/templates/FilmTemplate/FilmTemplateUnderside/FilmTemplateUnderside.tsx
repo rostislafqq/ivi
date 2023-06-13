@@ -2,6 +2,8 @@ import Link from 'next/link';
 
 import React, { useEffect, useState } from 'react';
 
+import { translation } from '@/../public/locales/translation';
+
 import { useResizeWindow } from '@/app/hooks';
 
 import { HeadingLink, Section, SectionHeader, SectionHeading } from '@/components/atoms';
@@ -19,6 +21,7 @@ export const FilmTemplateUnderside: React.FC<FilmTemplateUndersideProps> = ({
 	creatorsCards,
 	filmPersonHref = '',
 	reviews,
+	lang = 'ru',
 }) => {
 	const [widthWindow] = useResizeWindow();
 	const [creatorsCount, setCreatorsCount] = useState(10);
@@ -38,7 +41,9 @@ export const FilmTemplateUnderside: React.FC<FilmTemplateUndersideProps> = ({
 				<SectionHeader>
 					<div className="container">
 						<SectionHeading tag="h2">
-							С {filmType === 'FILM' ? 'фильмом' : 'сериалом'} «{filmName}» смотрят
+							{lang === 'ru'
+								? `С ${filmType === 'FILM' ? 'фильмом' : 'сериалом'} «${filmName}» смотрят `
+								: translation[lang].film.watchWithThisMovie}
 						</SectionHeading>
 					</div>
 				</SectionHeader>
@@ -47,7 +52,7 @@ export const FilmTemplateUnderside: React.FC<FilmTemplateUndersideProps> = ({
 			</Section>
 			<Section id="actorsFilm" className={`${styles.FilmTemplateUnderside__creators} container`}>
 				<HeadingLink className={styles.FilmTemplateUnderside__creatorsHeader} href="/" tag="h2">
-					Актёры и создатели
+					{translation[lang].film.actorsAndCreators}
 				</HeadingLink>
 				{creatorsCards.length > 0 ? (
 					<div className={styles.FilmTemplateUnderside__creatorsContainer}>
@@ -63,14 +68,14 @@ export const FilmTemplateUnderside: React.FC<FilmTemplateUndersideProps> = ({
 							/>
 						))}
 						<Link href={`${filmPersonHref}/person`} className={styles.FilmTemplateUnderside__creatorsMore}>
-							Еще
+							{translation[lang].film.more}
 						</Link>
 					</div>
 				) : (
 					<Section id="zerorews">
 						<SectionHeader>
 							<div className="container">
-								<SectionHeading tag="h2">Нет информации о актерах 🤨</SectionHeading>
+								<SectionHeading tag="h2">{translation[lang].film.zeroInform} 🤨</SectionHeading>
 							</div>
 						</SectionHeader>
 					</Section>
@@ -81,7 +86,7 @@ export const FilmTemplateUnderside: React.FC<FilmTemplateUndersideProps> = ({
 					<SectionHeader>
 						<div className="container">
 							<SectionHeading count={reviews.length ? reviews.length : 0} tag="h2">
-								Отзывы
+								{translation[lang].film.reviews}
 							</SectionHeading>
 						</div>
 					</SectionHeader>
@@ -91,7 +96,7 @@ export const FilmTemplateUnderside: React.FC<FilmTemplateUndersideProps> = ({
 				<Section id="zerorews">
 					<SectionHeader>
 						<div className="container">
-							<SectionHeading tag="h2">Нет отзывов 🤨</SectionHeading>
+							<SectionHeading tag="h2">{translation[lang].film.zeroReviews} 🤨</SectionHeading>
 						</div>
 					</SectionHeader>
 				</Section>

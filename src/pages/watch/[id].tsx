@@ -7,7 +7,13 @@ import { GetServerSideProps } from 'next';
 
 import React, { useState, useEffect } from 'react';
 
+import { useSelector } from 'react-redux';
+
+import { translation } from '@/../public/locales/translation';
+
 import { stockImg } from '@/app/data/stockImg';
+
+import { RootState } from '@/app/store';
 
 import { FilmType } from '@/app/types';
 
@@ -45,12 +51,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const Film: React.FC<FilmProps> = ({ film }) => {
-	const filmCreators = film.personsfilm.map((person) => ({
-		name: person.person.nameRu.split(' ')[0],
-		surname: person.person.nameRu.split(' ')[1],
-		image: person.person.url === null ? '' : person.person.url,
-		href: person.personId.toString(),
-	}));
+	const lang = useSelector((state: RootState) => state.language.languageActive);
+	const [filmCreators, setFilmCreators] = useState(
+		film.personsfilm.map((person) => ({
+			name: lang === 'ru' ? person.person.nameRu.split(' ')[0] : person.person.nameOriginal.split(' ')[0],
+			surname: lang === 'ru' ? person.person.nameRu.split(' ')[1] : person.person.nameOriginal.split(' ')[1],
+			image: person.person.url === null ? '' : person.person.url,
+			href: person.personId.toString(),
+		})),
+	);
+
 	const rewsCreator = film.comments.map((comment) => ({
 		userName: 'user',
 		likes: 0,
@@ -71,10 +81,12 @@ const Film: React.FC<FilmProps> = ({ film }) => {
 				const data: FilmData[] = await res.json();
 				setRecommended(
 					data.slice(0, 10).map((films) => ({
-						name: films.nameRu,
+						name: lang === 'ru' ? films.nameRu : films.nameOriginal,
 						preview: films.coverUrl === null ? stockImg : films.coverUrl,
 						status: films.status,
 						href: `./${films.id}`,
+						nameEn: films.nameOriginal,
+						nameRu: films.nameRu,
 					})),
 				);
 			} catch (error) {
@@ -84,15 +96,36 @@ const Film: React.FC<FilmProps> = ({ film }) => {
 		getFilms();
 	}, [film]);
 
+	useEffect(() => {
+		setFilmCreators(
+			film.personsfilm.map((person) => ({
+				name: lang === 'ru' ? person.person.nameRu.split(' ')[0] : person.person.nameOriginal.split(' ')[0],
+				surname: lang === 'ru' ? person.person.nameRu.split(' ')[1] : person.person.nameOriginal.split(' ')[1],
+				image: person.person.url === null ? '' : person.person.url,
+				href: person.personId.toString(),
+			})),
+		);
+		setRecommended(
+			recommended &&
+				(recommended.map((films) => ({
+					name: lang === 'ru' ? films.nameRu : films.nameEn,
+					preview: films.preview === null ? stockImg : films.preview,
+					status: films.status,
+					href: `./${films.href}`,
+					nameEn: films.nameEn,
+					nameRu: films.nameRu,
+				})) as FilmType[]),
+		);
+	}, [lang]);
 	return (
 		<Layout title={`${film.nameOriginal}`} description="Стриминговая платформа фильмов - Ivi">
 			<FilmTemplate
-				extra="Интересный сюжет"
+				extra={translation[lang].film.extra}
 				filmGenre={film.genres[0].genre}
 				badgeContent={film.badge.content}
 				badgeColor={film.badge.type}
 				filmType={film.type}
-				heading={film.nameRu}
+				heading={lang === 'ru' ? film.nameRu : film.nameOriginal}
 				year={film.year}
 				duration={film.filmLength}
 				yearOld={film.ratingAgeLimits}
@@ -102,14 +135,19 @@ const Film: React.FC<FilmProps> = ({ film }) => {
 				rating={film.rating}
 				actors={filmCreators}
 				accordionText={film.description}
-				btnValues={[`Развернуть детали о ${film.type === 'FILM' ? 'фильме' : 'сериале'}`, 'Свернуть']}
-				languages={['Русский', 'Английский']}
+				btnValues={
+					lang === 'ru'
+						? [`Развернуть детали о ${film.type === 'FILM' ? 'фильме' : 'сериале'}`, 'Свернуть']
+						: ['Expand movie details', 'Roll up']
+				}
+				languages={translation[lang].film.languages}
 				assessment={film.ratingCount}
 				creatorsCards={filmCreators}
 				reviews={rewsCreator}
 				filmName={film.nameRu}
 				filmPersonHref={film.id}
 				films={recommended}
+				lang={lang}
 			/>
 		</Layout>
 	);
