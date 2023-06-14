@@ -1,0 +1,26 @@
+.login {
+	padding: 4rem 0;
+	border-top: 1px solid rgba(white, 0.16);
+	&__authContainer {
+		margin: 0 auto;
+		width: 60%;
+	}
+	&__inputsContainer {
+		margin-left: auto;
+		width: 60%;
+	}
+	&__input {
+		margin-top: 2rem;
+		padding-left: 0.4rem;
+		padding-top: 1rem;
+	}
+	&__label {
+		left: 0.4rem;
+	}
+	&__btnContainer {
+		margin-top: 2rem;
+	}
+	&__open {
+		margin-right: 2rem;
+	}
+}

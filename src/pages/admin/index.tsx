@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 import React, { useState, useEffect } from 'react';
 
+import { useSelector } from 'react-redux';
+
+import { RootState } from '@/app/store';
+
 import { AdminAddFilm, AdminChangeFilm } from '@/components/organisms';
 
 import { Layout } from '@/components/templates';
@@ -9,8 +13,6 @@ import { FilmData } from '../watch/watch.types';
 
 import styles from './admin.module.scss';
 import { BadgeAdmin, Countries, Gengre, NewFilmData, Roles, SearchingFilmsData } from './admin.types';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/app/store';
 
 const Admin: React.FC = () => {
 	const [allGengres, setAllGengres] = useState<Gengre[]>([]);

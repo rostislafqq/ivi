@@ -46,7 +46,7 @@ export const Download: React.FC<DownloadProps> = ({ lang = 'ru', isDefault = tru
 				>
 					<div>
 						<Text className={styles.download__text} tag="p">
-							{translation[lang].footer.rdyHelp}
+							{translation[lang].footer.rdyOn}
 						</Text>
 						<Text className={styles[`download__text-bold`]} tag="p">
 							GooglePlay
