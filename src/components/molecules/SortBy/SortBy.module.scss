@@ -1,0 +1,70 @@
+@import '@/config/_variables.scss';
+
+.sort {
+
+	&-btn {
+		display: inline-flex;
+		align-items: center;
+		cursor: pointer;
+		border: none;
+		background: transparent;
+		color: $white;
+		font-size: 1.5rem;
+		font-weight: 500;
+
+		&__barsIcon {
+			margin-right: 0.8rem;
+		}
+
+		&__arrowIcon {
+			margin-left: 0.6rem;
+			transition: transform 200ms;
+
+			&--rotated {
+				transform: rotate(-180deg);
+			}
+		}
+	}
+
+	&-menu {
+		min-width: 25rem;
+
+		&__header {
+			margin: 0.4rem 0 1.2rem;
+			padding: 0 1.6rem;
+			font-size: 1.5rem;
+			color: $gray;
+			font-weight: 400;
+		}
+
+		&__item {
+			border-left: 3px solid transparent;
+			color: rgba($white, 0.72);
+
+			&--active {
+				border-left: 3px solid $red;
+				color: $white;
+			}
+
+			&:hover {
+				color: $white;
+				background: $purple-400;
+			}
+
+			&-btn {
+				cursor: pointer;
+				display: block;
+				width: 100%;
+				height: 100%;
+				padding: 1.2rem 1.6rem;
+				font-size: 1.5rem;
+				font-weight: 500;
+				color: inherit;
+				text-align: left;
+				border: none;
+				background-color: transparent;
+				transition: all 200ms;
+			}
+		}
+	}
+}

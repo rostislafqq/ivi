@@ -12,7 +12,9 @@ const Home: React.FC = () => (
 		<Section id="top-films">
 			<SectionHeader>
 				<div className="container">
-					<SectionHeading tag="h2">Топ 10 фильмов за неделю</SectionHeading>
+					<SectionHeading tag="h2" href="/collections/top-10-films-week/" arrow>
+						Топ 10 фильмов за неделю
+					</SectionHeading>
 				</div>
 			</SectionHeader>
 
@@ -22,7 +24,9 @@ const Home: React.FC = () => (
 		<Section id="high-quality">
 			<SectionHeader>
 				<div className="container">
-					<SectionHeading tag="h2">Фильмы в хорошем качестве</SectionHeading>
+					<SectionHeading tag="h2" href="/collections/films-in-high-quality" arrow>
+						Фильмы в хорошем качестве
+					</SectionHeading>
 				</div>
 			</SectionHeader>
 
@@ -32,7 +36,7 @@ const Home: React.FC = () => (
 		<Section id="category:foreign-films">
 			<SectionHeader>
 				<div className="container">
-					<SectionHeading tag="h2" href="/" arrow>
+					<SectionHeading tag="h2" href="/collections/foreign-films" arrow>
 						Зарубежные фильмы
 					</SectionHeading>
 				</div>
