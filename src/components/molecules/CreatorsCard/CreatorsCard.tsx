@@ -25,13 +25,13 @@ export const CreatorsCard: React.FC<CreatorsCardProps> = ({
 }) => {
 	const CreatorsCardClass = cn(className, styles.card, [styles[`card--${size}`]]);
 	const ImageClass = cn(styles[`card--${size}__image--${type}`], styles[`card--${size}__image`], {
-		[styles.card__noPhoto]: image.length === 0,
+		[styles.card__noPhoto]: image === null || image.length === 0,
 	});
 
 	const st = useFilmCount(extra);
 
 	return (
-		<Link className={CreatorsCardClass} href={href}>
+		<Link className={CreatorsCardClass} href={`/person/${href}`}>
 			<div className={type === 'square' ? `${ImageClass} ${styles[`card--square`]}` : ImageClass}>
 				{image.length > 0 && (
 					<Image

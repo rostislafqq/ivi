@@ -89,3 +89,25 @@
 		}
 	}
 }
+
+@media (max-width: 420px) {
+	.rating {
+		&--large {
+			&__ratCount {
+				width: 4.4rem;
+				height: 4.4rem;
+			}
+		}
+		&__textBlock {
+			&__assCount {
+				display: none;
+			}
+		}
+		&__textBlock {
+			margin-left: 0.6rem;
+		}
+		&__btn {
+			margin-right: 0.6rem;
+		}
+	}
+}

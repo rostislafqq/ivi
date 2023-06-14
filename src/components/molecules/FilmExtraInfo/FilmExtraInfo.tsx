@@ -1,15 +1,17 @@
 import React from 'react';
 
+import { translation } from '@/../public/locales/translation';
+
 import { Text } from '@/components/atoms';
 
 import styles from './FilmExtraInfo.module.scss';
 import { FilmExtraInfoProps } from './FilmExtraInfo.types';
 
-export const FilmExtraInfo: React.FC<FilmExtraInfoProps> = ({ className = '', langs, badges = [] }) => (
+export const FilmExtraInfo: React.FC<FilmExtraInfoProps> = ({ lang = 'ru', className = '', langs, badges = [] }) => (
 	<div className={`${styles.FilmExtraInfo} ${className}`}>
 		<div className={styles.FilmExtraInfo__options}>
 			<Text className={styles.FilmExtraInfo__title} tag="p">
-				Языки
+				{translation[lang].film.lang}
 			</Text>
 			<Text className={styles.FilmExtraInfo__valuesContainer} tag="p">
 				{langs.map((val, index) => (
@@ -21,9 +23,9 @@ export const FilmExtraInfo: React.FC<FilmExtraInfoProps> = ({ className = '', la
 		</div>
 		<div className={styles.FilmExtraInfo__options__Extra}>
 			<Text tag="p">
-				Изображение и звук.
+				{translation[lang].film.ImageAndSound}
 				<Text className={`${styles['FilmExtraInfo__options__Extra--sm']}`} tag="span">
-					Фактическое качество зависит от устройства и ограничений правообладателя.
+					{translation[lang].film.superExtra}
 				</Text>
 			</Text>
 		</div>

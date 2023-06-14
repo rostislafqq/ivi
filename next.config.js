@@ -1,7 +1,10 @@
 /* eslint-disable */
 /** @type {import("next").NextConfig} */
 
-export default {
+const nextConfig = {
+	images: {
+		domains: ['kinopoiskapiunofficial.tech', 'localhost', 'avatars.mds.yandex.net'],
+	},
 	webpack: (config) => {
 		config.module.rules.push({
 			test: /\.svg$/,
@@ -11,3 +14,5 @@ export default {
 		return config;
 	},
 };
+
+export default nextConfig;

@@ -4,4 +4,5 @@ export interface RatingProps {
 	assessment?: number;
 	className?: string;
 	extra?: string;
+	lang?: 'ru' | 'en';
 }

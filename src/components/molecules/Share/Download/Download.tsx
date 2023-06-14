@@ -2,6 +2,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from 'react';
 
+import { translation } from '@/../public/locales/translation';
+
 import apple from '@/assets/icons/apple.svg';
 import { Button, Icon, ListItem, Text } from '@/components/atoms';
 import allDevices from '@assets/icons/allDevices.svg';
@@ -13,7 +15,7 @@ import { List } from '../../List/List';
 import styles from './Download.module.scss';
 import { DownloadProps } from './Download.types';
 
-export const Download: React.FC<DownloadProps> = ({ isDefault = true, contentData = [] }) =>
+export const Download: React.FC<DownloadProps> = ({ lang = 'ru', isDefault = true, contentData = [] }) =>
 	isDefault ? (
 		<List className={styles.download} tag="ul">
 			<ListItem>
@@ -26,7 +28,7 @@ export const Download: React.FC<DownloadProps> = ({ isDefault = true, contentDat
 				>
 					<div>
 						<Text className={styles.download__text} tag="p">
-							Загрузить в
+							{translation[lang].footer.downloadOn}
 						</Text>
 						<Text className={styles[`download__text-bold`]} tag="p">
 							App Store
@@ -44,7 +46,7 @@ export const Download: React.FC<DownloadProps> = ({ isDefault = true, contentDat
 				>
 					<div>
 						<Text className={styles.download__text} tag="p">
-							Доступно в
+							{translation[lang].footer.rdyHelp}
 						</Text>
 						<Text className={styles[`download__text-bold`]} tag="p">
 							GooglePlay
@@ -62,7 +64,7 @@ export const Download: React.FC<DownloadProps> = ({ isDefault = true, contentDat
 				>
 					<div>
 						<Text className={styles.download__text} tag="p">
-							Смотрите на{' '}
+							{translation[lang].footer.watchOn}
 						</Text>
 						<Text className={styles[`download__text-bold`]} tag="p">
 							Smart TV
@@ -80,7 +82,7 @@ export const Download: React.FC<DownloadProps> = ({ isDefault = true, contentDat
 				>
 					<div>
 						<Text className={styles[`download__text-bold`]} tag="p">
-							Все устройства
+							{translation[lang].footer.allDev}
 						</Text>
 					</div>
 				</Button>

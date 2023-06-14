@@ -1,0 +1,64 @@
+@import '@/config/_variables.scss';
+
+.FilmTemplateMainContent {
+	margin: 2.4rem 0;
+	display: flex;
+	position: relative;
+	//временно
+
+	&__film {
+		width: 62.5%;
+		height: 400px;
+		position: -webkit-sticky;
+		position: sticky;
+		margin-right: 3.2rem;
+		top: 0;
+	}
+}
+
+.adaptiveContent {
+	display: none;
+	&__heading {
+		margin-bottom: 2rem;
+	}
+	&__commonContainer {
+		margin-top: 0.4rem;
+		color: rgba($white, 0.8);
+		display: flex;
+		align-items: center;
+		&__seasonIntro:not(:first-child) {
+			margin-left: 5px;
+		}
+		&__lang {
+			display: flex;
+			align-items: center;
+			margin-bottom: 0.5rem;
+		}
+	}
+	&__volume {
+		margin-left: 0.5rem;
+		margin-right: 0.2rem;
+	}
+	&__creators {
+		margin-top: 2.4rem;
+		margin-bottom: 2.4rem;
+		display: flex;
+
+		gap: 1.5rem;
+	}
+}
+
+@media (max-width: 1159px) {
+	.adaptiveContent {
+		display: block;
+	}
+	.FilmTemplateMainContent {
+		display: block;
+		&__film {
+			height: 50vh;
+			position: static;
+			width: 100%;
+			margin-right: 0;
+		}
+	}
+}

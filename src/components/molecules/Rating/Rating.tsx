@@ -1,6 +1,9 @@
+/* eslint-disable no-nested-ternary */
 import cn from 'classnames';
 
 import React from 'react';
+
+import { translation } from '@/../public/locales/translation';
 
 import { useAssessmentCount } from '@/app/hooks';
 
@@ -9,7 +12,7 @@ import { Button, Text } from '@/components/atoms';
 import styles from './Rating.module.scss';
 import { RatingProps } from './Rating.types';
 
-export const Rating: React.FC<RatingProps> = ({ extra, assessment = 2, className = '', size, rating }) => {
+export const Rating: React.FC<RatingProps> = ({ lang = 'ru', extra, assessment = 2, className = '', size, rating }) => {
 	const assCount = useAssessmentCount(assessment);
 	const ratingClass = cn(styles[`rating--${size}__ratCount`], {
 		[styles[`rating--${size}__ratCount--green`]]: rating >= 7,
@@ -27,16 +30,20 @@ export const Rating: React.FC<RatingProps> = ({ extra, assessment = 2, className
 					<div className={ratingClass}>{rating}</div>
 					<div className={styles.rating__textBlock}>
 						<Text className={styles.rating__textBlock__title} tag="p">
-							Рейтинг Иви
+							{translation[lang].person.rating}
 						</Text>
 						<Text className={styles.rating__textBlock__extra} tag="p">
 							{extra}
 						</Text>
 						<Text className={styles.rating__textBlock__assCount} tag="p">
-							{assCount}
+							{lang === 'ru'
+								? assCount
+								: assessment > 1
+								? `${assessment} assessments`
+								: `${assessment} assessment`}
 						</Text>
 					</div>
-					<Button className={styles.rating__btn}>Оценить</Button>
+					<Button className={styles.rating__btn}>{translation[lang].film.estimate}</Button>
 				</div>
 			);
 		case 'small':
