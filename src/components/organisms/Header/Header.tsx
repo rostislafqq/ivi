@@ -1,12 +1,6 @@
 import cn from 'classnames';
 import React, { useState } from 'react';
 
-import { useDispatch, useSelector } from 'react-redux';
-
-import { RootState } from '@/app/store';
-
-import { setlanguage } from '@/app/store/language/languageSlice';
-
 import { TextLink, Button } from '@/components/atoms';
 import { NavBar, LinkList, Notification, Avatar } from '@/components/molecules';
 
@@ -37,11 +31,8 @@ const navbarItems = [
 	},
 ];
 
-export const Header: React.FC<HeaderProps> = ({ className }) => {
-	const language = useSelector((state: RootState) => state.language.languageActive);
+export const Header: React.FC<HeaderProps> = ({ className, language = 'ru', setLang }) => {
 	const [active, setActive] = useState(language);
-	const dispatch = useDispatch();
-	const setLang = (lang: 'en' | 'ru') => dispatch(setlanguage(lang));
 
 	return (
 		<header className={cn(styles.header, className)}>
