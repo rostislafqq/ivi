@@ -1,0 +1,45 @@
+@import '@/config/_variables.scss';
+
+.input-range {
+	-webkit-appearance: none;
+	appearance: none;
+	height: 1rem;
+	border-radius: 0.8rem;
+	background: $purple-500;
+	width: 100%;
+	max-width: 32rem;
+
+	&::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		cursor: pointer;
+		height: 1.5rem;
+		width: 1.5rem;
+		background: $red;
+		border-radius: 50%;
+
+		&:active {
+			cursor: grab;
+		}
+
+	}
+
+	&__wrapper {
+		display: flex;
+		align-items: center;
+	}
+
+	&__display {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 0.2rem;
+		font-size: 1.3rem;
+		font-weight: 500;
+		margin-left: 1rem;
+		height: 2rem;
+		width: 4rem;
+		background: $red;
+		color: $white;
+	}
+}

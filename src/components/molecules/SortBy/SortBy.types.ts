@@ -1,11 +1,8 @@
-export type SortByOptionType = {
-	label: string;
-	value: string;
-};
+import { SelectOptionType } from '@/app/types';
 
 export interface SortByProps {
-	options: SortByOptionType[];
-	selectedOption: SortByOptionType;
-	setSelectedOption: (item: SortByOptionType) => void;
+	options: SelectOptionType[];
+	selectedOption: SelectOptionType;
+	setSelectedOption: (item: SelectOptionType) => void;
 	className?: string;
 }

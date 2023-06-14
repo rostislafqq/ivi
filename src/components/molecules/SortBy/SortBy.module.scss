@@ -1,18 +1,16 @@
 @import '@/config/_variables.scss';
 
 .sort {
-	position: relative;
 
 	&-btn {
-		cursor: pointer;
-		display: flex;
+		display: inline-flex;
 		align-items: center;
+		cursor: pointer;
+		border: none;
+		background: transparent;
 		color: $white;
 		font-size: 1.5rem;
 		font-weight: 500;
-		border: none;
-		background: transparent;
-		overflow: hidden;
 
 		&__barsIcon {
 			margin-right: 0.8rem;
@@ -29,22 +27,7 @@
 	}
 
 	&-menu {
-		pointer-events: none;
-		position: absolute;
-		top: calc(100% + 1rem);
-		left: 0;
-		z-index: 5;
-		opacity: 0;
-		background: $purple-500;
-		padding: 0.8rem 0 1.2rem;
-		border-radius: 0.8rem;
 		min-width: 25rem;
-		transition: opacity 200ms;
-
-		&--opened {
-			pointer-events: initial;
-			opacity: 1;
-		}
 
 		&__header {
 			margin: 0.4rem 0 1.2rem;
@@ -69,6 +52,7 @@
 			}
 
 			&-btn {
+				cursor: pointer;
 				display: block;
 				width: 100%;
 				height: 100%;

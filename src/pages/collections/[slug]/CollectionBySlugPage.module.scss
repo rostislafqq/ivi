@@ -14,6 +14,12 @@
 
 	&-filters {
 		margin-top: 2.4rem;
+
+		&__row {
+			display: flex;
+			align-items: flex-start;
+			gap: 1.5rem;
+		}
 	}
 
 	&-menu {

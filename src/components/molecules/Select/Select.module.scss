@@ -1,0 +1,49 @@
+@import '@/config/_variables.scss';
+
+.select {
+	&-btn {
+		cursor: pointer;
+		background: transparent;
+		border: none;
+		display: inline-flex;
+		align-items: center;
+		justify-content: space-between;
+		text-align: left;
+		padding: 1.2rem;
+		height: 5.6rem;
+		min-width: 27rem;
+		border-radius: 0.8rem;
+		background: $purple-400;
+		color: $white;
+		font-weight: 500;
+
+		&__left {
+			width: calc(100% - 20px);
+		}
+
+		&__label {
+			font-size: 1.5rem;
+			line-height: 1.33;
+		}
+
+		&__selected {
+			color: $gray;
+			font-size: 1.3rem;
+			margin-top: 0.4em;
+			max-width: 90%;
+			overflow-x: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+
+		&__arrow {
+			width: 2rem;
+			height: 2rem;
+			transition: transform 200ms;
+
+			&--active {
+				transform: rotate(-180deg);
+			}
+		}
+	}
+}

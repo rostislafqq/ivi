@@ -5,6 +5,7 @@ import { FilmStatus } from './FilmStatus/FilmStatus';
 import { Icon } from './Icon/Icon';
 import { Input } from './Inputs/Input/Input';
 import { InputGroup } from './Inputs/InputGroup/InputGroup';
+import { InputRange } from './Inputs/InputRange/InputRange';
 import { Label } from './Inputs/Label/Label';
 import { ListItem } from './ListItem/ListItem';
 import { LoadingBox } from './LoadingBox/LoadingBox';
@@ -20,6 +21,7 @@ export {
 	Icon,
 	Input,
 	InputGroup,
+	InputRange,
 	Label,
 	ListItem,
 	LoadingBox,
