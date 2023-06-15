@@ -24,5 +24,12 @@
 
 	&-menu {
 		margin-top: 2.4rem;
+		margin-bottom: 4rem;
+
+		&__row {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 2rem;
+		}
 	}
 }

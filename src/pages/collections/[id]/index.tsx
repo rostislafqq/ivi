@@ -1,5 +1,5 @@
 import { useSearchParams } from 'next/navigation';
-import React, { useState, useReducer } from 'react';
+import React, { useState, useReducer, useEffect } from 'react';
 
 import { COUNTRIES_SELECT_OPTIONS } from '@/app/data/countriesSelectOptions';
 import { GENRES_SELECT_OPTIONS } from '@/app/data/genresSelectOptions';
@@ -9,18 +9,19 @@ import { Heading, Text } from '@/components/atoms';
 import { Breadcrumb, FilmCardLoaded, SortBy, CollectionsFilter } from '@/components/molecules';
 import { Layout } from '@components/templates';
 
-import type { SortByOptionType, FiltersStateType, CollectionBySlugProps } from './CollectionBySlugPage.types';
-import type { SelectOptionType } from '@/app/types';
+import type { SortByOptionType, FiltersStateType, CollectionBySlugProps } from './CollectionByIdPage.types';
+import type { SelectOptionType, FilmType } from '@/app/types';
 import type { GetServerSideProps } from 'next';
 
-import styles from './CollectionBySlugPage.module.scss';
+import styles from './CollectionByIdPage.module.scss';
 
 export const getServerSideProps: GetServerSideProps<CollectionBySlugProps> = async (context) => {
-	const { slug } = context.query;
+	const { id } = context.query;
 
 	try {
-		const collection = await new CollectionsService().getBySlug(slug as string);
+		const collection = await new CollectionsService().getById(Number(id));
 
+		if (!collection) throw Error('Collection not found');
 		return {
 			props: {
 				collection,
@@ -34,10 +35,9 @@ export const getServerSideProps: GetServerSideProps<CollectionBySlugProps> = asy
 };
 
 const sortByOptions: SortByOptionType[] = [
-	{ label: 'названию', value: 'title' },
-	{ label: 'дате добавления', value: 'new' },
-	{ label: 'популярности', value: 'popular' },
-	{ label: 'рейтингу IMDB', value: 'imdb' },
+	{ label: 'названию', value: 'abc' },
+	{ label: 'рейтингу', value: 'rating' },
+	{ label: 'годам', value: 'year' },
 ];
 
 const addOption = (currentOption: SelectOptionType, list: SelectOptionType[]) => {
@@ -101,8 +101,8 @@ function filtersReducer(state: FiltersStateType, action: { type: string; payload
 
 const CollectionBySlug: React.FC<CollectionBySlugProps> = ({ collection }) => {
 	const searchParams = useSearchParams();
-	const sortOptionBySearchParam = sortByOptions.find((option) => option.value === searchParams.get('sort'));
 
+	const sortOptionBySearchParam = sortByOptions.find((option) => option.value === searchParams.get('sort'));
 	const [selectedSortOption, setSelectedSortOption] = useState(sortOptionBySearchParam ?? sortByOptions[0]);
 
 	const [filtersState, filtersDispatch] = useReducer(filtersReducer, {
@@ -113,8 +113,20 @@ const CollectionBySlug: React.FC<CollectionBySlugProps> = ({ collection }) => {
 		stars: Number(searchParams.get('stars')) || filtersInitialState.stars,
 	});
 
+	const [films, setFilms] = useState(collection.films);
+
+	useEffect(() => {
+		const url = new URL(`http://localhost:4000/film/filter/`);
+		url.searchParams.set('sort', selectedSortOption.value);
+
+		fetch(url)
+			.then((response) => response.json())
+			.then((data: FilmType[]) => setFilms(data))
+			.catch(() => setFilms([]));
+	}, [filtersState.genres, selectedSortOption]);
+
 	return (
-		<Layout title={collection.name} description={collection.description} headerSeparator>
+		<Layout title={collection.name} description="" headerSeparator>
 			<div className={styles['collections-header']}>
 				<div className="container">
 					<Breadcrumb
@@ -125,7 +137,7 @@ const CollectionBySlug: React.FC<CollectionBySlugProps> = ({ collection }) => {
 							{ label: 'Подборки', href: '/collections' },
 							{
 								label: collection.name,
-								href: `/collections/${collection.slug}`,
+								href: `/collections/${collection.id}`,
 								active: true,
 							},
 						]}
@@ -136,7 +148,11 @@ const CollectionBySlug: React.FC<CollectionBySlugProps> = ({ collection }) => {
 					</Heading>
 
 					<Text className={styles['collections-header__description']} tag="p">
-						{collection.description}
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, sed aperiam voluptate,
+						repudiandae reprehenderit velit voluptates eveniet consequatur dignissimos, cum inventore nobis
+						exercitationem at similique porro quod nihil dolorum? Mollitia, repellendus suscipit aperiam
+						quisquam itaque rem sint consectetur dolorem sed maxime? Eligendi amet quasi dolorum impedit qui
+						asperiores nesciunt accusamus?
 					</Text>
 				</div>
 			</div>
@@ -159,12 +175,9 @@ const CollectionBySlug: React.FC<CollectionBySlugProps> = ({ collection }) => {
 			<div className={styles['collections-menu']}>
 				<div className="container">
 					<div className={styles['collections-menu__row']}>
-						<FilmCardLoaded
-							href="/watch/1"
-							name="Позывной «Журавли»"
-							preview="/assets/images/film-cards/img1.jpg"
-							status="subscribe"
-						/>
+						{films.map((film) => (
+							<FilmCardLoaded key={film.id} {...film} />
+						))}
 					</div>
 				</div>
 			</div>

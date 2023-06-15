@@ -1,5 +1,8 @@
-import { FilmType } from '@app/types';
-
-export interface FilmCardProps extends FilmType {
+export interface FilmCardProps {
+	id: number;
+	nameOriginal: string;
+	nameRu: string;
+	status: string;
+	coverUrl?: string;
 	className?: string;
 }

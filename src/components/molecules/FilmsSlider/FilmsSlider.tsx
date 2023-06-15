@@ -1,5 +1,4 @@
 import cn from 'classnames';
-import { nanoid } from 'nanoid';
 import React, { useState, useEffect } from 'react';
 
 import { useResizeWindow } from '@/app/hooks';
@@ -35,14 +34,14 @@ export const FilmsSlider: React.FC<FilmsSliderProps> = ({ films = [], className,
 		>
 			{films.length > 0
 				? films.map((film) => (
-						<SliderItem key={nanoid()}>
+						<SliderItem key={film.id}>
 							<FilmCardLoaded {...film} />
 						</SliderItem>
 				  ))
 				: Array(10)
 						.fill(null)
 						.map(() => (
-							<SliderItem key={nanoid()}>
+							<SliderItem key={Math.random()}>
 								<FilmCardLoading />
 							</SliderItem>
 						))}
