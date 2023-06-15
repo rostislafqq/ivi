@@ -119,11 +119,19 @@ const CollectionBySlug: React.FC<CollectionBySlugProps> = ({ collection }) => {
 		const url = new URL(`http://localhost:4000/film/filter/`);
 		url.searchParams.set('sort', selectedSortOption.value);
 
+		if (filtersState.countries.length) {
+			url.searchParams.set('country', filtersState.countries.join('&'));
+		}
+
+		if (filtersState.rating > 1) {
+			url.searchParams.set('rating', String(filtersState.rating));
+		}
+
 		fetch(url)
 			.then((response) => response.json())
 			.then((data: FilmType[]) => setFilms(data))
 			.catch(() => setFilms([]));
-	}, [filtersState.genres, selectedSortOption]);
+	}, [filtersState.countries, filtersState.rating, selectedSortOption]);
 
 	return (
 		<Layout title={collection.name} description="" headerSeparator>
@@ -175,9 +183,13 @@ const CollectionBySlug: React.FC<CollectionBySlugProps> = ({ collection }) => {
 			<div className={styles['collections-menu']}>
 				<div className="container">
 					<div className={styles['collections-menu__row']}>
-						{films.map((film) => (
-							<FilmCardLoaded key={film.id} {...film} />
-						))}
+						{films.length ? (
+							films.map((film) => <FilmCardLoaded key={film.id} {...film} />)
+						) : (
+							<div className={styles['collections-menu__emptyMenu']}>
+								К сожалению по вашему запросу фильмы не найдены
+							</div>
+						)}
 					</div>
 				</div>
 			</div>
