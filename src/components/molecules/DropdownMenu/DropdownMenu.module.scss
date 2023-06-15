@@ -1,0 +1,23 @@
+@import '@/config/_variables.scss';
+
+.dropdown {
+	position: relative;
+
+	&-menu {
+		position: absolute;
+		top: calc(100% + 1rem);
+		left: 0;
+		pointer-events: none;
+		opacity: 0;
+		z-index: 5;
+		border-radius: 0.8rem;
+		padding: 0.8rem 0 1.2rem;
+		background: $purple-500;
+		transition: opacity 200ms;
+
+		&[data-opened="true"] {
+			pointer-events: initial;
+			opacity: 1;
+		}
+	}
+}

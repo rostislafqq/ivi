@@ -1,15 +1,21 @@
+import cn from 'classnames';
 import React from 'react';
 
-import styles from './Footer.module.scss';
+import { useAppSelector } from '@/app/hooks';
+import { selectLanguage } from '@/app/store/language/languageSlice';
 
-import { FooterProps } from './Footer.types';
+import styles from './Footer.module.scss';
 
 import { LowerFooter } from './LowerFooter/LowerFooter';
 import { UpperFooter } from './UpperFooter/UpperFooter';
 
-export const Footer: React.FC<FooterProps> = ({ lang = 'ru' }) => (
-	<footer className={`${styles.footer} container`}>
-		<UpperFooter lang={lang} />
-		<LowerFooter lang={lang} />
-	</footer>
-);
+export const Footer: React.FC = () => {
+	const { language } = useAppSelector(selectLanguage);
+
+	return (
+		<footer className={cn(styles.footer, 'container')}>
+			<UpperFooter lang={language} />
+			<LowerFooter lang={language} />
+		</footer>
+	);
+};

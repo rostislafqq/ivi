@@ -1,38 +1,73 @@
 import cn from 'classnames';
-import React, { useState } from 'react';
+import React, { useCallback } from 'react';
+
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { setLanguage, selectLanguage, LanguageType } from '@/app/store/language/languageSlice';
 
 import { TextLink, Button } from '@/components/atoms';
 import { NavBar, LinkList, Notification, Avatar } from '@/components/molecules';
+
+import { translation } from '../../../../public/locales/translation';
 
 import type { HeaderProps } from './Header.types';
 
 import styles from './Header.module.scss';
 
-const navbarItems = [
+type NavbarItemType = {
+	id: number;
+	label_ru: string;
+	label_en: string;
+	href: string;
+};
+
+const navbarItems: NavbarItemType[] = [
 	{
 		id: 1,
-		label: 'Главная',
+		label_ru: 'Главная',
+		label_en: 'Home',
 		href: '/',
 	},
 	{
 		id: 2,
-		label: ' Фильмы',
-		href: '/films',
+		label_ru: ' Фильмы',
+		label_en: 'Films',
+		href: '/collections/films',
 	},
 	{
 		id: 3,
-		label: 'Сериалы',
-		href: '/serials',
+		label_ru: 'Сериалы',
+		label_en: 'Serials',
+		href: '/collections/serials',
 	},
 	{
 		id: 4,
-		label: 'Мультфильмы',
-		href: '/animations',
+		label_ru: 'Мультфильмы',
+		label_en: 'Animations',
+		href: '/collections/animations',
 	},
 ];
 
-export const Header: React.FC<HeaderProps> = ({ className, language = 'ru', setLang }) => {
-	const [active, setActive] = useState(language);
+export const Header: React.FC<HeaderProps> = ({ className, separator }) => {
+	const { language } = useAppSelector(selectLanguage);
+	const dispatch = useAppDispatch();
+
+	const handleChangeLanguage = useCallback(
+		(lang: LanguageType) => {
+			dispatch(setLanguage({ language: lang }));
+		},
+		[dispatch],
+	);
+
+	const getNavbarItemByLang = useCallback((lang: LanguageType, item: NavbarItemType) => {
+		switch (lang) {
+			case 'ru':
+				return item.label_ru;
+			case 'en':
+				return item.label_en;
+			default:
+				return '';
+		}
+	}, []);
 
 	return (
 		<header className={cn(styles.header, className)}>
@@ -42,33 +77,27 @@ export const Header: React.FC<HeaderProps> = ({ className, language = 'ru', setL
 						<LinkList>
 							{navbarItems.map((item) => (
 								<TextLink key={item.id} tag="div" href={item.href}>
-									{item.label}
+									{getNavbarItemByLang(language, item)}
 								</TextLink>
 							))}
 						</LinkList>
 					}
 					actionGroup={
 						<>
-							<div>
+							<div className={styles.header__languageBox}>
 								<Button
-									className={styles['header__subscribe-btn']}
+									className={styles['header__language-btn']}
 									size="small"
-									variant={active === 'ru' ? 'primary' : 'secondary'}
-									onClick={() => {
-										setLang('ru');
-										setActive('ru');
-									}}
+									variant={language === 'ru' ? 'primary' : 'secondary'}
+									onClick={() => handleChangeLanguage('ru')}
 								>
 									ru
 								</Button>
 								<Button
-									className={styles['header__subscribe-btn']}
+									className={styles['header__language-btn']}
 									size="small"
-									variant={active === 'en' ? 'primary' : 'secondary'}
-									onClick={() => {
-										setLang('en');
-										setActive('en');
-									}}
+									variant={language === 'en' ? 'primary' : 'secondary'}
+									onClick={() => handleChangeLanguage('en')}
 								>
 									en
 								</Button>
@@ -79,7 +108,7 @@ export const Header: React.FC<HeaderProps> = ({ className, language = 'ru', setL
 								size="small"
 								data-testid="header-subscribeBtn"
 							>
-								Оплатить подписку
+								{translation[language].header.buySubscribeBtn}
 							</Button>
 							<Notification
 								className={styles.header__notification}
@@ -89,6 +118,7 @@ export const Header: React.FC<HeaderProps> = ({ className, language = 'ru', setL
 							<Avatar className={styles.header__avatar} data-testid="header-avatar" />
 						</>
 					}
+					isSeporator={separator}
 				/>
 			</div>
 		</header>

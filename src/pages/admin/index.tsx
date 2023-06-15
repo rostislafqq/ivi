@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 import React, { useState, useEffect } from 'react';
 
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '@/app/hooks';
 
-import { RootState } from '@/app/store';
+import { selectLanguage } from '@/app/store/language/languageSlice';
 
 import { AdminAddFilm, AdminChangeFilm } from '@/components/organisms';
 
@@ -15,6 +15,8 @@ import styles from './admin.module.scss';
 import { BadgeAdmin, Countries, Gengre, NewFilmData, Roles, SearchingFilmsData } from './admin.types';
 
 const Admin: React.FC = () => {
+	const { language } = useAppSelector(selectLanguage);
+
 	const [allGengres, setAllGengres] = useState<Gengre[]>([]);
 
 	const [allCountries, setAllCountries] = useState<Countries[]>([]);
@@ -127,7 +129,6 @@ const Admin: React.FC = () => {
 		});
 	};
 
-	const lang = useSelector((state: RootState) => state.language.languageActive);
 	return (
 		<Layout title="ivi админ-панель" description="Стриминговая платформа фильмов - Ivi">
 			<div className={`${styles.admin} container`}>
@@ -137,7 +138,7 @@ const Admin: React.FC = () => {
 					allRoles={allRoles}
 					allBadges={allBadges}
 					addNewFilm={addNewFilm}
-					language={lang}
+					language={language}
 				/>
 				<AdminChangeFilm
 					setChosenFilm={setChosenFilm}
@@ -151,7 +152,7 @@ const Admin: React.FC = () => {
 					allBadges={allBadges}
 					addNewFilm={addNewFilm}
 					deleteFilm={deleteFilm}
-					language={lang}
+					language={language}
 				/>
 			</div>
 		</Layout>

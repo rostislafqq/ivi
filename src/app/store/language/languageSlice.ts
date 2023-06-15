@@ -1,24 +1,28 @@
-/* eslint-disable no-param-reassign */
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-export interface Language {
-	languageActive: 'ru' | 'en';
+import type { RootState } from '..';
+import type { PayloadAction } from '@reduxjs/toolkit';
+
+export type LanguageType = 'ru' | 'en';
+interface LanguageStateType {
+	language: LanguageType;
 }
 
-const initialState: Language = {
-	languageActive: 'ru',
-} as Language;
+const initialState: LanguageStateType = {
+	language: 'ru',
+};
 
 export const languageSlice = createSlice({
 	name: 'language',
 	initialState,
 	reducers: {
-		setlanguage: (state: Language, action: PayloadAction<'ru' | 'en'>) => {
-			state.languageActive = action.payload;
+		setLanguage(state, action: PayloadAction<LanguageStateType>) {
+			// eslint-disable-next-line no-param-reassign
+			state.language = action.payload.language;
 		},
 	},
 });
 
-export const { setlanguage } = languageSlice.actions;
+export const { setLanguage } = languageSlice.actions;
 
-export default languageSlice.reducer;
+export const selectLanguage = (state: RootState) => state.language;

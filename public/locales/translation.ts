@@ -1,5 +1,11 @@
 export const translation = {
 	ru: {
+		header: {
+			buySubscribeBtn: 'Оплатить подписку',
+		},
+		promoSection: {
+			subscribeBtn: '30 дней подписки бесплатно',
+		},
 		admin: {
 			headerAdd: 'Измени существующий фильм',
 			writeFilmName: 'введи название фильма',
@@ -80,6 +86,12 @@ export const translation = {
 		},
 	},
 	en: {
+		header: {
+			buySubscribeBtn: 'Buy a subscription',
+		},
+		promoSection: {
+			subscribeBtn: '30 days free subscription',
+		},
 		admin: {
 			headerAdd: 'Change an existing movie',
 			writeFilmName: 'write movie title',

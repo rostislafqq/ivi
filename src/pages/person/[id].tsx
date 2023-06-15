@@ -3,11 +3,10 @@ import { GetServerSideProps } from 'next';
 
 import React, { useState, useCallback, useEffect } from 'react';
 
-import { useSelector } from 'react-redux';
-
 import { stockImg } from '@/app/data/stockImg';
 
-import { RootState } from '@/app/store';
+import { useAppSelector } from '@/app/hooks';
+import { selectLanguage } from '@/app/store/language/languageSlice';
 
 import { FilmType } from '@/app/types';
 
@@ -45,13 +44,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const Person: React.FC<PersonProps> = ({ person }) => {
-	const lang = useSelector((state: RootState) => state.language.languageActive);
+	const { language } = useAppSelector(selectLanguage);
 
 	const [mainFilms, setMainFilms] = useState<FilmType[]>(
 		person.filmPersons
 			.filter((val) => val.general !== false)
 			.map((val) => ({
-				name: lang === 'ru' ? val.film.nameRu : val.film.nameOriginal,
+				name: language === 'ru' ? val.film.nameRu : val.film.nameOriginal,
 				preview: val.film.logoUrl === null ? stockImg : val.film.logoUrl,
 				status: val.film.status,
 				href: `/watch/${val.filmId}`,
@@ -61,14 +60,14 @@ const Person: React.FC<PersonProps> = ({ person }) => {
 		person.filmPersons.map((val) => ({
 			filmImg: val.film.logoUrl === null ? stockImg : val.film.logoUrl,
 			year: val.film.year,
-			filmName: lang === 'ru' ? val.film.nameRu : val.film.nameOriginal,
+			filmName: language === 'ru' ? val.film.nameRu : val.film.nameOriginal,
 			rating: val.film.rating,
 			filmId: val.filmId,
 		})),
 	);
 	const [allRoles, setAllRoles] = useState(
 		Array.from(
-			new Set(person.filmPersons.map((val) => (lang === 'ru' ? val.role.name : val.role.key.toLowerCase()))),
+			new Set(person.filmPersons.map((val) => (language === 'ru' ? val.role.name : val.role.key.toLowerCase()))),
 		),
 	);
 	const changeRole = useCallback(
@@ -78,14 +77,14 @@ const Person: React.FC<PersonProps> = ({ person }) => {
 					person.filmPersons.map((val) => ({
 						filmImg: val.film.logoUrl === null ? stockImg : val.film.logoUrl,
 						year: val.film.year,
-						filmName: lang === 'ru' ? val.film.nameRu : val.film.nameOriginal,
+						filmName: language === 'ru' ? val.film.nameRu : val.film.nameOriginal,
 						rating: val.film.rating,
 						filmId: val.filmId,
 					})),
 				);
 				return;
 			}
-			if (lang === 'en') {
+			if (language === 'en') {
 				setFullFilms(
 					person.filmPersons
 						.filter((val) => val.role.key.toLocaleLowerCase() === tab)
@@ -105,13 +104,13 @@ const Person: React.FC<PersonProps> = ({ person }) => {
 					.map((val) => ({
 						filmImg: val.film.logoUrl === null ? stockImg : val.film.logoUrl,
 						year: val.film.year,
-						filmName: lang === 'ru' ? val.film.nameRu : val.film.nameOriginal,
+						filmName: language === 'ru' ? val.film.nameRu : val.film.nameOriginal,
 						rating: val.film.rating,
 						filmId: val.filmId,
 					})),
 			);
 		},
-		[person.filmPersons, lang],
+		[person.filmPersons, language],
 	);
 
 	useEffect(() => {
@@ -119,7 +118,7 @@ const Person: React.FC<PersonProps> = ({ person }) => {
 			person.filmPersons.map((val) => ({
 				filmImg: val.film.logoUrl === null ? stockImg : val.film.logoUrl,
 				year: val.film.year,
-				filmName: lang === 'ru' ? val.film.nameRu : val.film.nameOriginal,
+				filmName: language === 'ru' ? val.film.nameRu : val.film.nameOriginal,
 				rating: val.film.rating,
 				filmId: val.filmId,
 			})),
@@ -128,7 +127,7 @@ const Person: React.FC<PersonProps> = ({ person }) => {
 			person.filmPersons
 				.filter((val) => val.general !== false)
 				.map((val) => ({
-					name: lang === 'ru' ? val.film.nameRu : val.film.nameOriginal,
+					name: language === 'ru' ? val.film.nameRu : val.film.nameOriginal,
 					preview: val.film.logoUrl === null ? stockImg : val.film.logoUrl,
 					status: val.film.status,
 					href: `/watch/${val.filmId}`,
@@ -136,10 +135,10 @@ const Person: React.FC<PersonProps> = ({ person }) => {
 		);
 		setAllRoles(
 			Array.from(
-				new Set(person.filmPersons.map((val) => (lang === 'ru' ? val.role.name : val.role.key.toLowerCase()))),
+				new Set(person.filmPersons.map((val) => (language === 'ru' ? val.role.name : val.role.key.toLowerCase()))),
 			),
 		);
-	}, [lang]);
+	}, [language]);
 	return (
 		<Layout title={`${person.nameOriginal}`} description="Стриминговая платформа фильмов - Ivi">
 			<PersonTemplate
@@ -148,10 +147,10 @@ const Person: React.FC<PersonProps> = ({ person }) => {
 				nameEng={person.nameOriginal}
 				mainFilms={mainFilms}
 				filmographyFilms={fullFilms}
-				roles={[lang === 'ru' ? 'Все' : 'All', ...allRoles]}
+				roles={[language === 'ru' ? 'Все' : 'All', ...allRoles]}
 				changeRole={changeRole}
 				filmsCount={person.filmPersons.length}
-				language={lang}
+				language={language}
 			/>
 		</Layout>
 	);
