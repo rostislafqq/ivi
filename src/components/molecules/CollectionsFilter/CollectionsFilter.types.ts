@@ -1,4 +1,4 @@
-import type { FiltersStateType } from '@/pages/collections/[slug]/CollectionBySlugPage.types';
+import type { FiltersStateType } from '@/pages/collections/[id]/CollectionByIdPage.types';
 import type { Dispatch } from 'react';
 
 export interface CollectionsFilterProps {

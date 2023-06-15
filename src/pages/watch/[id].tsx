@@ -81,13 +81,12 @@ const Film: React.FC<FilmProps> = ({ film }) => {
 				const data: FilmData[] = await res.json();
 				setRecommended(
 					data.slice(0, 10).map((films) => ({
-						name: language === 'ru' ? films.nameRu : films.nameOriginal,
-						preview: films.coverUrl === null ? stockImg : films.coverUrl,
-						status: films.status,
-						href: `./${films.id}`,
-						nameEn: films.nameOriginal,
+						id: films.id,
+						nameOriginal: films.nameOriginal,
 						nameRu: films.nameRu,
-					})),
+						status: films.status,
+						coverUrl: films.coverUrl || stockImg,
+					})) as FilmType[],
 				);
 			} catch (error) {
 				setRecommended([]);
@@ -100,7 +99,8 @@ const Film: React.FC<FilmProps> = ({ film }) => {
 		setFilmCreators(
 			film.personsfilm.map((person) => ({
 				name: language === 'ru' ? person.person.nameRu.split(' ')[0] : person.person.nameOriginal.split(' ')[0],
-				surname: language === 'ru' ? person.person.nameRu.split(' ')[1] : person.person.nameOriginal.split(' ')[1],
+				surname:
+					language === 'ru' ? person.person.nameRu.split(' ')[1] : person.person.nameOriginal.split(' ')[1],
 				image: person.person.url === null ? '' : person.person.url,
 				href: person.personId.toString(),
 			})),
@@ -108,12 +108,11 @@ const Film: React.FC<FilmProps> = ({ film }) => {
 		setRecommended(
 			recommended &&
 				(recommended.map((films) => ({
-					name: language === 'ru' ? films.nameRu : films.nameEn,
-					preview: films.preview === null ? stockImg : films.preview,
-					status: films.status,
-					href: `./${films.href}`,
-					nameEn: films.nameEn,
+					id: films.id,
+					nameOriginal: films.nameOriginal,
 					nameRu: films.nameRu,
+					status: films.status,
+					coverUrl: films.coverUrl || stockImg,
 				})) as FilmType[]),
 		);
 	}, [language]);

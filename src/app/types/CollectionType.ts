@@ -1,5 +1,7 @@
+import { FilmType } from './film';
+
 export interface CollectionType {
+	id: number;
 	name: string;
-	slug: string;
-	description: string;
+	films: FilmType[];
 }

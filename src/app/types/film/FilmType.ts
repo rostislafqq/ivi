@@ -1,10 +1,23 @@
 import { FilmStatusType } from './FilmStatusType';
 
 export interface FilmType {
-	name: string;
-	preview: string;
+	id: number;
+	nameOriginal: string;
+	nameRu: string;
+	logoUrl?: string;
+	coverUrl?: string;
+	filmLength: number;
+	ratingCount: number;
+	slogan?: string;
+	description?: string;
+	shortDescription?: string;
+	type: string;
+	ratingMpaa: string;
+	serial: boolean;
+	year: number;
+	url: string;
+	rating: number;
+	badgeId: number;
 	status: FilmStatusType;
-	href: string;
-	nameEn?: string;
-	nameRu?: string;
+	ratingAgeLimits: number;
 }

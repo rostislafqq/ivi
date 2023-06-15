@@ -1,49 +1,46 @@
 import React from 'react';
 
+import { CollectionsService } from '@/app/services';
+
 import { FilmsSlider } from '@/components/molecules';
 import { Layout } from '@/components/templates';
 import { Section, SectionHeader, SectionHeading } from '@components/atoms';
 import { PromoSection } from '@components/organisms';
 
-const Home: React.FC = () => (
+import type { CollectionType } from '@/app/types';
+import type { GetStaticProps } from 'next';
+
+interface HomeProps {
+	collections: CollectionType[];
+}
+
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+	const collections = await new CollectionsService().getAll();
+
+	return {
+		props: {
+			collections,
+		},
+	};
+};
+
+const Home: React.FC<HomeProps> = ({ collections }) => (
 	<Layout title="Ivi - Главная страница" description="Стриминговая платформа фильмов - Ivi">
 		<PromoSection />
 
-		<Section id="top-films">
-			<SectionHeader>
-				<div className="container">
-					<SectionHeading tag="h2" href="/collections/top-10-films-week/" arrow>
-						Топ 10 фильмов за неделю
-					</SectionHeading>
-				</div>
-			</SectionHeader>
+		{collections.map((collection) => (
+			<Section key={collection.id} id={`collection-${collection.id}`}>
+				<SectionHeader>
+					<div className="container">
+						<SectionHeading tag="h2" href={`/collections/${collection.id}`} arrow>
+							{collection.name}
+						</SectionHeading>
+					</div>
+				</SectionHeader>
 
-			<FilmsSlider films={[]} />
-		</Section>
-
-		<Section id="high-quality">
-			<SectionHeader>
-				<div className="container">
-					<SectionHeading tag="h2" href="/collections/films-in-high-quality" arrow>
-						Фильмы в хорошем качестве
-					</SectionHeading>
-				</div>
-			</SectionHeader>
-
-			<FilmsSlider films={[]} />
-		</Section>
-
-		<Section id="category:foreign-films">
-			<SectionHeader>
-				<div className="container">
-					<SectionHeading tag="h2" href="/collections/foreign-films" arrow>
-						Зарубежные фильмы
-					</SectionHeading>
-				</div>
-			</SectionHeader>
-
-			<FilmsSlider films={[]} />
-		</Section>
+				<FilmsSlider films={collection.films} />
+			</Section>
+		))}
 	</Layout>
 );
 

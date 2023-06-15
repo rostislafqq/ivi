@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { BANNERS } from '@/app/data/banners';
 import { useAppSelector } from '@/app/hooks';
 import { selectLanguage } from '@/app/store/language/languageSlice';
 import { Section } from '@/components/atoms';
@@ -17,7 +18,7 @@ export const PromoSection: React.FC<PromoSectionProps> = ({ className }) => {
 
 	return (
 		<Section id="promo-section" className={className}>
-			<BannersSlider data-testid="banners-slider" />
+			<BannersSlider banners={BANNERS} data-testid="banners-slider" />
 
 			<div className="container">
 				<SubscribeButton className={styles['promo-section__subscribe-btn']} href="/">
