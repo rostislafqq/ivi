@@ -35,7 +35,13 @@ export const FilmsSlider: React.FC<FilmsSliderProps> = ({ films = [], className,
 			{films.length > 0
 				? films.map((film) => (
 						<SliderItem key={film.id}>
-							<FilmCardLoaded {...film} />
+							<FilmCardLoaded
+								id={film.id}
+								nameOriginal={film.nameOriginal}
+								nameRu={film.nameRu}
+								status={film.status}
+								coverUrl={film.coverUrl}
+							/>
 						</SliderItem>
 				  ))
 				: Array(10)
