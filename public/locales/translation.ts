@@ -26,6 +26,7 @@ export const translation = {
 			idCreator: 'id участника',
 			mainRole: 'главная роль',
 			add: 'Добавить',
+			change: 'Изменить',
 		},
 		person: {
 			mainFilms: 'Главные фильмы',
@@ -105,6 +106,7 @@ export const translation = {
 			idCreator: 'id creator',
 			mainRole: 'main role',
 			add: 'Add',
+			change: 'Change',
 		},
 		person: {
 			mainFilms: 'Main films',

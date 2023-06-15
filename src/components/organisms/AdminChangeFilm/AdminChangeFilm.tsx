@@ -312,7 +312,7 @@ export const AdminChangeFilm: React.FC<AdminChangeFilmProps> = ({
 									size="normal"
 									variant="primary"
 								>
-									{translation[language].admin.add}
+									{translation[language].admin.change}
 								</Button>
 								<Button
 									onClick={() => {

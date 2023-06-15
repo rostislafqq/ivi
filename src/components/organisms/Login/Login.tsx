@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 import { Button, ChatMessage, Input, InputGroup, Label } from '@/components/atoms';
 
 import styles from './Login.module.scss';
+import { LoginProps } from './Login.types';
 
-export const Login = () => {
+export const Login: React.FC<LoginProps> = ({ loginHandle }) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+
 	return (
 		<div className={`${styles.login} container`}>
 			<div className={styles.login__authContainer}>
@@ -39,10 +41,17 @@ export const Login = () => {
 						</Label>
 					</InputGroup>
 					<div className={styles.login__btnContainer}>
-						<Button className={styles.login__open} size="small" variant="primary">
+						<Button
+							onClick={() => {
+								loginHandle(email, password);
+							}}
+							className={styles.login__open}
+							size="small"
+							variant="primary"
+						>
 							Войти
 						</Button>
-						<Button size="small" variant="secondary">
+						<Button href="auth/regestration" size="small" variant="secondary">
 							Зарегестрироваться
 						</Button>
 					</div>

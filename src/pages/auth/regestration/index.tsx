@@ -9,18 +9,19 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { RootState } from '@/app/store';
 
-import { login } from '@/app/store/auth/authSlice';
+import { registration } from '@/app/store/auth/authSlice';
 
-import { Login } from '@/components/organisms';
+import { Regestration } from '@/components/organisms/Regestration/Regestration';
 
 import { Layout } from '@/components/templates';
 
-const Auth = () => {
+const RegestrationContainer = () => {
 	type AppDispatch = ThunkDispatch<RootState, undefined, AnyAction>;
 	const dispatch: AppDispatch = useDispatch();
-	const loginHandle = (email: string, password: string) => {
-		dispatch(login({ email, password }));
+	const loginHandle = (email: string, password: string, firstName: string, lastName: string) => {
+		dispatch(registration({ email, password, firstName, lastName }));
 	};
+
 	const isAuth = useSelector((state: RootState) => state.auth.isAuth);
 	const router = useRouter();
 	useEffect(() => {
@@ -30,9 +31,10 @@ const Auth = () => {
 	}, []);
 
 	return (
-		<Layout title="ivi логин" description="Стриминговая платформа фильмов - Ivi">
-			<Login loginHandle={loginHandle} />
+		<Layout title="ivi регистрация" description="Стриминговая платформа фильмов - Ivi">
+			<Regestration loginHandle={loginHandle} />
 		</Layout>
 	);
 };
-export default Auth;
+
+export default RegestrationContainer;
