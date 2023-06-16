@@ -35,6 +35,9 @@ export const authSlice = createSlice({
 		},
 		setUser: (state, action: PayloadAction<IUser>) => {
 			state.user = action.payload;
+			if (state.user === {}) {
+				state.isAuth = false;
+			}
 		},
 	},
 });
@@ -90,7 +93,9 @@ export const registration = createAsyncThunk(
 export const checkAuth = createAsyncThunk('auth/checkAuth', async (_, { dispatch }) => {
 	try {
 		const response = await AuthService.getUser();
-		dispatch(setAuth(true));
+		if (response.data === 'user is logouted') {
+			dispatch(setAuth(false));
+		} else dispatch(setAuth(true));
 	} catch (e) {
 		console.log(e);
 		dispatch(setAuth(false));

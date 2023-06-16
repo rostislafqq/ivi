@@ -84,6 +84,17 @@ export const translation = {
 			watchOn: 'Смотрите на',
 			allDev: 'Все устройства',
 		},
+		auth: {
+			email: 'Введите почту',
+			password: 'Введите пароль',
+			enter: 'Войти',
+			reg: 'Зарегестрироваться',
+			go: 'Войдите',
+			extra: 'Или зарегестрируйтесь',
+			heading: 'Регистрация',
+			name: 'Введите имя',
+			surname: 'Введите фамилию',
+		},
 	},
 	en: {
 		header: {
@@ -169,6 +180,17 @@ export const translation = {
 			rdyOn: 'Available on',
 			watchOn: 'Watch on',
 			allDev: 'All devices',
+		},
+		auth: {
+			email: 'Enter your email',
+			password: 'Enter your password',
+			enter: 'Log in',
+			reg: 'Register',
+			go: 'Log in',
+			extra: 'Or register',
+			heading: 'Registration',
+			name: 'Enter your name',
+			surname: 'Enter your surname',
 		},
 	},
 };
