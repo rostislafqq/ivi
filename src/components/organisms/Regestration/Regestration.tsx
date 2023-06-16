@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 
+import { translation } from '@/../public/locales/translation';
+
+import { useAppSelector } from '@/app/hooks';
+
+import { selectLanguage } from '@/app/store/language/languageSlice';
+
 import { Button, Heading, Input, InputGroup, Label } from '@/components/atoms';
 
 import styles from './Regestration.module.scss';
@@ -10,9 +16,10 @@ export const Regestration: React.FC<RegestrationProps> = ({ loginHandle }) => {
 	const [password, setPassword] = useState('');
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
+	const { language } = useAppSelector(selectLanguage);
 	return (
 		<div className={`container ${styles.regestration}`}>
-			<Heading tag="h2">Регистрация</Heading>
+			<Heading tag="h2">{translation[language].auth.heading}</Heading>
 			<InputGroup>
 				<Input
 					className={styles.regestration__input}
@@ -23,7 +30,7 @@ export const Regestration: React.FC<RegestrationProps> = ({ loginHandle }) => {
 					value={firstName}
 				/>
 				<Label className={styles.regestration__label} isActive={!firstName}>
-					Введите имя
+					{translation[language].auth.name}
 				</Label>
 			</InputGroup>
 			<InputGroup>
@@ -36,7 +43,7 @@ export const Regestration: React.FC<RegestrationProps> = ({ loginHandle }) => {
 					value={lastName}
 				/>
 				<Label className={styles.regestration__label} isActive={!lastName}>
-					Введите фамилию
+					{translation[language].auth.surname}
 				</Label>
 			</InputGroup>
 			<InputGroup>
@@ -49,7 +56,7 @@ export const Regestration: React.FC<RegestrationProps> = ({ loginHandle }) => {
 					value={email}
 				/>
 				<Label className={styles.regestration__label} isActive={!email}>
-					Введите почту
+					{translation[language].auth.email}
 				</Label>
 			</InputGroup>
 			<InputGroup>
@@ -62,7 +69,7 @@ export const Regestration: React.FC<RegestrationProps> = ({ loginHandle }) => {
 					value={password}
 				/>
 				<Label className={styles.regestration__label} isActive={!password}>
-					Введите пароль
+					{translation[language].auth.password}
 				</Label>
 			</InputGroup>
 			<Button
@@ -73,7 +80,7 @@ export const Regestration: React.FC<RegestrationProps> = ({ loginHandle }) => {
 				variant="primary"
 				size="small"
 			>
-				Регистрация
+				{translation[language].auth.heading}
 			</Button>
 		</div>
 	);

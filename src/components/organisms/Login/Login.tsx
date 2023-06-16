@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+import { translation } from '@/../public/locales/translation';
+import { useAppSelector } from '@/app/hooks';
+import { selectLanguage } from '@/app/store/language/languageSlice';
+
 import { Button, ChatMessage, Input, InputGroup, Label } from '@/components/atoms';
 
 import styles from './Login.module.scss';
@@ -8,11 +12,15 @@ import { LoginProps } from './Login.types';
 export const Login: React.FC<LoginProps> = ({ loginHandle }) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-
+	const { language } = useAppSelector(selectLanguage);
 	return (
 		<div className={`${styles.login} container`}>
 			<div className={styles.login__authContainer}>
-				<ChatMessage extra="Или зарегестрируйтесь" title="Войдите" type="left" />
+				<ChatMessage
+					extra={translation[language].auth.extra}
+					title={translation[language].auth.go}
+					type="left"
+				/>
 				<div className={styles.login__inputsContainer}>
 					<InputGroup>
 						<Input
@@ -24,7 +32,7 @@ export const Login: React.FC<LoginProps> = ({ loginHandle }) => {
 							value={email}
 						/>
 						<Label className={styles.login__label} isActive={!email}>
-							Введите почту
+							{translation[language].auth.email}
 						</Label>
 					</InputGroup>
 					<InputGroup>
@@ -37,7 +45,7 @@ export const Login: React.FC<LoginProps> = ({ loginHandle }) => {
 							value={password}
 						/>
 						<Label className={styles.login__label} isActive={!password}>
-							Введите пароль
+							{translation[language].auth.password}
 						</Label>
 					</InputGroup>
 					<div className={styles.login__btnContainer}>
@@ -49,10 +57,10 @@ export const Login: React.FC<LoginProps> = ({ loginHandle }) => {
 							size="small"
 							variant="primary"
 						>
-							Войти
+							{translation[language].auth.enter}
 						</Button>
 						<Button href="auth/regestration" size="small" variant="secondary">
-							Зарегестрироваться
+							{translation[language].auth.reg}
 						</Button>
 					</div>
 				</div>
